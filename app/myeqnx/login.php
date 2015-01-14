@@ -13,7 +13,7 @@
         
         <div class="row">
             <div class="small-12 columns">
-                <input type="password" name="user_password" id="user_password" placeholder="Mot de passe">
+                <input type="password" name="user_password" id="user_password" placeholder="Mot de passe" autocomplete="off">
             </div>
         </div>
         

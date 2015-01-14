@@ -21,7 +21,8 @@
             <form name="form_add" action="modules/clients/ajax.php" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="small-12 columns">
-                        <input type="text" name="societe" placeholder="Société">
+                        <input type="text" name="societe" placeholder="Société" list="societe-in-db" autocomplete="off">
+                        <?php autocomplete('societe-in-db'); ?>
                     </div>
                     <div class="small-2 columns">
                         <select name="titre">
@@ -53,6 +54,10 @@
                     </div>
                 </div>
             </form>
+        </div>
+        
+        <div class="small-12 columns masked" id="wrapper-editing">
+        
         </div>
         
     </section>

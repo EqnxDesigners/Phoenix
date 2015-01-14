@@ -52,6 +52,16 @@ if(isset($_POST['a']) && $_POST['a'] === 'securityCheck') {
     }
 }
 
+if(isset($_POST['a']) && $_POST['a'] === 'editItem') {
+    $theClass = initTheClass($_SESSION['current_module']);
+    try {
+        echo $theClass->buildEditForm($_POST['idItem']);
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
 if(isset($_POST['a']) && $_POST['a'] === 'deleteItem') {
     $theClass = initTheClass($_SESSION['current_module']);
     try {
@@ -70,6 +80,9 @@ function initTheClass($ref) {
             break;
         case 'news':
             $instance = new News();
+            break;
+        case 'clients':
+            $instance = new Clients();
             break;
     }
     return $instance;

@@ -120,6 +120,14 @@ $(document).ready(function() {
     $('.listing').on('click', '.btn', function() {
         var todo = $(this).attr('role');
         var idItem = $(this).attr('item');
+        if(todo === 'edit') {
+            $.post(urlAjaxModule, {a: 'editItem', idItem: idItem })
+            .done(function(result) {
+                $('#wrapper-editing').empty().append(result);
+                $('#wrapper-gestion').hide();
+                switchTwoDiv('#wrapper-adding', '#wrapper-editing');
+            });
+        }
         if(todo === 'trash') {
             if (confirm("Voulez-vous vraiment supprimer cet élément ?")) { // Clic sur OK
                 $.post(urlAjax, {a: 'deleteItem', idItem: idItem })

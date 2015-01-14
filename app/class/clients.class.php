@@ -39,7 +39,7 @@ class Clients extends DB {
     
     /* METHODES */
     public function reloadListing() {
-        return $this->getLstOptions();
+        return $this->getLstClients();
     }
     
     public function getLstClients() {
@@ -50,8 +50,18 @@ class Clients extends DB {
             if($allClients) {
                 foreach($allClients as $K => $client) {
                     $result .= '<li class="row">';
-                        $result .= '<div class="small-3 columns">'.$client->societe.'</div>';
-                        $result .= '<div class="small-3 columns">'.$client->titre.' '.strtoupper($client->nom).' '.$client->prenom.'</div>';
+                        if(strlen($client->societe) < 1) {
+                            $result .= '<div class="small-3 columns">&nbsp;</div>';
+                        }
+                        else {
+                            $result .= '<div class="small-3 columns">'.$client->societe.'</div>';
+                        }
+                        if(strlen($client->nom) < 1 && strlen($client->prenom) < 1) {
+                            $result .= '<div class="small-3 columns">&nbsp;</div>';
+                        }
+                        else {
+                            $result .= '<div class="small-3 columns">'.$client->titre.' '.strtoupper($client->nom).' '.$client->prenom.'</div>';
+                        }
                         $result .= '<div class="small-3 columns"><a href="mailto:'.$client->email.'">'.$client->email.'</a></div>';
                         $result .= '<div class="small-2 columns">';
                         if(strlen($client->telephone) > 1) {
@@ -90,24 +100,49 @@ class Clients extends DB {
         return $result;
     }
     
-    private function buildValueField($opt) {
-        if($opt->type === 'bool') {
-            $result = '<div class="switch tiny round">';
-                $result .= '<input id="opt-'.$opt->id.'" ref="'.$opt->id.'" type="checkbox" ';
-                if($opt->value === '1') {
-                    $result .= 'checked>';
-                }
-                else {
-                    $result .= '>';
-                }
-                $result .= '<label for="opt-'.$opt->id.'"></label>';
-            $result .= '</div>';
+    public function buildEditForm($id) {
+        try {
+            $client = $this->getClientById($id);
+            $result =   '<form name="form_edit" action="modules/clients/ajax.php" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <input type="text" name="societe" placeholder="Société" list="societe-in-db" autocomplete="off" >';
+            $result .=              $this->buildAutoCompleteLst('societe-in-db');
+            $result .=  '       </div>
+                                <div class="small-2 columns">
+                                    <select name="titre">
+                                        <option value="M." selected>Monsieur</option>
+                                        <option value="Mme">Madame</option>
+                                    </select>
+                                </div>
+                                <div class="small-5 columns">
+                                    <input type="text" name="nom" placeholder="Nom">
+                                </div>
+                                <div class="small-5 columns">
+                                    <input type="text" name="prenom" placeholder="Prénom">
+                                </div>
+                                <div class="small-6 columns" >
+                                    <input type="email" name="email" placeholder="E-mail" required="required">
+                                </div>
+                                <div class="small-6 columns">
+                                    <input type="text" name="telephone" placeholder="Téléphone" pattern="[0-9]*">
+                                </div>
+                                <div class="small-6 columns">
+                                    <input type="text" name="mobile" placeholder="Mobile" pattern="[0-9]*">
+                                </div>
+                                <div class="small-6 columns">
+                                    <input type="text" name="fax" placeholder="Fax" pattern="[0-9]*">
+                                </div>
+                                <div class="small-12 columns text-right">
+                                    <input type="submit" class="button success" name="maj" value="Modifier">
+                                </div>
+                            </div>
+                        </form>';
+            return $result;
         }
-        if($opt->type === 'str') {
-            $result = '<input type="text" name="opt-value" id="opt-'.$opt->id.'" ref="'.$opt->id.'" value="'.$opt->value.'" target="value">';
+        catch (PDOException $e) {
+            throw new PDOException($e);
         }
-        
-        return $result;
     }
     
     private function buildToolBox($item) {
@@ -129,38 +164,50 @@ class Clients extends DB {
         }
     }
     
-    private function getOptionsById($id) {
+    private function getClientsById($id) {
         try {
             $sql = "SELECT *
-                    FROM options 
+                    FROM clients
                     WHERE id='".$id."'";
-            return $this->execOneResultQuery($sql);
+            return $this->execQuery($sql);
         }
         catch (PDOException $e) {
             throw new PDOException($e);
         }
     }
     
-    public function updateOption($field, $id, $value) {
-        if($field === 'code') {
-            $value = $this->formatCodeValue($value);
-        }
-        try {
-            $sql = "UPDATE options 
-                    SET ".$field."='".$value."' 
-                    WHERE id='".$id."'";
-            $this->applyOneQuery($sql);
-            return $value;
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
+//    private function getOptionsById($id) {
+//        try {
+//            $sql = "SELECT *
+//                    FROM options 
+//                    WHERE id='".$id."'";
+//            return $this->execOneResultQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
     
-    private function formatCodeValue($value) {
-        $result = str_replace(' ', '_', $value);
-        return strtoupper($result);
-    }
+//    public function updateOption($field, $id, $value) {
+//        if($field === 'code') {
+//            $value = $this->formatCodeValue($value);
+//        }
+//        try {
+//            $sql = "UPDATE options 
+//                    SET ".$field."='".$value."' 
+//                    WHERE id='".$id."'";
+//            $this->applyOneQuery($sql);
+//            return $value;
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    private function formatCodeValue($value) {
+//        $result = str_replace(' ', '_', $value);
+//        return strtoupper($result);
+//    }
     
     public function addClient($data) {
         try {
@@ -182,10 +229,48 @@ class Clients extends DB {
     
     public function deleteItem($id) {
         try {
-            $sql = "DELETE 
-                    FROM options
-                    WHERE id='".$id."'";
+            $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";
             $this->applyOneQuery($sql);
+            
+            try {
+                $sql = "DELETE FROM clients_docs WHERE id_client='".$id."'";
+                $this->applyOneQuery($sql);
+                
+                try {
+                    $sql = "DELETE FROM clients WHERE id='".$id."'";
+                    $this->applyOneQuery($sql);
+                }
+                catch (PDOException $e) {
+                    throw new PDOException($e);
+                }
+            }
+            catch (PDOException $e) {
+                throw new PDOException($e);
+            }
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    public function buildAutoCompleteLst($id) {
+        $result = '<datalist id="'.$id.'">';
+        try {
+            foreach($this->getAutoCompleteItems() as $k => $item) {
+                $result .= '<option value="'.$item->societe.'">';
+            }
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+        $result .= '</datalist>';
+        return $result;
+    }
+    
+    private function getAutoCompleteItems() {
+        try {
+            $sql = "SELECT DISTINCT societe FROM clients ORDER BY societe ASC";
+            return $this->execQuery($sql);
         }
         catch (PDOException $e) {
             throw new PDOException($e);

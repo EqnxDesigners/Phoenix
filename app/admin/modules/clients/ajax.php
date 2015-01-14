@@ -3,6 +3,7 @@
 require_once dirname(__DIR__).'/../../config/config.inc.php';
 
 //----- Class ---------------------------------------------
+require_once dirname(__DIR__).'/../../class/PHPMailer/PHPMailerAutoload.php';
 spl_autoload_register(function($class) {
     require_once dirname(__DIR__).'/../../class/'.$class.'.class.php';
 });
@@ -28,12 +29,13 @@ spl_autoload_register(function($class) {
 //    }
 //}
 
+
 //------ Formulaire ---------------------------------------
 if(isset($_POST['publish'])) {
     $ReadyToPost = true;
     unset($alert);
     if(strlen($_POST['societe']) < 1) {
-        if(strlen($_POST['nom']) < 1 || strlen($_POST['prenom']) < 1) {
+        if(strlen($_POST['nom']) < 1 && strlen($_POST['prenom']) < 1) {
             $ReadyToPost = false;
             $alert = 'Une société, un nom ou un prénom doit être spécifié...';
         }
@@ -52,4 +54,5 @@ if(isset($_POST['publish'])) {
     else {
         header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
+}
 ?>
