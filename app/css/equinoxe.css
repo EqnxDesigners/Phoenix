@@ -1083,8 +1083,8 @@ form {
 form.contact {
   margin-top: 1rem;
 }
-form input[type="submit"] {
-  width: 6rem;
+form input[type="button"] {
+/*  width: 6rem;*/
   height: 2.5rem;
   border: none;
   border-radius: 5px;
@@ -1092,10 +1092,35 @@ form input[type="submit"] {
   color: white;
   font-size: 1rem;
 }
-form input[type="submit"]:hover,
-form input[type="submit"]:focus {
+form input[type="button"]:hover,
+form input[type="button"]:focus {
   cursor: pointer;
   background: #e76678;
+}
+.sending #contactForm{
+  display:none;
+}
+.sending #sendingButton{
+  display: inline-block !important;
+}
+.sending #sendingButton:hover{
+  background: #eb7c8c;
+  cursor: default;
+}
+.sweet-alert .icon{
+  float: none;
+}
+.sweet-alert .confirm{
+  height: 2.5rem !important;
+  border: none !important;
+  border-radius: 5px !important;
+  background: #eb7c8c !important;
+  color: white !important;
+  font-size: 1rem !important;
+}
+.sweet-alert .confirm:hover{
+  cursor: pointer !important;
+  background: #e76678 !important;
 }
 .postes {
   margin-top: 2rem;

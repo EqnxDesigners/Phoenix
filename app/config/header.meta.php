@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="css/foundation.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="assets/sweetAlert/sweet-alert.css" />
 
   <link rel="stylesheet" type="text/css" href="css/equinoxe.css" />
 
@@ -28,6 +29,7 @@
   <script type="text/javascript" src="assets/masonry/jquery.masonry.min.js" charset="utf-8"></script>
   <script src="assets/foundation/foundation.equalizer.js"></script>
   <script src="assets/mixItUp/jquery.mixitup.js"></script>
+  <script src="assets/sweetAlert/sweet-alert.min.js"></script>
 
   <!-- JS equinoxe -->
   <script type="text/javascript" src="js/equinoxe.js" charset="utf-8"></script>
