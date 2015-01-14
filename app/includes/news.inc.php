@@ -52,6 +52,12 @@
         <p>Vous allez recevoir un email de confirmation de votre inscription au séminaire.</p>
       </div>
     </div>
+    <div class="row content-sem-inscr-error">
+      <div class="small-12 columns content">
+        <h3>Une erreur est survenue</h3>
+        <p>Réessayez plus tard, si le problème persiste, merci de contacter Equinoxe MIS Development à info@eqnx.ch.</p>
+      </div>
+    </div>
     <div class="row content-sem-inscr-load">
       <div class="small-12 columns content">
         <h3>Envoi en cours</h3>

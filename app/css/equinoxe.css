@@ -706,7 +706,7 @@ main-nav {
 .content-sem-inscr-load .content{
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
 }
-.content-sem-inscr-load h3, .content-sem-inscr-valid h3{
+.content-sem-inscr-load h3, .content-sem-inscr-valid h3, .content-sem-inscr-error h3{
   font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
@@ -754,18 +754,18 @@ main-nav {
   }
 }
 
+.content-sem-inscr-error{
+  background: #E22A2A;
+  width: 97.5% !important
+}
 .content-sem-inscr-valid{
   background: #5DAF6D;
   width: 97.5% !important
 }
-.content-sem-inscr-valid .stars{
-  display: block;
-  text-align: center;
-}
-.content-sem-inscr-valid .content{
+.content-sem-inscr-valid .content, .content-sem-inscr-error .content{
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
 }
-.content-sem-inscr-valid p{
+.content-sem-inscr-valid p, .content-sem-inscr-error p{
   text-align: center;
   color: white !important;
 }
