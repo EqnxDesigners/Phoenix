@@ -700,12 +700,17 @@ main-nav {
   padding-bottom: 0rem !important;
 }
 .content-sem-inscr-load{
-  width: 97.5% !important
+  width: 97.5% !important;
+  background: none repeat scroll 0 0 #3D4F81;
 }
-.content-sem-inscr-load h3{
-  font-size: 1.5rem;
+.content-sem-inscr-load .content{
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+}
+.content-sem-inscr-load h3, .content-sem-inscr-valid h3{
+  font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
+  color: white;
 }
 .spinner {
   margin: 0 auto;
@@ -714,9 +719,9 @@ main-nav {
 }
 
 .spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: #555;
+  width: 12px;
+  height: 12px;
+  background-color: white;
 
   border-radius: 100%;
   display: inline-block;
@@ -750,11 +755,19 @@ main-nav {
 }
 
 .content-sem-inscr-valid{
-  background: #DCF5ED;
+  background: #5DAF6D;
   width: 97.5% !important
 }
-.content-sem-inscr-valid h2{
-  color: #2C785F !important;
+.content-sem-inscr-valid .stars{
+  display: block;
+  text-align: center;
+}
+.content-sem-inscr-valid .content{
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+}
+.content-sem-inscr-valid p{
+  text-align: center;
+  color: white !important;
 }
 .bloc-title {
   padding: 13.5rem 0 5.5rem 0;

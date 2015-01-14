@@ -83,6 +83,7 @@ $(document).ready(function () {
     })
       .done(function (msg) {
         if (msg === 'true') {
+          console.log("success");
           $('.content-sem-inscr-valid').fadeIn();
         }
       })
