@@ -1,0 +1,230 @@
+/*icon-  Class obligatoire*/
+.icon {
+  text-decoration: none;
+  display: inline-block;
+  color: #008cba;
+  font-size: 14pt;
+}
+.icon:hover {
+  color: #006687;
+  corsor: pointer;
+}
+/*Texte après icone*/
+.iconText {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 70%;
+  vertical-align: middle;
+}
+/*icon-param-color-*/
+.icon-param-color-default {
+  color: #008cba;
+}
+.icon-param-color-default:hover {
+  color: #006687;
+}
+.icon-param-color-secondary {
+  color: #e7e7e7;
+}
+.icon-param-color-secondary:hover {
+  color: #cecece;
+}
+.icon-param-color-black {
+  color: #555555;
+}
+.icon-param-color-black:hover {
+  color: #3b3b3b;
+}
+.icon-param-color-white {
+  color: #ffffff;
+}
+.icon-param-color-red {
+  color: #dd243e;
+}
+.icon-param-color-white:hover {
+  color: #f2f2f2;
+}
+.icon-param-color-success {
+  color: #43ac6a;
+}
+.icon-param-color-success:hover {
+  color: #358753;
+}
+.icon-param-color-alert {
+  color: #f04124;
+}
+.icon-param-color-alert:hover {
+  color: #d32a0e;
+}
+.icon-param-color-warning {
+  color: #ff9957;
+}
+.icon-param-color-warning:hover {
+  color: #ff7a24;
+}
+/*icon-param-shapedColor-*/
+.icon-param-shapedColor-default,
+.icon-param-bloc-roundDefault,
+.icon-param-bloc-boxeDefault {
+  background: #008cba;
+  color: #ffffff;
+}
+.icon-param-shapedColor-black,
+.icon-param-bloc-roundBlack,
+.icon-param-bloc-boxeBlack {
+  background: #555555;
+  color: #ffffff;
+}
+.icon-param-shapedColor-white,
+.icon-param-bloc-roundWhite,
+.icon-param-bloc-boxeWhite {
+  background: #ffffff;
+  color: #555555;
+}
+.icon-param-shapedColor-success,
+.icon-param-bloc-roundSuccess,
+.icon-param-bloc-boxeSuccess {
+  background: #43ac6a;
+  color: #ffffff;
+}
+.icon-param-shapedColor-alert,
+.icon-param-bloc-roundAlert,
+.icon-param-bloc-boxeAlert {
+  background: #f04124;
+  color: #ffffff;
+}
+.icon-param-shapedColor-warning,
+.icon-param-bloc-roundWarning,
+.icon-param-bloc-boxeWarning {
+  background: #ff9957;
+  color: #ffffff;
+}
+.icon-param-shapedColor-secondary,
+.icon-param-bloc-roundSecondary,
+.icon-param-bloc-boxeSecondary {
+  background: #e7e7e7;
+  color: #555555;
+}
+/*icon-param-shape-*/
+.icon-param-shape-round,
+.icon-param-bloc-roundDefault,
+.icon-param-bloc-roundSecondary,
+.icon-param-bloc-roundBlack,
+.icon-param-bloc-roundSuccess,
+.icon-param-bloc-roundAlert,
+.icon-param-bloc-roundWarning,
+.icon-param-bloc-roundWhite {
+  border-radius: 100px;
+  display: inline-block;
+  font-size: 10pt;
+  font-weight: bold;
+  height: 1em;
+  line-height: 1.7em;
+  text-align: center;
+  text-decoration: none;
+  width: 1em;
+  padding: 0.3em;
+}
+.icon-param-shape-box,
+.icon-param-bloc-boxeDefault,
+.icon-param-bloc-boxeSecondary,
+.icon-param-bloc-boxeBlack,
+.icon-param-bloc-boxeSuccess,
+.icon-param-bloc-boxeAlert,
+.icon-param-bloc-boxeWarning,
+.icon-param-bloc-boxeWhite {
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 10pt;
+  font-weight: normal;
+  height: 1em;
+  line-height: 1.2em;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.2em 1em;
+}
+/*Formes finales avec couleurs*/
+.icon-param-bloc-roundDefault:hover {
+  background: #006687;
+  color: #ffffff;
+}
+.icon-param-bloc-roundSecondary:hover {
+  background: #cecece;
+  color: #555555;
+}
+.icon-param-bloc-roundBlack:hover {
+  background: #3b3b3b;
+  color: #ffffff;
+}
+.icon-param-bloc-roundSuccess:hover {
+  background: #358753;
+  color: #ffffff;
+}
+.icon-param-bloc-roundAlert:hover {
+  background: #d32a0e;
+  color: #ffffff;
+}
+.icon-param-bloc-roundWarning:hover {
+  background: #ff7a24;
+  color: #ffffff;
+}
+.icon-param-bloc-roundWhite:hover {
+  background: #f2f2f2;
+  color: #555555;
+}
+.icon-param-bloc-boxeDefault:hover {
+  background: #006687;
+  color: #ffffff;
+}
+.icon-param-bloc-boxeSecondary:hover {
+  background: #cecece;
+  color: #555555;
+}
+.icon-param-bloc-boxeBlack:hover {
+  background: #3b3b3b;
+  color: #ffffff;
+}
+.icon-param-bloc-boxeSuccess:hover {
+  background: #358753;
+  color: #ffffff;
+}
+.icon-param-bloc-boxeAlert:hover {
+  background: #d32a0e;
+  color: #ffffff;
+}
+.icon-param-bloc-boxeWarning:hover {
+  background: #ff7a24;
+  color: #ffffff;
+}
+.icon-param-bloc-boxeWhite:hover {
+  background: #f2f2f2;
+  color: #555555;
+}
+/*icon-param-size-  */
+.icon-param-size-xxs {
+  font-size: 7pt;
+  line-height: 7pt;
+}
+.icon-param-size-xs {
+  font-size: 10pt;
+  line-height: 10pt;
+}
+.icon-param-size-s {
+  font-size: 12pt;
+  line-height: 12pt;
+}
+.icon-param-size-m {
+  font-size: 14pt;
+  line-height: 14pt;
+}
+.icon-param-size-l {
+  font-size: 16pt;
+  line-height: 16pt;
+}
+.icon-param-size-xl {
+  font-size: 20pt;
+  line-height: 20pt;
+}
+.icon-param-size-xxl {
+  font-size: 24pt;
+  line-height: 24pt;
+}

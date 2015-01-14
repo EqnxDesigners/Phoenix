@@ -1,0 +1,139 @@
+//---------------------------------------------------------
+//    Author      : Jerome Clerc
+//    Project     : Equinoxe MIS Developement - Wiki
+//    Description : All mixines
+//    Versioning  : 15.07.2014, ap, ajout des miximes shadow
+//---------------------------------------------------------
+
+//----- Rounded Conrners ----------------------------------
+.rounded-corners(@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.round-top(@radius: 5px) {
+    -webkit-border-radius: @radius @radius 0 0;
+    -moz-border-radius: @radius @radius 0 0;
+    -ms-border-radius: @radius @radius 0 0;
+    -o-border-radius: @radius @radius 0 0;
+    border-radius: @radius @radius 0 0;
+}
+
+.round-bottom(@radius: 5px) {
+    -webkit-border-radius: 0 0 @radius @radius;
+    -moz-border-radius: 0 0 @radius @radius;
+    -ms-border-radius: 0 0 @radius @radius;
+    -o-border-radius: 0 0 @radius @radius;
+    border-radius: 0 0 @radius @radius;
+}
+
+.round-left(@radius: 5px) {
+    -webkit-border-radius: @radius 0 0 @radius;
+    -moz-border-radius: @radius 0 0 @radius;
+    -ms-border-radius: @radius 0 0 @radius;
+    -o-border-radius: @radius 0 0 @radius;
+    border-radius: @radius 0 0 @radius;
+}
+
+.round-right(@radius: 5px) {
+    -webkit-border-radius: 0 @radius @radius 0;
+    -moz-border-radius: 0 @radius @radius 0;
+    -ms-border-radius: 0 @radius @radius 0;
+    -o-border-radius: 0 @radius @radius 0;
+    border-radius: 0 @radius @radius 0;
+}
+
+//----- IMG Filters ---------------------------------------
+.filter-opacitiy(@value: 0.5) {
+    -webkit-filter: opacity(@value);
+    -moz-filter: opacity(@value);
+    -ms-filter: opacity(@value);
+    -o-filter: opacity(@value);
+    filter: opacity(@value);
+}
+
+.filter-sepia(@value: 1) {
+    -webkit-filter: sepia(@value);
+    -moz-filter: sepia(@value);
+    -ms-filter: sepia(@value);
+    -o-filter: sepia(@value);
+    filter: sepia(@value);
+}
+
+.filter-grayscale(@value: 100%) {
+    -webkit-filter: grayscale(@value);
+    -moz-filter: grayscale(@value);
+    -ms-filter: grayscale(@value);
+    -o-filter: grayscale(@value);
+    filter: grayscale(@value);
+}
+
+.filter-saturate(@value: 50%) {
+    -webkit-filter: saturate(@value);
+    -moz-filter: saturate(@value);
+    -ms-filter: saturate(@value);
+    -o-filter: saturate(@value);
+    filter: saturate(@value);
+}
+
+.filter-hue-rotate(@value: 20deg) {
+    -webkit-filter: hue-rotate(@value);
+    -moz-filter: hue-rotate(@value);
+    -ms-filter: hue-rotate(@value);
+    -o-filter: hue-rotate(@value);
+    filter: hue-rotate(@value);
+}
+
+.filter-invert(@value: 100%) {
+    -webkit-filter: invert(@value);
+    -moz-filter: invert(@value);
+    -ms-filter: invert(@value);
+    -o-filter: invert(@value);
+    filter: invert(@value);
+}
+
+.filter-brightness(@value: 0.5) {
+    -webkit-filter: brightness(@value);
+    -moz-filter: brightness(@value);
+    -ms-filter: brightness(@value);
+    -o-filter: brightness(@value);
+    filter: brightness(@value);
+}
+
+.filter-contrast(@value: 150%) {
+    -webkit-filter: contrast(@value);
+    -moz-filter: contrast(@value);
+    -ms-filter: contrast(@value);
+    -o-filter: contrast(@value);
+    filter: contrast(@value);
+}
+
+.filter-blur(@value: 5px) {
+    -webkit-filter: blur(@value);
+    -moz-filter: blur(@value);
+    -ms-filter: blur(@value);
+    -o-filter: blur(@value);
+    filter: blur(@value);
+}
+
+.filter-drop-shadow(@offset-x: 4px, @offset-y: 4px, @blur: 2px, @color: rgba(0,0,0,.5)) {
+    -webkit-filter: drop-shadow(@offset-x, @offset-x, @blur, @color);
+    -moz-filter: drop-shadow(@offset-x, @offset-x, @blur, @color);
+    -ms-filter: drop-shadow(@offset-x, @offset-x, @blur, @color);
+    -o-filter: drop-shadow(@offset-x, @offset-x, @blur, @color);
+    filter: drop-shadow(@offset-x, @offset-x, @blur, @color);
+}
+
+//----- Shadow --------------------------------------------
+.box-shadow(@distance-x:5px, @distance-y:5px, @blur:10px, @spread:0px, @color:rgba(50,50,50,.25)){
+    -webkit-box-shadow: @distance-x @distance-y @blur @spread @color;
+    -moz-box-shadow:    @distance-x @distance-y @blur @spread @color;
+    box-shadow:         @distance-x @distance-y @blur @spread @color;
+}
+
+.text-shadow(@distance-x:5px, @distance-y:5px, @blur:10px, @color:rgba(50,50,50,.25)){
+    text-shadow: @distance-x @distance-y @blur @color;
+}
