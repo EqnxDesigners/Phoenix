@@ -121,13 +121,13 @@ $(document).ready(function () {
       .done(function (msg) {
         if (msg === 'true') {
           $('.content-sem-inscr-load').hide();
-          $('.content-sem-inscr-valid').fadeIn().delay(2400).fadeOut();
+          $('.content-sem-inscr-valid').fadeIn().delay(5000).fadeOut();
           clearForm();
         }
       })
       .fail(function (msg) {
         $('.content-sem-inscr-load').hide();
-        $('.content-sem-inscr-error').fadeIn().delay(2400).fadeOut();
+        $('.content-sem-inscr-error').fadeIn().delay(5000).fadeOut();
       });
   }
   
