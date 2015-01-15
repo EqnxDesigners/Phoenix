@@ -10,6 +10,11 @@ function the_Listing() {
     }
 }
 
+function autocomplete($id) {
+    $Client = new Clients();
+    echo $Client->buildAutoCompleteLst($id);
+}
+
 function display_alert() {
     if(isset($_GET['alert'])) {
         $result = '<div class="row">';
