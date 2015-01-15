@@ -1,4 +1,4 @@
-<div id="login-box">
+<div id="verif-box">
     <a href="http://www.equinoxemis.ch" title="Equinoxe MIS Development" target="_blank">
         <img src="images/logo_equinoxe.png" />
     </a>
@@ -13,7 +13,7 @@
         
         <div class="row">
             <div class="small-12 columns">
-                <input type="password" name="user_password" id="user_password" placeholder="Mot de passe">
+                <input type="password" name="user_password" id="user_password" placeholder="Mot de passe" autocomplete="off">
             </div>
         </div>
         
