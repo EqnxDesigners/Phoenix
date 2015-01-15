@@ -19,7 +19,7 @@ xxxxxxx
 
 class Clients extends DB {
     /* TRAITS */
-    use Trait_renderhtml;
+    use Trait_renderhtml, Trait_security;
     
     /* ATTRIBUTES */
 //    private $_status;
@@ -189,7 +189,11 @@ class Clients extends DB {
                             '".$data['telephone']."',
                             '".$data['fax']."',
                             '".$data['mobile']."')";
-            $this->applyOneQuery($sql);
+            $id = $this->applyQueryWithLastId($sql);
+            
+            return $this->insertToken($id);
+//            $data['token'] = $this->insertToken($id);
+//            return $data;
         }
         catch (PDOException $e) {
             throw new PDOException($e);
@@ -260,6 +264,21 @@ class Clients extends DB {
         try {
             $sql = "SELECT DISTINCT societe FROM clients ORDER BY societe ASC";
             return $this->execQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    private function insertToken($id) {
+        try {
+            $token = $this->buildSecureToken();
+            $sql = "INSERT INTO clients_tokens (id_client,token) 
+                    VALUES ('".$id."',
+                            '".$token."')";
+            $this->applyOneQuery($sql);
+            
+            return $token;
         }
         catch (PDOException $e) {
             throw new PDOException($e);

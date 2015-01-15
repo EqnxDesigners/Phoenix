@@ -8,28 +8,6 @@ spl_autoload_register(function($class) {
     require_once dirname(__DIR__).'/../../class/'.$class.'.class.php';
 });
 
-//--------------- Functions ---------------
-//if(isset($_POST['a']) && $_POST['a'] === 'updateOptionValue') {
-//    $Conf = new Config();
-//    try {
-//        $Conf->updateOption('value', $_POST['id'], $_POST['value']);
-//    }
-//    catch (PDOException $e) {
-//        echo 'ERRREUR : '.$e;
-//    }
-//}
-//
-//if(isset($_POST['a']) && $_POST['a'] === 'updateOptionCode') {
-//    $Conf = new Config();
-//    try {
-//        echo $Conf->updateOption('code', $_POST['id'], $_POST['value']);
-//    }
-//    catch (PDOException $e) {
-//        echo 'ERREUR : '.$e;
-//    }
-//}
-
-
 //------ Formulaire ---------------------------------------
 if(isset($_POST['publish'])) {
     $ReadyToPost = true;
@@ -43,8 +21,13 @@ if(isset($_POST['publish'])) {
     if($ReadyToPost) {
         try {
             $Client = new Clients();
-            $Client->addClient($_POST);
-            header("location: ../../index.php?module=".$_SESSION['current_module']);
+            if(buildAvertissementMail($Client->addClient($_POST))) {
+                header("location: ../../index.php?module=".$_SESSION['current_module']);
+            }
+            else {
+                $alert = 'Un problème est survenu à l''envoi du mail';
+                header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
+            }
         }
         catch (PDOException $e) {
             $alert = 'ERREUR : '.$e;
@@ -79,5 +62,43 @@ if(isset($_POST['majitem'])) {
     else {
         header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
+}
+
+function buildAvertissementMail($token) {
+    $sujet = 'Votre compte MyEqnx a été créé.';
+    
+    $mail_content = file_get_contents(dirname(__DIR__).'/../../mail_templates/mail_header.html');
+    $mail_content .= file_get_contents(dirname(__DIR__).'/../../mail_templates/mail_content_creation_compte.html');
+    $mail_content .= file_get_contents(dirname(__DIR__).'/../../mail_templates/mail_footer.html');
+
+    $mail_content = str_replace("%%%TOKEN%%%", $token, $mail_content);
+
+    $destinataire_email = 'jc@eqnx.ch';
+    $destinataire_name = 'Jérôme Clerc';
+
+    return SendMail($sujet, $mail_content, $destinataire_email, $destinataire_name);
+}
+
+function SendMail($subject, $content, $for_email, $for_name){
+    $mail = new PHPMailer;
+    
+    $mail->CharSet = 'UTF-8';
+    $mail->ClearAllRecipients();
+    
+    // SMTP
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->Debugoutput = 'html';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    $mail->Username = "jc.dreamescape@gmail.com";
+    $mail->Password = "dr94Y?22";
+    $mail->AddAddress($for_email, $for_name);
+    $mail->Subject= $subject;
+    $mail->msgHTML($content);
+    
+    return (!$mail->send() ? false : true);
 }
 ?>
