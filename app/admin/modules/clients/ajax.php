@@ -22,10 +22,12 @@ if(isset($_POST['publish'])) {
         try {
             $Client = new Clients();
             if(buildAvertissementMail($Client->addClient($_POST))) {
+                //echo "LE MAIL EST PARTI ET LE CLIENT CREE";
                 header("location: ../../index.php?module=".$_SESSION['current_module']);
             }
             else {
-                $alert = 'Un problème est survenu à l''envoi du mail';
+                $alert = 'Un problème est survenu à l\'envoi du mail';
+                //echo $alert;
                 header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
             }
         }

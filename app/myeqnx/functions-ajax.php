@@ -23,6 +23,22 @@ if(isset($_POST['a']) && $_POST['a'] === 'logClientIn') {
     }
 }
 
+if(isset($_POST['a']) && $_POST['a'] === 'valideClient') {
+    var_dump($_POST['data']);
+//    $user = new Users();
+//    try {
+//        if(!$user->selectClientInfo($_POST['user_login'], $_POST['user_password'])) {
+//            echo 'FALSE';
+//        }
+//        else {
+//            echo 'TRUE';
+//        }
+//    }
+//    catch (PDOException $e) {
+//        echo 'Erreur : '.$e->getMessage();
+//    }
+}
+
 if(isset($_POST['a']) && $_POST['a'] === 'logMeOut') {
     $_SESSION = array();
     unset($_SESSION);

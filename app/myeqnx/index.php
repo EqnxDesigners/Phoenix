@@ -3,6 +3,7 @@
 require_once dirname(__DIR__).'/config/config.inc.php';
 
 //----- Class ---------------------------------------------
+require_once dirname(__DIR__).'/class/PHPMailer/PHPMailerAutoload.php';
 spl_autoload_register(function($class) {
     require_once dirname(__DIR__).'/class/'.$class.'.class.php';
 });

@@ -177,6 +177,19 @@ class Clients extends DB {
             throw new PDOException($e);
         }
     }
+    
+    public function getClientByToken($token) {
+        try {
+            $sql = "SELECT clients.id, societe, titre, nom, prenom, email, telephone, fax, mobile
+                    FROM clients
+                    INNER JOIN clients_tokens ON clients_tokens.id_client = clients.id
+                    WHERE clients_tokens.token='".$token."'";
+            return $this->execOneResultQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
 
     public function addClient($data) {
         try {
@@ -192,8 +205,6 @@ class Clients extends DB {
             $id = $this->applyQueryWithLastId($sql);
             
             return $this->insertToken($id);
-//            $data['token'] = $this->insertToken($id);
-//            return $data;
         }
         catch (PDOException $e) {
             throw new PDOException($e);

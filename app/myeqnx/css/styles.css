@@ -149,8 +149,21 @@
 #verif-box {
   width: 800px;
 }
-#verif-box h1 {
+#verif-box h1,
+#verif-box h2 {
   border-bottom: 1px solid #999;
+}
+#verif-box h2 {
+  font-size: 1.3rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 1rem;
+}
+#verif-box .notmatch {
+  background: #fde7e3;
+}
+#verif-box .match {
+  background: #cfecda;
 }
 .copyright {
   font-size: 0.8rem;

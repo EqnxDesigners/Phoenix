@@ -19,15 +19,14 @@ trait Trait_security {
     }
     
     public function buildSecureToken() {
-        $str1 = session_id();
-        $str2 = '';
+        $token = '';
         
         $str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         srand((double)microtime()*1000000);
         for($i=0; $i<60; $i++) {
-            $str2 .= $str[rand()%strlen($str)];
+            $token .= $str[rand()%strlen($str)];
         }
-        return $str2.$str1;
+        return $token;
     }
     
     public function secureSynch() {

@@ -49,8 +49,23 @@
 #verif-box {
     width: 800px;
     
-    h1 {
+    h1, h2 {
         border-bottom: 1px solid #999;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+        color: #999;
+        font-style: italic;
+        margin-top: 1rem;
+    }
+    
+    .notmatch {
+        background: @alert-ultra-light;
+    }
+    
+    .match {
+        background: @success-ultra-light;
     }
 }
 .copyright {
