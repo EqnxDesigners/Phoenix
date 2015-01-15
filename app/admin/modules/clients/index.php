@@ -1,7 +1,7 @@
 <?php require_once(dirname(__FILE__).'/functions.php'); ?>
 
 <section class="row" id="module-wrapper">
-    <h1>Configuration</h1>
+    <h1>Clients</h1>
     <nav class="row">
         <div class="small-12 columns" id="mnu-gest">
             <i class="fa fa-plus btn" role="add"></i>
@@ -40,13 +40,13 @@
                         <input type="email" name="email" placeholder="E-mail" required="required">
                     </div>
                     <div class="small-6 columns">
-                        <input type="text" name="telephone" placeholder="Téléphone" pattern="[0-9]*">
+                        <input type="text" name="telephone" placeholder="Téléphone" pattern="[0-9\s]*">
                     </div>
                     <div class="small-6 columns">
-                        <input type="text" name="mobile" placeholder="Mobile" pattern="[0-9]*">
+                        <input type="text" name="mobile" placeholder="Mobile" pattern="[0-9\s]*">
                     </div>
                     <div class="small-6 columns">
-                        <input type="text" name="fax" placeholder="Fax" pattern="[0-9]*">
+                        <input type="text" name="fax" placeholder="Fax" pattern="[0-9\s]*">
                     </div>
                     <div class="small-12 columns text-right">
                         <input type="reset" class="button alert" name="clear-forms" value="Annuler">

@@ -106,35 +106,37 @@ class Clients extends DB {
             $result =   '<form name="form_edit" action="modules/clients/ajax.php" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="small-12 columns">
-                                    <input type="text" name="societe" placeholder="Société" list="societe-in-db" autocomplete="off" >';
+                                    <input type="text" name="societe" placeholder="Société" value="'.$client->societe.'" list="societe-in-db" autocomplete="off" >';
             $result .=              $this->buildAutoCompleteLst('societe-in-db');
             $result .=  '       </div>
                                 <div class="small-2 columns">
-                                    <select name="titre">
-                                        <option value="M." selected>Monsieur</option>
+                                    <select name="titre">';
+            $result .=  '               <option value="'.$client->titre.'">'.($client->titre === 'M.' ? 'Monsieur' : 'Madame').'</option>';
+            $result .=  '               <option value="M.">Monsieur</option>
                                         <option value="Mme">Madame</option>
                                     </select>
                                 </div>
                                 <div class="small-5 columns">
-                                    <input type="text" name="nom" placeholder="Nom">
+                                    <input type="text" name="nom" placeholder="Nom" value="'.$client->nom.'">
                                 </div>
                                 <div class="small-5 columns">
-                                    <input type="text" name="prenom" placeholder="Prénom">
+                                    <input type="text" name="prenom" placeholder="Prénom" value="'.$client->prenom.'">
                                 </div>
                                 <div class="small-6 columns" >
-                                    <input type="email" name="email" placeholder="E-mail" required="required">
+                                    <input type="email" name="email" placeholder="E-mail" value="'.$client->email.'" required="required">
                                 </div>
                                 <div class="small-6 columns">
-                                    <input type="text" name="telephone" placeholder="Téléphone" pattern="[0-9]*">
+                                    <input type="text" name="telephone" placeholder="Téléphone" value="'.$client->telephone.'" pattern="[0-9\s]*">
                                 </div>
                                 <div class="small-6 columns">
-                                    <input type="text" name="mobile" placeholder="Mobile" pattern="[0-9]*">
+                                    <input type="text" name="mobile" placeholder="Mobile" value="'.$client->fax.'" pattern="[0-9\s]*">
                                 </div>
                                 <div class="small-6 columns">
-                                    <input type="text" name="fax" placeholder="Fax" pattern="[0-9]*">
+                                    <input type="text" name="fax" placeholder="Fax" value="'.$client->mobile.'" pattern="[0-9\s]*">
                                 </div>
                                 <div class="small-12 columns text-right">
-                                    <input type="submit" class="button success" name="maj" value="Modifier">
+                                    <input type="hidden" name="iditem" value="'.$id.'">
+                                    <input type="submit" class="button success" name="majitem" value="Modifier">
                                 </div>
                             </div>
                         </form>';
@@ -164,51 +166,18 @@ class Clients extends DB {
         }
     }
     
-    private function getClientsById($id) {
+    private function getClientById($id) {
         try {
             $sql = "SELECT *
                     FROM clients
                     WHERE id='".$id."'";
-            return $this->execQuery($sql);
+            return $this->execOneResultQuery($sql);
         }
         catch (PDOException $e) {
             throw new PDOException($e);
         }
     }
-    
-//    private function getOptionsById($id) {
-//        try {
-//            $sql = "SELECT *
-//                    FROM options 
-//                    WHERE id='".$id."'";
-//            return $this->execOneResultQuery($sql);
-//        }
-//        catch (PDOException $e) {
-//            throw new PDOException($e);
-//        }
-//    }
-    
-//    public function updateOption($field, $id, $value) {
-//        if($field === 'code') {
-//            $value = $this->formatCodeValue($value);
-//        }
-//        try {
-//            $sql = "UPDATE options 
-//                    SET ".$field."='".$value."' 
-//                    WHERE id='".$id."'";
-//            $this->applyOneQuery($sql);
-//            return $value;
-//        }
-//        catch (PDOException $e) {
-//            throw new PDOException($e);
-//        }
-//    }
-    
-//    private function formatCodeValue($value) {
-//        $result = str_replace(' ', '_', $value);
-//        return strtoupper($result);
-//    }
-    
+
     public function addClient($data) {
         try {
             $sql = "INSERT INTO clients (societe,titre,nom,prenom,email,telephone,fax,mobile) 
@@ -227,6 +196,26 @@ class Clients extends DB {
         }
     }
     
+    public function updateClient($data) {
+        try {
+            $sql = "UPDATE clients
+                    SET
+                    societe='".addslashes($data['societe'])."',
+                    titre='".$data['titre']."',
+                    nom='".addslashes($data['nom'])."',
+                    prenom='".addslashes($data['prenom'])."',
+                    email='".$data['email']."',
+                    telephone='".$data['telephone']."',
+                    fax='".$data['fax']."',
+                    mobile='".$data['mobile']."'
+                    WHERE id='".$data['iditem']."'";
+            $this->applyOneQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+
     public function deleteItem($id) {
         try {
             $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";

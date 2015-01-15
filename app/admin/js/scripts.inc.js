@@ -121,7 +121,8 @@ $(document).ready(function() {
         var todo = $(this).attr('role');
         var idItem = $(this).attr('item');
         if(todo === 'edit') {
-            $.post(urlAjaxModule, {a: 'editItem', idItem: idItem })
+            switchTwoDiv('#mnu-gest', '#return-to-gest');
+            $.post(urlAjax, {a: 'editItem', idItem: idItem })
             .done(function(result) {
                 $('#wrapper-editing').empty().append(result);
                 $('#wrapper-gestion').hide();

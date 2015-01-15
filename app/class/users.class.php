@@ -37,11 +37,11 @@ class Users extends DB {
     
     /* METHODES */
     private function storeUserInSession($data) {
-        $_SESSION['user']['iduser'] = $this->id;
-        $_SESSION['user']['login'] = $this->login;
-        $_SESSION['user']['user_name'] = $this->user_name;
-        $_SESSION['user']['email'] = $this->email;
-        $_SESSION['user']['level'] = $this->level;
+        $_SESSION['user']['iduser'] = $data->id;
+        $_SESSION['user']['login'] = $data->login;
+        $_SESSION['user']['user_name'] = $data->user_name;
+        $_SESSION['user']['email'] = $data->email;
+        $_SESSION['user']['level'] = $data->level;
     }
     
     public function selectUserInfo($login, $password) {
