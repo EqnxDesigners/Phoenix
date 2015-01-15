@@ -41,28 +41,29 @@
       </div>
     </div>
 
-    <form class="contact" id="form_contact" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form class="contact" id="form_contact">
       <div class="row">
         <div class="small-12 medium-6 columns">
-          <input type="text" name="nom" placeholder="<?php echo $_SESSION['trad']['contact']['placeholder1']; ?>" required/>
+          <input type="text" name="nom" placeholder="<?php echo $_SESSION['trad']['contact']['placeholder1']; ?>"/>
         </div>
         <div class="small-12 medium-6 columns">
-          <input type="text" name="prenom" placeholder="<?php echo $_SESSION['trad']['contact']['placeholder2']; ?>" required/>
+          <input type="text" name="prenom" placeholder="<?php echo $_SESSION['trad']['contact']['placeholder2']; ?>"/>
         </div>
       </div>
       <div class="row">
         <div class="large-12 columns">
-          <input type="email" name="email" placeholder="<?php echo $_SESSION['trad']['contact']['placeholder3']; ?>" required/>
+          <input type="text" name="email" placeholder="<?php echo $_SESSION['trad']['contact']['placeholder3']; ?>"/>
         </div>
       </div>
       <div class="row">
         <div class="large-12 columns">
-          <textarea placeholder="<?php echo $_SESSION['trad']['contact']['placeholder4']; ?>" row="10" name="message" required></textarea>
+          <textarea placeholder="<?php echo $_SESSION['trad']['contact']['placeholder4']; ?>" row="10" name="message"></textarea>
         </div>
       </div>
       <div class="row">
         <div class="large-12 columns">
-          <input type="submit" name="contactForm" value="Envoyer" />
+          <input type="button" name="contactForm" id="contactForm" value="Envoyer" />
+          <input type="button" disabled="true" id="sendingButton" value="Envoi en cours" />
         </div>
       </div>
     </form>

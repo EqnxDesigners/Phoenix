@@ -13,6 +13,10 @@ if(isset($_POST['a']) && $_POST['a'] === 'sendMailInscr') {
   EnvoiFormulaireInscription($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace']);
 }
 
+if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
+  EnvoiFormulaireContact($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['message']);
+}
+
 //------ Envoi emails -----------------------------------------
 
 //if(isset($_POST['contactForm'])) { // ajouter le formulaire d'inscription
@@ -67,7 +71,11 @@ function EnvoiFormulaireInscription($nom, $prenom, $email, $event, $eventDate, $
   if (SendMail($sujet, $mail_content, $destinataire_email, $destinataire_name)) {
     if (SendMail($sujet_validation, $mail_content_validation, $destinataire_validation_email, $destinataire_validation_name)) {
       echo 'true';
+    }else{
+      echo 'false';
     }
+  }else{
+    echo 'false';
   }
 }
 
@@ -75,7 +83,7 @@ function EnvoiFormulaireInscription($nom, $prenom, $email, $event, $eventDate, $
 *   Envoi du formulaire de contact
 *   @param message
 **/
-function EnvoiFormulaireContact($message){
+function EnvoiFormulaireContact($nom, $prenom, $email, $message){
   $sujet = 'Un nouveau message reçu depuis le site web';
   $sujet_validation = 'Votre message à Equinoxe MIS Development';
   
@@ -87,20 +95,28 @@ function EnvoiFormulaireContact($message){
   $mail_content_validation .= file_get_contents(dirname(__FILE__).'/mail_templates/mail_content_contact_validation.html');
   $mail_content_validation .= file_get_contents(dirname(__FILE__).'/mail_templates/mail_footer.html');
   
-  $mail_content = str_replace("%%%PRENOM%%%", $_POST['prenom'], $mail_content);
-  $mail_content = str_replace("%%%NOM%%%", $_POST['nom'], $mail_content);
-  $mail_content = str_replace("%%%EMAIL%%%", $_POST['email'], $mail_content);
-  $mail_content = str_replace("%%%MESSAGE%%%", $_POST['message'], $mail_content);
+  $mail_content = str_replace("%%%PRENOM%%%", $prenom, $mail_content);
+  $mail_content = str_replace("%%%NOM%%%", $nom, $mail_content);
+  $mail_content = str_replace("%%%EMAIL%%%", $email, $mail_content);
+  $mail_content = str_replace("%%%MESSAGE%%%", $message, $mail_content);
   
-  $mail_content_validation = str_replace("%%%MESSAGE%%%", $_POST['message'], $mail_content_validation);
+  $mail_content_validation = str_replace("%%%MESSAGE%%%", $message, $mail_content_validation);
   
   $destinataire_email = 'ap@eqnx.ch';
   $destinataire_name = 'Aline Pfänder';
-  $destinataire_validation_email = $_POST['email'];
-  $destinataire_validation_name = $_POST['prenom'].' '.$_POST['nom'];
+  $destinataire_validation_email = $email;
+  $destinataire_validation_name = $prenom.' '.$nom;
   
-  SendMail($sujet, $mail_content, $destinataire_email, $destinataire_name);
-  SendMail($sujet_validation, $mail_content_validation, $destinataire_validation_email, $destinataire_validation_name);
+  if (SendMail($sujet, $mail_content, $destinataire_email, $destinataire_name)) {
+    if(SendMail($sujet_validation, $mail_content_validation, $destinataire_validation_email, $destinataire_validation_name)){
+      echo 'true';
+    }else{
+      echo 'false';
+    }
+  }else{
+    echo 'false';
+  }
+  
 }
 
 function SendMail($subject, $content, $for_email, $for_name){
