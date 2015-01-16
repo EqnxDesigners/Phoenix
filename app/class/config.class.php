@@ -99,7 +99,6 @@ class Config extends DB {
     
     private function buildToolBox($item) {
         $result = '';
-        //$result .= '&nbsp;<i class="fa fa-pencil  btn" role="edit" item="'.$item->id.'"></i>';
         $result .= '&nbsp;<i class="fa fa-trash-o btn" role="trash" item="'.$item->id.'"></i>';
         return $result;
     }
