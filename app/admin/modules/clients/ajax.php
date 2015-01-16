@@ -21,11 +21,13 @@ if(isset($_POST['publish'])) {
     if($ReadyToPost) {
         try {
             $Client = new Clients();
-            if(buildAvertissementMail($Client->addClient($_POST))) {
+            if(buildAvertissementMail($Client->addClient($_POST), $_POST)) {
+                //echo "LE MAIL EST PARTI ET LE CLIENT CREE";
                 header("location: ../../index.php?module=".$_SESSION['current_module']);
             }
             else {
-                $alert = 'Un problème est survenu à l''envoi du mail';
+                $alert = 'Un problème est survenu à l\'envoi du mail';
+                //echo $alert;
                 header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
             }
         }
@@ -64,7 +66,7 @@ if(isset($_POST['majitem'])) {
     }
 }
 
-function buildAvertissementMail($token) {
+function buildAvertissementMail($token, $data) {
     $sujet = 'Votre compte MyEqnx a été créé.';
     
     $mail_content = file_get_contents(dirname(__DIR__).'/../../mail_templates/mail_header.html');
@@ -73,8 +75,8 @@ function buildAvertissementMail($token) {
 
     $mail_content = str_replace("%%%TOKEN%%%", $token, $mail_content);
 
-    $destinataire_email = 'jc@eqnx.ch';
-    $destinataire_name = 'Jérôme Clerc';
+    $destinataire_email = $data['email'];
+    $destinataire_name = $data['prenom'].' '.$data['nom'];
 
     return SendMail($sujet, $mail_content, $destinataire_email, $destinataire_name);
 }

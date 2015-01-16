@@ -3,6 +3,7 @@
 require_once dirname(__DIR__).'/config/config.inc.php';
 
 //----- Class ---------------------------------------------
+require_once dirname(__DIR__).'/class/PHPMailer/PHPMailerAutoload.php';
 spl_autoload_register(function($class) {
     require_once dirname(__DIR__).'/class/'.$class.'.class.php';
 });
@@ -16,6 +17,21 @@ if(isset($_POST['a']) && $_POST['a'] === 'logClientIn') {
         }
         else {
             echo 'TRUE';
+        }
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
+if(isset($_POST['a']) && $_POST['a'] === 'valideClient') {
+    $Client = new Clients();
+    try {
+        if($Client->valideClientAccount($_POST['data'])) {
+            echo 'TRUE';
+        }
+        else {
+            echo 'FALSE';
         }
     }
     catch (PDOException $e) {

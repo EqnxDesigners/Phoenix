@@ -39,11 +39,21 @@ class Users extends DB {
     
     /* METHODES */
     private function storeUserInSession($data) {
+        $_SESSION['user'] = array();
         $_SESSION['user']['iduser'] = $data->id;
         $_SESSION['user']['login'] = $data->login;
         $_SESSION['user']['user_name'] = $data->user_name;
         $_SESSION['user']['email'] = $data->email;
         $_SESSION['user']['level'] = $data->level;
+    }
+    
+    private function storeClientInSession($data) {
+        $_SESSION['client'] = array();
+        $_SESSION['client']['idclient'] = $data->id;
+        $_SESSION['client']['societe'] = $data->societe;
+        $_SESSION['client']['titre'] = $data->titre;
+        $_SESSION['client']['nom'] = $data->nom;
+        $_SESSION['client']['prenom'] = $data->prenom;
     }
     
     public function selectUserInfo($login, $password) {
@@ -66,7 +76,22 @@ class Users extends DB {
     
     public function selectClientInfo($login, $password) {
         try {
-            $sql = "SELECT * FROM clients WHERE email='".$login."' AND password='".md5($password)."'";
+            if($data = $this->getUserInDB('clients', $login, $password)) {
+                $this->storeClientInSession($data);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    private function getUserInDB($table, $login, $password) {
+        try {
+            $sql = "SELECT * FROM ".$table." WHERE email='".$login."' AND password='".md5($password)."'";
             return $this->execOneResultQuery($sql);
         }
         catch (PDOException $e) {

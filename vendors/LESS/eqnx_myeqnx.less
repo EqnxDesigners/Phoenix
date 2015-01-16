@@ -1,0 +1,149 @@
+//---------------------------------------------------------
+//    Author     : Jerome Clerc
+//    Project    : Equinoxe MIS Developement - back-end
+//    Description: Global LESS
+//---------------------------------------------------------
+
+//----- Imports -------------------------------------------
+@import "variables.less";
+@import "mixines.less";
+@import "fonts.less";
+
+//----- Variables -----------------------------------------
+
+
+//----- Globals -------------------------------------------
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.row {
+    max-width: 100%;
+}
+
+.masked {
+    display: none;
+}
+
+//----- Login ---------------------------------------------
+#login-box,
+#verif-box {
+    width: 320px;
+    margin: 80px auto 0;
+    padding: 22px 12px;
+    border: 1px solid #999;
+    text-align: center;
+    .box-shadow(5px, 5px, 10px, 0px, rgba(50,50,50,.25));
+    
+    form {
+        margin-top: 1rem;
+    }
+    
+    .nav {
+        a {
+            font-size: 0.8rem;
+        }
+    }
+}
+#verif-box {
+    width: 800px;
+    
+    h1, h2 {
+        border-bottom: 1px solid #999;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+        color: #999;
+        font-style: italic;
+        margin-top: 1rem;
+    }
+    
+    .notmatch {
+        background: @alert-ultra-light;
+    }
+    
+    .match {
+        background: @success-ultra-light;
+    }
+}
+.copyright {
+    font-size: 0.8rem;
+}
+
+//----- Main layout ---------------------------------------
+#top-bar {
+    background: @gray-ultra-dark;
+    position: fixed;
+    height: 50px;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    color: #fff;
+    
+    img {
+        width: 40%;
+        height: auto;
+        margin-top: 0.25rem;
+    }
+    
+    p {
+        margin: 0.65rem 0;
+    }
+    
+    .fa {
+        margin-top: 1rem;
+        cursor: pointer;
+        
+        &:hover {
+            color: @eqnx-red;
+        }
+    }
+}
+
+//----- Main menu -----------------------------------------
+#main-menu {
+    
+}
+
+//----- My Eqnx -------------------------------------------
+.content-wrap {
+    margin-top: 50px;
+}
+
+//----- Formulaire ----------------------------------------
+form {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        border-style: none;
+        border-width: 0;
+        border-color: @gray-lighter;
+        border: none;
+        border-bottom: 1px solid @gray-lighter;
+        box-shadow: none;
+        transition: none;
+        
+        &:focus {
+            background: white;
+            border: none;
+            border-bottom: 1px solid @gray-lighter;
+            box-shadow: none;
+        }
+    }
+}
+
+//---------------------------------------------------------
+//----- MEDIUM SCREENS ------------------------------------
+//---------------------------------------------------------
+@media only screen and (min-width: 40.063em) {
+    
+}
+
+//---------------------------------------------------------
+//----- LARGE SCREENS -------------------------------------
+//---------------------------------------------------------
+@media only screen and (min-width: 64.063em) {
+
+}
