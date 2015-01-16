@@ -121,7 +121,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.row {
+.wide-row {
   max-width: 100%;
 }
 .masked {
@@ -171,29 +171,87 @@
 #top-bar {
   background: #333333;
   position: fixed;
-  height: 50px;
+  height: 110px;
   top: 0;
   left: 0;
-  z-index: 100;
   color: #fff;
 }
 #top-bar img {
-  width: 40%;
-  height: auto;
-  margin-top: 0.25rem;
+  width: auto;
+  margin-top: 1.5rem;
+  height: 50px;
+  position: absolute;
 }
 #top-bar p {
-  margin: 0.65rem 0;
+  margin: 0rem 0;
+  text-align: right;
+  position: relative;
+  marign-right: 0;
+  margin-top: 0.5rem;
 }
 #top-bar .fa {
-  margin-top: 1rem;
   cursor: pointer;
 }
 #top-bar .fa:hover {
   color: #df2438;
 }
+.main-content {
+  margin-top: 110px;
+}
+.content {
+  padding: 1rem;
+}
+nav {
+  background: #333333;
+  padding: 1rem 0 2rem 0;
+}
+nav ul {
+  text-align: center;
+}
+nav ul li {
+  margin: 0 0.5rem ;
+  display: inline-block;
+}
+nav ul li a {
+  font-size: 1.5rem;
+  color: #cccccc;
+}
+nav ul li a:hover {
+  color: white;
+}
+nav ul li.active a {
+  color: white;
+}
+nav ul li.active a:after {
+  background: white;
+  content: "";
+  display: block;
+  height: 0.15rem;
+  margin: 0.1rem auto;
+  width: 3rem;
+}
 .content-wrap {
   margin-top: 50px;
+}
+.toolbox .tool-label ul {
+  margin: 0 !important;
+}
+.toolbox .tool-label ul li {
+  display: inline-block;
+}
+.toolbox .tool-search input {
+  height: 1.9rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.toolbox .filter {
+  padding: 0.2rem 0.5rem;
+  background: #2b9ccc;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+.toolbox .filter:hover {
+  cursor: pointer;
 }
 form input[type="text"],
 form input[type="password"],

@@ -54,17 +54,14 @@ class Layouts extends DB {
     }
     
     public function buildMyEqnxTopBar() {
-        $result =   '<section class="row" id="top-bar">
-                        <div class="small-2 columns">
+        $result =   '<header class="wide-row row" id="top-bar">
+                        <div class="small-12 columns">
                             <img src="images/logo_equinoxe_white.png">
-                        </div>
-                        <div class="small-6 columns">
+                            <p class="myeqnx">MyEqnx</p>
                             <p>Bienvenue, <strong>'.$_SESSION['client']['titre'].' '.strtoupper($_SESSION['client']['nom']).' '.$_SESSION['client']['prenom'].'</strong></p>
+                            <p><i class="fa fa-power-off" role="logout"></i></p>
                         </div>
-                        <div class="small-4 columns text-right">
-                            <i class="fa fa-power-off" role="logout"></i>
-                        </div>
-                    </section>';
+                    </header>';
         $this->renderHtml($result);
     }
     
