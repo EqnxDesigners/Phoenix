@@ -25,27 +25,11 @@ include_once dirname(__FILE__).'/config/header.meta.php';
 //----- Templates -----------------------------------------
 if(isset($_SESSION['user'])) {
     the_top_bar();
-
-//    if(isset($_GET['module'])) {
-//        the_main_menu($_GET['module']);
-//    }
-//    else {
-//        the_main_menu();
-//    }
-
-    echo '<div class="small-10 columns" id="main-wrapper">';
-
-    if(isset($_GET['module'])) {
-        displayModule($_GET['module']);
-    }
-    else {
-        displayModule();
-    }
-    echo '</div></section>';
+    include_once dirname(__FILE__).'/includes/myeqnx.inc.php';
 }
 else {
     clearUser();
-}
+}    
 
 //----- Footer meta datas ---------------------------------
 include_once dirname(__FILE__).'/config/footer.meta.php';

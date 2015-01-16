@@ -230,6 +230,43 @@ class Clients extends DB {
             throw new PDOException($e);
         }
     }
+    
+    private function insertClientPwd($data) {
+        try {
+            $sql = "UPDATE clients
+                    SET
+                    password='".md5($data['password'])."'
+                    WHERE id='".$data['iditem']."'";
+            $this->applyOneQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    public function valideClientAccount($data) {
+        try {
+            $this->updateClient($data);
+            
+            try {
+                $this->insertClientPwd($data);
+                
+                try {
+                    $this->delClientToken($data['iditem']);
+                    return true;
+                }
+                catch (PDOException $e) {
+                    throw new PDOException($e);
+                }
+            }
+            catch (PDOException $e) {
+                throw new PDOException($e);
+            }
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
 
     public function deleteItem($id) {
         try {
@@ -251,6 +288,16 @@ class Clients extends DB {
             catch (PDOException $e) {
                 throw new PDOException($e);
             }
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    private function delClientToken($id) {
+        try {
+            $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";
+            $this->applyOneQuery($sql);
         }
         catch (PDOException $e) {
             throw new PDOException($e);

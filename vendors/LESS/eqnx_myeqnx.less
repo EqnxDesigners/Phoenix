@@ -74,12 +74,19 @@
 
 //----- Main layout ---------------------------------------
 #top-bar {
+    background: @gray-ultra-dark;
     position: fixed;
     height: 50px;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 100;
     color: #fff;
+    
+    img {
+        width: 40%;
+        height: auto;
+        margin-top: 0.25rem;
+    }
     
     p {
         margin: 0.65rem 0;
@@ -94,190 +101,15 @@
         }
     }
 }
-//#main-menu {
-//    img {
-//        max-width: 80%;
-//        height: auto;
-//    }
-//}
-#top-bar,
-#main-menu {
-    background: @gray-ultra-dark;
-    position: fixed;
-    z-index: 1000;
-}
-#main-menu,
-#main-wrapper,
-.content {
-    height: 100%;
-}
-.content {
-    margin-top: 50px;
-}
 
 //----- Main menu -----------------------------------------
 #main-menu {
-    padding-right: 0;
-    padding-left: 0;
     
-    ul {
-        list-style-type: none;
-        margin-top: 2rem;
-        margin-left: 0;
-        
-        li {
-            padding: 0.1rem 0.8rem;
-            
-            a {
-                color: #fff;
-                text-decoration: none;
-                text-transform: uppercase;
-                font-size: 1.4rem;
-                cursor: pointer;
-
-                &:hover {
-                    color: @eqnx-red;
-                }
-            }
-        }
-        
-        .active {
-            background: @eqnx-gray-lighter;
-            position: relative;
-            
-            &:after {
-                left: 100%;
-                top: 50%;
-                border: solid transparent;
-                content: " ";
-                height: 0;
-                width: 0;
-                position: absolute;
-                pointer-events: none;
-                border-left-color: #c7c7c7;
-                border-width: 20px;
-                margin-top: -20px;
-                z-index: 100;
-            }
-        }
-    }
-    
-    .cat {
-        position: absolute;
-        bottom: 35px;
-    }
 }
 
-//----- Modules -------------------------------------------
-#module-wrapper {
-    padding: 0 2rem;
-    
-    h1 {
-        font-weight: bold;
-    }
-    
-    nav {
-        border-bottom: 1px solid @eqnx-gray-lighter;
-        margin-bottom: 1rem;
-        padding-bottom: 0.3rem;
-        
-        .btn {
-            font-size: 1.5rem;
-            cursor: pointer;
-
-            &:hover {
-                color: @eqnx-red;
-            }
-        }
-    }
-    
-    .masse-actions {
-        display: none;
-    }
-    
-    .empty-trash {
-        display: none;
-        margin: 0;
-        padding: 0.3rem 0.5rem;
-    }
-}
-
-#form-trad-wrapper {
-    position: relative;
-}
-
-.listing {
-    ul {
-        list-style-type: none;
-        margin-left: 0;
-        
-        li {
-            padding: 0.5rem 0;
-            position: relative;
-            line-height: 1.2rem;
-            
-            input[type="checkbox"] {
-                margin: 0;
-            }
-            
-            small {
-                color: @eqnx-red;
-            }
-            
-            &:hover {
-                background: @bg-hover;
-            }
-            
-            .toolbox {
-                height: 100%;
-                
-                .btn {
-                    font-size: 1.2rem;
-                    cursor: pointer;
-
-                    &:hover {
-                        color: @eqnx-red;
-                    }
-                }
-            }
-        }
-        
-        li.lst-header {
-            font-weight: bold;
-            border-bottom: 1px solid @gray-light;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
-            background: @gray-ultra-light;
-            
-            input {
-                margin: 0;
-            }
-        }
-    }
-    
-    .main-row {
-        .fa {
-            font-size: 0.8rem;
-            cursor: pointer;
-            color: @gray-dark;
-            
-            &:hover {
-                color: @eqnx-red;
-            }
-        }
-    }
-    
-    .sub-row {
-        font-weight: normal!important;
-        font-style: italic;
-        color: @gray-dark;
-        display: none;
-    }
-
-    .sub-row-title {
-        padding-left: 2rem;
-    }
-
+//----- My Eqnx -------------------------------------------
+.content-wrap {
+    margin-top: 50px;
 }
 
 //----- Formulaire ----------------------------------------
@@ -298,46 +130,6 @@ form {
             border: none;
             border-bottom: 1px solid @gray-lighter;
             box-shadow: none;
-        }
-    }
-}
-
-//----- Datepicker ----------------------------------------
-.ui-datepicker {
-    background: white;
-    border: 1px solid @gray-lighter;
-    padding: 0.5rem;
-    position: relative;
-    
-    .ui-datepicker-prev,
-    .ui-datepicker-next {
-        position: absolute;
-        top: 0;
-    }
-    .ui-datepicker-prev {
-        left: 8px;
-    }
-    .ui-datepicker-next {
-        right: 8px;
-    }
-    .ui-datepicker-header {
-        margin-top: 0.8rem;
-        text-align: center;
-    }
-    .ui-datepicker-today {
-        background: @gray-light;
-        color: white;
-        font-weight: bold;
-    }
-    table {
-        tbody {
-            tr {
-                td {
-                    &:hover {
-                        background: @gray-lighter;
-                    }
-                }
-            }
         }
     }
 }

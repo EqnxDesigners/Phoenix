@@ -1,4 +1,4 @@
-<div id="verif-box">
+<div id="login-box">
     <a href="http://www.equinoxemis.ch" title="Equinoxe MIS Development" target="_blank">
         <img src="images/logo_equinoxe.png" />
     </a>

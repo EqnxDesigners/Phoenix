@@ -87,17 +87,17 @@ catch (PDOException $e) {
         
         <div class="row" id="validation-pwd">
             <div class="small-6 columns">
-                <input type="password" placeholder="Mot de passe" id="mdp-ref">
+                <input type="password" name="password" placeholder="Mot de passe" id="mdp-ref">
             </div>
             <div class="small-6 columns">
-                <input type="password" placeholder="Confirmer le mot de passe" id="mdp-conf">
+                <input type="password" name="password-conf" placeholder="Confirmer le mot de passe" id="mdp-conf">
             </div>
         </div>
         
         <div class="row">
             <div class="small-12 columns text-right">
                 <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
-                <input type="hidden" name="idclient" value="<?php echo $client->id; ?>">
+                <input type="hidden" name="iditem" value="<?php echo $client->id; ?>">
                 <a id="valide-account" class="button success radius" disabled>Valider</a>
             </div>
         </div>

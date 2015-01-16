@@ -126,28 +126,26 @@ $(document).ready(function() {
         }
         
         if(ReadyToSend) {
-            var data = $('#form_valid input, #form_valid select');
-            console.log(data);
-//            $.post(urlAjax, {a: 'valideClient', data: data })
-//            .done(function(result) {
-//                console.log(result);
-//                if(result === 'FALSE') {
-//                    $('#form_login').prepend('<div data-alert class="alert-box alert radius">Incorrect !</div>');
-//                    hideAlert();
-//                }    
-//                else {
-//                    sessionStorage.setItem('clientlogged', 'true');
-//                    secureSynch();
-//                    location.href = 'index.php';
-//                }
-//            })
-//            .fail(function() {
-//                $('#form_login').prepend('<div data-alert class="alert-box alert radius">Une erreur est survenue...</div>');
-//                hideAlert();
-//            });
+            var data = {};
+            $('#form_valid input, #form_valid select').each(function() {
+                data[this.name] = this.value;
+            });
+            $.post(urlAjax, {a: 'valideClient', data: data })
+            .done(function(result) {
+                if(result === 'TRUE') {
+                    location.href = 'index.php';
+                }    
+                else {
+                    $('#form_valid').prepend('<div data-alert class="alert-box alert radius">Une erreur est survenue !</div>');
+                    hideAlert();
+                }
+            })
+            .fail(function() {
+                $('#form_valid').prepend('<div data-alert class="alert-box alert radius">Une erreur est survenue...</div>');
+                hideAlert();
+            });
         }
         else {
-            //Affichage des erreures
             $('#form_valid').prepend('<div data-alert class="alert-box alert radius">' + alerte + '</div>');
             hideAlert();
         }

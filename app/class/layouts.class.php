@@ -53,6 +53,21 @@ class Layouts extends DB {
         $this->renderHtml($result);
     }
     
+    public function buildMyEqnxTopBar() {
+        $result =   '<section class="row" id="top-bar">
+                        <div class="small-2 columns">
+                            <img src="images/logo_equinoxe_white.png">
+                        </div>
+                        <div class="small-6 columns">
+                            <p>Bienvenue, <strong>'.$_SESSION['client']['titre'].' '.strtoupper($_SESSION['client']['nom']).' '.$_SESSION['client']['prenom'].'</strong></p>
+                        </div>
+                        <div class="small-4 columns text-right">
+                            <i class="fa fa-power-off" role="logout"></i>
+                        </div>
+                    </section>';
+        $this->renderHtml($result);
+    }
+    
     public function buildMainMenu($module) {
         $this->defineDefaultModule($module);
         $result = '<section class="row content"><nav class="small-2 columns" id="main-menu"><img src="images/logo_equinoxe_white.png"><ul>';
