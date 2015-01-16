@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Ven 09 Janvier 2015 à 08:27
+-- Généré le :  Ven 16 Janvier 2015 à 11:17
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -13,6 +13,84 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `eqnxweb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients`
+--
+
+CREATE TABLE `clients` (
+`id` int(10) unsigned NOT NULL,
+  `societe` varchar(255) NOT NULL,
+  `titre` varchar(25) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(25) NOT NULL,
+  `fax` varchar(25) NOT NULL,
+  `mobile` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `clients`
+--
+
+INSERT INTO `clients` (`id`, `societe`, `titre`, `nom`, `prenom`, `email`, `telephone`, `fax`, `mobile`, `password`) VALUES
+(1, 'Equinoxe MIS Developpment', 'M.', 'Clerc', 'Jérôme', 'jclerc@eqnx.ch', '+41 21 693 89 38', '', '+41 79 649 64 64', '67efa23e1adf4678683c41302c88d88a'),
+(2, 'Pink Lama Crew', 'Mme', 'Pfänder', 'Aline', 'ap@eqnx.ch', '', '', '', ''),
+(3, 'SuperBox SA', 'Mme', 'Unetelle', 'Maria', 'super@mail.com', '0218003411', '079 649 64 64', '', ''),
+(18, 'MaBoite', 'M.', 'Bolomet', 'Paul', 'mon@mail.ch', '021 800 37 11', '', '079 649 64 64', ''),
+(20, 'NouvelleSociete SA', 'Mme', 'Pahud', 'Micheline', 'super@mail.com', '021 800 37 11', '021 800 37 12', '079 649 64 64', '81dc9bdb52d04dc20036dbd8313ed055');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients_tokens`
+--
+
+CREATE TABLE `clients_tokens` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL,
+  `token` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `clients_tokens`
+--
+
+INSERT INTO `clients_tokens` (`id`, `id_client`, `token`) VALUES
+(14, 18, 'z5pASTnASrjquUW29HS0xCz5LGr8WA7lsjLb3XzIeGXxpHone5nAvMu7hJ24');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients_videos_docs`
+--
+
+CREATE TABLE `clients_videos_docs` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL,
+  `id_media` int(10) unsigned NOT NULL,
+  `type_media` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `docs`
+--
+
+CREATE TABLE `docs` (
+`id` int(10) unsigned NOT NULL,
+  `doc` varchar(255) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `descriptif` text NOT NULL,
+  `date_publi` datetime NOT NULL,
+  `active` int(10) unsigned NOT NULL,
+  `private` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -49,7 +127,7 @@ CREATE TABLE `news` (
   `date_end` datetime NOT NULL,
   `date_update` datetime NOT NULL,
   `status` int(11) NOT NULL COMMENT '0 = inactif / 1 = actif / 2 = archive / 3 = supprime / 4 = brouillon'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `news`
@@ -59,8 +137,7 @@ INSERT INTO `news` (`id`, `date_publi`, `date_start`, `date_end`, `date_update`,
 (9, '2015-01-06 11:01:34', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-01-06 15:01:59', 1),
 (11, '2015-01-06 13:01:00', '0000-00-00 00:00:00', '2008-01-20 15:00:00', '2015-01-06 15:01:06', 1),
 (12, '2015-01-06 13:01:51', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-01-06 13:01:51', 1),
-(13, '2015-01-06 13:01:44', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-01-06 13:01:44', 1),
-(14, '2015-01-07 07:01:58', '2015-01-07 07:01:52', '2015-01-12 07:01:52', '2015-01-07 07:01:52', 3);
+(13, '2015-01-06 13:01:44', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-01-06 13:01:44', 1);
 
 -- --------------------------------------------------------
 
@@ -75,7 +152,7 @@ CREATE TABLE `news_trad` (
   `title` varchar(255) NOT NULL,
   `sub_title` varchar(255) NOT NULL,
   `content` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `news_trad`
@@ -94,8 +171,7 @@ INSERT INTO `news_trad` (`id`, `id_news`, `id_lang`, `title`, `sub_title`, `cont
 (33, 12, 2, 'IS-Academia passe à la vitesse supérieure !', '', '<p>Fromage frais brie emmental. Cheddar everyone loves pepper jack taleggio the big cheese emmental airedale queso. Gouda cheese triangles swiss airedale fromage rubber cheese edam fromage frais. Queso fondue red leicester dolcelatte.</p>\r\n<p>Cheeseburger edam lancashire. Cheesy grin bocconcini croque monsieur cheese slices dolcelatte cheesy grin bavarian bergkase cheese on toast. Airedale cottage cheese cheese on toast croque monsieur smelly cheese bocconcini goat cheesy feet. Cheddar croque monsieur pepper jack danish fontina.</p>\r\n<p>Stinking bishop macaroni cheese cheese triangles. Chalk and cheese mascarpone edam taleggio port-salut manchego cut the cheese brie. Pecorino cheddar cheeseburger jarlsberg cheesy grin hard cheese croque monsieur fromage frais. Bocconcini monterey jack monterey jack.</p>\r\n<p>Edam melted cheese cheesecake. When the cheese comes out everybody''s happy port-salut cheese slices queso cheesecake cheese strings cheddar feta. Cheese strings halloumi cow boursin blue castello melted cheese cauliflower cheese cheesecake. Cheese slices dolcelatte squirty cheese the big cheese cheesy grin.</p>\r\n<p>Halloumi fromage frais emmental. Cheese and biscuits lancashire airedale goat fondue chalk and cheese fromage frais fondue. Cheese triangles dolcelatte jarlsberg taleggio cheese and wine cottage cheese feta say cheese. Cow mozzarella everyone loves paneer blue castello stinking bishop.</p>'),
 (34, 12, 3, 'IS-Academia passe à la vitesse supérieure !', '', '<p>Fromage frais brie emmental. Cheddar everyone loves pepper jack taleggio the big cheese emmental airedale queso. Gouda cheese triangles swiss airedale fromage rubber cheese edam fromage frais. Queso fondue red leicester dolcelatte.</p>\r\n<p>Cheeseburger edam lancashire. Cheesy grin bocconcini croque monsieur cheese slices dolcelatte cheesy grin bavarian bergkase cheese on toast. Airedale cottage cheese cheese on toast croque monsieur smelly cheese bocconcini goat cheesy feet. Cheddar croque monsieur pepper jack danish fontina.</p>\r\n<p>Stinking bishop macaroni cheese cheese triangles. Chalk and cheese mascarpone edam taleggio port-salut manchego cut the cheese brie. Pecorino cheddar cheeseburger jarlsberg cheesy grin hard cheese croque monsieur fromage frais. Bocconcini monterey jack monterey jack.</p>\r\n<p>Edam melted cheese cheesecake. When the cheese comes out everybody''s happy port-salut cheese slices queso cheesecake cheese strings cheddar feta. Cheese strings halloumi cow boursin blue castello melted cheese cauliflower cheese cheesecake. Cheese slices dolcelatte squirty cheese the big cheese cheesy grin.</p>\r\n<p>Halloumi fromage frais emmental. Cheese and biscuits lancashire airedale goat fondue chalk and cheese fromage frais fondue. Cheese triangles dolcelatte jarlsberg taleggio cheese and wine cottage cheese feta say cheese. Cow mozzarella everyone loves paneer blue castello stinking bishop.</p>'),
 (35, 12, 4, 'IS-Academia passe à la vitesse supérieure !', '', '<p>Fromage frais brie emmental. Cheddar everyone loves pepper jack taleggio the big cheese emmental airedale queso. Gouda cheese triangles swiss airedale fromage rubber cheese edam fromage frais. Queso fondue red leicester dolcelatte.</p>\r\n<p>Cheeseburger edam lancashire. Cheesy grin bocconcini croque monsieur cheese slices dolcelatte cheesy grin bavarian bergkase cheese on toast. Airedale cottage cheese cheese on toast croque monsieur smelly cheese bocconcini goat cheesy feet. Cheddar croque monsieur pepper jack danish fontina.</p>\r\n<p>Stinking bishop macaroni cheese cheese triangles. Chalk and cheese mascarpone edam taleggio port-salut manchego cut the cheese brie. Pecorino cheddar cheeseburger jarlsberg cheesy grin hard cheese croque monsieur fromage frais. Bocconcini monterey jack monterey jack.</p>\r\n<p>Edam melted cheese cheesecake. When the cheese comes out everybody''s happy port-salut cheese slices queso cheesecake cheese strings cheddar feta. Cheese strings halloumi cow boursin blue castello melted cheese cauliflower cheese cheesecake. Cheese slices dolcelatte squirty cheese the big cheese cheesy grin.</p>\r\n<p>Halloumi fromage frais emmental. Cheese and biscuits lancashire airedale goat fondue chalk and cheese fromage frais fondue. Cheese triangles dolcelatte jarlsberg taleggio cheese and wine cottage cheese feta say cheese. Cow mozzarella everyone loves paneer blue castello stinking bishop.</p>'),
-(36, 13, 3, 'New stuff in IS-Academia', '', '<p><span class="first-sentence">Backing innovator investor partnership product management.</span> Seed round growth hacking scrum project customer alpha paradigm shift user experience partnership product management seed money early adopters research &amp; development focus crowdsource. Business model canvas assets leverage buzz handshake advisor alpha first mover advantage churn rate pivot. Venture analytics supply chain influencer network effects channels. Angel investor leverage focus responsive web design churn rate validation return on investment release success holy grail. Bootstrapping user experience business plan.</p>\r\n<p>Market strategy venture. Market series A financing equity strategy network effects iPhone leverage partnership freemium niche market www.discoverartisans.com. Accelerator www.discoverartisans.com virality twitter. Ecosystem MVP seed money crowdsource scrum project deployment niche market twitter research &amp; development lean startup paradigm shift. Backing seed round partnership MVP long tail partner network entrepreneur startup traction business plan prototype churn rate. Stealth crowdfunding first mover advantage churn rate metrics.</p>\r\n<p>Product management venture entrepreneur series A financing value proposition. Buzz gamification seed money return on investment focus. Technology launch party branding gen-z return on investment. Prototype return on investment low hanging fruit learning curve branding iPad. Mass market market creative startup venture www.discoverartisans.com crowdsource social media analytics assets non-disclosure agreement low hanging fruit. Virality bandwidth ecosystem infographic business model canvas scrum project influencer mass market interaction design vesting period gen-z branding holy grail.</p>'),
-(37, 14, 1, 'Test', '', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut posuere libero. Integer aliquam diam vitae tellus semper, nec finibus velit porta. Aliquam eu ex mattis, auctor augue non, efficitur libero. Donec nibh turpis, blandit sed eleifend in, accumsan ut sapien. Etiam egestas lectus eu nisl egestas, hendrerit malesuada sem consequat. Nullam efficitur hendrerit lorem, a consectetur sem accumsan vel. Ut eros leo, feugiat quis lectus nec, viverra iaculis nibh.</p>\r\n<p>Curabitur lorem nisl, ornare vitae hendrerit sed, commodo sit amet lacus. Phasellus ut dui vel lorem suscipit blandit vel eget sapien. Quisque pharetra velit orci, id tempus elit malesuada ut. Praesent eget ex et ante commodo fermentum sit amet vitae purus. Fusce eu mi odio. Praesent vitae nibh vitae est vestibulum convallis. Integer vitae odio sit amet velit dignissim maximus. Sed bibendum sollicitudin tortor, nec consectetur massa rutrum suscipit. Curabitur laoreet placerat risus eu sodales. Nulla sed condimentum quam, ac imperdiet elit. Vestibulum neque massa, tincidunt vel iaculis sed, vulputate non orci. Cras quis facilisis nibh, ut egestas metus. Praesent nec lacinia dolor, et euismod ligula. Nulla eu ligula tempor ipsum egestas luctus. Nunc suscipit ante quis nibh vestibulum, non imperdiet mi pellentesque.</p>');
+(36, 13, 3, 'New stuff in IS-Academia', '', '<p><span class="first-sentence">Backing innovator investor partnership product management.</span> Seed round growth hacking scrum project customer alpha paradigm shift user experience partnership product management seed money early adopters research &amp; development focus crowdsource. Business model canvas assets leverage buzz handshake advisor alpha first mover advantage churn rate pivot. Venture analytics supply chain influencer network effects channels. Angel investor leverage focus responsive web design churn rate validation return on investment release success holy grail. Bootstrapping user experience business plan.</p>\r\n<p>Market strategy venture. Market series A financing equity strategy network effects iPhone leverage partnership freemium niche market www.discoverartisans.com. Accelerator www.discoverartisans.com virality twitter. Ecosystem MVP seed money crowdsource scrum project deployment niche market twitter research &amp; development lean startup paradigm shift. Backing seed round partnership MVP long tail partner network entrepreneur startup traction business plan prototype churn rate. Stealth crowdfunding first mover advantage churn rate metrics.</p>\r\n<p>Product management venture entrepreneur series A financing value proposition. Buzz gamification seed money return on investment focus. Technology launch party branding gen-z return on investment. Prototype return on investment low hanging fruit learning curve branding iPad. Mass market market creative startup venture www.discoverartisans.com crowdsource social media analytics assets non-disclosure agreement low hanging fruit. Virality bandwidth ecosystem infographic business model canvas scrum project influencer mass market interaction design vesting period gen-z branding holy grail.</p>');
 
 -- --------------------------------------------------------
 
@@ -109,7 +185,7 @@ CREATE TABLE `options` (
   `type` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `options`
@@ -117,7 +193,8 @@ CREATE TABLE `options` (
 
 INSERT INTO `options` (`id`, `label`, `type`, `value`, `code`) VALUES
 (1, 'Formulaire d''inscription au séminaire', 'bool', '1', 'FORM_INSCR_SEMIN'),
-(2, 'Variable test', 'str', 'texte exemple', 'VAR_TEST');
+(2, 'Variable test', 'str', 'texte exemple', 'VAR_TEST'),
+(3, 'Une variable string', 'str', 'La string de ma variable', 'VAR_TEST_1');
 
 -- --------------------------------------------------------
 
@@ -142,9 +219,49 @@ INSERT INTO `users` (`id`, `login`, `password`, `user_name`, `email`, `level`) V
 (1, 'admin', '8cc5ad3bc45f8f15dd3cb34ffd279e32', 'Pink Lama Unicorn Crew', 'jclerc@eqnx.ch', 0),
 (2, 'sven', '81dc9bdb52d04dc20036dbd8313ed055', 'Sven PLUG', 'sp@eqnx.ch', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `videos`
+--
+
+CREATE TABLE `videos` (
+`id` int(10) unsigned NOT NULL,
+  `video` varchar(255) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `descriptif` text NOT NULL,
+  `date_publi` datetime NOT NULL,
+  `active` int(10) unsigned NOT NULL,
+  `private` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `clients`
+--
+ALTER TABLE `clients`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `clients_tokens`
+--
+ALTER TABLE `clients_tokens`
+ ADD PRIMARY KEY (`id`), ADD KEY `id_client` (`id_client`);
+
+--
+-- Index pour la table `clients_videos_docs`
+--
+ALTER TABLE `clients_videos_docs`
+ ADD PRIMARY KEY (`id`), ADD KEY `id_client` (`id_client`,`id_media`);
+
+--
+-- Index pour la table `docs`
+--
+ALTER TABLE `docs`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `langues`
@@ -177,9 +294,35 @@ ALTER TABLE `users`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `videos`
+--
+ALTER TABLE `videos`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `clients`
+--
+ALTER TABLE `clients`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT pour la table `clients_tokens`
+--
+ALTER TABLE `clients_tokens`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT pour la table `clients_videos_docs`
+--
+ALTER TABLE `clients_videos_docs`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `docs`
+--
+ALTER TABLE `docs`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `langues`
 --
@@ -189,19 +332,24 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `news_trad`
 --
 ALTER TABLE `news_trad`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `videos`
+--
+ALTER TABLE `videos`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
