@@ -256,6 +256,62 @@
     }
 
 }
+#file-uploader {
+    display: none;
+    
+    #dropArea {
+        background-color: @gray-ultra-light;
+        border: 1px solid @gray-lighter;
+        font-size: 2em;
+        font-weight: bold;
+        height: 300px;
+        line-height: 300px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        &:hover {
+            background-color: @warning-ultra-light;
+        }
+
+        &:uploading {
+            background: #eeeeee url(loading.gif) center 30% no-repeat;
+        }
+    }
+    #result .s,
+    #result .f {
+        font-size: 12px;
+        margin-bottom: 10px;
+        padding: 10px;
+        .rounded-corners(10px)
+    }
+    #result .s {
+        background-color: #5cb85c;
+    }
+    #result .f {
+        background-color: #d9534f;
+    }
+    .info {
+        margin-top: 1rem;
+    }
+    label {
+        font-size: 0.8rem;
+        color: @gray-light;
+        font-style: italic;
+    }
+    .progress-bar {
+        display: none;
+        width: 0%;
+        height: 20px;
+        background: @success-ultra-light;
+        border: 1px solid @success-lighter;
+        text-align: center;
+        color: @gray-dark;
+        font-size: 0.7rem;
+        line-height: 1.1rem;
+    }
+}
+
 
 //----- Formulaire ----------------------------------------
 form {

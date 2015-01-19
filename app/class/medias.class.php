@@ -78,52 +78,52 @@ class Medias extends DB {
         return $result;
     }
     
-    public function buildEditForm($id) {
-        try {
-            $client = $this->getClientById($id);
-            $result =   '<form name="form_edit" action="modules/clients/ajax.php" method="post" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="small-12 columns">
-                                    <input type="text" name="societe" placeholder="Société" value="'.$client->societe.'" list="societe-in-db" autocomplete="off" >';
-            $result .=              $this->buildAutoCompleteLst('societe-in-db');
-            $result .=  '       </div>
-                                <div class="small-2 columns">
-                                    <select name="titre">';
-            $result .=  '               <option value="'.$client->titre.'">'.($client->titre === 'M.' ? 'Monsieur' : 'Madame').'</option>';
-            $result .=  '               <option value="M.">Monsieur</option>
-                                        <option value="Mme">Madame</option>
-                                    </select>
-                                </div>
-                                <div class="small-5 columns">
-                                    <input type="text" name="nom" placeholder="Nom" value="'.$client->nom.'">
-                                </div>
-                                <div class="small-5 columns">
-                                    <input type="text" name="prenom" placeholder="Prénom" value="'.$client->prenom.'">
-                                </div>
-                                <div class="small-6 columns" >
-                                    <input type="email" name="email" placeholder="E-mail" value="'.$client->email.'" required="required">
-                                </div>
-                                <div class="small-6 columns">
-                                    <input type="text" name="telephone" placeholder="Téléphone" value="'.$client->telephone.'" pattern="[0-9\s]*">
-                                </div>
-                                <div class="small-6 columns">
-                                    <input type="text" name="mobile" placeholder="Mobile" value="'.$client->fax.'" pattern="[0-9\s]*">
-                                </div>
-                                <div class="small-6 columns">
-                                    <input type="text" name="fax" placeholder="Fax" value="'.$client->mobile.'" pattern="[0-9\s]*">
-                                </div>
-                                <div class="small-12 columns text-right">
-                                    <input type="hidden" name="iditem" value="'.$id.'">
-                                    <input type="submit" class="button success" name="majitem" value="Modifier">
-                                </div>
-                            </div>
-                        </form>';
-            return $result;
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
+//    public function buildEditForm($id) {
+//        try {
+//            $client = $this->getClientById($id);
+//            $result =   '<form name="form_edit" action="modules/clients/ajax.php" method="post" enctype="multipart/form-data">
+//                            <div class="row">
+//                                <div class="small-12 columns">
+//                                    <input type="text" name="societe" placeholder="Société" value="'.$client->societe.'" list="societe-in-db" autocomplete="off" >';
+//            $result .=              $this->buildAutoCompleteLst('societe-in-db');
+//            $result .=  '       </div>
+//                                <div class="small-2 columns">
+//                                    <select name="titre">';
+//            $result .=  '               <option value="'.$client->titre.'">'.($client->titre === 'M.' ? 'Monsieur' : 'Madame').'</option>';
+//            $result .=  '               <option value="M.">Monsieur</option>
+//                                        <option value="Mme">Madame</option>
+//                                    </select>
+//                                </div>
+//                                <div class="small-5 columns">
+//                                    <input type="text" name="nom" placeholder="Nom" value="'.$client->nom.'">
+//                                </div>
+//                                <div class="small-5 columns">
+//                                    <input type="text" name="prenom" placeholder="Prénom" value="'.$client->prenom.'">
+//                                </div>
+//                                <div class="small-6 columns" >
+//                                    <input type="email" name="email" placeholder="E-mail" value="'.$client->email.'" required="required">
+//                                </div>
+//                                <div class="small-6 columns">
+//                                    <input type="text" name="telephone" placeholder="Téléphone" value="'.$client->telephone.'" pattern="[0-9\s]*">
+//                                </div>
+//                                <div class="small-6 columns">
+//                                    <input type="text" name="mobile" placeholder="Mobile" value="'.$client->fax.'" pattern="[0-9\s]*">
+//                                </div>
+//                                <div class="small-6 columns">
+//                                    <input type="text" name="fax" placeholder="Fax" value="'.$client->mobile.'" pattern="[0-9\s]*">
+//                                </div>
+//                                <div class="small-12 columns text-right">
+//                                    <input type="hidden" name="iditem" value="'.$id.'">
+//                                    <input type="submit" class="button success" name="majitem" value="Modifier">
+//                                </div>
+//                            </div>
+//                        </form>';
+//            return $result;
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
     
     private function buildToolBox($item) {
         $result = '';
@@ -148,161 +148,19 @@ class Medias extends DB {
         }
     }
     
-    private function getClientById($id) {
-        try {
-            $sql = "SELECT *
-                    FROM clients
-                    WHERE id='".$id."'";
-            return $this->execOneResultQuery($sql);
+    public function selectCategories($current = null) {
+        $result = '<select name="categorie">';
+        $result .= ($current === null ? '<option value="xxx" selected>Choisir une catégorie</option>' : '<option value="'.$current.'" selected>'.$this->getCategorieById($current)->categorie.'</option>');
+        foreach($this->getCategories() as $k => $cat) {
+            $result .= '<option value="'.$cat->id.'">'.$cat->categorie.'</option>';
         }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-    
-    public function getClientByToken($token) {
-        try {
-            $sql = "SELECT clients.id, societe, titre, nom, prenom, email, telephone, fax, mobile
-                    FROM clients
-                    INNER JOIN clients_tokens ON clients_tokens.id_client = clients.id
-                    WHERE clients_tokens.token='".$token."'";
-            return $this->execOneResultQuery($sql);
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-
-    public function addClient($data) {
-        try {
-            $sql = "INSERT INTO clients (societe,titre,nom,prenom,email,telephone,fax,mobile) 
-                    VALUES ('".addslashes($data['societe'])."',
-                            '".$data['titre']."',
-                            '".addslashes($data['nom'])."',
-                            '".addslashes($data['prenom'])."',
-                            '".$data['email']."',
-                            '".$data['telephone']."',
-                            '".$data['fax']."',
-                            '".$data['mobile']."')";
-            $id = $this->applyQueryWithLastId($sql);
-            
-            return $this->insertToken($id);
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-    
-    public function updateClient($data) {
-        try {
-            $sql = "UPDATE clients
-                    SET
-                    societe='".addslashes($data['societe'])."',
-                    titre='".$data['titre']."',
-                    nom='".addslashes($data['nom'])."',
-                    prenom='".addslashes($data['prenom'])."',
-                    email='".$data['email']."',
-                    telephone='".$data['telephone']."',
-                    fax='".$data['fax']."',
-                    mobile='".$data['mobile']."'
-                    WHERE id='".$data['iditem']."'";
-            $this->applyOneQuery($sql);
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-    
-    private function insertClientPwd($data) {
-        try {
-            $sql = "UPDATE clients
-                    SET
-                    password='".md5($data['password'])."'
-                    WHERE id='".$data['iditem']."'";
-            $this->applyOneQuery($sql);
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-    
-    public function valideClientAccount($data) {
-        try {
-            $this->updateClient($data);
-            
-            try {
-                $this->insertClientPwd($data);
-                
-                try {
-                    $this->delClientToken($data['iditem']);
-                    return true;
-                }
-                catch (PDOException $e) {
-                    throw new PDOException($e);
-                }
-            }
-            catch (PDOException $e) {
-                throw new PDOException($e);
-            }
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-
-    public function deleteItem($id) {
-        try {
-            $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";
-            $this->applyOneQuery($sql);
-            
-            try {
-                $sql = "DELETE FROM clients_docs WHERE id_client='".$id."'";
-                $this->applyOneQuery($sql);
-                
-                try {
-                    $sql = "DELETE FROM clients WHERE id='".$id."'";
-                    $this->applyOneQuery($sql);
-                }
-                catch (PDOException $e) {
-                    throw new PDOException($e);
-                }
-            }
-            catch (PDOException $e) {
-                throw new PDOException($e);
-            }
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-    
-    private function delClientToken($id) {
-        try {
-            $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";
-            $this->applyOneQuery($sql);
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-    
-    public function buildAutoCompleteLst($id) {
-        $result = '<datalist id="'.$id.'">';
-        try {
-            foreach($this->getAutoCompleteItems() as $k => $item) {
-                $result .= '<option value="'.$item->societe.'">';
-            }
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-        $result .= '</datalist>';
+        $result .= '</select>';
         return $result;
     }
     
-    private function getAutoCompleteItems() {
+    private function getCategories() {
         try {
-            $sql = "SELECT DISTINCT societe FROM clients ORDER BY societe ASC";
+            $sql = "SELECT * FROM categories_medias ORDER BY categorie ASC";
             return $this->execQuery($sql);
         }
         catch (PDOException $e) {
@@ -310,20 +168,191 @@ class Medias extends DB {
         }
     }
     
-    private function insertToken($id) {
+    private function getCategorieById($id) {
         try {
-            $token = $this->buildSecureToken();
-            $sql = "INSERT INTO clients_tokens (id_client,token) 
-                    VALUES ('".$id."',
-                            '".$token."')";
-            $this->applyOneQuery($sql);
-            
-            return $token;
+            $sql = "SELECT * FROM categories_medias WHERE id = '".$id."'";
+            return $this->execOneResultQuery($sql);
         }
         catch (PDOException $e) {
             throw new PDOException($e);
         }
     }
+    
+    public function addItem($data, $table) {
+        echo 'Valeures recuent par la Class Medias<br>';
+        var_dump($data);
+        try {
+            $sql = "INSERT INTO ".$table." (id_categorie,doc,titre,descriptif,date_publi,active,private) 
+                    VALUES ('".$data['categorie']."',
+                            '".$data['file_name']."',
+                            '".addslashes($data['titre'])."',
+                            '".addslashes($data['descriptif'])."',
+                            '".$this->setDateTimeNow()."',
+                            '1',
+                            '".$data['private']."')";
+            $this->applyOneQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+//    private function getClientById($id) {
+//        try {
+//            $sql = "SELECT *
+//                    FROM clients
+//                    WHERE id='".$id."'";
+//            return $this->execOneResultQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    public function getClientByToken($token) {
+//        try {
+//            $sql = "SELECT clients.id, societe, titre, nom, prenom, email, telephone, fax, mobile
+//                    FROM clients
+//                    INNER JOIN clients_tokens ON clients_tokens.id_client = clients.id
+//                    WHERE clients_tokens.token='".$token."'";
+//            return $this->execOneResultQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    public function updateClient($data) {
+//        try {
+//            $sql = "UPDATE clients
+//                    SET
+//                    societe='".addslashes($data['societe'])."',
+//                    titre='".$data['titre']."',
+//                    nom='".addslashes($data['nom'])."',
+//                    prenom='".addslashes($data['prenom'])."',
+//                    email='".$data['email']."',
+//                    telephone='".$data['telephone']."',
+//                    fax='".$data['fax']."',
+//                    mobile='".$data['mobile']."'
+//                    WHERE id='".$data['iditem']."'";
+//            $this->applyOneQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    private function insertClientPwd($data) {
+//        try {
+//            $sql = "UPDATE clients
+//                    SET
+//                    password='".md5($data['password'])."'
+//                    WHERE id='".$data['iditem']."'";
+//            $this->applyOneQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    public function valideClientAccount($data) {
+//        try {
+//            $this->updateClient($data);
+//            
+//            try {
+//                $this->insertClientPwd($data);
+//                
+//                try {
+//                    $this->delClientToken($data['iditem']);
+//                    return true;
+//                }
+//                catch (PDOException $e) {
+//                    throw new PDOException($e);
+//                }
+//            }
+//            catch (PDOException $e) {
+//                throw new PDOException($e);
+//            }
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+
+//    public function deleteItem($id) {
+//        try {
+//            $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";
+//            $this->applyOneQuery($sql);
+//            
+//            try {
+//                $sql = "DELETE FROM clients_docs WHERE id_client='".$id."'";
+//                $this->applyOneQuery($sql);
+//                
+//                try {
+//                    $sql = "DELETE FROM clients WHERE id='".$id."'";
+//                    $this->applyOneQuery($sql);
+//                }
+//                catch (PDOException $e) {
+//                    throw new PDOException($e);
+//                }
+//            }
+//            catch (PDOException $e) {
+//                throw new PDOException($e);
+//            }
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    private function delClientToken($id) {
+//        try {
+//            $sql = "DELETE FROM clients_tokens WHERE id_client='".$id."'";
+//            $this->applyOneQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    public function buildAutoCompleteLst($id) {
+//        $result = '<datalist id="'.$id.'">';
+//        try {
+//            foreach($this->getAutoCompleteItems() as $k => $item) {
+//                $result .= '<option value="'.$item->societe.'">';
+//            }
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//        $result .= '</datalist>';
+//        return $result;
+//    }
+    
+//    private function getAutoCompleteItems() {
+//        try {
+//            $sql = "SELECT DISTINCT societe FROM clients ORDER BY societe ASC";
+//            return $this->execQuery($sql);
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
+    
+//    private function insertToken($id) {
+//        try {
+//            $token = $this->buildSecureToken();
+//            $sql = "INSERT INTO clients_tokens (id_client,token) 
+//                    VALUES ('".$id."',
+//                            '".$token."')";
+//            $this->applyOneQuery($sql);
+//            
+//            return $token;
+//        }
+//        catch (PDOException $e) {
+//            throw new PDOException($e);
+//        }
+//    }
     
     public function __destruct() {
            

@@ -18,11 +18,65 @@
         </div>
         
         <div class="small-12 columns masked" id="wrapper-adding">
-            <form name="form_add" action="modules/clients/ajax.php" method="post" enctype="multipart/form-data">
+            <form name="form_add" action="modules/documents/ajax.php" method="post" enctype="multipart/form-data">
+               <div class="row">
+                   <div class="small-6 columns">
+                       <div class="row">
+                           <div class="small-12 columns">
+                               <input type="text" name="titre" placeholder="Titre">
+                           </div>
+                           <div class="small-12 columns">
+                               <textarea name="descriptif" placeholder="Descriptif" rows="6"></textarea>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="small-6 columns">
+                       <div class="row">
+                            <div class="small-12 columns">
+                                <?php selectCategories(); ?>
+                            </div>
+                            <div id="file-uploader">
+                                <div class="small-12 columns">
+                                    <div class="row">
+                                        <div class="small-12 columns">
+                                            <label style="margin-top:1rem;">Glissez – déposez votre fichier (max 20 Mo)</label>
+                                        </div>
+                                        <div class="small-12 columns upload_form_cont">
+                                            <div id="dropArea" class="text-center">Zone de drop</div>
+                                        </div>
+                                        <div class="small-12 columns">
+                                            <input type="checkbox" name="private" value="1">&nbsp;Cette images est privée ?
+                                        </div>
+                                        <div class="small-12 columns">
+                                            <div class="info">
+                                                <div><input type="hidden" id="script_url" value="modules/documents/upload.php"/></div>
+                                                <div><input type="hidden" id="url" value="modules/documents/upload.php"/></div>
+                                                <div class="progress-bar" id="progress-bar"></div>
+                                                <div id="result"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-12 columns text-center">
+                                    ou
+                                </div>
+                               <div class="small-12 columns">
+                                    <input type="file" name="media">
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="small-12 columns text-right">
+                        <input type="hidden" name="file_name" value="">
+                        <input type="reset" class="button alert" name="clear-forms" value="Annuler">
+                        <input type="submit" class="button success" name="publish" value="Ajouter">
+                   </div>
+               </div>
+               
+<!--
                 <div class="row">
                     <div class="small-12 columns">
                         <input type="text" name="societe" placeholder="Société" list="societe-in-db" autocomplete="off">
-                        <?php autocomplete('societe-in-db'); ?>
                     </div>
                     <div class="small-2 columns">
                         <select name="titre">
@@ -31,7 +85,7 @@
                         </select>
                     </div>
                     <div class="small-5 columns">
-                        <input type="text" name="nom" placeholder="Nom">
+                        
                     </div>
                     <div class="small-5 columns">
                         <input type="text" name="prenom" placeholder="Prénom">
@@ -53,6 +107,7 @@
                         <input type="submit" class="button success" name="publish" value="Ajouter">
                     </div>
                 </div>
+-->
             </form>
         </div>
         
@@ -63,4 +118,4 @@
     </section>
 </section>
 
-<script src="modules/config/module.js"></script>
+<script src="modules/documents/module.js"></script>

@@ -10,10 +10,20 @@ function the_Listing() {
     }
 }
 
-function autocomplete($id) {
-    $Client = new Clients();
-    echo $Client->buildAutoCompleteLst($id);
+function selectCategories() {
+    $Media = new Medias();
+    try {
+        echo $Media->selectCategories();
+    }
+    catch (PDOException $e) {
+        echo 'ERREUR : '.$e;
+    }
 }
+
+//function autocomplete($id) {
+//    $Client = new Clients();
+//    echo $Client->buildAutoCompleteLst($id);
+//}
 
 function display_alert() {
     if(isset($_GET['alert'])) {
