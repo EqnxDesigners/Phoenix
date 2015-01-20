@@ -21,6 +21,7 @@
             ?>
         </div>
     </div>
+<!--
 
     <div class="row bloc-description blanc">
         <div class="small-12 columns">
@@ -47,6 +48,7 @@
             </div>
         </div>
     </div>
+-->
 
 </div>
 <!-- END CONTENT -->
