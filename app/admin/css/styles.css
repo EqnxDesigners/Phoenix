@@ -279,16 +279,6 @@
 .listing ul li .toolbox .btn:hover {
   color: #df2438;
 }
-.listing ul li.lst-header {
-  font-weight: bold;
-  border-bottom: 1px solid #cccccc;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0;
-  background: #f2f2f2;
-}
-.listing ul li.lst-header input {
-  margin: 0;
-}
 .listing .main-row .fa {
   font-size: 0.8rem;
   cursor: pointer;
@@ -305,6 +295,16 @@
 }
 .listing .sub-row-title {
   padding-left: 2rem;
+}
+.lst-header {
+  font-weight: bold;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  background: #f2f2f2;
+}
+.lst-header input {
+  margin: 0;
 }
 #file-uploader {
   display: none;
@@ -366,9 +366,41 @@
   position: absolute;
   width: 80%;
   top: 136px;
-  left: 17px;
+  left: -1500px;
+}
+.overlayed-panel .lst-header {
+  padding: 0.5rem 1rem;
+}
+.overlayed-panel .btn {
+  cursor: pointer;
+}
+.overlayed-panel .btn:hover {
+  color: #df2438;
+}
+.overlayed-panel #wrapper-sharing {
   background: #f2f2f2;
-  background: red;
+  background: white;
+  border: 1px solid #cccccc;
+}
+#Container .mix {
+  display: none;
+  padding: 0.2rem 1.2rem;
+}
+#Container .mix .row {
+  background: #f2f2f2;
+  padding: 0.5rem 0.1rem;
+}
+#Container .mix .row:hover {
+  background: #fdf0e3;
+  cursor: pointer;
+}
+#Container .mix .row i {
+  display: none;
+  color: #43ac6a;
+}
+#Container .mix .active {
+  background: #cfecda;
+  cursor: pointer;
 }
 form input[type="text"],
 form input[type="password"],

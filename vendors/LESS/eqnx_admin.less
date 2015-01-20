@@ -213,17 +213,7 @@
             }
         }
         
-        li.lst-header {
-            font-weight: bold;
-            border-bottom: 1px solid @gray-light;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
-            background: @gray-ultra-light;
-            
-            input {
-                margin: 0;
-            }
-        }
+        
     }
     
     .main-row {
@@ -248,8 +238,20 @@
     .sub-row-title {
         padding-left: 2rem;
     }
-
 }
+
+.lst-header {
+    font-weight: bold;
+    border-bottom: 1px solid @gray-light;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    background: @gray-ultra-light;
+
+    input {
+        margin: 0;
+    }
+}
+
 #file-uploader {
     display: none;
     
@@ -311,9 +313,56 @@
     position: absolute;
     width: 80%;
     top: 136px;
-    left: 17px;
-    background: @gray-ultra-light;
-    background: red;
+//    left: 17px;
+    left: -1500px;
+    
+    .lst-header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .btn {
+        cursor: pointer;
+        
+        &:hover {
+            color: @eqnx-red;
+        }
+    }
+    
+    #wrapper-sharing {
+        background: @gray-ultra-light;
+        background: white;
+        border: 1px solid @gray-light;
+    }
+}
+
+//----- Mix It Up -----------------------------------------
+#Container {
+    
+    .mix{
+        display: none;
+        //border: 1px solid black;
+        padding: 0.2rem 1.2rem;
+        
+        .row {
+            background: @gray-ultra-light;
+            padding: 0.5rem 0.1rem;
+            
+            &:hover {
+                background: @warning-ultra-light;
+                cursor: pointer;
+            }
+            
+            i {
+                display: none;
+                color: @success;
+            }
+        }
+        
+        .active {
+            background: @success-ultra-light;
+            cursor: pointer;
+        }
+    }
 }
 
 //----- Formulaire ----------------------------------------

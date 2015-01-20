@@ -35,12 +35,42 @@ $(document).ready(function() {
                 $('#wrapper-gestion').empty().append(result);
             });
         }
+        if(todo === 'media-share') {
+            $.post(urlAjaxModule, {a: 'loadClient', idItem: idItem })
+            .done(function(result) {
+                $('#Container').empty().append(result);
+                $('#Container').mixItUp();
+                moveOverlayedPanel('17px');
+            });
+        }
     });
+    
+    $('#module-wrapper').on('click', '.fa-arrow-left', function() {
+        moveOverlayedPanel('-1500px');
+    });
+    
+    function moveOverlayedPanel(value) {
+        $('.overlayed-panel').animate({'left' : value}, 'fast');
+    }
     
     //----- Editeur ---------------------------------------
     $('#wrapper-adding').on('change', 'select', function() {
         console.log($(this).val());
         ($(this).val() !== 'xxx' ? $('#file-uploader').slideDown('fast') : $('#file-uploader').slideUp('fast'));
+    });
+    
+    //----- Mix It Up -------------------------------------
+    $('#Container').mixItUp();
+    
+    $('#Container').on('click', '.row', function() {
+        if($(this).is('.active')) {
+            $(this).removeClass('active');
+            $('i', this).hide();
+        }
+        else {
+            $(this).addClass('active');
+            $('i', this).show();
+        }
     });
     
     //------ Upload de fichiers -------------------------------------

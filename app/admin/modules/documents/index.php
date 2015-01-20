@@ -79,10 +79,86 @@
         
         </div>
         
-        <div class="small-12 columns overlayed-panel" id="wrapper-sharing">
-            <div class="row">
-                <div class="small-12 columns lst-header">
-                    Attribution des autorisations
+        <div class="overlayed-panel">
+            <div class="small-12 columns" id="wrapper-sharing">
+                <div class="row">
+                    <div class="small-10 columns lst-header">
+                        Attribution des autorisations
+                    </div>
+                    <div class="small-2 columns text-right lst-header"><i class="fa fa-arrow-left btn" role="close-panel"></i></div>
+                </div>
+                <div class="row">
+                    <div class="small-5 columns">
+                        <div class="row collapse postfix-radius">
+                            <div class="small-11 columns">
+                                <input type="text" id="search-client" placeholder="Rechercher">
+                            </div>
+                            <div class="small-1 columns">
+                                <span class="postfix"><i class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="small-5 columns">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <ul class="large-block-grid-4" id="Container">
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 1</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 2</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 3</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 4</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 5</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 6</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 7</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 8</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                            <li class="mix">
+                                <div class="row">
+                                    <div class="small-10 columns">Client 9</div>
+                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,4 +166,5 @@
     </section>
 </section>
 
+<script src="../assets/mixItUp/jquery.mixitup.js"></script>
 <script src="modules/documents/module.js"></script>

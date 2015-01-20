@@ -221,6 +221,43 @@ class Medias extends DB {
         }
     }
     
+    public function loadClientBinded($id, $table) {
+        //($table === 'documents' ? $col = 'doc' : $col = 'video');
+        try {
+            $result = '<li class="mix">';
+            foreach($this->getTheClients() as $k => $client) {
+                $result .= '<div class="row">';
+                $result .= '<div class="small-10 columns">'.$client->nom.'</div>';
+                $result .= '<div class="small-2 columns text-right"><i class="fa fa-check"></i></div>';
+                $result .= '</div>';
+            }
+            $result .= '</li>';
+            return $result;
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+        
+//        <li class="mix">
+//                                <div class="row">
+//                                    <div class="small-10 columns">Client 1</div>
+//                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
+//                                </div>
+//                            </li>
+    }
+    
+    private function getTheClients() {
+        try {
+            $sql = "SELECT *
+                    FROM clients
+                    ORDER BY societe, nom ASC";
+            return $this->execQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
 //    private function getClientById($id) {
 //        try {
 //            $sql = "SELECT *

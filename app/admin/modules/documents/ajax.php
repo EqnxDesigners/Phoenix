@@ -19,6 +19,16 @@ if(isset($_POST['a']) && $_POST['a'] === 'changePrivacy') {
     }
 }
 
+if(isset($_POST['a']) && $_POST['a'] === 'loadClient') {
+    $Media = new Medias();
+    try {
+        echo $Media->loadClientBinded($_POST['idItem'], 'docs');
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
 //------ Formulaire ---------------------------------------
 if(isset($_POST['publish'])) {
     $ReadyToPost = true;
