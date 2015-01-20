@@ -73,6 +73,18 @@ if(isset($_POST['a']) && $_POST['a'] === 'deleteItem') {
     }
 }
 
+if(isset($_POST['a']) && $_POST['a'] === 'changeVisibility') {
+    $theClass = initTheClass($_SESSION['current_module']);
+    ($_SESSION['current_module'] === 'documents' ? $table = 'docs' : $table = 'videos');
+    try {
+        $theClass->changeVisibility($table, $_POST['idItem'], $_POST['newValue']);
+        echo $theClass->reloadListing();
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
 function initTheClass($ref) {
     switch($ref) {
         case 'config':
@@ -83,6 +95,12 @@ function initTheClass($ref) {
             break;
         case 'clients':
             $instance = new Clients();
+            break;
+        case 'documents':
+            $instance = new Medias();
+            break;
+        case 'videos':
+            $instance = new Medias();
             break;
     }
     return $instance;

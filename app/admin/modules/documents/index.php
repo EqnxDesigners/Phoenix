@@ -72,47 +72,19 @@
                         <input type="submit" class="button success" name="publish" value="Ajouter">
                    </div>
                </div>
-               
-<!--
-                <div class="row">
-                    <div class="small-12 columns">
-                        <input type="text" name="societe" placeholder="Société" list="societe-in-db" autocomplete="off">
-                    </div>
-                    <div class="small-2 columns">
-                        <select name="titre">
-                            <option value="M." selected>Monsieur</option>
-                            <option value="Mme">Madame</option>
-                        </select>
-                    </div>
-                    <div class="small-5 columns">
-                        
-                    </div>
-                    <div class="small-5 columns">
-                        <input type="text" name="prenom" placeholder="Prénom">
-                    </div>
-                    <div class="small-6 columns" >
-                        <input type="email" name="email" placeholder="E-mail" required="required">
-                    </div>
-                    <div class="small-6 columns">
-                        <input type="text" name="telephone" placeholder="Téléphone" pattern="[0-9\s]*">
-                    </div>
-                    <div class="small-6 columns">
-                        <input type="text" name="mobile" placeholder="Mobile" pattern="[0-9\s]*">
-                    </div>
-                    <div class="small-6 columns">
-                        <input type="text" name="fax" placeholder="Fax" pattern="[0-9\s]*">
-                    </div>
-                    <div class="small-12 columns text-right">
-                        <input type="reset" class="button alert" name="clear-forms" value="Annuler">
-                        <input type="submit" class="button success" name="publish" value="Ajouter">
-                    </div>
-                </div>
--->
             </form>
         </div>
         
         <div class="small-12 columns masked" id="wrapper-editing">
         
+        </div>
+        
+        <div class="small-12 columns overlayed-panel" id="wrapper-sharing">
+            <div class="row">
+                <div class="small-12 columns lst-header">
+                    Attribution des autorisations
+                </div>
+            </div>
         </div>
         
     </section>

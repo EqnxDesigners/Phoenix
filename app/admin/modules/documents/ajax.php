@@ -8,6 +8,17 @@ spl_autoload_register(function($class) {
     require_once dirname(__DIR__).'/../../class/'.$class.'.class.php';
 });
 
+if(isset($_POST['a']) && $_POST['a'] === 'changePrivacy') {
+    $Media = new Medias();
+    try {
+        $Media->changePrivacy('docs', $_POST['idItem'], $_POST['newValue']);
+        echo $Media->reloadListing();
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
 //------ Formulaire ---------------------------------------
 if(isset($_POST['publish'])) {
     $ReadyToPost = true;

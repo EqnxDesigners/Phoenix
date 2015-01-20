@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //------ Variables globales ---------------------------
-    urlAjaxModule = './modules/config/ajax.php';
+    urlAjaxModule = './modules/documents/ajax.php';
     
     //----- Menu module -----------------------------------
     $('nav').on('click', '.btn', function() {
@@ -19,6 +19,23 @@ $(document).ready(function() {
         $(divToHide).addClass('masked');
         $(divToShow).removeClass('masked');
     }
+    
+    $('.listing').on('click', '.btn', function() {
+        var todo = $(this).attr('role');
+        var idItem = $(this).attr('item');
+        if(todo === 'media-lock') {
+            $.post(urlAjaxModule, {a: 'changePrivacy', idItem: idItem, newValue: '1' })
+            .done(function(result) {
+                $('#wrapper-gestion').empty().append(result);
+            });
+        }
+        if(todo === 'media-unlock') {
+            $.post(urlAjaxModule, {a: 'changePrivacy', idItem: idItem, newValue: '0' })
+            .done(function(result) {
+                $('#wrapper-gestion').empty().append(result);
+            });
+        }
+    });
     
     //----- Editeur ---------------------------------------
     $('#wrapper-adding').on('change', 'select', function() {

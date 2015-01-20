@@ -39,7 +39,7 @@ class Medias extends DB {
     
     /* METHODES */
     public function reloadListing() {
-        return $this->getLstClients();
+        return $this->getLstDocs();
     }
     
     public function getLstDocs() {
@@ -179,8 +179,6 @@ class Medias extends DB {
     }
     
     public function addItem($data, $table) {
-        echo 'Valeures recuent par la Class Medias<br>';
-        var_dump($data);
         try {
             $sql = "INSERT INTO ".$table." (id_categorie,doc,titre,descriptif,date_publi,active,private) 
                     VALUES ('".$data['categorie']."',
@@ -190,6 +188,32 @@ class Medias extends DB {
                             '".$this->setDateTimeNow()."',
                             '1',
                             '".$data['private']."')";
+            $this->applyOneQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    public function changeVisibility($table, $id, $value) {
+        try {
+            $sql = "UPDATE ".$table."
+                    SET
+                    active='".$value."'
+                    WHERE id='".$id."'";
+            $this->applyOneQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    public function changePrivacy($table, $id, $value) {
+        try {
+            $sql = "UPDATE ".$table."
+                    SET
+                    private='".$value."'
+                    WHERE id='".$id."'";
             $this->applyOneQuery($sql);
         }
         catch (PDOException $e) {
