@@ -8,7 +8,7 @@
         <h2><?php echo $_SESSION['trad']['jobs']['page_sub-title']; ?></h2>
       </div>
     </div>
-    <div class="row bloc-description">
+    <div class="row bloc-description no-border">
       <div class="small-12 columns">
       
        <!-- JOBS
@@ -54,7 +54,7 @@
           </ul>-->
       </div>
     </div>
-    <div class="row bloc-description" id="no-jobs">
+    <div class="row bloc-description no-border" id="no-jobs">
       <div class="small-12 columns">
           <p><?php echo $_SESSION['trad']['jobs']['no_jobs']; ?></p>
       </div>
