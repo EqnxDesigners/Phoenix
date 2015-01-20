@@ -127,6 +127,9 @@
 .masked {
   display: none;
 }
+.row {
+  margin: 0 !important;
+}
 #login-box,
 #verif-box {
   width: 320px;
@@ -175,19 +178,19 @@
   top: 0;
   left: 0;
   color: #fff;
+  padding-top: 1rem;
+  z-index: 100;
 }
 #top-bar img {
   width: auto;
-  margin-top: 1.5rem;
-  height: 50px;
+  margin-top: 0.5rem;
+  height: 60px;
   position: absolute;
 }
 #top-bar p {
-  margin: 0rem 0;
+  margin: 0.1rem 0 0rem;
   text-align: right;
   position: relative;
-  marign-right: 0;
-  margin-top: 0.5rem;
 }
 #top-bar .fa {
   cursor: pointer;
@@ -202,10 +205,13 @@
   padding: 1rem;
 }
 nav {
-  background: #333333;
-  padding: 1rem 0 2rem 0;
+  background: none repeat scroll 0 0 #f2f2f2;
+  border-bottom: 1px none #d9d9d9;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  padding: 1rem 0;
 }
 nav ul {
+  margin: 0 !important;
   text-align: center;
 }
 nav ul li {
@@ -214,21 +220,22 @@ nav ul li {
 }
 nav ul li a {
   font-size: 1.5rem;
-  color: #cccccc;
+  color: #666666;
+  transition: color 0.5s ease;
 }
 nav ul li a:hover {
-  color: white;
+  color: #333333;
 }
 nav ul li.active a {
-  color: white;
+  color: #333333;
 }
 nav ul li.active a:after {
-  background: white;
+  background: #333333;
   content: "";
   display: block;
-  height: 0.15rem;
+  height: 0.10rem;
   margin: 0.1rem auto;
-  width: 3rem;
+  width: 3.5rem;
 }
 .content-wrap {
   margin-top: 50px;
@@ -246,12 +253,147 @@ nav ul li.active a:after {
 }
 .toolbox .filter {
   padding: 0.2rem 0.5rem;
-  background: #2b9ccc;
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
+  transition: background-color 0.5s ease;
 }
 .toolbox .filter:hover {
   cursor: pointer;
+}
+.toolbox .filter.doc.all {
+  background: #00394c;
+  color: white;
+}
+.toolbox .filter.doc.all:hover {
+  background: #002633;
+}
+.toolbox .filter.video.all {
+  background: #504897;
+  color: white;
+}
+.toolbox .filter.video.all:hover {
+  background: #474086;
+}
+.toolbox .filter.documents {
+  background: #005f7f;
+  color: white;
+}
+.toolbox .filter.documents:hover {
+  background: #007299;
+}
+.toolbox .filter.diapo {
+  background: #0098cc;
+  color: white;
+}
+.toolbox .filter.diapo:hover {
+  background: #00abe6;
+}
+.toolbox .filter.news {
+  background: #32ccff;
+  color: white;
+}
+.toolbox .filter.news:hover {
+  background: #4cd2ff;
+}
+.toolbox .filter.progs {
+  background: #7ddfff;
+  color: white;
+}
+.toolbox .filter.progs:hover {
+  background: #97e5ff;
+}
+.toolbox .filter.tutos {
+  background: #6c61cc;
+  color: white;
+}
+.toolbox .filter.tutos:hover {
+  background: #7e74d2;
+}
+.toolbox .filter.quicky {
+  background: #9a8fff;
+  color: white;
+}
+.toolbox .filter.quicky:hover {
+  background: #b1a9ff;
+}
+.item-list {
+  padding: 1rem 0 0 0;
+}
+.item-list ul {
+  margin: 0;
+}
+.item-list ul li {
+  list-style-type: none;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+.item-list ul li.mix {
+  display: none;
+}
+.item-list ul li.mix a,
+.item-list ul li.mix .video {
+  display: block;
+  background: #f2f2f2;
+  border: 1px solid #cccccc;
+}
+.item-list ul li.mix a .etiquette,
+.item-list ul li.mix .video .etiquette {
+  border-bottom: 30px solid transparent;
+  border-right: 30px solid transparent;
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+.item-list ul li.mix a .content,
+.item-list ul li.mix .video .content {
+  padding: 1rem;
+}
+.item-list ul li.mix a .content h2,
+.item-list ul li.mix .video .content h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333333;
+}
+.item-list ul li.mix a .content h3,
+.item-list ul li.mix .video .content h3 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #999999;
+}
+.item-list ul li.mix.category-news .etiquette {
+  border-left: 30px solid #32ccff;
+}
+.item-list ul li.mix.category-doc .etiquette {
+  border-left: 30px solid #005f7f;
+}
+.item-list ul li.mix.category-diapo .etiquette {
+  border-left: 30px solid #0098cc;
+}
+.item-list ul li.mix.category-prog .etiquette {
+  border-left: 30px solid #7ddfff;
+}
+.item-list ul li.mix.category-tuto .etiquette {
+  border-left: 30px solid #6c61cc;
+}
+.item-list ul li.mix.category-quicky .etiquette {
+  border-left: 30px solid #9a8fff;
+}
+.no-result {
+  display: none;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  font-weight: 300;
+}
+#docsMyEqnx.fail .no-result {
+  display: block;
+  color: #0098cc;
+}
+#videosMyEqnx.fail .no-result {
+  display: block;
+  color: #9a8fff;
 }
 form input[type="text"],
 form input[type="password"],
@@ -271,4 +413,14 @@ form input[type="email"]:focus {
   border: none;
   border-bottom: 1px solid #e6e6e6;
   box-shadow: none;
+}
+@media only screen and (min-width: 40.063em) {
+  .item-list ul li {
+    width: 49.5% !important;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  .item-list ul li {
+    width: 33% !important;
+  }
 }

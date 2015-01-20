@@ -26,6 +26,9 @@
     display: none;
 }
 
+.row{
+    margin: 0 !important;
+}
 //----- Login ---------------------------------------------
 #login-box,
 #verif-box {
@@ -80,20 +83,19 @@
     top: 0;
     left: 0;
     color: #fff;
-    
+    padding-top: 1rem;
+    z-index: 100;
     img {
         width: auto;
-        margin-top: 1.5rem;
-        height: 50px;
+        margin-top: 0.5rem;
+        height: 60px;
         position: absolute;
     }
     
     p {
-        margin: 0rem 0;
+        margin: 0.1rem 0 0rem;
         text-align: right;
         position: relative;
-        marign-right: 0;
-        margin-top: 0.5rem;
     }
     
     .fa {
@@ -113,30 +115,34 @@
 }
 //----- Main menu -----------------------------------------
 nav {
-    background: @gray-ultra-dark;
-    padding: 1rem 0 2rem 0;
+    background: none repeat scroll 0 0 #f2f2f2;
+    border-bottom: 1px none #d9d9d9;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+    padding: 1rem 0;
     ul{
+        margin: 0 !important;
         text-align: center;
         li{
             margin: 0 0.5rem ;
             display: inline-block;
             a{
                 font-size: 1.5rem;
-                color: @gray-light;
+                color: @gray-darker;
+                transition: color 0.5s ease;
                 &:hover{
-                    color: white;
+                    color: @gray-ultra-dark;
                 }
             }
             &.active{
                 a{
-                    color: white;
+                    color: @gray-ultra-dark;
                     &:after{
-                        background: white;
+                        background: @gray-ultra-dark;
                         content: "";
                         display: block;
-                        height: 0.15rem;
+                        height: 0.10rem;
                         margin: 0.1rem auto;
-                        width: 3rem;
+                        width: 3.5rem;
                     }
                 }
             }
@@ -168,14 +174,171 @@ nav {
     }
     .filter{
         padding: 0.2rem 0.5rem;
-        background: @eqnx-label-documents;
         font-size: 0.9rem;
         margin-bottom: 0.3rem;
+        transition: background-color 0.5s ease;
         &:hover{
             cursor: pointer;
         }
+        &.doc.all{
+            background: @documents-filter-1;
+            color: white;
+            &:hover{
+                background: darken(@documents-filter-1, 5%);
+            }
+        }
+        &.video.all{
+            background: @videos-filter-1;
+            color: white;
+            &:hover{
+                background: darken(@videos-filter-1, 5%);
+            }
+        }
+        
+        &.documents{
+            background: @documents-filter-2;
+            color: white;
+            &:hover{
+                background: lighten(@documents-filter-2, 5%);
+            }
+        }
+        &.diapo{
+            background: @documents-filter-3;
+            color: white;
+            &:hover{
+                background: lighten(@documents-filter-3, 5%);
+            }
+        }
+        &.news{
+            background: @documents-filter-4;
+            color: white;
+            &:hover{
+                background: lighten(@documents-filter-4, 5%);
+            }
+        }
+        &.progs{
+            background: @documents-filter-5;
+            color: white;
+            &:hover{
+                background: lighten(@documents-filter-5, 5%);
+            }
+        }
+        
+        &.tutos{
+            background: @videos-filter-2;
+            color: white;
+            &:hover{
+                background: lighten(@videos-filter-2, 5%);
+            }
+        }
+        &.quicky{
+            background: @videos-filter-3;
+            color: white;
+            &:hover{
+                background: lighten(@videos-filter-3, 5%);
+            }
+        }
     }
 }
+
+//----- List item ----------------------------------------
+.item-list{
+    padding: 1rem 0 0 0;
+    ul{
+        margin: 0;
+        li{
+            list-style-type: none;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 0.3rem;
+            &.mix{
+                display: none;
+                a, .video{
+                    display: block;
+                    background: @gray-ultra-light;
+                    border: 1px solid @gray-light;
+                    .etiquette{
+                        border-bottom: 30px solid transparent;
+                        border-right: 30px solid transparent;
+                        height: 0;
+                        position: absolute;
+                        width: 0;
+                    }
+                    .content{
+                        padding: 1rem;
+                        h2{
+                            font-size: 1rem;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            color: @gray-ultra-dark;
+                        }
+                        h3{
+                            font-size: 0.9rem;
+                            font-weight: normal;
+                            color: @gray-dark;
+                        }
+                    }
+                }
+                &.category-news{
+                   .etiquette{
+                       border-left: 30px solid @documents-filter-4;
+                   }
+                }
+                &.category-doc{
+                   .etiquette{
+                       border-left: 30px solid @documents-filter-2;
+                   }
+                }
+                &.category-diapo{
+                   .etiquette{
+                       border-left: 30px solid @documents-filter-3;
+                   }
+                }
+                &.category-prog{
+                   .etiquette{
+                       border-left: 30px solid @documents-filter-5;
+                   }
+                }
+                &.category-tuto{
+                   .etiquette{
+                       border-left: 30px solid @videos-filter-2;
+                   }
+                }
+                &.category-quicky{
+                   .etiquette{
+                       border-left: 30px solid @videos-filter-3;
+                   }
+                }
+            }
+        }
+    }
+}
+
+//----- erreur recherches mixitup --------------------------
+.no-result{
+    display: none;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    font-weight: 300;
+}
+#docsMyEqnx{
+    &.fail{
+        .no-result{
+            display: block;
+            color: @documents-filter-3;
+        }
+    }
+}
+#videosMyEqnx{
+    &.fail{
+        .no-result{
+            display: block;
+            color: @videos-filter-3;
+        }
+    }
+}
+
 //----- Formulaire ----------------------------------------
 form {
     input[type="text"],
@@ -202,12 +365,24 @@ form {
 //----- MEDIUM SCREENS ------------------------------------
 //---------------------------------------------------------
 @media only screen and (min-width: 40.063em) {
-    
+    .item-list{
+        ul{
+            li{
+                width: 49.5% !important;
+            }
+        }
+    }
 }
 
 //---------------------------------------------------------
 //----- LARGE SCREENS -------------------------------------
 //---------------------------------------------------------
 @media only screen and (min-width: 64.063em) {
-
+    .item-list{
+        ul{
+            li{
+                width: 33% !important;
+            }
+        }
+    }
 }
