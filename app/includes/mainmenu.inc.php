@@ -24,7 +24,7 @@
             <li class="hide-s">
                 <a href="<?php echo buildUrl('support'); ?>"><?php echo $_SESSION['trad']['mainmenu']['label_support']; ?></a>
             </li>
-            <li>
+            <li class="hide">
                 <a href="<?php echo buildUrl('videos'); ?>"><?php echo $_SESSION['trad']['mainmenu']['label_videos']; ?></a>
             </li>
             <li>
@@ -36,7 +36,7 @@
             <li>
                 <a href="<?php echo buildUrl('jobs'); ?>"><?php echo $_SESSION['trad']['mainmenu']['label_jobs']; ?></a>
             </li>
-            <li>
+            <li class="hide">
                 <a href="<?php echo buildUrl('download'); ?>"><?php echo $_SESSION['trad']['mainmenu']['label_telechargement']; ?></a>
             </li>
         </ul>

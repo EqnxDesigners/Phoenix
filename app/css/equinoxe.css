@@ -197,6 +197,9 @@ body.accueil .footer {
 .no-padding {
   padding: 0;
 }
+hide{
+    display:none;
+}
 a {
   color: #e45065;
   text-decoration: none;
