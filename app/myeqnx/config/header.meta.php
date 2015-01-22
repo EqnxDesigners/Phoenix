@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- BASE URL -->
+        <base href="http://localhost:8888/Phoenix/app/myeqnx/" />
+        
         <meta charset="utf-8" />
         
         <title>Equinoxe MIS Development - My Equinoxe</title>
@@ -20,6 +23,9 @@
         <script src="js/foundation.min.js"></script>
         <script src="js/tinymce/tinymce.min.js"></script>
         <script src="js/core-min.js"></script>
+        <script src="assets/mixItUp/jquery.mixitup.js"></script>
         <script src="js/scripts.inc.js"></script>
     </head>
     <body>
+    <!-- CONTENT -->
+    <div class="main-content">

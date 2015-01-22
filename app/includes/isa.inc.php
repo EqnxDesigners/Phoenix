@@ -161,12 +161,20 @@
             <h1><?php echo $_SESSION['trad']['isa']['txt4_title']; ?></h1>
             <div class="slick-eqnx-diapo row">
                 <div>
-                    <img src="img/logos_clients/logo_ehl.jpg" alt="Ecole hôtelière de Lausanne" />
-                    <h3>Ecole Hôtelière de Lausanne</h3>
+                    <img src="img/logos_clients/Logo-epfl.png" alt="EPFL" />
+                    <h3>Ecole Polytechnique Fédérale de Lausanne</h3>
                 </div>
                 <div>
-                    <img src="img/logos_clients/Logo-unine.png" alt="Université de Neuchâtel" />
+                    <img src="img/logos_clients/Logo-unine.png" alt="UNINE" />
                     <h3>Université de Neuchâtel</h3>
+                </div>
+                <div>
+                    <img src="img/logos_clients/Logo-ti.png" alt="TI" />
+                    <h3>Canton du Tessin</h3>
+                </div>
+                <div>
+                    <img src="img/logos_clients/Logo-icl.png" alt="ICL" />
+                    <h3>Université catholique de Lille</h3>
                 </div>
             </div>
         </div>

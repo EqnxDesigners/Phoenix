@@ -14,6 +14,8 @@ require_once dirname(__FILE__).'/functions.php';
 //----- Header meta datas ---------------------------------
 include_once dirname(__FILE__).'/config/header.meta.php';
 
+
+
 //----- Langues -------------------------------------------
 //if(!isset($_GET['lang'])) {
 //    $_SESSION['current_lang'] = DEFAULT_LANG;
@@ -23,9 +25,19 @@ include_once dirname(__FILE__).'/config/header.meta.php';
 //}
 
 //----- Templates -----------------------------------------
+   
+
 if(isset($_SESSION['user'])) {
     the_top_bar();
-    include_once dirname(__FILE__).'/includes/myeqnx.inc.php';
+    //----- navigation file ---------------------------------
+    include_once dirname(__FILE__).'/includes/mainmenu.inc.php';
+    
+    if(!isset($_GET['page'])) {
+        include_once dirname(__FILE__).'/includes/documents.inc.php';
+    }
+    else {
+        include_once dirname(__FILE__).'/includes/'.$_GET['page'].'.inc.php';
+    } 
 }
 else {
     clearUser();

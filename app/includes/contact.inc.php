@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div class="row bloc-description bloc-contact">
+    <div class="row bloc-description bloc-contact no-border">
     <div class="small-12 medium-4 columns">
       <div class="row">
         <div class="small-12 columns">
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="row bloc-description">
+    <div class="row bloc-description no-border">
     <div class="row">
       <div class="small-12 columns">
         <h3><?php echo $_SESSION['trad']['contact']['label_rub2']; ?></h3>

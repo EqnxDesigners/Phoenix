@@ -1,7 +1,9 @@
-<!-- CONTENT -->
-<section class="row content-wrap">
-    <div class="small-12 columns">
-        <h1>My Eqnx</h1>
+
+    <div class="row wide-row">
+        <div class="content small-12 columns" id="documents-panel">
+            <?php include_once 'includes/documents.inc.php'; ?>
+        </div>
+        <div class="content small-12 columns" id="videos-panel">
+            <?php include_once 'includes/videos.inc.php'; ?>
+        </div>
     </div>
-</section>
-<!-- END CONTENT -->

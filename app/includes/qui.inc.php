@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="row bloc-description gris hide-s">
+    <div class="row bloc-description gris">
         <div class="small-12 columns">
             <h1><?php echo $_SESSION['trad']['qui']['txt1_title']; ?></h1>
         </div>
@@ -21,6 +21,7 @@
             ?>
         </div>
     </div>
+<!--
 
     <div class="row bloc-description blanc">
         <div class="small-12 columns">
@@ -47,6 +48,7 @@
             </div>
         </div>
     </div>
+-->
 
 </div>
 <!-- END CONTENT -->
