@@ -137,6 +137,18 @@ $(document).ready(function() {
                 });
             }
         }
+        if(todo === 'disable') {
+            $.post(urlAjax, {a: 'changeVisibility', idItem: idItem, newValue: '0' })
+            .done(function(result) {
+                $('#wrapper-gestion').empty().append(result);
+            });
+        }
+        if(todo === 'enable') {
+            $.post(urlAjax, {a: 'changeVisibility', idItem: idItem, newValue: '1' })
+            .done(function(result) {
+                $('#wrapper-gestion').empty().append(result);
+            });
+        }
     });
     
     function switchTwoDiv(divToHide, divToShow) {

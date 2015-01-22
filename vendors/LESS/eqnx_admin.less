@@ -71,12 +71,6 @@
         }
     }
 }
-//#main-menu {
-//    img {
-//        max-width: 80%;
-//        height: auto;
-//    }
-//}
 #top-bar,
 #main-menu {
     background: @gray-ultra-dark;
@@ -219,17 +213,7 @@
             }
         }
         
-        li.lst-header {
-            font-weight: bold;
-            border-bottom: 1px solid @gray-light;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
-            background: @gray-ultra-light;
-            
-            input {
-                margin: 0;
-            }
-        }
+        
     }
     
     .main-row {
@@ -254,7 +238,131 @@
     .sub-row-title {
         padding-left: 2rem;
     }
+}
 
+.lst-header {
+    font-weight: bold;
+    border-bottom: 1px solid @gray-light;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    background: @gray-ultra-light;
+
+    input {
+        margin: 0;
+    }
+}
+
+#file-uploader {
+    display: none;
+    
+    #dropArea {
+        background-color: @gray-ultra-light;
+        border: 1px solid @gray-lighter;
+        font-size: 2em;
+        font-weight: bold;
+        height: 300px;
+        line-height: 300px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        &:hover {
+            background-color: @warning-ultra-light;
+        }
+
+        &:uploading {
+            background: #eeeeee url(loading.gif) center 30% no-repeat;
+        }
+    }
+    #result .s,
+    #result .f {
+        font-size: 12px;
+        margin-bottom: 10px;
+        padding: 10px;
+        .rounded-corners(10px)
+    }
+    #result .s {
+        background-color: #5cb85c;
+    }
+    #result .f {
+        background-color: #d9534f;
+    }
+    .info {
+        margin-top: 1rem;
+    }
+    label {
+        font-size: 0.8rem;
+        color: @gray-light;
+        font-style: italic;
+    }
+    .progress-bar {
+        display: none;
+        width: 0%;
+        height: 20px;
+        background: @success-ultra-light;
+        border: 1px solid @success-lighter;
+        text-align: center;
+        color: @gray-dark;
+        font-size: 0.7rem;
+        line-height: 1.1rem;
+    }
+}
+
+//----- Overlayed Panel -----------------------------------
+.overlayed-panel {
+    position: absolute;
+    width: 80%;
+    top: 136px;
+//    left: 17px;
+    left: -1500px;
+    
+    .lst-header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .btn {
+        cursor: pointer;
+        
+        &:hover {
+            color: @eqnx-red;
+        }
+    }
+    
+    #wrapper-sharing {
+        background: @gray-ultra-light;
+        background: white;
+        border: 1px solid @gray-light;
+    }
+}
+
+//----- Mix It Up -----------------------------------------
+#Container {
+    
+    .mix{
+        display: none;
+        //border: 1px solid black;
+        padding: 0.2rem 1.2rem;
+        
+        .row {
+            background: @gray-ultra-light;
+            padding: 0.5rem 0.1rem;
+            
+            &:hover {
+                background: @warning-ultra-light;
+                cursor: pointer;
+            }
+            
+            i {
+                display: none;
+                color: @success;
+            }
+        }
+        
+        .active {
+            background: @success-ultra-light;
+            cursor: pointer;
+        }
+    }
 }
 
 //----- Formulaire ----------------------------------------
