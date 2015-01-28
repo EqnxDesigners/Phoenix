@@ -84,6 +84,24 @@ $(document).ready(function() {
         }
     }
     
+    function removeAccent(str) {
+        var accent = [
+            /[\300-\306]/g, /[\340-\346]/g, // A, a
+            /[\310-\313]/g, /[\350-\353]/g, // E, e
+            /[\314-\317]/g, /[\354-\357]/g, // I, i
+            /[\322-\330]/g, /[\362-\370]/g, // O, o
+            /[\331-\334]/g, /[\371-\374]/g, // U, u
+            /[\321]/g, /[\361]/g, // N, n
+            /[\307]/g, /[\347]/g, // C, c
+        ];
+        var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
+        
+        for(var i = 0; i < accent.length; i++){
+            str = str.replace(accent[i], noaccent[i]);
+        }
+        return str.toLowerCase();
+    }
+    
     $('#wrapper-sharing').on('keyup', '#search-client', function() {
         var inputText = $(this).val().toLowerCase();
         var $matching = $();
@@ -91,7 +109,7 @@ $(document).ready(function() {
         
         if(inputText.length > 0) {
             $('.mix').each(function() {
-                if($(this).attr('class').toLowerCase().match(inputText)) {
+                if($(this).attr('class').toLowerCase().match(removeAccent(inputText))) {
                     $matching = $matching.add(this);
                 }
                 else {

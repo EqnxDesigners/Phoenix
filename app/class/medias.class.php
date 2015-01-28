@@ -127,10 +127,10 @@ class Medias extends DB {
     
     private function buildToolBox($item) {
         $result = '';
-        $result .= '&nbsp;<i class="fa '.($item->active === '0' ? 'fa-eye-slash' : 'fa-eye btn').' btn" role="'.($item->active === '0' ? 'enable' : 'disable').'" item="'.$item->id.'"></i>';
+        $result .= ($item->private === '1' ? '&nbsp;<i class="fa fa-share-alt  btn" role="media-share" item="'.$item->id.'"></i>' : '');
         $result .= '&nbsp;<i class="fa '.($item->private === '0' ? 'fa-unlock-alt' : 'fa-lock btn').' btn" role="'.($item->private === '0' ? 'media-lock' : 'media-unlock').'" item="'.$item->id.'"></i>';
+        $result .= '&nbsp;<i class="fa '.($item->active === '0' ? 'fa-eye-slash' : 'fa-eye btn').' btn" role="'.($item->active === '0' ? 'enable' : 'disable').'" item="'.$item->id.'"></i>';
         $result .= '&nbsp;<i class="fa fa-pencil  btn" role="edit" item="'.$item->id.'"></i>';
-        $result .= '&nbsp;<i class="fa fa-share-alt  btn" role="media-share" item="'.$item->id.'"></i>';
         $result .= '&nbsp;<i class="fa fa-trash-o btn" role="trash" item="'.$item->id.'"></i>';
         return $result;
     }
@@ -222,7 +222,6 @@ class Medias extends DB {
     }
     
     public function loadClientBinded($id, $type) {
-        //($table === 'documents' ? $col = 'doc' : $col = 'video');
         try {
             $result = '';
             foreach($this->getTheClients() as $k => $client) {
