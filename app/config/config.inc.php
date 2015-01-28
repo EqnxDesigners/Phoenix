@@ -27,17 +27,18 @@ if($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === 'localhost
 }
 else {
     //DB HOST
-    define('DB_HOST', 'mysql.thebunchfactory.ch');
+    define('DB_HOST', 'mysql03');
     //DB NAME
-    define('DB_NAME', 'thebunchfactorych1');
+    define('DB_NAME', 'db2649905 ');
     //DB USER NAME
-    define('DB_USER_NAME', 'ilights');
+    define('DB_USER_NAME', 'user26499');
     //DB PASSWORD
-    define('DB_PASSWORD', 'F1e!i%.mHE1$!Sc');
+    define('DB_PASSWORD', 'dr94Y?2');
     //DB Data Source Name
     define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST);
     //Base URL pour le rewrite
-    define('BASE_URL', 'http://www.equinoxemis.ch/');
+//    define('BASE_URL', 'http://www.equinoxemis.ch/');
+    define('BASE_URL', 'http://www.ilights.ch/eqnx/site/');
 }
         
 //TITRE DES PAGES

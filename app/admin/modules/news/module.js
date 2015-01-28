@@ -2,6 +2,11 @@ $(document).ready(function() {
     //------ Variables globales ---------------------------
     urlAjaxModule = './modules/news/ajax.php';
     
+    function switchTwoDiv(divToHide, divToShow) {
+        $(divToHide).addClass('masked');
+        $(divToShow).removeClass('masked');
+    }
+    
     // TEST
 //    $.ajax({
 //        dataType: "json",

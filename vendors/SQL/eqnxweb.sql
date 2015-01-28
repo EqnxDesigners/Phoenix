@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Ven 16 Janvier 2015 à 11:17
+-- Généré le :  Jeu 22 Janvier 2015 à 08:50
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -13,6 +13,29 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `eqnxweb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories_medias`
+--
+
+CREATE TABLE `categories_medias` (
+`id` int(10) unsigned NOT NULL,
+  `categorie` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `categories_medias`
+--
+
+INSERT INTO `categories_medias` (`id`, `categorie`) VALUES
+(1, 'Documents'),
+(2, 'Newsletters'),
+(3, 'Présentations'),
+(4, 'Programmes'),
+(5, 'Tutoriels'),
+(6, 'Quickys');
 
 -- --------------------------------------------------------
 
@@ -31,7 +54,7 @@ CREATE TABLE `clients` (
   `fax` varchar(25) NOT NULL,
   `mobile` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `clients`
@@ -42,7 +65,8 @@ INSERT INTO `clients` (`id`, `societe`, `titre`, `nom`, `prenom`, `email`, `tele
 (2, 'Pink Lama Crew', 'Mme', 'Pfänder', 'Aline', 'ap@eqnx.ch', '', '', '', ''),
 (3, 'SuperBox SA', 'Mme', 'Unetelle', 'Maria', 'super@mail.com', '0218003411', '079 649 64 64', '', ''),
 (18, 'MaBoite', 'M.', 'Bolomet', 'Paul', 'mon@mail.ch', '021 800 37 11', '', '079 649 64 64', ''),
-(20, 'NouvelleSociete SA', 'Mme', 'Pahud', 'Micheline', 'super@mail.com', '021 800 37 11', '021 800 37 12', '079 649 64 64', '81dc9bdb52d04dc20036dbd8313ed055');
+(20, 'NouvelleSociete SA', 'Mme', 'Pahud', 'Micheline', 'super@mail.com', '021 800 37 11', '021 800 37 12', '079 649 64 64', '81dc9bdb52d04dc20036dbd8313ed055'),
+(21, '', 'dsfasdf', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -54,7 +78,7 @@ CREATE TABLE `clients_tokens` (
 `id` int(10) unsigned NOT NULL,
   `id_client` int(10) unsigned NOT NULL,
   `token` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `clients_tokens`
@@ -73,7 +97,7 @@ CREATE TABLE `clients_videos_docs` (
 `id` int(10) unsigned NOT NULL,
   `id_client` int(10) unsigned NOT NULL,
   `id_media` int(10) unsigned NOT NULL,
-  `type_media` varchar(25) NOT NULL
+  `type_media` varchar(25) NOT NULL COMMENT 'vid ou doc'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -84,13 +108,24 @@ CREATE TABLE `clients_videos_docs` (
 
 CREATE TABLE `docs` (
 `id` int(10) unsigned NOT NULL,
+  `id_categorie` int(10) unsigned NOT NULL,
   `doc` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `descriptif` text NOT NULL,
   `date_publi` datetime NOT NULL,
   `active` int(10) unsigned NOT NULL,
   `private` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `docs`
+--
+
+INSERT INTO `docs` (`id`, `id_categorie`, `doc`, `titre`, `descriptif`, `date_publi`, `active`, `private`) VALUES
+(1, 1, 'TestTrajets.pdf', 'Test de trajets', 'Test des différents itinéraires pour se rendre au travail', '2015-01-16 00:00:00', 1, 0),
+(2, 2, 'PDF_Test.pdf', 'Un doc test', 'Lorem ipsum dolor', '2015-01-20 07:01:42', 1, 1),
+(3, 2, 'PDF_Test.pdf', 'Un doc test', 'Lorem ipsum dolor', '2015-01-20 07:01:11', 1, 0),
+(4, 2, 'PDF_Test.pdf', 'Un doc test', 'Lorem ipsum dolor', '2015-01-20 07:01:28', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -227,6 +262,7 @@ INSERT INTO `users` (`id`, `login`, `password`, `user_name`, `email`, `level`) V
 
 CREATE TABLE `videos` (
 `id` int(10) unsigned NOT NULL,
+  `id_categorie` int(10) unsigned NOT NULL,
   `video` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `descriptif` text NOT NULL,
@@ -238,6 +274,12 @@ CREATE TABLE `videos` (
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `categories_medias`
+--
+ALTER TABLE `categories_medias`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `clients`
@@ -261,7 +303,7 @@ ALTER TABLE `clients_videos_docs`
 -- Index pour la table `docs`
 --
 ALTER TABLE `docs`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `id_categorie` (`id_categorie`);
 
 --
 -- Index pour la table `langues`
@@ -297,22 +339,27 @@ ALTER TABLE `users`
 -- Index pour la table `videos`
 --
 ALTER TABLE `videos`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `id_categorie` (`id_categorie`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
 --
 
 --
+-- AUTO_INCREMENT pour la table `categories_medias`
+--
+ALTER TABLE `categories_medias`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT pour la table `clients_tokens`
 --
 ALTER TABLE `clients_tokens`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `clients_videos_docs`
 --
@@ -322,7 +369,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT pour la table `docs`
 --
 ALTER TABLE `docs`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `langues`
 --
