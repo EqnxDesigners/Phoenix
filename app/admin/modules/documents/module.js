@@ -64,29 +64,44 @@ $(document).ready(function() {
         $('#Container').mixItUp('destroy', true);
     }
     
-    function filerClient(search) {
-        $('#Container').mixItUp();
-        $('#Container').mixItUp('filter', search);
-    }
-    
     $('#Container').on('click', '.row', function() {
         if($(this).is('.active')) {
             $(this).removeClass('active');
+            updateLinkedState($(this).attr('data-idclient'), $(this).attr('data-idmedia'), '0');
         }
         else {
             $(this).addClass('active');
+            updateLinkedState($(this).attr('data-idclient'), $(this).attr('data-idmedia'), '1');
         }
     });
     
-    $('#wrapper-sharing').on('keyup', '#search-client', function() {
-        //console.log('On tape sur le clavier');
-//        var search = '.' + $(this).val();
-        var search = $(this).val();
-        if(search.length > 4) {
-            filerClient(search);
+    function updateLinkedState(idclient, idmedia, value) {
+        if(value === '0') {
+            $.post(urlAjaxModule, {a: 'unbindClientToMedia', idclient: idclient, idmedia: idmedia });
         }
         else {
-            initMixItUp();
+            $.post(urlAjaxModule, {a: 'bindClientToMedia', idclient: idclient, idmedia: idmedia });
+        }
+    }
+    
+    $('#wrapper-sharing').on('keyup', '#search-client', function() {
+        var inputText = $(this).val().toLowerCase();
+        var $matching = $();
+        $('#Container').mixItUp();
+        
+        if(inputText.length > 0) {
+            $('.mix').each(function() {
+                if($(this).attr('class').toLowerCase().match(inputText)) {
+                    $matching = $matching.add(this);
+                }
+                else {
+                    $matching = $matching.not(this);
+                }
+            });
+            $('#Container').mixItUp('filter', $matching);
+        }
+        else {
+            $('#Container').mixItUp('filter', 'all');
         }
     });
     

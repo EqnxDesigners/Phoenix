@@ -221,13 +221,13 @@ class Medias extends DB {
         }
     }
     
-    public function loadClientBinded($id, $table) {
+    public function loadClientBinded($id, $type) {
         //($table === 'documents' ? $col = 'doc' : $col = 'video');
         try {
             $result = '';
             foreach($this->getTheClients() as $k => $client) {
-                $result .= '<li class="mix '.$client->nom.' '.$client->prenom.'">';
-                    $result .= '<div class="row '.($this->checkIfLinked($client->id, $id) ? 'active">' : '">');
+                $result .= '<li class="mix '.$this->getSortClass($client).'">';
+                    $result .= '<div data-idclient="'.$client->id.'" data-idmedia="'.$id.'" class="row '.($this->checkIfLinked($client->id, $id, $type) ? 'active">' : '">');
                     $result .= '<div class="small-10 columns">'.$client->nom.' '.$client->prenom.'</div>';
                     $result .= '<div class="small-2 columns text-right"><i class="fa fa-check"></i></div>';
                     $result .= '</div>';
@@ -238,6 +238,10 @@ class Medias extends DB {
         catch (PDOException $e) {
             throw new PDOException($e);
         }
+    }
+    
+    private function getSortClass($client) {
+        return $this->cleanAndLowerText($client->nom).' '.$this->cleanAndLowerText($client->prenom);
     }
     
     private function getTheClients() {
@@ -252,12 +256,37 @@ class Medias extends DB {
         }
     }
     
-    private function checkIfLinked($idclient, $idmedia) {
+    private function checkIfLinked($idclient, $idmedia, $type) {
         try {
             $sql = "SELECT *
                     FROM clients_videos_docs
-                    WHERE id_client = '".$idclient."' AND id_media = '".$idmedia."' AND type_media = 'doc'";
+                    WHERE id_client = '".$idclient."' AND id_media = '".$idmedia."' AND type_media = '".$type."'";
             return ($this->execOneResultQuery($sql) ? true : false);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    public function bindClientToMedia($idclient, $idmedia, $type) {
+        try {
+            $sql = "INSERT INTO clients_videos_docs (id_client,id_media,type_media) 
+                    VALUES ('".$idclient."',
+                            '".$idmedia."',
+                            '".$type."')";
+            $this->applyOneQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    public function unbindClientToMedia($idclient, $idmedia, $type) {
+        try {
+            $sql = "DELETE 
+                    FROM clients_videos_docs 
+                    WHERE id_client='".$idclient."' AND id_media='".$idmedia."' AND type_media='".$type."'";
+            $this->applyOneQuery($sql);
         }
         catch (PDOException $e) {
             throw new PDOException($e);
