@@ -396,11 +396,14 @@
 }
 #Container .mix .row i {
   display: none;
-  color: #43ac6a;
 }
 #Container .mix .active {
   background: #cfecda;
   cursor: pointer;
+}
+#Container .mix .active i {
+  display: block;
+  color: #43ac6a;
 }
 form input[type="text"],
 form input[type="password"],

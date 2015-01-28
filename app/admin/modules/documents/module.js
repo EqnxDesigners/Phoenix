@@ -39,7 +39,7 @@ $(document).ready(function() {
             $.post(urlAjaxModule, {a: 'loadClient', idItem: idItem })
             .done(function(result) {
                 $('#Container').empty().append(result);
-                $('#Container').mixItUp();
+                initMixItUp();
                 moveOverlayedPanel('17px');
             });
         }
@@ -55,21 +55,38 @@ $(document).ready(function() {
     
     //----- Editeur ---------------------------------------
     $('#wrapper-adding').on('change', 'select', function() {
-        console.log($(this).val());
         ($(this).val() !== 'xxx' ? $('#file-uploader').slideDown('fast') : $('#file-uploader').slideUp('fast'));
     });
     
     //----- Mix It Up -------------------------------------
-    $('#Container').mixItUp();
+    function initMixItUp() {
+        $('#Container').mixItUp();
+        $('#Container').mixItUp('destroy', true);
+    }
+    
+    function filerClient(search) {
+        $('#Container').mixItUp();
+        $('#Container').mixItUp('filter', search);
+    }
     
     $('#Container').on('click', '.row', function() {
         if($(this).is('.active')) {
             $(this).removeClass('active');
-            $('i', this).hide();
         }
         else {
             $(this).addClass('active');
-            $('i', this).show();
+        }
+    });
+    
+    $('#wrapper-sharing').on('keyup', '#search-client', function() {
+        //console.log('On tape sur le clavier');
+//        var search = '.' + $(this).val();
+        var search = $(this).val();
+        if(search.length > 4) {
+            filerClient(search);
+        }
+        else {
+            initMixItUp();
         }
     });
     
