@@ -22,7 +22,27 @@ if(isset($_POST['a']) && $_POST['a'] === 'changePrivacy') {
 if(isset($_POST['a']) && $_POST['a'] === 'loadClient') {
     $Media = new Medias();
     try {
-        echo $Media->loadClientBinded($_POST['idItem'], 'docs');
+        echo $Media->loadClientBinded($_POST['idItem'], 'doc');
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
+if(isset($_POST['a']) && $_POST['a'] === 'bindClientToMedia') {
+    $Media = new Medias();
+    try {
+        echo $Media->bindClientToMedia($_POST['idclient'], $_POST['idmedia'], 'doc');
+    }
+    catch (PDOException $e) {
+        echo 'Erreur : '.$e->getMessage();
+    }
+}
+
+if(isset($_POST['a']) && $_POST['a'] === 'unbindClientToMedia') {
+    $Media = new Medias();
+    try {
+        echo $Media->unbindClientToMedia($_POST['idclient'], $_POST['idmedia'], 'doc');
     }
     catch (PDOException $e) {
         echo 'Erreur : '.$e->getMessage();
