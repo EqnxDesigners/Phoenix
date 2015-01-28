@@ -184,9 +184,12 @@ $(document).ready(function() {
                     // add item to be filtered out if input text matches items inside the title   
                     if($this.attr('class').toLowerCase().match(inputText)) {
                         $matching = $matching.add(this);
+                        console.log(this);
+//                        console.log($matching);
                     } else {
                         // removes any previously matched item
                         $matching = $matching.not(this);
+                        console.log($matching);
                     }
                 });
                 $('.item-list ul').mixItUp('filter', $matching);
