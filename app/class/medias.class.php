@@ -224,26 +224,20 @@ class Medias extends DB {
     public function loadClientBinded($id, $table) {
         //($table === 'documents' ? $col = 'doc' : $col = 'video');
         try {
-            $result = '<li class="mix">';
+            $result = '';
             foreach($this->getTheClients() as $k => $client) {
-                $result .= '<div class="row">';
-                $result .= '<div class="small-10 columns">'.$client->nom.'</div>';
-                $result .= '<div class="small-2 columns text-right"><i class="fa fa-check"></i></div>';
-                $result .= '</div>';
+                $result .= '<li class="mix '.$client->nom.' '.$client->prenom.'">';
+                    $result .= '<div class="row '.($this->checkIfLinked($client->id, $id) ? 'active">' : '">');
+                    $result .= '<div class="small-10 columns">'.$client->nom.' '.$client->prenom.'</div>';
+                    $result .= '<div class="small-2 columns text-right"><i class="fa fa-check"></i></div>';
+                    $result .= '</div>';
+                $result .= '</li>';
             }
-            $result .= '</li>';
             return $result;
         }
         catch (PDOException $e) {
             throw new PDOException($e);
         }
-        
-//        <li class="mix">
-//                                <div class="row">
-//                                    <div class="small-10 columns">Client 1</div>
-//                                    <div class="small-2 columns text-right"><i class="fa fa-check"></i></div>
-//                                </div>
-//                            </li>
     }
     
     private function getTheClients() {
@@ -252,6 +246,18 @@ class Medias extends DB {
                     FROM clients
                     ORDER BY societe, nom ASC";
             return $this->execQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+    
+    private function checkIfLinked($idclient, $idmedia) {
+        try {
+            $sql = "SELECT *
+                    FROM clients_videos_docs
+                    WHERE id_client = '".$idclient."' AND id_media = '".$idmedia."' AND type_media = 'doc'";
+            return ($this->execOneResultQuery($sql) ? true : false);
         }
         catch (PDOException $e) {
             throw new PDOException($e);
