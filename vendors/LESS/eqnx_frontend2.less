@@ -1,0 +1,60 @@
+//---------------------------------------------------------
+//    Author     : Jerome Clerc
+//    Project    : Equinoxe MIS Developement - back-end
+//    Description: Global LESS
+//---------------------------------------------------------
+
+//----- Imports -------------------------------------------
+@import "variables.less";
+@import "mixines.less";
+@import "fonts.less";
+
+//----- Variables -----------------------------------------
+
+
+//----- Globals -------------------------------------------
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.wide-row {
+    max-width: 100%!important;
+}
+
+//----- Header & Main menu --------------------------------
+header {
+    position: fixed;
+//    height: 90px;
+    background: rgba(255, 255, 255, 0.9);
+    .box-shadow(0px, 2px, 5px, 0px, rgba(150,150,150,.5));
+    z-index: 1000;
+    
+    .logo-eqnx-big {
+        
+        text-align: right;
+        
+        img {
+            margin: 1rem;
+        }
+    }
+    
+    .logo-eqnx-small {
+        display: none;
+    }
+}
+
+
+//---------------------------------------------------------
+//----- MEDIUM SCREENS ------------------------------------
+//---------------------------------------------------------
+@media only screen and (min-width: 40.063em) {
+    
+}
+
+//---------------------------------------------------------
+//----- LARGE SCREENS -------------------------------------
+//---------------------------------------------------------
+@media only screen and (min-width: 64.063em) {
+    
+}

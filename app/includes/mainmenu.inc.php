@@ -1,4 +1,14 @@
 <!-- MENU -->
+<div data-magellan-expedition="fixed">
+    <dl class="sub-nav">
+        <dd><a target="#">Accueil</a></dd>
+        <dd><a target="#">IS-Academia</a></dd>
+        <dd><a target="#">News</a></dd>
+        <dd><a target="#">Equinoxe</a></dd>
+        <dd><a target="#">Contact</a></dd>
+    </dl>
+</div>
+<!--
 <div class="vertical-container menu-wrap">
     <div class="header-vertical-container">
         <a id="close-button" class="close-button">Close Menu</a>
@@ -59,4 +69,5 @@
         </p>
     </div>
 </div>
+-->
 <!-- END MENU -->

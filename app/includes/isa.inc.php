@@ -12,6 +12,12 @@
     <div class="row bloc-description gris hide-s">
         <div class="small-12 columns">
             <h1><?php echo $_SESSION['trad']['isa']['txt1_title']; ?></h1>
+            <div data-magellan-expedition="fixed">
+  <dl class="sub-nav">
+    <dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
+    <dd data-magellan-arrival="js"><a href="#js">Arrival 2</a></dd>
+  </dl>
+</div>
         </div>
         <div class="small-12 columns">
             <?php 

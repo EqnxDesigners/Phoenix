@@ -19,6 +19,8 @@
   <link rel="stylesheet" type="text/css" href="assets/sweetAlert/sweet-alert.css" />
 
   <link rel="stylesheet" type="text/css" href="css/equinoxe.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <!-- ATTENTION, FUSIONNER LES DEUX CSS UNE FOIS TERMINE -->
 
   <!-- jquery-->
   <script type="text/javascript" src="js/jquery-1.11.1.min.js" charset="utf-8"></script>

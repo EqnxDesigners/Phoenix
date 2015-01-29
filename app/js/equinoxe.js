@@ -113,3 +113,6 @@ $(document).ready(function () {
 
   init();
 });
+
+console.log('lancement de Foundation');
+$(document).foundation();
