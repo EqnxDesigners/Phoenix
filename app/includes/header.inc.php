@@ -1,24 +1,14 @@
 <!-- HEADER -->
 <header class="row wide-row">
-    <nav class="small-9 columns">
-        <?php //include_once('includes/mainmenu.inc.php'); ?>
-        <div data-magellan-expedition="fixed">
-            <a target="topPage" class="logo-small-header">LIENS</a>
-            <dl class="sub-nav">
-                <dd><a target="#">Accueil</a></dd>
-                <dd><a target="#">IS-Academia</a></dd>
-                <dd><a target="#">News</a></dd>
-                <dd><a target="#">Equinoxe</a></dd>
-                <dd><a target="#">Contact</a></dd>
-            </dl>
-        </div>
-    </nav>
+    <div class="small-9 columns">
+        <?php include_once('includes/mainmenu.inc.php'); ?>
+    </div>
     <div class="small-3 columns logo-eqnx-big">
         <img src="img/EQNX_Logo_noir-S.png">
     </div>
-    <div class="small-3 columns logo-eqnx-small">
-        <img src="img/EQNX_Logo_noir_S_sans-texte.png">
-    </div>
+<!--    <div class="small-3 columns logo-eqnx-small">-->
+<!--        <img src="img/EQNX_Logo_noir_S_sans-texte.png">-->
+<!--    </div>-->
 </header>
 
 

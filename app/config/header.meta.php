@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="css/animate.css" />
   <link rel="stylesheet" type="text/css" href="assets/sweetAlert/sweet-alert.css" />
 
-  <link rel="stylesheet" type="text/css" href="css/equinoxe.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="css/equinoxe.css" /> -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
   <!-- ATTENTION, FUSIONNER LES DEUX CSS UNE FOIS TERMINE -->
 
@@ -42,6 +42,7 @@
   <!-- Police d icone -->
   <link rel="stylesheet" href="assets/icoEqnx/styles/icoEqnx-styles.css" type="text/css">
   <link rel="stylesheet" href="assets/icoEqnx/styles/icoEqnx.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,700,900' rel='stylesheet' type='text/css'>
 
   <!-- Google Analytics -->
   <script>
@@ -63,3 +64,5 @@
   
   
 </head>
+
+<body>

@@ -1,4 +1,5 @@
 <!-- MENU -->
+<!--
 <div data-magellan-expedition="fixed">
     <dl class="sub-nav">
         <dd><a target="#">Accueil</a></dd>
@@ -8,6 +9,17 @@
         <dd><a target="#">Contact</a></dd>
     </dl>
 </div>
+-->
+<nav>
+    <ul>
+        <li><a target="#" ><span class="icon icon-shape-planete"></span></a></li>
+        <li><a target="#">Accueil</a></li>
+        <li><a target="#">IS-Academia</a></li>
+        <li><a target="#">News</a></li>
+        <li><a target="#">Equinoxe</a></li>
+        <li><a target="#" target="index-footer">Contact</a></li>
+    </ul>
+</nav>
 <!--
 <div class="vertical-container menu-wrap">
     <div class="header-vertical-container">

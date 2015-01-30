@@ -18,16 +18,6 @@ function setCurrentLang() {
     }
 }
 
-function displayBody() {
-    if($_SESSION['current']['page'] === 'news') {
-        $result = '<body class="accueil">';
-    }
-    else {
-        $result = '<body>';
-    }
-    return $result;
-}
-
 function display_form_inscr_semin() {
     $lay = new Layouts();
     if($lay->checkBoolOpt('FORM_INSCR_SEMIN')) {

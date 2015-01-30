@@ -7,54 +7,325 @@
 //----- Imports -------------------------------------------
 @import "variables.less";
 @import "mixines.less";
-@import "fonts.less";
+//@import "fonts.less";
 
 //----- Variables -----------------------------------------
-
+@row-max-width : 80rem;
 
 //----- Globals -------------------------------------------
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+body {
+    background: @eqnx-gray-background;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: @eqnx-dark-blue;
+}
+.row {
+    max-width: @row-max-width!important;
+}
 .wide-row {
     max-width: 100%!important;
+}
+.base-size {
+    max-width: @row-max-width!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//----- Titles --------------------------------------------
+h1,h2,h3,h4 {
+    font-family: 'Lato', sans-serif;
+}
+h1 {
+
+}
+h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 5.6rem;
+
+    small {
+        font-weight: normal;
+        color: #ffffff;
+    }
+}
+h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: @eqnx-dark-blue;
+}
+h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: @eqnx-dark-blue;
+    text-transform: uppercase;
+}
+
+//----- Buttons -------------------------------------------
+.button {
+    margin-bottom: 1rem;
+}
+.large {
+    padding: 0.8rem 3.25rem;
+    min-width: 70%;
+    font-size: 1.25rem;
+}
+.alert {
+    background: @eqnx-pale-red!important;
+
+    &:hover {
+        background: darken(@eqnx-pale-red, 20%)!important;
+    }
+}
+
+//----- Layouts -------------------------------------------
+.white {
+    background: #ffffff;
+}
+.more-info {
+    margin: 2rem auto;
+
+    a {
+        color: @eqnx-pale-red;
+        font-weight: 300;
+        font-size: 1.2rem;
+        margin: 1rem auto;
+
+        .icon {
+            color: @eqnx-pale-red!important;
+            margin-left: 0.8rem;
+        }
+
+        &:hover {
+            color: darken(@eqnx-pale-red, 20%);
+
+            .icon {
+                color: darken(@eqnx-pale-red, 20%);
+            }
+        }
+    }
+}
+.add-text {
+    margin: 2rem auto 1rem auto;
+
+    p {
+        margin: 0;
+    }
 }
 
 //----- Header & Main menu --------------------------------
 header {
     position: fixed;
-//    height: 90px;
     background: rgba(255, 255, 255, 0.9);
     .box-shadow(0px, 2px, 5px, 0px, rgba(150,150,150,.5));
     z-index: 1000;
-    
+
+    nav {
+        ul {
+            list-style-type: none;
+
+            li {
+                display: inline-block;
+                padding-right: 1.6rem;
+                line-height: 4.3rem;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                a {
+                    font-family: 'Lato', sans-serif;
+                    font-size: 1.2rem;
+                    text-transform: uppercase;
+                    color: @eqnx-dark-blue;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
     .logo-eqnx-big {
-        
         text-align: right;
-        
+
         img {
             margin: 1rem;
         }
     }
-    
+
     .logo-eqnx-small {
         display: none;
     }
 }
 
+//----- Slideshow -----------------------------------------
+.slideshow {
+    height: 700px;
+    background: @eqnx-dark-blue;
+}
+
+//----- Alerte news ---------------------------------------
+.eqnx-alert {
+    max-widows: 100% !important;
+    height: 100px;
+    line-height: 6rem;
+    a {
+        font-size: 1.5rem;
+        color: white;
+    }
+}
+.new-video {
+    background: #2CC990;
+}
+.new-job {
+    background: #2C82C9;
+}
+
+//----- IS-Academia ---------------------------------------
+.slot-info {
+    padding: 2rem 0;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    img {
+        margin-bottom: 1rem;
+    }
+}
+
+//----- Footer --------------------------------------------
+footer {
+    background: @eqnx-dark-blue;
+    color: #ffffff;
+
+    h3 {
+        color: white!important;
+    }
+
+    a {
+        color: #ffffff;
+
+        &:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    }
+
+    #google-map {
+        background: aquamarine;
+        min-height: 300px;
+    }
+
+    .coord-info {
+        margin-bottom: 1rem!important;
+    }
+
+    .copyright {
+        font-size: 0.7rem;
+        color: darken(white, 20%);
+        margin: 0.8rem auto;
+    }
+}
+
+//----- Formulaires ---------------------------------------
+form {
+    .group {
+        position: relative;
+        margin-bottom: 45px;
+
+        input {
+            background: none;
+            border: none;
+            border-bottom: 1px solid #ffffff;
+            color: #ffffff;
+            display: block;
+            font-size: 1.2rem;
+        }
+
+        input:focus {
+            background: lighten(@eqnx-dark-blue, 5%);
+            border-bottom: 1px solid #ffffff;
+            color: #ffffff;
+            outline: none;
+        }
+
+        label {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 7px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -22px;
+            font-size: 1rem;
+            color: #999999;
+        }
+    }
+
+    textarea {
+        background: lighten(@eqnx-dark-blue, 3%);
+        border: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+
+        &:focus {
+            background: lighten(@eqnx-dark-blue, 5%);
+            color: #ffffff;
+        }
+
+        &::-webkit-input-placeholder {
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+        &::-moz-placeholder {  /* Firefox 19+ */
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+        &:-ms-input-placeholder {
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+    }
+
+    input[type="submit"] {
+        margin-bottom: 1rem;
+        padding: 0.8rem 4.25rem;
+        font-size: 1.25rem;
+        background: @eqnx-pale-red!important;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        .rounded-corners(3px);
+
+        &:hover {
+            background: darken(@eqnx-pale-red, 20%)!important;
+        }
+    }
+}
 
 //---------------------------------------------------------
 //----- MEDIUM SCREENS ------------------------------------
 //---------------------------------------------------------
 @media only screen and (min-width: 40.063em) {
-    
+
 }
 
 //---------------------------------------------------------
 //----- LARGE SCREENS -------------------------------------
 //---------------------------------------------------------
 @media only screen and (min-width: 64.063em) {
-    
+
 }
