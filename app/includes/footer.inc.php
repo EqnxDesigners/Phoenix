@@ -1,13 +1,12 @@
 <!-- FOOTER -->
 <footer class="wide-row" id="index-footer">
-    <div class="row wide-row" id="google-map">
-        GOOGLE MAP
-    </div>
+    <div class="row wide-row" id="google-map"></div>
+<!--    <iframe src="https://www.google.com/maps/d/embed?mid=zJKt0_bghPvM.kmqdM_x2vAcA" width="1680" height="300"></iframe>-->
     <div class="row">
         <div class="small-12 columns">
             <h3>Nous contacter</h3>
         </div>
-        <div class="small-6 columns">
+        <div class="small-12 medium-6 columns">
             <div class="row coord-info">
                 <div class="small-1 columns">
                     <span class="icon icon-shape-localisation icon-param-color-white"></span>
@@ -36,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="small-6 columns">
+        <div class="small-12 medium-6 columns">
             <form action="">
                 <div class="small-12 columns">
                     <div class="group">
@@ -46,7 +45,7 @@
                 </div>
                 <div class="small-12 columns">
                     <div class="group">
-                        <input type="text" name="email" required />
+                        <input type="email" name="email" required />
                         <label>E-mail</label>
                     </div>
                 </div>

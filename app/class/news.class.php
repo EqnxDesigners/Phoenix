@@ -95,6 +95,41 @@ class News extends DB {
         }
         return $result;
     }
+
+    public function displayLastNews($max = 2) {
+        try {
+            if($allNews = $this->getNewsToDisplay($max)) {
+                $nbcol = 12 / $max;
+                $result = '';
+                foreach($allNews as $k => $news) {
+                    $result .= '<div class="small-12 medium-'.$nbcol.' columns">';
+                        $result .= '<div class="new">';
+                            $result .= '<div class="content" data-equalizer-watch>';
+                                $result .= '<div class="row">';
+                                    $result .= '<div class="small-6 columns">';
+                                        $result .= '<p class="dateNew">'.$this->displayDate($news->date_publi).'</p>';
+                                    $result .= '</div>';
+                                    $result .= '<div class="small-12 columns">';
+                                        $result .= '<h1>'.$news->title.'</h1>';
+                                    $result .= '</div>';
+                                    $result .= '<div class="small-12 columns">';
+                                        $result .= '<h2>'.$news->sub_title.'</h2>';
+                                    $result .= '</div>';
+                                    $result .= '<div class="small-12 columns">';
+                                        $result .= $news->content;
+                                    $result .= '</div>';
+                                $result .= '</div>';
+                            $result .= '</div>';
+                        $result .= '</div>';
+                    $result .= '</div>';
+                }
+            }
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+        return $result;
+    }
     
     private function checkIfDisplayByDate($obj) {
         $result = false;
@@ -119,7 +154,7 @@ class News extends DB {
         return $result;
     }
     
-    private function getNewsToDisplay() {
+    private function getNewsToDisplay($max = 9999) {
         try {
             $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, title, sub_title, content
                     FROM news
@@ -131,7 +166,7 @@ class News extends DB {
             else {
                 $sql .= "AND news_trad.id_lang = '".$this->_idlang."' OR news_trad.id_lang = 'en' ";
             }
-            $sql .= "ORDER BY news.date_publi DESC";
+            $sql .= "ORDER BY news.date_publi DESC LIMIT ".$max;
             return $this->execQuery($sql);
         }
         catch (PDOException $e) {

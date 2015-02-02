@@ -62,4 +62,14 @@ function the_news() {
         echo 'ERROR : '.$e.'<br>';
     }
 }
+
+function the_last_news() {
+    $news = new News();
+    try {
+        echo $news->displayLastNews();
+    }
+    catch (PDOException $e) {
+        echo 'ERROR : '.$e.'<br>';
+    }
+}
 ?>

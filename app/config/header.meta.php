@@ -32,6 +32,7 @@
   <script src="assets/foundation/foundation.equalizer.js"></script>
   <script src="assets/mixItUp/jquery.mixitup.js"></script>
   <script src="assets/sweetAlert/sweet-alert.min.js"></script>
+  <script src="assets/hammer/hammer.min.js"></script>
 
   <!-- JS equinoxe -->
   <script type="text/javascript" src="js/equinoxe.js" charset="utf-8"></script>
@@ -43,6 +44,9 @@
   <link rel="stylesheet" href="assets/icoEqnx/styles/icoEqnx-styles.css" type="text/css">
   <link rel="stylesheet" href="assets/icoEqnx/styles/icoEqnx.css">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,700,900' rel='stylesheet' type='text/css'>
+
+  <!-- Google Maps -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6oN_q0aaOgyZ9AV3h4GvdncqAp_wjcpI"></script>
 
   <!-- Google Analytics -->
   <script>
@@ -65,4 +69,5 @@
   
 </head>
 
+<!--<body onload="initialize()">-->
 <body>

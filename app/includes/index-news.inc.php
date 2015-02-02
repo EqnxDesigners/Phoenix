@@ -3,8 +3,8 @@
         <h3>Dernières news</h3>
     </div>
 
-    <div id="newsEqnx" class="row">
-        <?php the_news(); ?>
+    <div id="newsEqnx" class="row" data-equalizer>
+        <?php the_last_news(); ?>
     </div>
 
     <div class="small-12 columns text-center more-info">

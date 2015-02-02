@@ -3,29 +3,33 @@
         <h3>Support</h3>
     </div>
 
-    <div class="small-5 columns text-center white">
-        <div class="small-12 columns">
-            <h4>wiki</h4>
-        </div>
-        <div class="small-12 columns" data-equalizer-watch>
-            <p>Pour nos clients l’accès et l’utilisation de notre site WIKI est entièrement gratuit. Il est destiné à vos responsables du système d'information IS-Academia.</p>
-        </div>
-        <div class="small-12 columns">
-            <a href="#" class="button large radius alert">Accès au wiki</a>
+    <div class="small-12 medium-5 columns text-center">
+        <div class="row white">
+            <div class="small-12 columns">
+                <h4>wiki</h4>
+            </div>
+            <div class="small-12 columns" data-equalizer-watch>
+                <p>Pour nos clients l’accès et l’utilisation de notre site WIKI est entièrement gratuit. Il est destiné à vos responsables du système d'information IS-Academia.</p>
+            </div>
+            <div class="small-12 columns">
+                <a href="#" class="button large radius alert">Accès au wiki</a>
+            </div>
         </div>
     </div>
 
-    <div class="small-2 columns">&nbsp;</div>
+    <div class="medium-2 columns hide-for-small-only">&nbsp;</div>
 
-    <div class="small-5 columns text-center white">
-        <div class="small-12 columns">
-            <h4>call-center</h4>
-        </div>
-        <div class="small-12 columns" data-equalizer-watch>
-            <p>Déposez vos demandes d’assistance, directement dans notre outils de ticketing pour IS-Academia !</p>
-        </div>
-        <div class="small-12 columns">
-            <a href="#" class="button large radius alert">Accès au call-center</a>
+    <div class="small-12 medium-5 columns text-center">
+        <div class="row white">
+            <div class="small-12 columns">
+                <h4>call-center</h4>
+            </div>
+            <div class="small-12 columns" data-equalizer-watch>
+                <p>Déposez vos demandes d’assistance, directement dans notre outils de ticketing pour IS-Academia !</p>
+            </div>
+            <div class="small-12 columns">
+                <a href="#" class="button large radius alert">Accès au call-center</a>
+            </div>
         </div>
     </div>
 

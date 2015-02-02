@@ -1,17 +1,19 @@
 <!-- HEADER -->
 <header class="row wide-row">
-    <div class="small-9 columns">
+    <div class="small-12 columns" id="main-navigation">
         <?php include_once('includes/mainmenu.inc.php'); ?>
     </div>
+    <!--
     <div class="small-3 columns logo-eqnx-big">
         <img src="img/EQNX_Logo_noir-S.png">
     </div>
-<!--    <div class="small-3 columns logo-eqnx-small">-->
-<!--        <img src="img/EQNX_Logo_noir_S_sans-texte.png">-->
-<!--    </div>-->
+    -->
+    <!--
+    <div class="small-3 columns logo-eqnx-small">
+        <img src="img/EQNX_Logo_noir_S_sans-texte.png">
+    </div>
+    -->
 </header>
-
-
 
 <!--
 <nav class="medium-12 columns text-right">

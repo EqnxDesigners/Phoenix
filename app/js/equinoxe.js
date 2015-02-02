@@ -5,7 +5,7 @@ $(document).ready(function () {
   //----- Scrolling main menu -----------------------------
   $('nav').on('click', 'li', function() {
     var target = '#' + $(this).attr('target');
-    $("html, body").animate({scrollTop:$(target).offset().top-60},500)});
+    $("html, body").animate({scrollTop:$(target).offset().top-60},500);
   });
 
   //----- ISA display three random spec -------------------
@@ -38,7 +38,35 @@ $(document).ready(function () {
 
   displayThreeRandomInfo();
 
+  //----- Google Map --------------------------------------
+  function initialize() {
+    //46.517376, 6.562770
+    var myOptions = {
+      center: new google.maps.LatLng(46.517376, 6.562770),
+      zoom: 17,
+      panControl: false,
+      zoomControl: false,
+      scaleControl: false,
+      mapTypeControl: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("google-map"), myOptions);
+
+    //var image = 'images/map_marker.png';
+    //var myLatLng = new google.maps.LatLng(46.167654, 6.108538);
+    //var expoMarker = new google.maps.Marker({
+    //  position: myLatLng,
+    //  map: map,
+    //  icon: image
+    //});
+  }
+  initialize();
+
+  //----- Foundation --------------------------------------
   $(document).foundation();
+
+  //----- Material Design ---------------------------------
+  
 
   //$(document).foundation({
   //  accordion: {
@@ -55,7 +83,7 @@ $(document).ready(function () {
   //});
 
   //$("#newsEqnx").masonry({
-  //  columnWidth: 500,
+  //  columnWidth: 200,
   //  itemSelector: '.new',
   //  gutter: 10
   //});
@@ -161,3 +189,131 @@ $(document).ready(function () {
 //    equalize_on_stack: false
 //  }
 //});
+
+jQuery(document).ready(function ($) {
+  'use strict';
+
+  /*
+   *    Change la navigation en fonction du support (taille de l'écran, mobile ou desktop)
+   */
+  function setNavigation() {
+    var width = $(window).width();
+    if (width <= 640) {
+      //$("#desktop-nav").hide();
+      //$('#mobile-nav').show();
+      $('body').addClass('mobile');
+      //$('#contact-panel').show();
+    } else {
+      //$("#desktop-nav").show();
+      //$('#mobile-nav').hide();
+      $('body').removeClass('mobile');
+      //$('#contact-panel').hide();
+    }
+  }
+
+  function hideLangues() {
+    $('#langues').slideUp(200);
+  }
+  function showLangues() {
+    $('#langues').slideDown(200);
+  }
+
+  /*
+   *    Détecte si la page est scrollée pour réduire la taille du header et cacher les langues si c'est ouvert
+   */
+  $(window).scroll(function () {
+    var position = $(document).scrollTop();
+    hideLangues();
+    if (position !== 0) {
+      $('body').addClass('scroll');
+    } else {
+      $('body').removeClass('scroll');
+    }
+  });
+
+  /*
+   *    Détecte si la page est redimensionnée et cache les langues
+   */
+  $(window).resize(function () {
+    hideLangues();
+  });
+
+  /*
+   *    Remonte en haut de page si le bouton flottant d'action est cliqué (mobile exclu)
+   */
+  $('#floating-action-button').on('click', function () {
+    $("html, body").animate({scrollTop: 0}, '100');
+  });
+
+  /*
+   *    Affiche & Cache le menu des langues
+   */
+  function toggleLangueMenu(elem) {
+    //$('#langues').slideToggle(200);
+
+    var positionBtnLeft = elem.offset().left,
+        positionBtnTop = elem.offset().top,
+        //positionLanguesTop = positionBtnTop + elem.height();
+        positionLanguesTop = '50px';
+
+    console.log(positionLanguesTop);
+
+    if ($('#langues').is(':visible')) {
+      hideLangues();
+    } else {
+      showLangues();
+    }
+
+    //$('#langues').css('top', positionLanguesTop + 5);
+    $('#langues').css('top', positionLanguesTop);
+    $('#langues').css('left', positionBtnLeft - 15);
+  }
+
+  $('body').on('click', function () {
+    hideLangues();
+  });
+
+  $('#langues-btn').on('click', function () {
+    toggleLangueMenu($(this));
+    return false;
+  });
+
+  $('#langues-btn-mobile').on('click', function () {
+    toggleLangueMenu($(this));
+    return false;
+  });
+
+  /*
+   *    Affiche & Cache le menu flottant de contact (mobile exclu)
+   */
+  $('#contact-btn').on('click', function () {
+    $('body').addClass('show-contact-panel');
+  });
+
+  $('#close-contact-panel').on('click', function () {
+    $('body').removeClass('show-contact-panel');
+  });
+
+  // touch gestion
+  var contactPanelElem = document.getElementById('contact-panel'),
+      cp = new Hammer(contactPanelElem);
+
+  // listen to events...
+  cp.on("panleft", function (ev) {
+    $('body').removeClass('show-contact-panel');
+  });
+
+
+  // INIT EVENTS
+  function init() {
+    setNavigation();
+    $(document).foundation();
+  }
+
+  init();
+
+  $(window).resize(function () {
+    setNavigation();
+  });
+
+});

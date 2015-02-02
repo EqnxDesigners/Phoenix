@@ -10,16 +10,71 @@
     </dl>
 </div>
 -->
-<nav>
-    <ul>
-        <li><a target="#" ><span class="icon icon-shape-planete"></span></a></li>
-        <li><a target="#">Accueil</a></li>
-        <li><a target="#">IS-Academia</a></li>
-        <li><a target="#">News</a></li>
-        <li><a target="#">Equinoxe</a></li>
-        <li><a target="#" target="index-footer">Contact</a></li>
-    </ul>
+
+<!--<nav>-->
+<!--    <ul>-->
+<!--        <li><a href="#" ><span class="icon icon-shape-planete"></span></a></li>-->
+<!--        <li><a href="#">Accueil</a></li>-->
+<!--        <li><a href="#">IS-Academia</a></li>-->
+<!--        <li><a href="#">News</a></li>-->
+<!--        <li><a href="#">Equinoxe</a></li>-->
+<!--        <li target="index-footer"><a href="#">Contact</a></li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
+<nav id="mobile-nav" class="show-for-small-only">
+    <div class="row row-block">
+<!--        <div class="small-3 columns contact-menu"><img src="img/contact.png" alt="Contact" id="contact-btn" /></div>-->
+        <div class="small-3 columns contact-menu"><span class="icon icon-shape-paperplane" id="contact-btn"></span></div>
+        <div class="small-6 columns logo"><img src="img/eqnx-logo-s.png" alt="Equinoxe MIS Development" /></div>
+<!--        <div class="small-3 columns langues-menu"><img src="img/langues.png" alt="Langues" id="langues-btn-mobile"/></div>-->
+        <div class="small-3 columns langues-menu"><span class="icon icon-shape-planete" id="langues-btn-mobile"></span></div>
+    </div>
 </nav>
+
+<nav id="desktop-nav" class="show-for-medium-up">
+    <div class="row row-block">
+        <div class="small-9 columns menu-items">
+            <ul>
+<!--                <li><img src="img/langues.png" alt="Langues" id="langues-btn"/></li>-->
+                <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">IS-Academia</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Equinoxe</a></li>
+                <li target="index-footer"><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="small-3 columns logo"><img src="img/eqnx-logo-l.png" alt="Equinoxe MIS Development" /></div>
+    </div>
+</nav>
+
+<div id="langues">
+    <ul>
+        <li><a href="">FR</a></li>
+        <li><a href="">EN</a></li>
+        <li><a href="">IT</a></li>
+        <li><a href="">DE</a></li>
+    </ul>
+</div>
+
+<div id="contact-panel" class="show-for-small-only">
+    <div class="row">
+        <div class="small-10 columns">
+            <h1>Nous contacter</h1>
+        </div>
+        <div class="small-2 columns close-item">
+            <img src="img/arrow-left.png" alt="X" id="close-contact-panel" />
+        </div>
+    </div>
+</div>
+
+<!--
+<section>
+    <div id="floating-action-button"><img src="img/arrow-top.png" alt="up" /></div>
+</section>
+-->
+
 <!--
 <div class="vertical-container menu-wrap">
     <div class="header-vertical-container">
