@@ -2,9 +2,9 @@
     <div class="small-12 columns">
         <h3>Support</h3>
     </div>
-
-    <div class="small-12 medium-5 columns text-center">
-        <div class="row white">
+    
+    <div class="small-12 medium-6 columns support-tile">
+        <div class="row white text-center">
             <div class="small-12 columns">
                 <h4>wiki</h4>
             </div>
@@ -17,10 +17,8 @@
         </div>
     </div>
 
-    <div class="medium-2 columns hide-for-small-only">&nbsp;</div>
-
-    <div class="small-12 medium-5 columns text-center">
-        <div class="row white">
+    <div class="small-12 medium-6 columns support-tile">
+        <div class="row white text-center">
             <div class="small-12 columns">
                 <h4>call-center</h4>
             </div>
@@ -32,6 +30,7 @@
             </div>
         </div>
     </div>
+    
 
     <div class="small-12 columns text-center add-text">
         <p>Après avoir conclu un contrat de maintenance IS-Academia et si vous n’avez pas encore d’accompte pour vous connecter au wiki ou au call-center, il vous suffit d’en faire la demander auprès de votre responsable IS-Academia chez Equinoxe.</p>

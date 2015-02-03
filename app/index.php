@@ -23,7 +23,7 @@ getDefaultTrad();
 
 //----- Display -------------------------------------------
 include_once dirname(__FILE__).'/includes/header.inc.php';
-include_once dirname(__FILE__).'/includes/mainmenu.inc.php';
+//include_once dirname(__FILE__).'/includes/mainmenu.inc.php';
 include_once dirname(__FILE__).'/includes/slideshow.inc.php';
 
 include_once dirname(__FILE__).'/includes/alertes.inc.php';

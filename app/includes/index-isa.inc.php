@@ -8,7 +8,8 @@
                 <div class="small-12 columns">
                     <img src="img/info-01.png">
                 </div>
-                <div class="small-12 columns">multi-écoles &<br>multi-langues</div>
+                <div class="small-12 columns">multi-écoles &
+                    <br>multi-langues</div>
             </div>
             <div class="small-12 medium-4 columns text-center slot-info" id="isa-info-2">
                 <div class="small-12 columns">
@@ -20,13 +21,15 @@
                 <div class="small-12 columns">
                     <img src="img/info-03.png">
                 </div>
-                <div class="small-12 columns">entièrement<br>paramétrable</div>
+                <div class="small-12 columns">entièrement
+                    <br>paramétrable</div>
             </div>
             <div class="small-12 medium-4 columns text-center slot-info" id="isa-info-4">
                 <div class="small-12 columns">
                     <img src="img/info-04.png">
                 </div>
-                <div class="small-12 columns">compatible avec les autres<br>systèmes d'information</div>
+                <div class="small-12 columns">compatible avec les autres
+                    <br>systèmes d'information</div>
             </div>
             <div class="small-12 medium-4 columns text-center slot-info" id="isa-info-5">
                 <div class="small-12 columns">
@@ -36,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="small-12 columns text-center more-info">
+    <div class="small-12 columns text-center more-info hide-for-small-only">
         <a href="#">
             Plus d'information&nbsp;<span class="icon icon-shape-fleche-droite"></span>
         </a>

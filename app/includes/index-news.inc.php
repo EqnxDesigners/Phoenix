@@ -7,7 +7,7 @@
         <?php the_last_news(); ?>
     </div>
 
-    <div class="small-12 columns text-center more-info">
+    <div class="small-12 columns text-center more-info hide-for-small-only">
         <a href="#">
             Toutes les news&nbsp;<span class="icon icon-shape-fleche-droite"></span>
         </a>

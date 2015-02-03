@@ -1,0 +1,1 @@
+<div class="row wide-row" id="google-map"></div>

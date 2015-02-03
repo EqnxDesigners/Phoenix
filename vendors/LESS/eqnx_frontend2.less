@@ -37,6 +37,7 @@ body {
 }
 .row {
     max-width: @row-max-width!important;
+    margin: 0px auto !important;
 }
 .wide-row {
     max-width: 100%!important;
@@ -62,8 +63,10 @@ h2 {
     line-height: 1.4rem;
 
     small {
+        font-size: 1rem;
         font-weight: normal;
         color: #ffffff;
+        vertical-align: middle;
     }
 }
 h3 {
@@ -83,6 +86,7 @@ h4 {
 //----- Buttons -------------------------------------------
 .button {
     margin-bottom: 1rem;
+    display: inline-block;
 }
 .large {
     padding: 0.8rem 3.25rem;
@@ -90,10 +94,10 @@ h4 {
     font-size: 1.25rem;
 }
 .alert {
-    background: @eqnx-pale-red!important;
+    background: @eqnx-pale-red !important;
 
     &:hover {
-        background: darken(@eqnx-pale-red, 20%)!important;
+        background: darken(@eqnx-pale-red, 10%) !important;
     }
 }
 
@@ -102,24 +106,29 @@ h4 {
     background: #ffffff;
 }
 .more-info {
-    margin: 2rem auto;
+    padding: 2rem 0;
 
     a {
         color: @eqnx-pale-red;
         font-weight: 300;
         font-size: 1.2rem;
-        margin: 1rem auto;
-
-        .icon {
-            color: @eqnx-pale-red!important;
-            margin-left: 0.8rem;
+        padding: 1rem 0;
+        .icon{
+            color: @eqnx-pale-red !important;
+            position: relative;
+            right: -0.5rem;
+            transition: right 0.2s;
+            -webkit-transition: right 0.2s;
+            -moz-transition: right 0.2s;
         }
-
-        &:hover {
-            color: darken(@eqnx-pale-red, 20%);
-
-            .icon {
-                color: darken(@eqnx-pale-red, 20%);
+        &:hover{
+            color: darken(@eqnx-pale-red, 10%);
+            .icon{
+                color: darken(@eqnx-pale-red, 10%);
+                right: -1rem;
+                transition: right 0.2s;
+                -webkit-transition: right 0.2s;
+                -moz-transition: right 0.2s;
             }
         }
     }
@@ -180,17 +189,31 @@ body{
     font-family: @font;
     background: @background;
     #contact-panel{
+        overflow: auto;
         top: 80px;
+        padding-bottom: 4rem;
+        h3{
+            color: #fff !important;
+            font-size: 1.5rem;
+        }
+        .coord-info{
+            color: #fff;
+            line-height: 2rem;
+        }
+        a{
+            color: #fff;
+        }
+        form{
+            padding-top: 2rem;
+        }
     }
     &.show-contact-panel{
+        overflow: hidden;
         #contact-panel{
-            transform: translateX(0px);
-            -webkit-transform: translateX(0px);
-            -moz-transform: translateX(0px);
-
-            transition: transform 0.8s, top @scroll-animation-s;
-            -webkit-transition: -webkit-transform 0.8s, top @scroll-animation-s;
-            -moz-transition: -moz-transform 0.8s, top @scroll-animation-s;
+            left: 0px;
+            transition: left 0.8s, top @scroll-animation-s;
+            -webkit-transition: left 0.8s, top @scroll-animation-s;
+            -moz-transition: left 0.8s, top @scroll-animation-s;
         }
         nav{
             box-shadow: none;
@@ -373,34 +396,32 @@ nav{
     background: @blue;
     z-index: 99;
     position: fixed;
-    transform: translateX(-640px);
-    -webkit-transform: translateX(-640px);
-    -moz-transform: translateX(-640px);
+    left: -640px;
 
-    transition: transform 0.8s;
-    -webkit-transition: -webkit-transform 0.8s;
-    -moz-transition: -moz-transform 0.8s;
+    transition: left 0.8s;
+    -webkit-transition: left 0.8s;
+    -moz-transition: left 0.8s;
     h1{
         font-family: @font;
         font-weight: 700;
         color: @white;
         font-size: 1.5rem;
     }
-    .close-item{
-        margin-top: 0.5rem;
-        text-align: right;
+//    .close-item{
+//        margin-top: 0.5rem;
+//        text-align: right;
         #close-contact-panel{
             color: @white;
             &:hover{
                 cursor: pointer;
             }
         }
-    }
+//    }
 }
 #langues{
 //    box-shadow: 2px 2px 5px @grey;
     .box-shadow(0px, 2px, 5px, 0px, rgba(150,150,150,.5));
-    position: absolute;
+    position: fixed;
     z-index: 101;
     display: none;
     background: @white;
@@ -436,6 +457,21 @@ nav{
     a {
         font-size: 1rem;
         color: white;
+        .icon{
+            position: relative;
+            right: 0rem;
+            transition: right 0.2s;
+            -webkit-transition: right 0.2s;
+            -moz-transition: right 0.2s;
+        }
+        &:hover{
+            .icon{
+                right: -0.5rem;
+                transition: right 0.2s;
+                -webkit-transition: right 0.2s;
+                -moz-transition: right 0.2s;
+            }
+        }
     }
 }
 .new-video {
@@ -548,6 +584,13 @@ nav{
     }
 }
 
+//----- Support -------------------------------------------
+.support-tile{
+    .row{
+        padding: 1rem;
+    }
+}
+
 //----- Footer --------------------------------------------
 footer {
     background: @eqnx-dark-blue;
@@ -562,7 +605,8 @@ footer {
 
         &:hover {
             color: #ffffff;
-            text-decoration: underline;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid #fff;
         }
     }
 
@@ -615,14 +659,23 @@ form {
             transition: 0.2s ease all;
             -moz-transition: 0.2s ease all;
             -webkit-transition: 0.2s ease all;
+            
+            &.on{
+                top: -22px;
+                font-size: 1rem;
+                color: #999999;
+                transition: 0.2s ease all;
+                -moz-transition: 0.2s ease all;
+                -webkit-transition: 0.2s ease all;
+            }
         }
 
-        input:focus ~ label,
-        input:valid ~ label {
-            top: -22px;
-            font-size: 1rem;
-            color: #999999;
-        }
+//        input:focus ~ label,
+//        input:valid ~ label {
+//            top: -22px;
+//            font-size: 1rem;
+//            color: #999999;
+//        }
     }
 
     textarea {
@@ -661,8 +714,32 @@ form {
         .rounded-corners(3px);
 
         &:hover {
-            background: darken(@eqnx-pale-red, 20%)!important;
+            background: darken(@eqnx-pale-red, 10%)!important;
         }
+    }    
+}
+
+// Formulaire user agent invalid rewrite  -- Firefox
+:-moz-ui-invalid:not(output), .invalid {
+    box-shadow: none;
+    border-bottom: 1px solid @eqnx-red !important;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+//---------------------------------------------------------
+//----- SMALL SCREENS -------------------------------------
+//---------------------------------------------------------
+@media only screen and (max-width: 40em) { 
+    h3{
+        margin-top: 0rem;
+    }
+    body{
+        margin-top: 6rem !important
+    }
+    .support-tile{
+        padding: 1rem !important;
     }
 }
 
@@ -672,7 +749,6 @@ form {
 @media only screen and (min-width: 40.063em) {
     //----- Titles ----------------------------------------
     h2 {
-        font-size: 2rem;
         line-height: 4.4rem;
     }
     h3 {
@@ -690,6 +766,9 @@ form {
             font-size: 1.3rem;
         }
     }
+    .support-tile{
+        padding: 0 1rem !important;
+    }
 }
 
 //---------------------------------------------------------
@@ -698,8 +777,11 @@ form {
 @media only screen and (min-width: 64.063em) {
     //----- Titles ----------------------------------------
     h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         line-height: 5.6rem;
+        small{
+            font-size: 1.3rem;
+        }
     }
     h3 {
         margin-top: 2.5rem;
@@ -717,5 +799,8 @@ form {
         a {
             font-size: 1.5rem;
         }
+    }
+    .support-tile{
+        padding: 0 4rem !important;
     }
 }

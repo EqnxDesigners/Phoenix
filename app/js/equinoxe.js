@@ -37,6 +37,17 @@ $(document).ready(function () {
   }
 
   displayThreeRandomInfo();
+    
+    //------ Formulaire -----------------------------------
+    $('input').focus(function () {
+        $(this).next('label').addClass('on');
+    });
+
+    $('input').focusout(function () {
+        if($(this).val().length < 1){
+            $(this).next('label').removeClass('on');
+        }
+    });
 
   //----- Google Map --------------------------------------
   function initialize() {
@@ -51,6 +62,7 @@ $(document).ready(function () {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("google-map"), myOptions);
+    var mapMobile = new google.maps.Map(document.getElementById("google-map-mobile"), myOptions);
 
     //var image = 'images/map_marker.png';
     //var myLatLng = new google.maps.LatLng(46.167654, 6.108538);
@@ -256,7 +268,7 @@ jQuery(document).ready(function ($) {
         //positionLanguesTop = positionBtnTop + elem.height();
         positionLanguesTop = '50px';
 
-    console.log(positionLanguesTop);
+//    console.log(positionLanguesTop);
 
     if ($('#langues').is(':visible')) {
       hideLangues();

@@ -69,11 +69,6 @@
     </div>
 </div>
 
-<!--
-<section>
-    <div id="floating-action-button"><img src="img/arrow-top.png" alt="up" /></div>
-</section>
--->
 
 <!--
 <div class="vertical-container menu-wrap">

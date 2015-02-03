@@ -10,7 +10,6 @@ body {
 }
 .row {
   max-width: 80rem !important;
-  margin: 0px auto !important;
 }
 .wide-row {
   max-width: 100%!important;
@@ -34,10 +33,8 @@ h2 {
   line-height: 1.4rem;
 }
 h2 small {
-  font-size: 1rem;
   font-weight: normal;
   color: #ffffff;
-  vertical-align: middle;
 }
 h3 {
   margin-top: 2.5rem;
@@ -54,7 +51,6 @@ h4 {
 }
 .button {
   margin-bottom: 1rem;
-  display: inline-block;
 }
 .large {
   padding: 0.8rem 3.25rem;
@@ -65,37 +61,29 @@ h4 {
   background: #eb7c8c !important;
 }
 .alert:hover {
-  background: #e45065 !important;
+  background: #dd243e !important;
 }
 .white {
   background: #ffffff;
 }
 .more-info {
-  padding: 2rem 0;
+  margin: 2rem auto;
 }
 .more-info a {
   color: #eb7c8c;
   font-weight: 300;
   font-size: 1.2rem;
-  padding: 1rem 0;
+  margin: 1rem auto;
 }
 .more-info a .icon {
   color: #eb7c8c !important;
-  position: relative;
-  right: -0.5rem;
-  transition: right 0.2s;
-  -webkit-transition: right 0.2s;
-  -moz-transition: right 0.2s;
+  margin-left: 0.8rem;
 }
 .more-info a:hover {
-  color: #e45065;
+  color: #dd243e;
 }
 .more-info a:hover .icon {
-  color: #e45065;
-  right: -1rem;
-  transition: right 0.2s;
-  -webkit-transition: right 0.2s;
-  -moz-transition: right 0.2s;
+  color: #dd243e;
 }
 .add-text {
   margin: 2rem auto 1rem auto;
@@ -143,32 +131,15 @@ body {
   background: #f2f2f2;
 }
 body #contact-panel {
-  overflow: auto;
   top: 80px;
-  padding-bottom: 4rem;
-}
-body #contact-panel h3 {
-  color: #fff !important;
-  font-size: 1.5rem;
-}
-body #contact-panel .coord-info {
-  color: #fff;
-  line-height: 2rem;
-}
-body #contact-panel a {
-  color: #fff;
-}
-body #contact-panel form {
-  padding-top: 2rem;
-}
-body.show-contact-panel {
-  overflow: hidden;
 }
 body.show-contact-panel #contact-panel {
-  left: 0px;
-  transition: left 0.8s, top 0.35s;
-  -webkit-transition: left 0.8s, top 0.35s;
-  -moz-transition: left 0.8s, top 0.35s;
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transition: transform 0.8s, top 0.35s;
+  -webkit-transition: -webkit-transform 0.8s, top 0.35s;
+  -moz-transition: -moz-transform 0.8s, top 0.35s;
 }
 body.show-contact-panel nav {
   box-shadow: none;
@@ -327,10 +298,12 @@ nav #langues-btn-mobile:hover {
   background: #34495e;
   z-index: 99;
   position: fixed;
-  left: -640px;
-  transition: left 0.8s;
-  -webkit-transition: left 0.8s;
-  -moz-transition: left 0.8s;
+  transform: translateX(-640px);
+  -webkit-transform: translateX(-640px);
+  -moz-transform: translateX(-640px);
+  transition: transform 0.8s;
+  -webkit-transition: -webkit-transform 0.8s;
+  -moz-transition: -moz-transform 0.8s;
 }
 #contact-panel h1 {
   font-family: 'Lato', sans-serif;
@@ -338,17 +311,21 @@ nav #langues-btn-mobile:hover {
   color: #ffffff;
   font-size: 1.5rem;
 }
-#contact-panel #close-contact-panel {
+#contact-panel .close-item {
+  margin-top: 0.5rem;
+  text-align: right;
+}
+#contact-panel .close-item #close-contact-panel {
   color: #ffffff;
 }
-#contact-panel #close-contact-panel:hover {
+#contact-panel .close-item #close-contact-panel:hover {
   cursor: pointer;
 }
 #langues {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   -moz-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
-  position: fixed;
+  position: absolute;
   z-index: 101;
   display: none;
   background: #ffffff;
@@ -381,19 +358,6 @@ nav #langues-btn-mobile:hover {
 .eqnx-alert a {
   font-size: 1rem;
   color: white;
-}
-.eqnx-alert a .icon {
-  position: relative;
-  right: 0rem;
-  transition: right 0.2s;
-  -webkit-transition: right 0.2s;
-  -moz-transition: right 0.2s;
-}
-.eqnx-alert a:hover .icon {
-  right: -0.5rem;
-  transition: right 0.2s;
-  -webkit-transition: right 0.2s;
-  -moz-transition: right 0.2s;
 }
 .new-video {
   background: #2CC990;
@@ -487,9 +451,6 @@ nav #langues-btn-mobile:hover {
 #newsEqnx .new .content .buttons li a:hover {
   color: #dd243e;
 }
-.support-tile .row {
-  padding: 1rem;
-}
 footer {
   background: #34495e;
   color: #ffffff;
@@ -502,8 +463,7 @@ footer a {
 }
 footer a:hover {
   color: #ffffff;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid #fff;
+  text-decoration: underline;
 }
 footer #google-map {
   min-height: 300px;
@@ -547,13 +507,11 @@ form .group label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-form .group label.on {
+form .group input:focus ~ label,
+form .group input:valid ~ label {
   top: -22px;
   font-size: 1rem;
   color: #999999;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
 }
 form textarea {
   background: #395168;
@@ -593,29 +551,11 @@ form input[type="submit"] {
   border-radius: 3px;
 }
 form input[type="submit"]:hover {
-  background: #e45065 !important;
-}
-:-moz-ui-invalid:not(output),
-.invalid {
-  box-shadow: none;
-  border-bottom: 1px solid #df2438 !important;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-@media only screen and (max-width: 40em) {
-  h3 {
-    margin-top: 0rem;
-  }
-  body {
-    margin-top: 6rem !important;
-  }
-  .support-tile {
-    padding: 1rem !important;
-  }
+  background: #dd243e !important;
 }
 @media only screen and (min-width: 40.063em) {
   h2 {
+    font-size: 2rem;
     line-height: 4.4rem;
   }
   h3 {
@@ -631,17 +571,11 @@ form input[type="submit"]:hover {
   .eqnx-alert a {
     font-size: 1.3rem;
   }
-  .support-tile {
-    padding: 0 1rem !important;
-  }
 }
 @media only screen and (min-width: 64.063em) {
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 5.6rem;
-  }
-  h2 small {
-    font-size: 1.3rem;
   }
   h3 {
     margin-top: 2.5rem;
@@ -657,8 +591,5 @@ form input[type="submit"]:hover {
   }
   .eqnx-alert a {
     font-size: 1.5rem;
-  }
-  .support-tile {
-    padding: 0 4rem !important;
   }
 }

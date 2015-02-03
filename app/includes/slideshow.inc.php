@@ -1,4 +1,4 @@
-<section class="row wide-row slideshow" id="page-top">
+<section class="row wide-row slideshow hide-for-small-only" id="page-top">
 <!--    <div>-->
 <!--        <img src="img/Communication.jpg" alt="" />-->
 <!--        <h1>--><?php //echo $_SESSION['trad']['slideshow']['title1']; ?><!--</h1>-->
