@@ -29,10 +29,12 @@
   <script type="text/javascript" src="assets/foundation/foundation.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="assets/slick/slick.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="assets/masonry/jquery.masonry.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/Wow/wow.min.js" charset="utf-8"></script>
   <script src="assets/foundation/foundation.equalizer.js"></script>
   <script src="assets/mixItUp/jquery.mixitup.js"></script>
   <script src="assets/sweetAlert/sweet-alert.min.js"></script>
   <script src="assets/hammer/hammer.min.js"></script>
+  <script src="assets/Animate/animate.css"></script>
 
   <!-- JS equinoxe -->
   <script type="text/javascript" src="js/equinoxe.js" charset="utf-8"></script>

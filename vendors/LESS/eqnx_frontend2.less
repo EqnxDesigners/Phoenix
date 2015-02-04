@@ -95,9 +95,15 @@ h4 {
 }
 .alert {
     background: @eqnx-pale-red !important;
+    transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
 
     &:hover {
         background: darken(@eqnx-pale-red, 10%) !important;
+        transition: background 0.2s;
+        -webkit-transition: background 0.2s;
+        -moz-transition: background 0.2s;
     }
 }
 
@@ -206,6 +212,16 @@ body{
         form{
             padding-top: 2rem;
         }
+        .icon{
+            font-size: 10pt;
+        }
+        .small-1{
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        #google-map-mobile{
+            height: 200px;
+        }
     }
     &.show-contact-panel{
         overflow: hidden;
@@ -281,19 +297,20 @@ nav{
     &#desktop-nav {
         .icon {
             color: @eqnx-dark-blue;
-            margin-left: 1rem;
         }
     }
 
     &#mobile-nav{
-        .contact-menu{
-            text-align: left;
-        }
-        .langues-menu{
-            text-align: right;
+        .icon{
+            margin-left: 0;
+            text-align: center;
+            font-size: 17pt;
         }
         .contact-menu, .langues-menu{
-            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .contact-menu, .langues-menu{
+            margin-top: 0.8rem;
             transition: margin-top @scroll-animation-s;
             -webkit-transition: margin-top @scroll-animation-s;
             -moz-transition: margin-top @scroll-animation-s;
@@ -318,6 +335,9 @@ nav{
     }
 
     &#desktop-nav{
+        .icon{
+            margin-left: 1rem;
+        }
         .menu-items{
             position: absolute;
             top: 8%;
@@ -583,6 +603,86 @@ nav{
         }
     }
 }
+//----- Enents --------------------------------------------
+.events-tab{
+    ul.tabs{
+        max-width: 100% !important;
+        width: 100% !important;
+        li{
+            border-bottom: 1px solid @eqnx-gray-lighter;
+            a{
+                font-family: 'Lato', sans-serif !important;
+                font-weight: 700;
+                background: transparent !important;
+                text-transform: uppercase;
+                transition: 0.2s ease all;
+                -moz-transition: 0.2s ease all;
+                -webkit-transition: 0.2s ease all;
+                span{
+                    text-transform: lowercase;
+                    display: block;
+                    font-size: 0.8rem;
+                    color: @eqnx-gray;
+                }
+            }
+            &.active{
+                a{
+                    background: white !important;
+                    transition: 0.2s ease all;
+                    -moz-transition: 0.2s ease all;
+                    -webkit-transition: 0.2s ease all;
+                }
+            }
+        }
+    }
+    .content{
+        padding: 0 !important;
+        .event-details{
+            background: white;
+            padding: 1rem;
+            h4{
+                display: inline-block;
+            }
+            .date{
+                display: inline-block;
+                float: right;
+            }
+            p{
+                margin: 0;
+            }
+            ul{
+                margin-left: 2rem;
+            }
+        }
+        .action-inscription{
+            padding: 0 !important;
+            a{
+                padding: 1rem;
+                text-align: center;
+                display: block;
+                background: @eqnx-dark-blue;
+                color: white;
+                .icon{
+                    color: white;
+                    position: relative;
+                    right: -0.5rem;
+                    transition: right 0.2s;
+                    -webkit-transition: right 0.2s;
+                    -moz-transition: right 0.2s;
+                }
+                &:hover{
+                    .icon{
+                        color: white;
+                        right: -1rem;
+                        transition: right 0.2s;
+                        -webkit-transition: right 0.2s;
+                        -moz-transition: right 0.2s;
+                    }
+                }
+            }
+        }
+    }
+}
 
 //----- Support -------------------------------------------
 .support-tile{
@@ -708,12 +808,18 @@ form {
         padding: 0.8rem 4.25rem;
         font-size: 1.25rem;
         background: @eqnx-pale-red!important;
+        transition: background 0.2s;
+        -webkit-transition: background 0.2s;
+        -moz-transition: background 0.2s;
         border: none;
         color: #ffffff;
         cursor: pointer;
         .rounded-corners(3px);
 
         &:hover {
+            transition: background 0.2s;
+            -webkit-transition: background 0.2s;
+            -moz-transition: background 0.2s;
             background: darken(@eqnx-pale-red, 10%)!important;
         }
     }    
@@ -740,6 +846,11 @@ form {
     }
     .support-tile{
         padding: 1rem !important;
+    }
+    input{
+        &[type='submit']{
+            width: 100%;
+        }
     }
 }
 

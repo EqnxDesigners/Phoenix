@@ -64,9 +64,15 @@ h4 {
 }
 .alert {
   background: #eb7c8c !important;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
 }
 .alert:hover {
   background: #e45065 !important;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
 }
 .white {
   background: #ffffff;
@@ -162,6 +168,16 @@ body #contact-panel a {
 body #contact-panel form {
   padding-top: 2rem;
 }
+body #contact-panel .icon {
+  font-size: 10pt;
+}
+body #contact-panel .small-1 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+body #contact-panel #google-map-mobile {
+  height: 200px;
+}
 body.show-contact-panel {
   overflow: hidden;
 }
@@ -223,17 +239,19 @@ nav {
 nav#mobile-nav .icon,
 nav#desktop-nav .icon {
   color: #34495e;
-  margin-left: 1rem;
 }
-nav#mobile-nav .contact-menu {
-  text-align: left;
-}
-nav#mobile-nav .langues-menu {
-  text-align: right;
+nav#mobile-nav .icon {
+  margin-left: 0;
+  text-align: center;
+  font-size: 17pt;
 }
 nav#mobile-nav .contact-menu,
 nav#mobile-nav .langues-menu {
-  margin-top: 0.5rem;
+  text-align: center;
+}
+nav#mobile-nav .contact-menu,
+nav#mobile-nav .langues-menu {
+  margin-top: 0.8rem;
   transition: margin-top 0.35s;
   -webkit-transition: margin-top 0.35s;
   -moz-transition: margin-top 0.35s;
@@ -254,6 +272,9 @@ nav#mobile-nav #contact-btn {
 nav#mobile-nav #contact-btn:hover {
   opacity: 1;
   cursor: pointer;
+}
+nav#desktop-nav .icon {
+  margin-left: 1rem;
 }
 nav#desktop-nav .menu-items {
   position: absolute;
@@ -488,6 +509,79 @@ nav #langues-btn-mobile:hover {
 #newsEqnx .new .content .buttons li a:hover {
   color: #dd243e;
 }
+.events-tab ul.tabs {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.events-tab ul.tabs li {
+  border-bottom: 1px solid #c7c7c7;
+}
+.events-tab ul.tabs li a {
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 700;
+  background: transparent !important;
+  text-transform: uppercase;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.events-tab ul.tabs li a span {
+  text-transform: lowercase;
+  display: block;
+  font-size: 0.8rem;
+  color: #949494;
+}
+.events-tab ul.tabs li.active a {
+  background: white !important;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.events-tab .content {
+  padding: 0 !important;
+}
+.events-tab .content .event-details {
+  background: white;
+  padding: 1rem;
+}
+.events-tab .content .event-details h4 {
+  display: inline-block;
+}
+.events-tab .content .event-details .date {
+  display: inline-block;
+  float: right;
+}
+.events-tab .content .event-details p {
+  margin: 0;
+}
+.events-tab .content .event-details ul {
+  margin-left: 2rem;
+}
+.events-tab .content .action-inscription {
+  padding: 0 !important;
+}
+.events-tab .content .action-inscription a {
+  padding: 1rem;
+  text-align: center;
+  display: block;
+  background: #34495e;
+  color: white;
+}
+.events-tab .content .action-inscription a .icon {
+  color: white;
+  position: relative;
+  right: -0.5rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
+}
+.events-tab .content .action-inscription a:hover .icon {
+  color: white;
+  right: -1rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
+}
 .support-tile .row {
   padding: 1rem;
 }
@@ -584,6 +678,9 @@ form input[type="submit"] {
   padding: 0.8rem 4.25rem;
   font-size: 1.25rem;
   background: #eb7c8c !important;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
   border: none;
   color: #ffffff;
   cursor: pointer;
@@ -594,6 +691,9 @@ form input[type="submit"] {
   border-radius: 3px;
 }
 form input[type="submit"]:hover {
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
   background: #e45065 !important;
 }
 :-moz-ui-invalid:not(output),
@@ -613,6 +713,9 @@ form input[type="submit"]:hover {
   }
   .support-tile {
     padding: 1rem !important;
+  }
+  input[type='submit'] {
+    width: 100%;
   }
 }
 @media only screen and (min-width: 40.063em) {

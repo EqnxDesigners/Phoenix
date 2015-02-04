@@ -30,7 +30,7 @@ include_once dirname(__FILE__).'/includes/alertes.inc.php';
 
 include_once dirname(__FILE__).'/includes/index-isa.inc.php';
 include_once dirname(__FILE__).'/includes/index-news.inc.php';
-
+include_once dirname(__FILE__).'/includes/index-events.inc.php';
 include_once dirname(__FILE__).'/includes/index-support.inc.php';
 include_once dirname(__FILE__).'/includes/footer.inc.php';
 

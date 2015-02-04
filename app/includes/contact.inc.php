@@ -5,7 +5,7 @@
     <div class="small-12 medium-6 columns">
         <div class="row coord-info">
             <div class="small-1 columns">
-                <span class="icon icon-shape-localisation icon-param-color-white"></span>
+                <span class="icon icon-shape-localisation icon-param-color-white wow bounce" data-wow-delay="0.5s"></span>
             </div>
             <div class="small-11 columns">
                 Equinoxe MIS Development<br>
@@ -16,7 +16,7 @@
         </div>
         <div class="row coord-info">
             <div class="small-1 columns">
-                <span class="icon icon-shape-paperplane icon-param-color-white"></span>
+                <span class="icon icon-shape-paperplane icon-param-color-white wow bounce" data-wow-delay="0.75s"></span>
             </div>
             <div class="small-11 columns">
                 <a href="mailto:info@eqnx.ch">info@eqnx.ch</a>
@@ -24,7 +24,7 @@
         </div>
         <div class="row coord-info">
             <div class="small-1 columns">
-                <span class="icon icon-shape-telephone icon-param-color-white"></span>
+                <span class="icon icon-shape-telephone icon-param-color-white wow bounce" data-wow-delay="1s"></span>
             </div>
             <div class="small-11 columns">
                 <a href="tel:+41 21 693 89 38">+41 21 693 89 38</a>

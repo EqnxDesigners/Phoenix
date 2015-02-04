@@ -51,7 +51,9 @@
                 
 
             </div>
-            <div class="row wide-row" id="google-map-mobile"></div>
+            <div class="row">
+                <div class="row wide-row" id="google-map-mobile"></div>
+            </div>
         </div>
     </div>
     <!--
