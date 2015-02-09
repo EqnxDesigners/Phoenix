@@ -10,6 +10,7 @@ body {
 }
 .row {
   max-width: 80rem !important;
+  margin: 0px auto !important;
 }
 .wide-row {
   max-width: 100%!important;
@@ -33,8 +34,10 @@ h2 {
   line-height: 1.4rem;
 }
 h2 small {
+  font-size: 1rem;
   font-weight: normal;
   color: #ffffff;
+  vertical-align: middle;
 }
 h3 {
   margin-top: 2.5rem;
@@ -51,6 +54,7 @@ h4 {
 }
 .button {
   margin-bottom: 1rem;
+  display: inline-block;
 }
 .large {
   padding: 0.8rem 3.25rem;
@@ -59,31 +63,45 @@ h4 {
 }
 .alert {
   background: #eb7c8c !important;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
 }
 .alert:hover {
-  background: #dd243e !important;
+  background: #e45065 !important;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
 }
 .white {
   background: #ffffff;
 }
 .more-info {
-  margin: 2rem auto;
+  padding: 2rem 0;
 }
 .more-info a {
   color: #eb7c8c;
   font-weight: 300;
   font-size: 1.2rem;
-  margin: 1rem auto;
+  padding: 1rem 0;
 }
 .more-info a .icon {
   color: #eb7c8c !important;
-  margin-left: 0.8rem;
+  position: relative;
+  right: -0.5rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
 }
 .more-info a:hover {
-  color: #dd243e;
+  color: #e45065;
 }
 .more-info a:hover .icon {
-  color: #dd243e;
+  color: #e45065;
+  right: -1rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
 }
 .add-text {
   margin: 2rem auto 1rem auto;
@@ -131,15 +149,42 @@ body {
   background: #f2f2f2;
 }
 body #contact-panel {
+  overflow: auto;
   top: 80px;
+  padding-bottom: 4rem;
+}
+body #contact-panel h3 {
+  color: #fff !important;
+  font-size: 1.5rem;
+}
+body #contact-panel .coord-info {
+  color: #fff;
+  line-height: 2rem;
+}
+body #contact-panel a {
+  color: #fff;
+}
+body #contact-panel form {
+  padding-top: 2rem;
+}
+body #contact-panel .icon {
+  font-size: 10pt;
+}
+body #contact-panel .small-1 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+body #contact-panel #google-map-mobile {
+  height: 200px;
+}
+body.show-contact-panel {
+  overflow: hidden;
 }
 body.show-contact-panel #contact-panel {
-  transform: translateX(0px);
-  -webkit-transform: translateX(0px);
-  -moz-transform: translateX(0px);
-  transition: transform 0.8s, top 0.35s;
-  -webkit-transition: -webkit-transform 0.8s, top 0.35s;
-  -moz-transition: -moz-transform 0.8s, top 0.35s;
+  left: 0px;
+  transition: left 0.8s, top 0.35s;
+  -webkit-transition: left 0.8s, top 0.35s;
+  -moz-transition: left 0.8s, top 0.35s;
 }
 body.show-contact-panel nav {
   box-shadow: none;
@@ -193,17 +238,19 @@ nav {
 nav#mobile-nav .icon,
 nav#desktop-nav .icon {
   color: #34495e;
-  margin-left: 1rem;
 }
-nav#mobile-nav .contact-menu {
-  text-align: left;
-}
-nav#mobile-nav .langues-menu {
-  text-align: right;
+nav#mobile-nav .icon {
+  margin-left: 0;
+  text-align: center;
+  font-size: 17pt;
 }
 nav#mobile-nav .contact-menu,
 nav#mobile-nav .langues-menu {
-  margin-top: 0.5rem;
+  text-align: center;
+}
+nav#mobile-nav .contact-menu,
+nav#mobile-nav .langues-menu {
+  margin-top: 0.8rem;
   transition: margin-top 0.35s;
   -webkit-transition: margin-top 0.35s;
   -moz-transition: margin-top 0.35s;
@@ -224,6 +271,9 @@ nav#mobile-nav #contact-btn {
 nav#mobile-nav #contact-btn:hover {
   opacity: 1;
   cursor: pointer;
+}
+nav#desktop-nav .icon {
+  margin-left: 1rem;
 }
 nav#desktop-nav .menu-items {
   position: absolute;
@@ -298,12 +348,10 @@ nav #langues-btn-mobile:hover {
   background: #34495e;
   z-index: 99;
   position: fixed;
-  transform: translateX(-640px);
-  -webkit-transform: translateX(-640px);
-  -moz-transform: translateX(-640px);
-  transition: transform 0.8s;
-  -webkit-transition: -webkit-transform 0.8s;
-  -moz-transition: -moz-transform 0.8s;
+  left: -640px;
+  transition: left 0.8s;
+  -webkit-transition: left 0.8s;
+  -moz-transition: left 0.8s;
 }
 #contact-panel h1 {
   font-family: 'Lato', sans-serif;
@@ -311,21 +359,17 @@ nav #langues-btn-mobile:hover {
   color: #ffffff;
   font-size: 1.5rem;
 }
-#contact-panel .close-item {
-  margin-top: 0.5rem;
-  text-align: right;
-}
-#contact-panel .close-item #close-contact-panel {
+#contact-panel #close-contact-panel {
   color: #ffffff;
 }
-#contact-panel .close-item #close-contact-panel:hover {
+#contact-panel #close-contact-panel:hover {
   cursor: pointer;
 }
 #langues {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   -moz-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
-  position: absolute;
+  position: fixed;
   z-index: 101;
   display: none;
   background: #ffffff;
@@ -358,6 +402,19 @@ nav #langues-btn-mobile:hover {
 .eqnx-alert a {
   font-size: 1rem;
   color: white;
+}
+.eqnx-alert a .icon {
+  position: relative;
+  right: 0rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
+}
+.eqnx-alert a:hover .icon {
+  right: -0.5rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
 }
 .new-video {
   background: #2CC990;
@@ -451,6 +508,82 @@ nav #langues-btn-mobile:hover {
 #newsEqnx .new .content .buttons li a:hover {
   color: #dd243e;
 }
+.events-tab ul.tabs {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.events-tab ul.tabs li {
+  border-bottom: 1px solid #c7c7c7;
+}
+.events-tab ul.tabs li a {
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 700;
+  background: transparent !important;
+  text-transform: uppercase;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.events-tab ul.tabs li a span {
+  text-transform: lowercase;
+  display: block;
+  font-size: 0.8rem;
+  color: #949494;
+}
+.events-tab ul.tabs li.active a {
+  background: white !important;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.events-tab .content {
+  padding: 0 !important;
+}
+.events-tab .content .event-details {
+  background: white;
+  padding: 1rem;
+}
+.events-tab .content .event-details h4 {
+  display: inline-block;
+}
+.events-tab .content .event-details .date {
+  display: inline-block;
+  float: right;
+}
+.events-tab .content .event-details p {
+  margin: 0;
+}
+.events-tab .content .event-details ul {
+  margin-left: 2rem;
+}
+.events-tab .content .action-inscription {
+  padding: 0 !important;
+}
+.events-tab .content .action-inscription a {
+  padding: 1rem;
+  text-align: center;
+  display: block;
+  background: #34495e;
+  color: white;
+}
+.events-tab .content .action-inscription a .icon {
+  color: white;
+  position: relative;
+  right: -0.5rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
+}
+.events-tab .content .action-inscription a:hover .icon {
+  color: white;
+  right: -1rem;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s;
+  -moz-transition: right 0.2s;
+}
+.support-tile .row {
+  padding: 1rem;
+}
 footer {
   background: #34495e;
   color: #ffffff;
@@ -463,7 +596,8 @@ footer a {
 }
 footer a:hover {
   color: #ffffff;
-  text-decoration: underline;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #fff;
 }
 footer #google-map {
   min-height: 300px;
@@ -507,11 +641,13 @@ form .group label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-form .group input:focus ~ label,
-form .group input:valid ~ label {
+form .group label.on {
   top: -22px;
   font-size: 1rem;
   color: #999999;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
 }
 form textarea {
   background: #395168;
@@ -536,11 +672,15 @@ form textarea:-ms-input-placeholder {
   color: #ffffff;
   font-size: 1.2rem;
 }
-form input[type="submit"] {
+form input[type="submit"],
+form input[type="button"] {
   margin-bottom: 1rem;
   padding: 0.8rem 4.25rem;
   font-size: 1.25rem;
   background: #eb7c8c !important;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
   border: none;
   color: #ffffff;
   cursor: pointer;
@@ -550,12 +690,38 @@ form input[type="submit"] {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-form input[type="submit"]:hover {
-  background: #dd243e !important;
+form input[type="submit"]:hover,
+form input[type="button"]:hover {
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  background: #e45065 !important;
+}
+:-moz-ui-invalid:not(output),
+.invalid {
+  box-shadow: none;
+  border-bottom: 1px solid #df2438 !important;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+@media only screen and (max-width: 40em) {
+  h3 {
+    margin-top: 0rem;
+  }
+  body {
+    margin-top: 6rem !important;
+  }
+  .support-tile {
+    padding: 1rem !important;
+  }
+  input[type='submit'],
+  input[type='button'] {
+    width: 100%;
+  }
 }
 @media only screen and (min-width: 40.063em) {
   h2 {
-    font-size: 2rem;
     line-height: 4.4rem;
   }
   h3 {
@@ -571,11 +737,17 @@ form input[type="submit"]:hover {
   .eqnx-alert a {
     font-size: 1.3rem;
   }
+  .support-tile {
+    padding: 0 1rem !important;
+  }
 }
 @media only screen and (min-width: 64.063em) {
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 5.6rem;
+  }
+  h2 small {
+    font-size: 1.3rem;
   }
   h3 {
     margin-top: 2.5rem;
@@ -591,5 +763,8 @@ form input[type="submit"]:hover {
   }
   .eqnx-alert a {
     font-size: 1.5rem;
+  }
+  .support-tile {
+    padding: 0 4rem !important;
   }
 }

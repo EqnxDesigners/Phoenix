@@ -40,12 +40,12 @@ $(document).ready(function () {
 
     //------ Formulaire -----------------------------------
     $('input').focus(function () {
-        $(this).next('label').addClass('on');
+        $(this).nextAll('label').addClass('on');
     });
 
     $('input').focusout(function () {
         if ($(this).val().length < 1) {
-            $(this).next('label').removeClass('on');
+            $(this).nextAll('label').removeClass('on');
         }
     });
 

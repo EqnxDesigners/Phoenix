@@ -46,9 +46,35 @@
                     <img src="img/arrow-left.png" alt="X" id="close-contact-panel" />
                 </div>
                 
-                <?php include dirname(__FILE__).'/contact.inc.php'; ?>
-                
-                
+
+                <!-- formulaire conact mobile -->
+                <div class="small-12 medium-6 columns show-for-small-only">
+                    <form action="">
+                        <div class="small-12 columns">
+                            <div class="group">
+                                <input type="text" name="nom-mobile" required />
+                                <label>Nom prénom</label>
+                            </div>
+                        </div>
+                        <div class="small-12 columns">
+                            <div class="group">
+                                <input type="email" name="email-mobile" required />
+                                <label>E-mail</label>
+                            </div>
+                        </div>
+                        <div class="small-12 columns">
+                            <textarea name="message-mobile" id="" cols="30" rows="8" placeholder="Message"></textarea>
+                        </div>
+                        <div class="small-12 columns text-right">
+                            <input type="button" name="send-form-mobile" value="Envoyer" class="button" id="contact-form-mobile"/>
+                            <span class="send-spinner" style="display:none;">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div> 
+                            </span>
+                        </div>
+                    </form>
+                </div>                
 
             </div>
             <div class="row">

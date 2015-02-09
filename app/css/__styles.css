@@ -672,8 +672,7 @@ form textarea:-ms-input-placeholder {
   color: #ffffff;
   font-size: 1.2rem;
 }
-form input[type="submit"],
-form input[type="button"] {
+form input[type="submit"] {
   margin-bottom: 1rem;
   padding: 0.8rem 4.25rem;
   font-size: 1.25rem;
@@ -690,67 +689,11 @@ form input[type="button"] {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-form input[type="submit"]:hover,
-form input[type="button"]:hover {
+form input[type="submit"]:hover {
   transition: background 0.2s;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   background: #e45065 !important;
-}
-form .error {
-  background: transparent;
-  color: #ec7d89;
-  font-weight: 700;
-  padding: 0;
-  font-size: 0.8rem;
-}
-.sending input {
-  display: none !important;
-}
-.sending .send-spinner {
-  display: block !important;
-  text-align: center;
-  margin: 1rem auto 0;
-  width: 70px;
-}
-.sending .send-spinner div {
-  width: 18px;
-  height: 18px;
-  background: #ec7d89;
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
-  animation: bouncedelay 1.4s infinite ease-in-out both;
-}
-.sending .send-spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-.sending .send-spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
-}
-@-webkit-keyframes bouncedelay {
-  0%,
-  80%,
-  100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes bouncedelay {
-  0%,
-  80%,
-  100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
 }
 :-moz-ui-invalid:not(output),
 .invalid {
@@ -770,8 +713,7 @@ form .error {
   .support-tile {
     padding: 1rem !important;
   }
-  input[type='submit'],
-  input[type='button'] {
+  input[type='submit'] {
     width: 100%;
   }
 }

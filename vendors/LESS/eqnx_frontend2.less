@@ -31,7 +31,7 @@
 }
 body {
     background: @eqnx-gray-background;
-    font-family: 'Lato', sans-serif;
+    font-family: @font;
     font-size: 1rem;
     color: @eqnx-dark-blue;
 }
@@ -50,7 +50,7 @@ body {
 
 //----- Titles --------------------------------------------
 h1,h2,h3,h4 {
-    font-family: 'Lato', sans-serif;
+    font-family: @font;
 }
 h1 {
 
@@ -168,7 +168,7 @@ header {
                 }
 
                 a {
-                    font-family: 'Lato', sans-serif;
+                    font-family: @font;
                     font-size: 1.2rem;
                     text-transform: uppercase;
                     color: @eqnx-dark-blue;
@@ -611,7 +611,7 @@ nav{
         li{
             border-bottom: 1px solid @eqnx-gray-lighter;
             a{
-                font-family: 'Lato', sans-serif !important;
+                font-family: @font !important;
                 font-weight: 700;
                 background: transparent !important;
                 text-transform: uppercase;
@@ -803,7 +803,7 @@ form {
         }
     }
 
-    input[type="submit"] {
+    input[type="submit"], input[type="button"] {
         margin-bottom: 1rem;
         padding: 0.8rem 4.25rem;
         font-size: 1.25rem;
@@ -822,7 +822,59 @@ form {
             -moz-transition: background 0.2s;
             background: darken(@eqnx-pale-red, 10%)!important;
         }
-    }    
+    }
+    .error{
+        background: transparent;
+        color: @eqnx-red-lighter;
+        font-weight: 700;
+        padding: 0;
+        font-size: 0.8rem;
+    }
+   
+}
+
+.sending{
+    input{
+        display: none !important;
+    }
+    .send-spinner{
+        display: block !important;
+        text-align: center;
+        margin: 1rem auto 0;
+        width: 70px;
+        div {
+            width: 18px;
+            height: 18px;
+            background: @eqnx-red-lighter;
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+            animation: bouncedelay 1.4s infinite ease-in-out both;
+        }
+        .bounce1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+        .bounce2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+    }
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 40% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
 }
 
 // Formulaire user agent invalid rewrite  -- Firefox
@@ -848,7 +900,7 @@ form {
         padding: 1rem !important;
     }
     input{
-        &[type='submit']{
+        &[type='submit'], &[type='button']{
             width: 100%;
         }
     }
