@@ -31,7 +31,8 @@
             </div>
         </div>
     </div>
-    <div class="small-12 medium-6 columns">
+    <!-- formulaire conact descktop + tablette -->
+    <div class="small-12 medium-6 columns hide-for-small-only">
         <form action="">
             <div class="small-12 columns">
                 <div class="group">
@@ -50,6 +51,30 @@
             </div>
             <div class="small-12 columns text-right">
                 <input type="submit" name="send-form" value="Envoyer" class="button" />
+            </div>
+        </form>
+    </div>
+    
+    <!-- formulaire conact mobile -->
+    <div class="small-12 medium-6 columns show-for-small-only">
+        <form action="">
+            <div class="small-12 columns">
+                <div class="group">
+                    <input type="text" name="nom-mobile" required />
+                    <label>Nom prénom</label>
+                </div>
+            </div>
+            <div class="small-12 columns">
+                <div class="group">
+                    <input type="email" name="email-mobile" required />
+                    <label>E-mail</label>
+                </div>
+            </div>
+            <div class="small-12 columns">
+                <textarea name="message-mobile" id="" cols="30" rows="8" placeholder="Message"></textarea>
+            </div>
+            <div class="small-12 columns text-right">
+                <input type="submit" name="send-form-mobile" value="Envoyer" class="button" />
             </div>
         </form>
     </div>

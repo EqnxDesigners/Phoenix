@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="small-12 columns action-inscription">
-                        <a href="#">Inscription<span class="icon icon-shape-fleche-droite"></span></a>
+                        <a>Inscription<span class="icon icon-shape-fleche-droite"></span></a>
                     </div>
                     
                     
