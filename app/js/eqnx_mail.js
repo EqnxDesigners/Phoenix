@@ -19,6 +19,7 @@ $(document).ready(function () {
 
     function clearForm() {
         $('form').find("input[type=text], input[type=email], textarea").val("");
+        $('label').removeClass('on');
     }
   
     function validateFormContact(mobile) {
@@ -33,7 +34,6 @@ $(document).ready(function () {
                 inputEmail = 'email-mobile',
                 inputMessage = 'message-mobile';
         }
-        
         
         var nom = $('input[name="'+ inputNom +'"]').val(),
             email = $('input[name="'+ inputEmail +'"]').val(),
