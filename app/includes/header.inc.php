@@ -52,13 +52,13 @@
                     <form>
                         <div class="small-12 columns">
                             <div class="group">
-                                <input type="text" name="nom" form-code="contact-mobile" required />
+                                <input type="text" name="nom" form-code="contact-mobile"/>
                                 <label>Nom prénom</label>
                             </div>
                         </div>
                         <div class="small-12 columns">
                             <div class="group">
-                                <input type="email" name="email" form-code="contact-mobile" required />
+                                <input type="email" name="email" form-code="contact-mobile"/>
                                 <label>E-mail</label>
                             </div>
                         </div>

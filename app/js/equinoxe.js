@@ -50,29 +50,77 @@ $(document).ready(function () {
     });
 
   //----- Google Map --------------------------------------
+//    function initialize() {
+//    //46.517376, 6.562770
+//        var myOptions = {
+//            center: new google.maps.LatLng(46.517376, 6.562770),
+//            zoom: 17,
+//            mapTypeId: google.maps.MapTypeId.ROADMAP,
+//            scrollwheel: false,
+////            disableDefaultUI: true,
+//            zoomControl: true,
+//            zoomControlOptions: {
+//                style: google.maps.ZoomControlStyle.LARGE,
+//                position: google.maps.ControlPosition.LEFT_CENTER
+//            }
+//        },
+//        map = new google.maps.Map(document.getElementById("google-map"), myOptions),
+//        mapMobile = new google.maps.Map(document.getElementById("google-map-mobile"), myOptions);
+//
+//    //var image = 'images/map_marker.png';
+//    //var myLatLng = new google.maps.LatLng(46.167654, 6.108538);
+//    //var expoMarker = new google.maps.Marker({
+//    //  position: myLatLng,
+//    //  map: map,
+//    //  icon: image
+//    //});
+//    }
+//    initialize();
+    
     function initialize() {
-    //46.517376, 6.562770
-        var myOptions = {
-                center: new google.maps.LatLng(46.517376, 6.562770),
-                zoom: 17,
-                panControl: false,
-                zoomControl: false,
-                scaleControl: false,
-                mapTypeControl: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+        var myLatlng = new google.maps.LatLng(46.51734, 6.56282);
+        var mapOptions = {
+            zoom: 17,
+            center: myLatlng,
+            mapTypeControl: false,
+            scrollwheel: false,
+            mapTypeControl: true,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL,
+                position: google.maps.ControlPosition.LEFT_TOP
             },
-            map = new google.maps.Map(document.getElementById("google-map"), myOptions),
-            mapMobile = new google.maps.Map(document.getElementById("google-map-mobile"), myOptions);
-
-    //var image = 'images/map_marker.png';
-    //var myLatLng = new google.maps.LatLng(46.167654, 6.108538);
-    //var expoMarker = new google.maps.Marker({
-    //  position: myLatLng,
-    //  map: map,
-    //  icon: image
-    //});
+            scaleControl: true
+//            streetViewControl: true,
+//            streetViewControlOptions: {
+//                position: google.maps.ControlPosition.LEFT_TOP
+//            }
+        }
+        var image = 'img/map-marker.png';
+        
+        var contentString = '<div class="map-info"><h5>Equinoxe MIS Development</h5></div>';
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title:"Equinoxe MIS Development",
+            icon: image,
+            title: 'Equinoxe MIS Development'
+        });
+        
+        var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        marker.setMap(map);
+        
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
     }
-    initialize();
+
+    google.maps.event.addDomListener(window, 'load', initialize);
     
     // ALINE
     
@@ -235,127 +283,5 @@ $(document).ready(function () {
   //----- Foundation --------------------------------------
     $(document).foundation();
 
-  //----- Material Design ---------------------------------
   
-
-  //$(document).foundation({
-  //  accordion: {
-  //    // specify the class used for accordion panels
-  //    content_class: 'content',
-  //    // specify the class used for active (or open) accordion panels
-  //    active_class: 'active',
-  //    // allow multiple accordion panels to be active at the same time
-  //    multi_expand: true,
-  //    // allow accordion panels to be closed by clicking on their headers
-  //    // setting to false only closes accordion panels when another is opened
-  //    toggleable: true
-  //  }
-  //});
-
-  //$("#newsEqnx").masonry({
-  //  columnWidth: 200,
-  //  itemSelector: '.new',
-  //  gutter: 10
-  //});
-
-//  $("#docsEqnx").masonry({
-//    columnWidth: 500,
-//    itemSelector: '.doc',
-//    gutter: 10
-//  });
-  
-  //$('#docsEqnx').mixItUp();
-
-  //$('.slick-eqnx').slick({
-  //  autoplay: true,
-  //  autoplaySpeed: 3000,
-  //  dots: false,
-  //  speed: 1000,
-  //  fade: true,
-  //  touchMove: true
-  //});
-
-  //$('.slick-eqnx-diapo').slick({
-  //  autoplay: true,
-  //  autoplaySpeed: 3000,
-  //  dots: true,
-  //  speed: 1000,
-  //  arrows: false,
-  //  touchMove: true
-  //});
-
-  
-
-  //$('#show-form').on('click', function () {
-  //  if( /iPad|iPhone/i.test(navigator.userAgent) ) {
-  //    $('.content-sem').hide();
-  //    $('.content-sem-inscr').show();
-  //  }else{
-  //    $('.content-sem').hide();
-  //    $('.content-sem').removeClass('animated flipInX');
-  //    $('.content-sem-inscr').show();
-  //    $('.content-sem-inscr').addClass('animated flipInX');
-  //  }
-  //});
-  
-  //$('#close-form').on('click', function () {
-  //  if( /iPad|iPhone/i.test(navigator.userAgent) ) {
-  //    $('.content-sem-inscr').hide();
-  //    $('.content-sem').show();
-  //  }else{
-  //    $('.content-sem-inscr').hide();
-  //    $('.content-sem-inscr').removeClass('animated flipInX');
-  //    $('.content-sem').show();
-  //    $('.content-sem').addClass('animated flipInX');
-  //  }
-  //});
-
-  //var bodyEl = $('body'),
-  //  content = $('.content-wrap'),
-  //  openbtn = $('#burgerNav'),
-  //  closebtn = $('#close-button'),
-  //  isOpen = false;
-
-//  function toggleMenu() {
-//    if (isOpen) {
-//      bodyEl.removeClass('show-menu');
-////      bodyEl.removeClass('stopScroll');
-//    } else {
-//      bodyEl.addClass('show-menu');
-////      bodyEl.addClass('stopScroll');
-//    }
-//    isOpen = !isOpen;
-//  }
-
-  //function initEvents() {
-  //  openbtn.on('click', toggleMenu);
-  //  if (closebtn) {
-  //    closebtn.on('click', toggleMenu);
-  //  }
-  //  //FORMULAIRE
-  //  $('.content-sem-inscr').hide();
-  //  // close the menu element if the target it´s not the menu element or one of its descendants..
-  //  content.on('click', function (ev) {
-  //    var target = ev.target;
-  //    if (isOpen) {
-  //      toggleMenu();
-  //    }
-  //  });
-  //}
-
-  //function init() {
-  //  initEvents();
-  //}
-
-  //init();
 });
-
-//----- Foundation ----------------------------------------
-//$(document).foundation();
-
-//$(document).foundation({
-//  equalizer : {
-//    // Specify if Equalizer should make elements equal height once they become stacked.
-//    equalize_on_stack: false
-//  }
-//});

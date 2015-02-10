@@ -768,13 +768,10 @@ form.inscription-form .group label {
     -webkit-transform: scale(1);
   }
 }
-:-moz-ui-invalid:not(output),
-.invalid {
-  box-shadow: none;
-  border-bottom: 1px solid #df2438 !important;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
+.map-info h5 {
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 0;
 }
 @media only screen and (max-width: 40em) {
   h3 {
