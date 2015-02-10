@@ -49,24 +49,24 @@
 
                 <!-- formulaire conact mobile -->
                 <div class="small-12 medium-6 columns show-for-small-only">
-                    <form action="">
+                    <form>
                         <div class="small-12 columns">
                             <div class="group">
-                                <input type="text" name="nom-mobile" required />
+                                <input type="text" name="nom" form-code="contact-mobile" required />
                                 <label>Nom prénom</label>
                             </div>
                         </div>
                         <div class="small-12 columns">
                             <div class="group">
-                                <input type="email" name="email-mobile" required />
+                                <input type="email" name="email" form-code="contact-mobile" required />
                                 <label>E-mail</label>
                             </div>
                         </div>
                         <div class="small-12 columns">
-                            <textarea name="message-mobile" id="" cols="30" rows="8" placeholder="Message"></textarea>
+                            <textarea name="message" cols="30" rows="8" placeholder="Message" form-code="contact-mobile"></textarea>
                         </div>
                         <div class="small-12 columns text-right">
-                            <input type="button" name="send-form-mobile" value="Envoyer" class="button" id="contact-form-mobile"/>
+                            <input type="button" value="Envoyer" class="button send-form" form-code="contact-mobile"/>
                             <span class="send-spinner" style="display:none;">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>

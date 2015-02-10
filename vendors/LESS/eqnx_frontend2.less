@@ -47,7 +47,9 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-
+.hidden{
+    display: none;
+}
 //----- Titles --------------------------------------------
 h1,h2,h3,h4 {
     font-family: @font;
@@ -824,7 +826,21 @@ form {
         padding: 0;
         font-size: 0.8rem;
     }
-   
+    &.inscription-form{
+        margin-top: 1.5rem;
+        .group {
+            input {
+                border-bottom: 1px solid @eqnx-dark-blue;
+                color: @eqnx-dark-blue;
+                &:focus{
+                    background: lighten(@eqnx-dark-blue, 60%);
+                }
+            }
+            label {
+                color: @eqnx-dark-blue;
+            }
+        }
+    }
 }
 
 .sending{

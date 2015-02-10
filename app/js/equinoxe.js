@@ -193,7 +193,32 @@ $(document).ready(function () {
     });
 
 
+    // Inscription aux events
+    function hideInscriptions() {
+        $("[class*=data-event-]").show();
+        $("[class*=inscription-event-]").hide();
+    }
+    
+    function showInscription(eventCode) {
+        $('.data-event-' + eventCode).hide();
+        $('.inscription-event-' + eventCode).show();
+    }
 
+    $('.inscription-event').on('click', function () {
+        var eventCode = $(this).attr('event-code');
+        showInscription(eventCode);
+    });
+    
+    $('.tab-title').on('click', function () {
+        hideInscriptions();
+    });
+    
+    $('.inscr-form-cancel').on('click', function () {
+        hideInscriptions();
+    });
+    
+    
+    
     // INIT EVENTS
     function init() {
         setNavigation();

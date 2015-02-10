@@ -10,7 +10,7 @@ spl_autoload_register(function($class) {
 
 //----- Fonctions AJAX ------------------------------------
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailInscr') {
-  EnvoiFormulaireInscription($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace']);
+  EnvoiFormulaireInscription($_POST['nom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace']);
 }
 
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
@@ -42,7 +42,7 @@ if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
 *   Envoi du formulaire d'inscription au séminaire 
 *   @param event, eventDate, eventPlace
 **/
-function EnvoiFormulaireInscription($nom, $prenom, $email, $event, $eventDate, $eventPlace){
+function EnvoiFormulaireInscription($nom, $email, $event, $eventDate, $eventPlace){
   $sujet = 'Nouvelle inscription au séminaire d\'information '.$event;
   $sujet_validation = 'Votre inscription au séminaire d\'information '.$event;
   
@@ -54,7 +54,6 @@ function EnvoiFormulaireInscription($nom, $prenom, $email, $event, $eventDate, $
   $mail_content_validation .= file_get_contents(dirname(__FILE__).'/mail_templates/mail_content_seminaire_validation.html');
   $mail_content_validation .= file_get_contents(dirname(__FILE__).'/mail_templates/mail_footer.html');
   
-  $mail_content = str_replace("%%%PRENOM%%%", $prenom, $mail_content);
   $mail_content = str_replace("%%%NOM%%%", $nom, $mail_content);
   $mail_content = str_replace("%%%EMAIL%%%", $email, $mail_content);
   $mail_content = str_replace("%%%EVENT%%%", $event, $mail_content);
@@ -66,7 +65,7 @@ function EnvoiFormulaireInscription($nom, $prenom, $email, $event, $eventDate, $
   $destinataire_email = 'ap@eqnx.ch';
   $destinataire_name = 'Aline Pfänder';
   $destinataire_validation_email = $email;
-  $destinataire_validation_name = $prenom.' '.$nom;
+  $destinataire_validation_name = $nom;
   
   if (SendMail($sujet, $mail_content, $destinataire_email, $destinataire_name)) {
     if (SendMail($sujet_validation, $mail_content_validation, $destinataire_validation_email, $destinataire_validation_name)) {

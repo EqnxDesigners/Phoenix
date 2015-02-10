@@ -34,24 +34,24 @@
     
     <!-- formulaire conact descktop + tablette -->
     <div class="small-12 medium-6 columns hide-for-small-only">
-        <form action="">
+        <form>
             <div class="small-12 columns">
                 <div class="group">
-                    <input type="text" name="nom" required />
+                    <input type="text" name="nom" form-code="contact-desktop" required />
                     <label>Nom prénom</label>
                 </div>
             </div>
             <div class="small-12 columns">
                 <div class="group">
-                    <input type="email" name="email" required />
+                    <input type="email" name="email" form-code="contact-desktop" required />
                     <label>E-mail</label>
                 </div>
             </div>
             <div class="small-12 columns">
-                <textarea name="message" id="" cols="30" rows="8" placeholder="Message"></textarea>
+                <textarea name="message" cols="30" rows="8" placeholder="Message" form-code="contact-desktop"></textarea>
             </div>
             <div class="small-12 columns text-right">
-                <input type="button" name="send-form" value="Envoyer" class="button" id="contact-form"/>
+                <input type="button" value="Envoyer" class="button send-form" form-code="contact-desktop"/>
                 <span class="send-spinner" style="display:none;">
                     <div class="bounce1"></div>
                     <div class="bounce2"></div>
