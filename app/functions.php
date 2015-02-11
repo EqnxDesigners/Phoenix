@@ -1,12 +1,14 @@
 <?php
 //------ Fonctions -----------------------------------------
 function setCurrentPage() {
+    setCurrentLang();
     if(isset($_GET['page'])) {
         $_SESSION['current']['page'] = $_GET['page'];
     }
     else {
         $_SESSION['current']['page'] = DEFAULT_PAGE;
     }
+    displayCurrentPage();
 }
 
 function setCurrentLang() {
@@ -15,6 +17,32 @@ function setCurrentLang() {
     }
     else {
         $_SESSION['current']['lang'] = 'fr';
+    }
+    getCurrentTrad();
+}
+
+function displayCurrentPage() {
+    if($_SESSION['current']['page'] === 'isacademia') {
+        include_once dirname(__FILE__).'/includes/isa.inc.php';
+    }
+    elseif($_SESSION['current']['page'] === 'news') {
+        include_once dirname(__FILE__).'/includes/news.inc.php';
+    }
+
+    elseif($_SESSION['current']['page'] === 'equinoxe') {
+        include_once dirname(__FILE__).'/includes/qui.inc.php';
+    }
+
+    else {
+        include_once dirname(__FILE__).'/includes/slideshow.inc.php';
+
+        include_once dirname(__FILE__).'/includes/alertes.inc.php';
+        include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
+
+        include_once dirname(__FILE__).'/includes/index-isa.inc.php';
+        include_once dirname(__FILE__).'/includes/index-news.inc.php';
+        include_once dirname(__FILE__).'/includes/index-events.inc.php';
+        include_once dirname(__FILE__).'/includes/index-support.inc.php';
     }
 }
 
@@ -25,7 +53,7 @@ function display_form_inscr_semin() {
     }
 }
 
-function getDefaultTrad() {
+function getCurrentTrad() {
     $lang = new Langues();
     $file = 'trad_'.$_SESSION['current']['lang'].'.ini';
     $_SESSION['trad'] = $lang->getTradIni($file);

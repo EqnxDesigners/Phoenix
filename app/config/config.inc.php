@@ -52,7 +52,7 @@ define('NAME_SITE', 'Equinoxe MIS Development');
 define('DEFAULT_LANG', '1');
 
 //PAGE PAR DEFAUT
-define('DEFAULT_PAGE', 'news');
+define('DEFAULT_PAGE', 'accueil');
 
 //MODULE PAR DEFAUT
 define('DEFAULT_MODULE', 'news');

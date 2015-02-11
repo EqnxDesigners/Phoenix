@@ -18,9 +18,9 @@
                         <!--                <li><img src="img/langues.png" alt="Langues" id="langues-btn"/></li>-->
                         <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>
                         <li><a href="#">Accueil</a></li>
-                        <li><a href="<?php echo buildUrl('isa'); ?>">IS-Academia</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Equinoxe</a></li>
+                        <li><a href="<?php echo buildUrl('isacademia'); ?>">IS-Academia</a></li>
+                        <li><a href="<?php echo buildUrl('news'); ?>">News</a></li>
+                        <li><a href="<?php echo buildUrl('equinoxe'); ?>">Equinoxe</a></li>
                         <li target="index-footer"><a href="#">Contact</a></li>
                     </ul>
                 </div>

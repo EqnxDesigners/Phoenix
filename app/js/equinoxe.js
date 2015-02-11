@@ -82,7 +82,6 @@ $(document).ready(function () {
         var mapOptions = {
             zoom: 17,
             center: myLatlng,
-            mapTypeControl: false,
             scrollwheel: false,
             mapTypeControl: true,
             zoomControl: true,
@@ -107,7 +106,6 @@ $(document).ready(function () {
         var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
-            title:"Equinoxe MIS Development",
             icon: image,
             title: 'Equinoxe MIS Development'
         });

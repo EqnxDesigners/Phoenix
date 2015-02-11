@@ -34,7 +34,6 @@
   <script src="assets/mixItUp/jquery.mixitup.js"></script>
   <script src="assets/sweetAlert/sweet-alert.min.js"></script>
   <script src="assets/hammer/hammer.min.js"></script>
-  <script src="assets/Animate/animate.css"></script>
 
   <!-- JS equinoxe -->
   <script type="text/javascript" src="js/equinoxe.js" charset="utf-8"></script>
