@@ -56,6 +56,22 @@ h4 {
   color: #34495e;
   text-transform: uppercase;
 }
+.page-title {
+  padding: 1.5rem;
+  background: #34495e;
+  text-align: center;
+}
+.page-title h1 {
+  color: white;
+  font-weight: bold;
+}
+.page-title h2 {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-transform: none;
+  font-weight: 400;
+}
 .button {
   margin-bottom: 1rem;
   display: inline-block;
