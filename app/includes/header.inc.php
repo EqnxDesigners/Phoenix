@@ -18,7 +18,7 @@
                         <!--                <li><img src="img/langues.png" alt="Langues" id="langues-btn"/></li>-->
                         <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>
                         <li><a href="#">Accueil</a></li>
-                        <li><a href="#">IS-Academia</a></li>
+                        <li><a href="<?php echo buildUrl('isa'); ?>">IS-Academia</a></li>
                         <li><a href="#">News</a></li>
                         <li><a href="#">Equinoxe</a></li>
                         <li target="index-footer"><a href="#">Contact</a></li>
@@ -30,10 +30,10 @@
 
         <div id="langues">
             <ul>
-                <li><a href="">FR</a></li>
-                <li><a href="">EN</a></li>
-                <li><a href="">IT</a></li>
-                <li><a href="">DE</a></li>
+                <li><a href="<?php echo getCurrentUrl('fr'); ?>">FR</a></li>
+                <li><a href="<?php echo getCurrentUrl('en'); ?>">EN</a></li>
+                <li><a href="<?php echo getCurrentUrl('it'); ?>">IT</a></li>
+                <li><a href="<?php echo getCurrentUrl('de'); ?>">DE</a></li>
             </ul>
         </div>
 

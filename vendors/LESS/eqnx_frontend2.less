@@ -469,6 +469,13 @@ nav{
 .slideshow {
     height: 700px;
     background: @eqnx-dark-blue;
+    background: -moz-linear-gradient(-45deg,  @eqnx-dark-blue 0%, lighten( @eqnx-dark-blue, 5%) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,@eqnx-dark-blue), color-stop(100%,lighten( @eqnx-dark-blue, 5%))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  @eqnx-dark-blue 0%,lighten( @eqnx-dark-blue, 5%) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  @eqnx-dark-blue 0%,lighten( @eqnx-dark-blue, 5%) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  @eqnx-dark-blue 0%,lighten( @eqnx-dark-blue, 5%) 100%); /* IE10+ */
+    background: linear-gradient(135deg,  @eqnx-dark-blue 0%,lighten( @eqnx-dark-blue, 5%) 100%); /* W3C */
+
 }
 
 //----- Alerte news ---------------------------------------

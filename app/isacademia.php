@@ -26,15 +26,6 @@ include_once dirname(__FILE__).'/includes/header.inc.php';
 
 
 
-include_once dirname(__FILE__).'/includes/slideshow.inc.php';
-
-include_once dirname(__FILE__).'/includes/alertes.inc.php';
-include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
-
-include_once dirname(__FILE__).'/includes/index-isa.inc.php';
-include_once dirname(__FILE__).'/includes/index-news.inc.php';
-include_once dirname(__FILE__).'/includes/index-events.inc.php';
-include_once dirname(__FILE__).'/includes/index-support.inc.php';
 
 
 

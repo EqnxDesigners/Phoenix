@@ -396,6 +396,18 @@ nav #langues-btn-mobile:hover {
 .slideshow {
   height: 700px;
   background: #34495e;
+  background: -moz-linear-gradient(-45deg, #34495e 0%, #3d566e 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #34495e), color-stop(100%, #3d566e));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #34495e 0%, #3d566e 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #34495e 0%, #3d566e 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #34495e 0%, #3d566e 100%);
+  /* IE10+ */
+  background: linear-gradient(135deg, #34495e 0%, #3d566e 100%);
+  /* W3C */
 }
 .eqnx-alert {
   max-widows: 100% !important;
