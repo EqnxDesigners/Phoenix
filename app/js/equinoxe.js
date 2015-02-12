@@ -49,34 +49,7 @@ $(document).ready(function () {
         }
     });
 
-  //----- Google Map --------------------------------------
-//    function initialize() {
-//    //46.517376, 6.562770
-//        var myOptions = {
-//            center: new google.maps.LatLng(46.517376, 6.562770),
-//            zoom: 17,
-//            mapTypeId: google.maps.MapTypeId.ROADMAP,
-//            scrollwheel: false,
-////            disableDefaultUI: true,
-//            zoomControl: true,
-//            zoomControlOptions: {
-//                style: google.maps.ZoomControlStyle.LARGE,
-//                position: google.maps.ControlPosition.LEFT_CENTER
-//            }
-//        },
-//        map = new google.maps.Map(document.getElementById("google-map"), myOptions),
-//        mapMobile = new google.maps.Map(document.getElementById("google-map-mobile"), myOptions);
-//
-//    //var image = 'images/map_marker.png';
-//    //var myLatLng = new google.maps.LatLng(46.167654, 6.108538);
-//    //var expoMarker = new google.maps.Marker({
-//    //  position: myLatLng,
-//    //  map: map,
-//    //  icon: image
-//    //});
-//    }
-//    initialize();
-    
+  //----- Google Map --------------------------------------    
     function initialize() {
         var myLatlng = new google.maps.LatLng(46.51734, 6.56282);
         var mapOptions = {
@@ -113,8 +86,13 @@ $(document).ready(function () {
         var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
         marker.setMap(map);
         
+        var mapMobile = new google.maps.Map(document.getElementById('google-map-mobile'), mapOptions);
+        
+        marker.setMap(map);
+        marker.setMap(mapMobile);
+        
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
+            infowindow.open(map, marker);
         });
     }
 
@@ -281,9 +259,11 @@ $(document).ready(function () {
     var $container = $('#news-masonry');
     // initialize
     $container.masonry({
-        gutter: 10,
-        columnWidth: 500,
-        itemSelector: '.masonry-brick'
+//        gutter: 10,
+        itemSelector: '.new',
+        columnWidth: function( 1232 ) {
+            return containerWidth / 2;
+        }
     });
     
     // INIT EVENTS

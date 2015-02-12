@@ -1030,6 +1030,26 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/app\/assets\/flickity\/flickity.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app\/assets\/flickity\/flickity.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/app\/assets\/flickity\/flickity.pkgd.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app\/assets\/flickity\/flickity.pkgd.js",
+		"outputAbbreviatedPath": "\/app\/assets\/flickity\/min\/flickity.pkgd-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/app\/assets\/foundation\/foundation.equalizer.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -1205,11 +1225,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/DB.class.php": {
+	"\/app\/class\/db.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/DB.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/db.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1223,20 +1243,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Langues.class.php": {
+	"\/app\/class\/langues.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Langues.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/langues.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Layouts.class.php": {
+	"\/app\/class\/layouts.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Layouts.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/layouts.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1250,11 +1270,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/News.class.php": {
+	"\/app\/class\/news.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/News.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/news.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1772,20 +1792,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Trait_datetime.class.php": {
+	"\/app\/class\/trait_datetime.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Trait_datetime.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/trait_datetime.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Trait_renderhtml.class.php": {
+	"\/app\/class\/trait_renderhtml.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Trait_renderhtml.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/trait_renderhtml.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1799,11 +1819,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Trait_traduction.class.php": {
+	"\/app\/class\/trait_traduction.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Trait_traduction.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/trait_traduction.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -2085,11 +2105,44 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/app\/img\/fleche-bleue-next.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 382,
+		"inputAbbreviatedPath": "\/app\/img\/fleche-bleue-next.png",
+		"outputAbbreviatedPath": "\/app\/img\/fleche-bleue-next.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/fleche-bleue-prev.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 364,
+		"inputAbbreviatedPath": "\/app\/img\/fleche-bleue-prev.png",
+		"outputAbbreviatedPath": "\/app\/img\/fleche-bleue-prev.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/h1-bg-white.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 852,
+		"inputAbbreviatedPath": "\/app\/img\/h1-bg-white.png",
+		"outputAbbreviatedPath": "\/app\/img\/h1-bg-white.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/app\/img\/h1-bg.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 375,
+		"initialSize": 986,
 		"inputAbbreviatedPath": "\/app\/img\/h1-bg.png",
 		"outputAbbreviatedPath": "\/app\/img\/h1-bg.png",
 		"outputPathIsOutsideProject": 0,
@@ -2553,6 +2606,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/app\/js\/min\/eqnx_mail-min.js",
 		"outputAbbreviatedPath": "\/app\/js\/min\/min\/eqnx_mail-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/app\/js\/min\/equinoxe-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app\/js\/min\/equinoxe-min.js",
+		"outputAbbreviatedPath": "\/app\/js\/min\/min\/equinoxe-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
