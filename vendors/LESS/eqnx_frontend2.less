@@ -792,6 +792,68 @@ nav{
     }
 }
 
+//----- PAGINATION ----------------------------------------
+.pag{
+    margin: 1rem 0;
+    text-align: center;
+    li{
+        display: inline-block;
+        list-style-type: none;
+        margin: 0 1rem;
+        padding: 0.1rem 0.5rem;
+        a{
+            color: @eqnx-dark-blue;
+        }
+        &.fleche{
+            img{
+                height: 20px;
+                position: relative;
+            }
+        }
+        &.next{
+            img{
+                left: 0;
+                transition: ease all 0.2s;
+                -webkit-transition: ease all 0.2s;
+                -moz-transition:ease  all 0.2s;
+            }
+            &:hover{
+                img{
+                    left: 10px;
+                    transition: ease all 0.2s;
+                    -webkit-transition: ease all 0.2s;
+                    -moz-transition: ease all 0.2s;
+                }
+            }
+        }
+        &.prev{
+            img{
+                right: 0;
+                transition: ease all 0.2s;
+                -webkit-transition: ease all 0.2s;
+                -moz-transition: ease all 0.2s;
+            }
+            &:hover{
+                img{
+                    right: 10px;
+                    transition: ease all 0.2s;
+                    -webkit-transition: ease all 0.2s;
+                    -moz-transition: ease all 0.2s;
+                }
+            }
+        }
+        &.active{
+            font-weight: bold;
+            border-bottom: 2px solid @eqnx-dark-blue;
+        }
+    }
+}
+
+//----- NEWS ----------------------------------------------
+.news{
+    background: white;
+}
+
 //----- Footer --------------------------------------------
 footer {
     background: @eqnx-dark-blue;

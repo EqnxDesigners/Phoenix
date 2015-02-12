@@ -7,8 +7,8 @@
     <div class="row text-center">
         <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
             <li class="text-center">
-                <div class="text-center isa-feature wow fadeIn animated" data-wow-delay="0.1s">
-                    <div class="small-12 columns">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.1s">
                         <img src="img/info-01.png">
                     </div>
                     <div class="small-12 columns"><h4>Multi-écoles & <br/> multi-langues</h4></div>
@@ -17,8 +17,8 @@
                 
             </li>
             <li class="text-center">
-                <div class="text-center isa-feature wow fadeIn animated" data-wow-delay="0.1s">
-                    <div class="small-12 columns">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.7s">
                         <img src="img/info-02.png">
                     </div>
                     <div class="small-12 columns"><h4>Multi-interfaces</h4></div>
@@ -27,8 +27,8 @@
 
             </li>
             <li class="text-center">
-                <div class="text-center isa-feature wow fadeIn animated" data-wow-delay="0.1s">
-                    <div class="small-12 columns">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.5s">
                         <img src="img/info-03.png">
                     </div>
                     <div class="small-12 columns"><h4>Extrêmement paramétrable</h4></div>
@@ -39,8 +39,8 @@
         </ul>  
         <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
             <li class="text-center">
-                <div class="text-center isa-feature wow fadeIn animated" data-wow-delay="0.1s">
-                    <div class="small-12 columns">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.3s">
                         <img src="img/info-04.png">
                     </div>
                     <div class="small-12 columns"><h4>Compatible avec les autres <br/> systèmes d'information</h4></div>
@@ -49,8 +49,8 @@
 
             </li>
             <li class="text-center">
-                <div class="text-center isa-feature wow fadeIn animated" data-wow-delay="0.1s">
-                    <div class="small-12 columns">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.9s">
                         <img src="img/info-05.png">
                     </div>
                     <div class="small-12 columns"><h4>à votre image</h4></div>
@@ -83,11 +83,11 @@
     <h3>Utilisation avec Internet, Intranet et Extranet</h3>
     <div class="small-12 columns navigateurs">
         <ul class=" medium-block-grid-2 large-block-grid-5 text-center">
-            <li><img src="img/chrome-ico.png" alt="Google Chrome"/><span class="nav-title">Google Chrome</span></li>
-            <li><img src="img/firefox-ico.png" alt="Firefox"/><span class="nav-title">Firefox</span></li>
-            <li><img src="img/safari-ico.png" alt="Safari"/><span class="nav-title">Safari</span></li>
-            <li><img src="img/opera-ico.png" alt="Opera"/><span class="nav-title">Opera</span></li>
-            <li><img src="img/ie-ico.png" alt="Internet Explorer"/><span class="nav-title">Internet Explorer</span></li>
+            <li><img src="img/chrome-ico.png" alt="Google Chrome" class="wow bounceIn animated" data-wow-delay="0.1s"/><span class="nav-title">Google Chrome</span></li>
+            <li><img src="img/firefox-ico.png" alt="Firefox" class="wow bounceIn animated" data-wow-delay="0.2s"/><span class="nav-title">Firefox</span></li>
+            <li><img src="img/safari-ico.png" alt="Safari" class="wow bounceIn animated" data-wow-delay="0.3s"/><span class="nav-title">Safari</span></li>
+            <li><img src="img/opera-ico.png" alt="Opera" class="wow bounceIn animated" data-wow-delay="0.4s"/><span class="nav-title">Opera</span></li>
+            <li><img src="img/ie-ico.png" alt="Internet Explorer" class="wow bounceIn animated" data-wow-delay="0.5s"/><span class="nav-title">Internet Explorer</span></li>
         </ul>
     </div>
 </section>

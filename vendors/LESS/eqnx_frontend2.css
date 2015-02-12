@@ -686,6 +686,54 @@ nav #langues-btn-mobile:hover {
 .sub-page #clients-slide .gallery-cell img {
   max-width: 35%;
 }
+.pag {
+  margin: 1rem 0;
+  text-align: center;
+}
+.pag li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 1rem;
+  padding: 0.1rem 0.5rem;
+}
+.pag li a {
+  color: #34495e;
+}
+.pag li.fleche img {
+  height: 20px;
+  position: relative;
+}
+.pag li.next img {
+  left: 0;
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+  -moz-transition: ease  all 0.2s;
+}
+.pag li.next:hover img {
+  left: 10px;
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+  -moz-transition: ease all 0.2s;
+}
+.pag li.prev img {
+  right: 0;
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+  -moz-transition: ease all 0.2s;
+}
+.pag li.prev:hover img {
+  right: 10px;
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+  -moz-transition: ease all 0.2s;
+}
+.pag li.active {
+  font-weight: bold;
+  border-bottom: 2px solid #34495e;
+}
+.news {
+  background: white;
+}
 footer {
   background: #34495e;
   color: #ffffff;

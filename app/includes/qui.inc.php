@@ -1,54 +1,24 @@
-<!-- CONTENT -->
-<div class="content-wrap">
-    <div class="row bloc-title about white wide-row">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['qui']['page_title']; ?></h1>
-        </div>
-        <div class="small-12 columns">
-            <h2><?php echo $_SESSION['trad']['qui']['page_sub-title']; ?></h2>
-        </div>
-    </div>
+<section class="row wide-row page-title">
+    <h1>Equinoxe MIS Development</h1>
+</section>
 
-    <div class="row bloc-description gris">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['qui']['txt1_title']; ?></h1>
-        </div>
-        <div class="small-12 columns">
-            <?php 
-                foreach($_SESSION['trad']['qui']['txt1_para'] as $k => $paragraphe) {
-                    writeParagraphe($paragraphe, 'qui', 'txt1_li');
-                }
-            ?>
-        </div>
-    </div>
-<!--
+<?php include dirname(__FILE__).'/alerte-job.inc.php'; ?>
 
-    <div class="row bloc-description blanc">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['qui']['txt2_title']; ?></h1>
-        </div>
-        <div class="row">
-            <div class="small-12 medium-4 large-4 columns fiche-equipe">
-                <h1><span class="nom">Plug</span> Sven</h1>
-                <h2>Associé / Partner</h2>
-                <p><a href="mailto:sp@eqnx.ch">sp@eqnx.ch</a>
-                </p>
-            </div>
-            <div class="small-12 medium-4 large-4 columns fiche-equipe">
-                <h1><span class="nom">Rod</span> Serge</h1>
-                <h2>Associé / Partner</h2>
-                <p><a href="mailto:sp@eqnx.ch">sr@eqnx.ch</a>
-                </p>
-            </div>
-            <div class="small-12 medium-4 large-4 columns fiche-equipe">
-                <h1><span class="nom">Bandeira-Duarte</span> Teresa</h1>
-                <h2>Secrétaire de direction</h2>
-                <p><a href="mailto:sp@eqnx.ch">tbd@eqnx.ch</a>
-                </p>
-            </div>
-        </div>
+<section class="row sub-page">
+    <h3>Qui sommes-nous ?</h3>
+    <div class="row">
+        <p class="text-justify">
+            Fondée en octobre 1993, Equinoxe MIS Development est une société de développement et de conseil particulièrement présente dans les domaines de la gestion académique et de la santé.
+        </p>
+        <p class="text-justify">
+            Une connaissance approfondie du métier premier de nos clients et une offre complète de solutions et de prestations de haut niveau, constituent la clé de succès dans nos relations d’affaires, dans laquelle la notion de partenariat est aussi largement privilégiée.
+        </p>
+        <p class="text-justify">
+            Avec comme objectif de se positionner comme véritable centre de compétence au service de ses clients, nous travaillons en étroite collaboration avec certains organismes tels que l’Ensemble Hospitalier de la Côte (domaine de la Santé) et l’école polytechnique fédérale de Lausanne (domaine de la gestion académique).
+        </p>
     </div>
--->
-
-</div>
-<!-- END CONTENT -->
+    <hr/>
+</section>
+<section class="row sub-page">
+    <h3>Expertise dans le domaine de la santé</h3>
+</section>

@@ -269,7 +269,6 @@ $(document).ready(function () {
         wrapAround: true,
         freeScroll: true,
         contain: true,
-        cellAlign: 'left',
         prevNextButtons: false,
         autoPlay: 2000,
         imagesLoaded: true,
@@ -277,6 +276,15 @@ $(document).ready(function () {
         pageDots: false
     });
     
+    
+    // Masonry
+    var $container = $('#news-masonry');
+    // initialize
+    $container.masonry({
+        gutter: 10,
+        columnWidth: 500,
+        itemSelector: '.masonry-brick'
+    });
     
     // INIT EVENTS
     function init() {
