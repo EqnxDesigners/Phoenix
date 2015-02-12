@@ -127,6 +127,12 @@ header nav ul li {
   display: inline-block;
   padding-right: 1.6rem;
   line-height: 4.3rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #34495e;
+  font-weight: 700;
+  cursor: pointer;
 }
 header nav ul li:last-child {
   padding-right: 0;
@@ -291,6 +297,12 @@ nav#desktop-nav .menu-items ul {
 nav#desktop-nav .menu-items ul li {
   list-style-type: none;
   display: inline-block;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  color: #34495e;
+  font-weight: 700;
+  cursor: pointer;
 }
 nav#desktop-nav .menu-items ul li:first-child {
   padding-right: 1rem;

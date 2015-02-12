@@ -67,6 +67,12 @@ function buildUrl($page) {
     return $_SESSION['current']['lang'].'/'.$page;
 }
 
+function getTexte($section, $ref) {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        echo $_SESSION['trad'][$section][$ref];
+    }
+}
+
 function writeParagraphe($paragraphe, $section, $ref) {
     if($paragraphe === '%%UL-'.$ref.'-LI%%') {
         $result = '<ul>';

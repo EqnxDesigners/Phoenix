@@ -21,7 +21,7 @@
                         <li><a href="<?php echo buildUrl('isacademia'); ?>">IS-Academia</a></li>
                         <li><a href="<?php echo buildUrl('news'); ?>">News</a></li>
                         <li><a href="<?php echo buildUrl('equinoxe'); ?>">Equinoxe</a></li>
-                        <li target="index-footer"><a href="#">Contact</a></li>
+                        <li target="index-footer">Contact</li>
                     </ul>
                 </div>
                 <div class="small-3 columns logo"><img src="img/eqnx-logo-l.png" alt="Equinoxe MIS Development" /></div>
