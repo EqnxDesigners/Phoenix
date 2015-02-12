@@ -263,6 +263,19 @@ $(document).ready(function () {
         hideInscriptions();
     });
     
+    // Flickity
+    $('#clients-slide').flickity({
+        // options
+        wrapAround: true,
+        freeScroll: true,
+        contain: true,
+        cellAlign: 'left',
+        prevNextButtons: false,
+        autoPlay: 2000,
+        imagesLoaded: true,
+        cellAlign: 'center',
+        pageDots: false
+    });
     
     
     // INIT EVENTS

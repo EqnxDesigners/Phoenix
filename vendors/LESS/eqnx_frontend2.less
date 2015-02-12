@@ -85,22 +85,6 @@ h4 {
     text-transform: uppercase;
 }
 
-.page-title{
-    padding: 1.5rem;
-    background: @eqnx-dark-blue;
-    text-align: center;
-    h1{
-        color: white;
-        font-weight: bold;
-    }
-    h2{
-        color: white;
-        font-size: 1.5rem;
-        line-height: 2rem;
-        text-transform: none;
-        font-weight: 400;
-    }
-}
 
 //----- Buttons -------------------------------------------
 .button {
@@ -714,6 +698,97 @@ nav{
 .support-tile{
     .row{
         padding: 1rem;
+    }
+}
+
+//----- Sub Pages -----------------------------------------
+
+.page-title{
+    padding: 7rem 1.5rem 3rem;
+    background: @eqnx-dark-blue;
+    text-align: center;
+    h1{
+        color: white;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    h2{
+        color: white;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        text-transform: none;
+        font-weight: 400;
+    }
+}
+.sub-page{
+    padding: 0 1.5rem;
+    &.blue{
+        background: @blue;
+        color: white;
+        h3{
+            color: white;
+            background: url('../../app/img/h1-bg-white.png');
+            background-repeat: no-repeat;
+            padding: 0 0 1.5rem;
+            background-position: 50% 100%;
+        }
+    }
+    &.white{
+        background: white;
+    }
+    h3{
+        text-align: center;
+        font-size: 1.5rem;
+        background: url('../../app/img/h1-bg.png');
+        background-repeat: no-repeat;
+        padding: 0 0 1.5rem;
+        background-position: 50% 100%;
+        margin-bottom: 2rem;
+    }
+    .isa-feature{
+        img{
+            height: 125px;
+        }
+        h4{
+            padding: 1rem 0 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1rem;
+            &::after{
+                content: ' ';
+                height: 5px;
+                width: 65px;
+                background: @grey;
+                display: block;
+                margin: 0.5rem auto 0;
+            }
+        }
+        p{
+            margin: 0.5rem auto 0;
+            width: 80%;
+        }
+    }
+    .navigateurs{
+        padding: 1rem 5rem;
+        .nav-title{
+            display: block;
+            padding: 1rem 0 0;
+        }
+    }
+    #clients-slide{
+        width: 80%;
+        margin: 3rem auto;
+        .flickity-viewport{
+            height: auto;
+        }
+        .gallery-cell{
+            width: 33%;
+            text-align: center;
+            height: 100px;
+            img{
+                max-width: 35%;
+            }
+        }
     }
 }
 

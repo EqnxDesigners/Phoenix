@@ -14,7 +14,8 @@
   <link rel="icon" type="image/png" href="img/favicon.png" />
 
   <link rel="stylesheet" type="text/css" href="css/foundation.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />
+<!--  <link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />-->
+  <link rel="stylesheet" type="text/css" href="assets/flickity/flickity.css" />
   <link rel="stylesheet" type="text/css" href="css/animate.css" />
   <link rel="stylesheet" type="text/css" href="assets/sweetAlert/sweet-alert.css" />
 
@@ -27,7 +28,8 @@
 
   <!-- assets -->
   <script type="text/javascript" src="assets/foundation/foundation.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/slick/slick.min.js" charset="utf-8"></script>
+<!--  <script type="text/javascript" src="assets/slick/slick.min.js" charset="utf-8"></script>-->
+  <script type="text/javascript" src="assets/flickity/flickity.pkgd.js" charset="utf-8"></script>
   <script type="text/javascript" src="assets/masonry/jquery.masonry.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="assets/Wow/wow.min.js" charset="utf-8"></script>
   <script src="assets/foundation/foundation.equalizer.js"></script>
