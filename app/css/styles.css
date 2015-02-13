@@ -23,6 +23,14 @@ body {
 .hidden {
   display: none;
 }
+::selection {
+  background: transparent;
+  color: #df2438;
+}
+::-moz-selection {
+  background: transparent;
+  color: #df2438;
+}
 h1,
 h2,
 h3,
@@ -455,7 +463,18 @@ nav #langues-btn-mobile:hover {
   font-weight: 700;
 }
 .slot-info img {
+  height: 125px;
   margin-bottom: 1rem;
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+}
+.slot-info img:hover {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
 }
 #newsEqnx .columns {
   text-align: center;
@@ -550,6 +569,7 @@ nav #langues-btn-mobile:hover {
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
+  padding: 1rem 2rem;
 }
 .events-tab ul.tabs li a span {
   text-transform: lowercase;
@@ -557,11 +577,20 @@ nav #langues-btn-mobile:hover {
   font-size: 0.8rem;
   color: #949494;
 }
+.events-tab ul.tabs li a:hover {
+  padding: 1rem 2rem 1rem 3rem;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
 .events-tab ul.tabs li.active a {
   background: white !important;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
+}
+.events-tab ul.tabs li.active a:hover {
+  padding: 1rem 2rem;
 }
 .events-tab .content {
   padding: 0 !important;
@@ -656,6 +685,16 @@ nav #langues-btn-mobile:hover {
 }
 .sub-page .isa-feature img {
   height: 125px;
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+}
+.sub-page .isa-feature img:hover {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
 }
 .sub-page .isa-feature h4 {
   padding: 1rem 0 0;
@@ -677,6 +716,18 @@ nav #langues-btn-mobile:hover {
 }
 .sub-page .navigateurs {
   padding: 1rem 5rem;
+}
+.sub-page .navigateurs img {
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+}
+.sub-page .navigateurs img:hover {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
 }
 .sub-page .navigateurs .nav-title {
   display: block;
@@ -791,15 +842,22 @@ footer {
   color: #ffffff;
 }
 footer h3 {
-  color: white!important;
+  color: white !important;
 }
 footer a {
   color: #ffffff;
+  border-bottom: none;
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+  -moz-transition: ease  all 0.2s;
 }
 footer a:hover {
   color: #ffffff;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid #fff;
+  transition: ease all 0.2s;
+  -webkit-transition: ease all 0.2s;
+  -moz-transition: ease  all 0.2s;
 }
 footer #google-map {
   min-height: 300px;
@@ -856,8 +914,14 @@ form textarea {
   border: none;
   color: #ffffff;
   font-size: 1.2rem;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
 }
 form textarea:focus {
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
   background: #3d566e;
   color: #ffffff;
 }

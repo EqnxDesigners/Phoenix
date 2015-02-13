@@ -50,6 +50,16 @@ body {
 .hidden{
     display: none;
 }
+
+::selection {
+    background: transparent; //lighten(@eqnx-red-lighter, 25%);
+    color: @eqnx-red;
+}
+::-moz-selection {
+    background: transparent; //lighten(@eqnx-red-lighter, 25%);
+    color: @eqnx-red;
+}
+
 //----- Titles --------------------------------------------
 h1,h2,h3,h4 {
     font-family: @font;
@@ -531,9 +541,19 @@ nav{
     padding: 2rem 0;
     text-transform: uppercase;
     font-weight: 700;
-
     img {
+        height: 125px;
         margin-bottom: 1rem;
+        transition: transform 0.2s;
+        -webkit-transition: transform 0.2s;
+        -moz-transition: transform 0.2s;
+        &:hover{
+            -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+            transition: transform 0.2s;
+            -webkit-transition: transform 0.2s;
+            -moz-transition: transform 0.2s;
+        }
     }
 }
 
@@ -643,11 +663,18 @@ nav{
                 transition: 0.2s ease all;
                 -moz-transition: 0.2s ease all;
                 -webkit-transition: 0.2s ease all;
+                padding: 1rem 2rem;
                 span{
                     text-transform: lowercase;
                     display: block;
                     font-size: 0.8rem;
                     color: @eqnx-gray;
+                }
+                &:hover{
+                    padding: 1rem 2rem 1rem 3rem;
+                    transition: 0.2s ease all;
+                    -moz-transition: 0.2s ease all;
+                    -webkit-transition: 0.2s ease all;
                 }
             }
             &.active{
@@ -656,6 +683,9 @@ nav{
                     transition: 0.2s ease all;
                     -moz-transition: 0.2s ease all;
                     -webkit-transition: 0.2s ease all;
+                    &:hover{
+                        padding: 1rem 2rem;
+                    }
                 }
             }
         }
@@ -761,8 +791,18 @@ nav{
         margin-bottom: 2rem;
     }
     .isa-feature{
-        img{
+        img {
             height: 125px;
+            transition: transform 0.2s;
+            -webkit-transition: transform 0.2s;
+            -moz-transition: transform 0.2s;
+            &:hover{
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+                transition: transform 0.2s;
+                -webkit-transition: transform 0.2s;
+                -moz-transition: transform 0.2s;
+            }
         }
         h4{
             padding: 1rem 0 0;
@@ -785,6 +825,18 @@ nav{
     }
     .navigateurs{
         padding: 1rem 5rem;
+        img{
+            transition: transform 0.2s;
+            -webkit-transition: transform 0.2s;
+            -moz-transition: transform 0.2s;
+            &:hover{
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+                transition: transform 0.2s;
+                -webkit-transition: transform 0.2s;
+                -moz-transition: transform 0.2s;
+            }
+        }
         .nav-title{
             display: block;
             padding: 1rem 0 0;
@@ -916,16 +968,22 @@ footer {
     color: #ffffff;
 
     h3 {
-        color: white!important;
+        color: white !important;
     }
 
     a {
         color: #ffffff;
-
+        border-bottom: none;
+        transition: ease all 0.2s;
+        -webkit-transition: ease all 0.2s;
+        -moz-transition:ease  all 0.2s;
         &:hover {
             color: #ffffff;
             padding-bottom: 0.2rem;
             border-bottom: 1px solid #fff;
+            transition: ease all 0.2s;
+            -webkit-transition: ease all 0.2s;
+            -moz-transition:ease  all 0.2s;
         }
     }
 
@@ -950,7 +1008,6 @@ form {
     .group {
         position: relative;
         margin-bottom: 45px;
-
         input {
             background: none;
             border: none;
@@ -959,14 +1016,12 @@ form {
             display: block;
             font-size: 1.2rem;
         }
-
         input:focus {
             background: lighten(@eqnx-dark-blue, 5%);
             border-bottom: 1px solid #ffffff;
             color: #ffffff;
             outline: none;
         }
-
         label {
             color: #ffffff;
             font-size: 1.2rem;
@@ -978,7 +1033,6 @@ form {
             transition: 0.2s ease all;
             -moz-transition: 0.2s ease all;
             -webkit-transition: 0.2s ease all;
-            
             &.on{
                 top: -22px;
                 font-size: 1rem;
@@ -988,16 +1042,20 @@ form {
                 -webkit-transition: 0.2s ease all;
             }
         }
-
     }
-
     textarea {
         background: lighten(@eqnx-dark-blue, 3%);
         border: none;
         color: #ffffff;
         font-size: 1.2rem;
-
+        transition: background 0.2s;
+        -webkit-transition: background 0.2s;
+        -moz-transition: background 0.2s;
+        
         &:focus {
+            transition: background 0.2s;
+            -webkit-transition: background 0.2s;
+            -moz-transition: background 0.2s;
             background: lighten(@eqnx-dark-blue, 5%);
             color: #ffffff;
         }
@@ -1015,7 +1073,6 @@ form {
             font-size: 1.2rem;
         }
     }
-
     input[type="submit"], input[type="button"] {
         margin-bottom: 1rem;
         padding: 0.8rem 4.25rem;
@@ -1028,7 +1085,6 @@ form {
         color: #ffffff;
         cursor: pointer;
         .rounded-corners(3px);
-
         &:hover {
             transition: background 0.2s;
             -webkit-transition: background 0.2s;
