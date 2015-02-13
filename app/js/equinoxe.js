@@ -259,11 +259,10 @@ $(document).ready(function () {
     var $container = $('#news-masonry');
     // initialize
     $container.masonry({
-//        gutter: 10,
-        itemSelector: '.new',
-        columnWidth: function( 1232 ) {
-            return containerWidth / 2;
-        }
+//        gutter: 100,
+//        "gutter": 1000,
+//        containerStyle: null,
+        itemSelector: '.new'
     });
     
     // INIT EVENTS

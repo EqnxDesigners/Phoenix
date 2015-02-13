@@ -698,7 +698,7 @@ nav #langues-btn-mobile:hover {
   max-width: 35%;
 }
 .pag {
-  margin: 1rem 0;
+  margin: 3rem 0px 2rem;
   text-align: center;
 }
 .pag li {
@@ -744,11 +744,13 @@ nav #langues-btn-mobile:hover {
 }
 #news-masonry {
   padding: 2rem 0;
+  text-align: center;
 }
 #news-masonry .new {
   background: white;
-  width: 50%;
-  margin-bottom: 2rem;
+  width: 48.5%;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 #news-masonry .new .content {
   display: block;
