@@ -12,7 +12,7 @@
                 <p>Pour nos clients l’accès et l’utilisation de notre site WIKI est entièrement gratuit. Il est destiné à vos responsables du système d'information IS-Academia.</p>
             </div>
             <div class="small-12 columns">
-                <a href="#" class="button large radius alert">Accès au wiki</a>
+                <a href="https://equinoxe1.epfl.ch/wiki-eqnx" target="_blank" class="button large radius alert">Accès au wiki</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 <p>Déposez vos demandes d’assistance, directement dans notre outils de ticketing pour IS-Academia !</p>
             </div>
             <div class="small-12 columns">
-                <a href="#" class="button large radius alert">Accès au call-center</a>
+                <a href="https://equinoxe1.epfl.ch/support/Login.jsp" target="_blank" class="button large radius alert">Accès au call-center</a>
             </div>
         </div>
     </div>
