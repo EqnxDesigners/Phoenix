@@ -1,6 +1,6 @@
 <section class="row" id="index-news">
     <div class="small-12 columns">
-        <h3>Dernières news</h3>
+        <h3><?php getTexte('home-news', 'title'); ?></h3>
     </div>
 
     <div id="newsEqnx" class="row" data-equalizer>
