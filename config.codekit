@@ -1225,11 +1225,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/db.class.php": {
+	"\/app\/class\/DB.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/db.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/DB.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -2244,6 +2244,72 @@
 		"initialSize": 622,
 		"inputAbbreviatedPath": "\/app\/img\/langues.png",
 		"outputAbbreviatedPath": "\/app\/img\/langues.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/BFH.PNG": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 15549,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/BFH.PNG",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/BFH.PNG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/Form_Cont_UNIL_EPFL.jpeg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 14602,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/Form_Cont_UNIL_EPFL.jpeg",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/Form_Cont_UNIL_EPFL.jpeg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/Grad_Inst_Geneve.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12176,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/Grad_Inst_Geneve.png",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/Grad_Inst_Geneve.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/hep.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 119412,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/hep.jpg",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/hep.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/HESSO-Valais.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 24451,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/HESSO-Valais.png",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/HESSO-Valais.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/HESSO.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 734126,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/HESSO.jpg",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/HESSO.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

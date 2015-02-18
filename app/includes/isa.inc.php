@@ -78,6 +78,20 @@
             IS-Academia gère tous les processus liés au parcours académique de vos étudiants. Il couvre ainsi tous les types d’études (universitaire, HES, ES, primaire et secondaire) et tous les niveaux d’enseignement (formation de base, bachelor, master/minor, formation modulaire, post-formation, formation continue et doctorat). Les besoins liés aux accords de Bologne et aux crédits ECTS, sont bien évidemment également entièrement couverts.
         </p>
     </div>
+    <hr/>
+</section>
+<section class="row sub-page collabo-epfl">
+    <h3>En collaboration avec l'EPFL</h3>
+    <div class="row">
+        <div class="small-12 medium-3 columns text-center wow bounceInLeft animated">
+           <img src="img/logos_clients/Logo-epfl.png" alt="EPFL" />
+       </div>
+        <div class="small-12 medium-9 columns">
+            <p class="text-justify">
+                IS-Academia est née d'une collaboration entre l'EPFL et Equinoxe MIS Development. Dans le cadre du lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum aspernatur assumenda aliquam provident delectus facilis ducimus? Iusto quis eaque omnis dolore nihil natus, officia aut ex, quasi consequuntur ullam repellat.
+            </p>
+        </div>
+    </div>
 </section>
 <section class="row sub-page blue">
     <h3>Utilisation avec Internet, Intranet et Extranet</h3>
@@ -110,9 +124,26 @@
 <section class="row sub-page white">
     <h3>Ils travaillent déjà avec IS-Academia</h3>
     <div id="clients-slide">
-        <div class="gallery-cell"><img src="img/logos_clients/Logo-epfl.png" alt="Ecole Polytechnique Fédérale de Lausanne"/></div>
-        <div class="gallery-cell"><img src="img/logos_clients/Logo-unine.png" alt="Université de Neuchâtel"/></div>
-        <div class="gallery-cell"><img src="img/logos_clients/Logo-ti.png" alt="Ecoles cantonales du Tessin"/></div>
-        <div class="gallery-cell"><img src="img/logos_clients/Logo-icl.png" alt="Institut Catholique de Lille"/></div>
+        <div class="gallery-cell">
+            <a href="http://www.bfh.ch/fr/page_daccueil.html/" target="_blank"><img src="img/logos_clients/bfh.png" alt="BFH"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.formation-continue-unil-epfl.ch/" target="_blank"><img src="img/logos_clients/formation-continue-unil-epfl.jpeg" alt="Formation continue UNIL - EPFL"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://graduateinstitute.ch/fr/home.html/" target="_blank"><img src="img/logos_clients/graduate-institute-geneva.png" alt="Graduate Institute Geneva"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.hes-so.ch/" target="_blank"><img src="img/logos_clients/HESSO.jpg" alt="HESSO"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.univ-catholille.fr/" target="_blank"><img src="img/logos_clients/Logo-icl.png" alt="Institut Catholique de Lille"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.hepl.ch/" target="_blank"><img src="img/logos_clients/hep.jpg" alt="HEP"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.hevs.ch/fr/" target="_blank"><img src="img/logos_clients/HESSO-Valais.png" alt="HESSO-Valais"/></a>
+        </div>
     </div>
 </section>

@@ -746,7 +746,12 @@ nav #langues-btn-mobile:hover {
   height: 100px;
 }
 .sub-page #clients-slide .gallery-cell img {
-  max-width: 35%;
+  max-width: 200px;
+  max-height: 100px;
+}
+.collabo-epfl img {
+  max-height: 150px;
+  padding-bottom: 2rem;
 }
 .pag {
   margin: 3rem 0px 2rem;
