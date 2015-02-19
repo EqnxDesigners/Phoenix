@@ -34,7 +34,7 @@ function displayCurrentPage() {
     }
 
     else {
-        include_once dirname(__FILE__).'/includes/slideshow.inc.php';
+        include_once dirname(__FILE__) . '/includes/_slideshow.inc.php';
 
         include_once dirname(__FILE__).'/includes/alertes.inc.php';
         include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
@@ -73,7 +73,16 @@ function getTexte($section, $ref) {
     }
 }
 
-function writeParagraphe($paragraphe, $section, $ref) {
+function getMultiLineTexte($section, $ref, $class='') {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        foreach($_SESSION['trad'][$section][$ref] as $k => $txt) {
+//            echo '<p>'.$txt.'</p>';
+            writeParagraphe($txt, $section, $ref, $class);
+        }
+    }
+}
+
+function writeParagraphe($paragraphe, $section, $ref, $class) {
     if($paragraphe === '%%UL-'.$ref.'-LI%%') {
         $result = '<ul>';
         foreach($_SESSION['trad'][$section][$ref] as $line) {
@@ -82,7 +91,7 @@ function writeParagraphe($paragraphe, $section, $ref) {
         $result .= '</ul>';
     }
     else {
-        $result = '<p>'.$paragraphe.'</p>';
+        $result = '<p class="'.$class.'">'.$paragraphe.'</p>';
     }
     echo $result;
 }
