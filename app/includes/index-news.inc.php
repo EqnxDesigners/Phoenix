@@ -1,6 +1,6 @@
 <section class="row" id="index-news">
     <div class="small-12 columns">
-        <h3>Dernières news</h3>
+        <h3><?php getTexte('home-news', 'title'); ?></h3>
     </div>
 
     <div id="newsEqnx" class="row" data-equalizer>
@@ -9,7 +9,7 @@
 
     <div class="small-12 columns text-center more-info hide-for-small-only">
         <a href="<?php echo buildUrl('news'); ?>">
-            Toutes les news&nbsp;<span class="icon icon-shape-fleche-droite"></span>
+            <?php getTexte('home-news', 'more-btn'); ?>&nbsp;<span class="icon icon-shape-fleche-droite"></span>
         </a>
     </div>
     <hr/>

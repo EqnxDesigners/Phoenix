@@ -17,11 +17,11 @@
                     <ul>
                         <!--                <li><img src="img/langues.png" alt="Langues" id="langues-btn"/></li>-->
                         <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="<?php echo buildUrl('isacademia'); ?>">IS-Academia</a></li>
-                        <li><a href="<?php echo buildUrl('news'); ?>">News</a></li>
-                        <li><a href="<?php echo buildUrl('equinoxe'); ?>">Equinoxe</a></li>
-                        <li target="index-footer">Contact</li>
+                        <li><a href="#"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('isacademia'); ?>"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('news'); ?>"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('equinoxe'); ?>"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
+                        <li target="index-footer"><?php getTexte('mainmenu', 'label_contact'); ?></li>
                     </ul>
                 </div>
                 <div class="small-3 columns logo"><img src="img/eqnx-logo-l.png" alt="Equinoxe MIS Development" /></div>
