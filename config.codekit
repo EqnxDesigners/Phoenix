@@ -1225,11 +1225,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/DB.class.php": {
+	"\/app\/class\/db.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/DB.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/db.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1792,11 +1792,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/trait_datetime.class.php": {
+	"\/app\/class\/Trait_datetime.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/trait_datetime.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/Trait_datetime.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1819,11 +1819,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/trait_traduction.class.php": {
+	"\/app\/class\/Trait_traduction.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/trait_traduction.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/Trait_traduction.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -2226,6 +2226,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/app\/img\/isa-slide-neg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/app\/img\/isa-slide-neg.jpg",
+		"outputAbbreviatedPath": "\/app\/img\/isa-slide-neg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/isa-slide.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5.10264e+06,
+		"inputAbbreviatedPath": "\/app\/img\/isa-slide.jpg",
+		"outputAbbreviatedPath": "\/app\/img\/isa-slide.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/app\/img\/jobs-h1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -2248,35 +2270,35 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/app\/img\/logos_clients\/BFH.PNG": {
+	"\/app\/img\/logos_clients\/bfh.PNG": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 15549,
-		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/BFH.PNG",
-		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/BFH.PNG",
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/bfh.PNG",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/bfh.PNG",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/app\/img\/logos_clients\/Form_Cont_UNIL_EPFL.jpeg": {
+	"\/app\/img\/logos_clients\/formation-continue-unil-epfl.jpeg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 14602,
-		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/Form_Cont_UNIL_EPFL.jpeg",
-		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/Form_Cont_UNIL_EPFL.jpeg",
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/formation-continue-unil-epfl.jpeg",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/formation-continue-unil-epfl.jpeg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/app\/img\/logos_clients\/Grad_Inst_Geneve.png": {
+	"\/app\/img\/logos_clients\/graduate-institute-geneva.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 12176,
-		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/Grad_Inst_Geneve.png",
-		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/Grad_Inst_Geneve.png",
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/graduate-institute-geneva.png",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/graduate-institute-geneva.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
