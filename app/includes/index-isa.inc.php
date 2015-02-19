@@ -45,7 +45,7 @@
     </div>
     <div class="small-12 columns text-center more-info hide-for-small-only">
         <a href="<?php echo buildUrl('isacademia'); ?>">
-            Plus d'information&nbsp;<span class="icon icon-shape-fleche-droite"></span>
+            <?php getTexte('home-isa', 'more-btn'); ?>&nbsp;<span class="icon icon-shape-fleche-droite"></span>
         </a>
     </div>
     <hr/>

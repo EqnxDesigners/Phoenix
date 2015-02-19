@@ -1,6 +1,6 @@
 <div class="row">
     <div class="small-12 columns hide-for-small-only">
-        <h3>Nous contacter</h3>
+        <h3><?php getTexte('home-contact', 'title'); ?></h3>
     </div>
     <div class="small-12 medium-6 columns">
         <div class="row coord-info">
@@ -38,20 +38,20 @@
             <div class="small-12 columns">
                 <div class="group">
                     <input type="text" name="nom" form-code="contact-desktop" />
-                    <label>Nom prénom</label>
+                    <label><?php getTexte('home-contact', 'label-name'); ?></label>
                 </div>
             </div>
             <div class="small-12 columns">
                 <div class="group">
                     <input type="email" name="email" form-code="contact-desktop" />
-                    <label>E-mail</label>
+                    <label><?php getTexte('home-contact', 'label-email'); ?></label>
                 </div>
             </div>
             <div class="small-12 columns">
-                <textarea name="message" cols="30" rows="8" placeholder="Message" form-code="contact-desktop"></textarea>
+                <textarea name="message" cols="30" rows="8" placeholder="<?php getTexte('home-contact', 'label-message'); ?>" form-code="contact-desktop"></textarea>
             </div>
             <div class="small-12 columns text-right">
-                <input type="button" value="Envoyer" class="button send-form" form-code="contact-desktop"/>
+                <input type="button" value="<?php getTexte('home-contact', 'form-btn'); ?>" class="button send-form" form-code="contact-desktop"/>
                 <span class="send-spinner" style="display:none;">
                     <div class="bounce1"></div>
                     <div class="bounce2"></div>

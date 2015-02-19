@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="small-12 columns action-inscription">
-                            <a class="inscription-event" event-code="1407">Inscription<span class="icon icon-shape-fleche-droite"></span></a>
+                            <a class="inscription-event" event-code="1407"><?php getTexte('home-events', 'inscr-btn'); ?><span class="icon icon-shape-fleche-droite"></span></a>
                         </div>
                     </div>
                     
@@ -51,13 +51,13 @@
                                   <div class="small-12 medium-6 columns">
                                       <div class="group">
                                           <input type="text" name="nom" form-code="event-1407"/>
-                                          <label>Nom Prénom</label>
+                                          <label><?php getTexte('home-events', 'label-name'); ?></label>
                                       </div>
                                   </div>                           
                                   <div class="small-12  medium-6 columns">
                                       <div class="group">
                                           <input type="email" name="email" form-code="event-1407"/>
-                                          <label>Email</label>
+                                          <label><?php getTexte('home-events', 'label-email'); ?></label>
                                       </div>
                                   </div>
                               </div>
@@ -68,10 +68,10 @@
                               </div>
                                <div class="row">
                                    <div class="small-12 medium-6 columns text-center"> 
-                                        <input type="button" value="Annuler" class="button inscr-form-cancel"/> 
+                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-cancel'); ?>" class="button inscr-form-cancel"/>
                                    </div>
                                    <div class="small-12 medium-6 columns text-center">
-                                       <input type="button" value="Inscription" class="button send-form" form-code="event-1407"/>
+                                       <input type="button" value="<?php getTexte('home-events', 'form-btn-send'); ?>" class="button send-form" form-code="event-1407"/>
                                        <span class="send-spinner" style="display:none;">
                                            <div class="bounce1"></div>
                                            <div class="bounce2"></div>
@@ -119,13 +119,13 @@
                                     <div class="small-12 medium-6 columns">
                                         <div class="group">
                                             <input type="text" name="nom" form-code="event-1502"/>
-                                            <label>Nom Prénom</label>
+                                            <label><?php getTexte('home-events', 'label-name'); ?></label>
                                         </div>
                                     </div>                           
                                     <div class="small-12  medium-6 columns">
                                         <div class="group">
                                             <input type="email" name="email" form-code="event-1502"/>
-                                            <label>Email</label>
+                                            <label><?php getTexte('home-events', 'label-email'); ?></label>
                                         </div>
                                     </div>
                                 </div>
@@ -136,10 +136,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="small-12 medium-6 columns text-center"> 
-                                        <input type="button" value="Annuler" class="button inscr-form-cancel"/> 
+                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-cancel'); ?>" class="button inscr-form-cancel"/>
                                     </div>
                                     <div class="small-12 medium-6 columns text-center">
-                                        <input type="button" value="Inscription" class="button send-form" form-code="event-1502"/>
+                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-send'); ?>" class="button send-form" form-code="event-1502"/>
                                         <span class="send-spinner" style="display:none;">
                                             <div class="bounce1"></div>
                                             <div class="bounce2"></div>
