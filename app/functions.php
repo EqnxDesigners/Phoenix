@@ -34,10 +34,10 @@ function displayCurrentPage() {
     }
 
     else {
-        include_once dirname(__FILE__) . '/includes/_slideshow.inc.php';
+        include_once dirname(__FILE__).'/includes/slideshow.inc.php';
 
-        include_once dirname(__FILE__).'/includes/alertes.inc.php';
-        include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
+//        include_once dirname(__FILE__).'/includes/alertes.inc.php';
+//        include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
 
         include_once dirname(__FILE__).'/includes/index-isa.inc.php';
         include_once dirname(__FILE__).'/includes/index-news.inc.php';

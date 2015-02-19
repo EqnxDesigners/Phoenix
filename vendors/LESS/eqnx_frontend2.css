@@ -418,21 +418,24 @@ nav #langues-btn-mobile:hover {
   background: url("../img/isa-slide.jpg") repeat scroll 0% 0% / cover transparent;
 }
 #page-top .titre-isa {
-  padding: 6rem 3rem 3rem;
-  color: white;
-  background: -webkit-linear-gradient(transparent, transparent), url("../img/isa-slide-neg.jpg") no-repeat;
-  -webkit-background-clip: text;
-  background: -o-linear-gradient(transparent, transparent);
-  -webkit-text-fill-color: transparent;
+  position: relative;
+  color: #FFF;
+  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.7);
+  padding: 2rem;
+  bottom: -25rem;
 }
 #page-top .titre-isa h1 {
-  padding-top: 10rem;
-  color: #d7888d;
+  margin: 0px;
+  color: #333333;
   font-weight: bold;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
 }
 #page-top .titre-isa h2 {
   text-transform: none;
-  color: #d7888d;
+  color: #333333;
+  margin: 0px;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+  line-height: 4rem;
 }
 .slideshow {
   height: 700px;
