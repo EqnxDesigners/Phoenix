@@ -37,8 +37,7 @@ else {
     //DB Data Source Name
     define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST);
     //Base URL pour le rewrite
-//    define('BASE_URL', 'http://www.equinoxemis.ch/');
-    define('BASE_URL', 'http://www.ilights.ch/eqnx/site/');
+    define('BASE_URL', 'http://www.ilights.ch/eqnx-test/');
 }
         
 //TITRE DES PAGES

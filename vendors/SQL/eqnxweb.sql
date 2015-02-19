@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 22 Janvier 2015 à 08:50
+-- Généré le :  Jeu 19 Février 2015 à 16:16
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -54,7 +54,7 @@ CREATE TABLE `clients` (
   `fax` varchar(25) NOT NULL,
   `mobile` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `clients`
@@ -65,8 +65,7 @@ INSERT INTO `clients` (`id`, `societe`, `titre`, `nom`, `prenom`, `email`, `tele
 (2, 'Pink Lama Crew', 'Mme', 'Pfänder', 'Aline', 'ap@eqnx.ch', '', '', '', ''),
 (3, 'SuperBox SA', 'Mme', 'Unetelle', 'Maria', 'super@mail.com', '0218003411', '079 649 64 64', '', ''),
 (18, 'MaBoite', 'M.', 'Bolomet', 'Paul', 'mon@mail.ch', '021 800 37 11', '', '079 649 64 64', ''),
-(20, 'NouvelleSociete SA', 'Mme', 'Pahud', 'Micheline', 'super@mail.com', '021 800 37 11', '021 800 37 12', '079 649 64 64', '81dc9bdb52d04dc20036dbd8313ed055'),
-(21, '', 'dsfasdf', '', '', '', '', '', '', '');
+(20, 'NouvelleSociete SA', 'Mme', 'Pahud', 'Micheline', 'super@mail.com', '021 800 37 11', '021 800 37 12', '079 649 64 64', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -354,7 +353,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `clients_tokens`
 --
