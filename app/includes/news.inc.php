@@ -1,5 +1,5 @@
 <section class="row wide-row page-title">
-    <h1>News</h1>
+    <h1><?php getTexte('news', 'page_title'); ?></h1>
 </section>
 <section class="row sub-page">
     <div class="small-12 columns">
