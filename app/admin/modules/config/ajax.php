@@ -33,30 +33,28 @@ if(isset($_POST['publish'])) {
     $ReadyToPost = true;
     unset($alert);
     // Test des champs obligatoire
-    if(strlen($_POST['code_var']) < 1) {
+    if (strlen($_POST['code_var']) < 1) {
         $ReadyToPost = false;
         $alert = 'Un code doit être spécifié...';
     }
-    if($_POST['type_var'] === 'bool') {
-        if(!isset($_POST['value_var'])) {
+    if ($_POST['type_var'] === 'bool') {
+        if (!isset($_POST['value_var'])) {
             $_POST['value_var'] = 0;
-        }
-        else {
+        } else {
             $_POST['value_var'] = 1;
         }
     }
-    if($ReadyToPost) {
+    if ($ReadyToPost) {
         try {
             $Conf = new Config();
             $Conf->addVariable($_POST);
-            header("location: ../../index.php?module=".$_SESSION['current_module']);
+            header("location: ../../index.php?module=" . $_SESSION['current_module']);
+        } catch (PDOException $e) {
+            $alert = 'ERREUR : ' . $e;
+            header("location: ../../index.php?module=" . $_SESSION['current_module'] . "&alert=" . $alert);
         }
-        catch (PDOException $e) {
-            $alert = 'ERREUR : '.$e;
-            header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
-        }
+    } else {
+        header("location: ../../index.php?module=" . $_SESSION['current_module'] . "&alert=" . $alert);
     }
-    else {
-        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
-    }
+}
 ?>
