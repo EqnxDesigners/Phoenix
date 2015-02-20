@@ -27,17 +27,17 @@ if($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === 'localhost
 }
 else {
     //DB HOST
-    define('DB_HOST', 'mysql03');
+    define('DB_HOST', 'mysql.kiwanis-cossonay.ch');
     //DB NAME
-    define('DB_NAME', 'db2649905 ');
+    define('DB_NAME', 'kiwaniscossonaych14');
     //DB USER NAME
-    define('DB_USER_NAME', 'user26499');
+    define('DB_USER_NAME', 'ilights');
     //DB PASSWORD
-    define('DB_PASSWORD', 'dr94Y?2');
+    define('DB_PASSWORD', 'cE@TLVuo9Zok');
     //DB Data Source Name
     define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST);
     //Base URL pour le rewrite
-    define('BASE_URL', 'http://www.ilights.ch/eqnx-test/');
+    define('BASE_URL', 'http://www.kiwanis-cossonay.ch/eqnx-test/');
 }
         
 //TITRE DES PAGES

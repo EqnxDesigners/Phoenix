@@ -35,8 +35,6 @@ function select_lang() {
     $Layouts = new Layouts();
     $Db = new DB();
     
-    var_dump($Db);
-    
     $sql = "SELECT * FROM langues ORDER BY id ASC";
     echo $Layouts->buildFormSelect('select-lang', 'id', 'langue', $Db->execQuery($sql));
 }

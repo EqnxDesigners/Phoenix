@@ -2,11 +2,15 @@
 //----- Fichier de configuration --------------------------
 require_once dirname(__FILE__).'/config/config.inc.php';
 
+//----- Fonctions -----------------------------------------
+require_once dirname(__FILE__).'/functions.php';
+
 //----- Class autoload ------------------------------------
+classAutoLoad();
 require_once dirname(__FILE__).'/class/PHPMailer/PHPMailerAutoload.php';
-spl_autoload_register(function($class) {
-    require_once dirname(__FILE__).'/class/'.$class.'.class.php';
-});
+//spl_autoload_register(function($class) {
+//    require_once dirname(__FILE__).'/class/'.$class.'.class.php';
+//});
 
 //----- Fonctions AJAX ------------------------------------
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailInscr') {

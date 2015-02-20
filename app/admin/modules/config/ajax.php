@@ -2,10 +2,14 @@
 //----- Fichier de configuration --------------------------
 require_once dirname(__DIR__).'/../../config/config.inc.php';
 
+//----- Fonctions -----------------------------------------
+require_once dirname(__FILE__).'/../../functions.php';
+
 //----- Class ---------------------------------------------
-spl_autoload_register(function($class) {
-    require_once dirname(__DIR__).'/../../class/'.$class.'.class.php';
-});
+classAutoLoad();
+//spl_autoload_register(function($class) {
+//    require_once dirname(__DIR__).'/../../class/'.$class.'.class.php';
+//});
 
 //--------------- Functions ---------------
 if(isset($_POST['a']) && $_POST['a'] === 'updateOptionValue') {

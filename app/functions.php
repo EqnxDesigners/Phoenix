@@ -21,24 +21,43 @@ function setCurrentLang() {
     getCurrentTrad();
 }
 
-//function classAutoLoad() {
-//    $result = array();
-//    $directory = dirname(__FILE__).'/class/';
-//
-//    if (is_dir($directory)) {
-//        if ($dh = opendir($directory)) {
-//            while (($file = readdir($dh)) !== false) {
-//                if($file!='..' && $file!='.' && $file!='.DS_Store') {
-//                    array_push($result, $file);
-//                }
-//            }
-//            closedir($dh);
-//        }
-//    }
-//    foreach($result as $k => $class) {
-//        require_once dirname(__FILE__).'/class/'.$class;
-//    }
-//}
+function classAutoLoad() {
+    $DbClass = array();
+    $Traits = array();
+    $AllClass = array();
+    $directory = dirname(__FILE__).'/class/';
+
+    if (is_dir($directory)) {
+        if ($dh = opendir($directory)) {
+            while (($file = readdir($dh)) !== false) {
+                if($file!='..' && $file!='.' && $file!='.DS_Store') {
+                    if($file === 'db.class.php') {
+                        array_push($DbClass, $file);
+                    }
+                    elseif(preg_match('/trait_/i', $file)) {
+                        array_push($Traits, $file);
+                    }
+                    else {
+                        if($file !== 'PHPMailer') {
+                            array_push($AllClass, $file);
+                        }
+                    }
+                }
+            }
+            closedir($dh);
+        }
+    }
+
+    requireClass($DbClass);
+    requireClass($Traits);
+    requireClass($AllClass);
+}
+
+function requireClass($LstClass) {
+    foreach($LstClass as $k => $class) {
+        require_once dirname(__FILE__).'/class/'.$class;
+    }
+}
 
 function displayCurrentPage() {
     if($_SESSION['current']['page'] === 'isacademia') {

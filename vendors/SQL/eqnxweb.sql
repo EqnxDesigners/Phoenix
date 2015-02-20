@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 19 Février 2015 à 16:16
+-- Généré le :  Ven 20 Février 2015 à 09:21
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -219,16 +219,15 @@ CREATE TABLE `options` (
   `type` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `options`
 --
 
 INSERT INTO `options` (`id`, `label`, `type`, `value`, `code`) VALUES
-(1, 'Formulaire d''inscription au séminaire', 'bool', '1', 'FORM_INSCR_SEMIN'),
-(2, 'Variable test', 'str', 'texte exemple', 'VAR_TEST'),
-(3, 'Une variable string', 'str', 'La string de ma variable', 'VAR_TEST_1');
+(4, 'Affichage des alertes JOBS', 'bool', '0', 'DISPLAY_JOB_ALERT'),
+(5, 'Affichage des alertes VIDEOS', 'bool', '0', 'DISPLAY_VIDEOS_ALERT');
 
 -- --------------------------------------------------------
 
@@ -388,7 +387,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

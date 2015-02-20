@@ -31,6 +31,11 @@ body {
   background: transparent;
   color: #df2438;
 }
+input,
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
 h1,
 h2,
 h3,

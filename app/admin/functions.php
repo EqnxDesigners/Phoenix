@@ -28,4 +28,42 @@ function the_main_menu($module = NULL) {
     $layout = new Layouts();
     $layout->buildMainMenu($module);
 }
+
+function classAutoLoad() {
+    $DbClass = array();
+    $Traits = array();
+    $AllClass = array();
+    $directory = dirname(__DIR__).'/class/';
+
+    if (is_dir($directory)) {
+        if ($dh = opendir($directory)) {
+            while (($file = readdir($dh)) !== false) {
+                if($file!='..' && $file!='.' && $file!='.DS_Store') {
+                    if($file === 'db.class.php') {
+                        array_push($DbClass, $file);
+                    }
+                    elseif(preg_match('/trait_/i', $file)) {
+                        array_push($Traits, $file);
+                    }
+                    else {
+                        if($file !== 'PHPMailer') {
+                            array_push($AllClass, $file);
+                        }
+                    }
+                }
+            }
+            closedir($dh);
+        }
+    }
+
+    requireClass($DbClass);
+    requireClass($Traits);
+    requireClass($AllClass);
+}
+
+function requireClass($LstClass) {
+    foreach($LstClass as $k => $class) {
+        require_once dirname(__DIR__).'/class/'.$class;
+    }
+}
 ?>
