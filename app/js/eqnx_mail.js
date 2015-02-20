@@ -75,7 +75,7 @@ $(document).ready(function () {
         }
 
         
-        if (formCode.contains('contact')) {
+        if (formCode.indexOf("contact") > -1) {
             // FORMULAIRE DE CONTACT
             if (checkMessage(formCode) !== true) {
                 isValid = false;
@@ -98,8 +98,8 @@ $(document).ready(function () {
         nom = $('input[name="nom"][form-code="' + formCode + '"]').val();
         email = $('input[name="email"][form-code="' + formCode + '"]').val();
         
-        if (formCode.contains('contact')) {
-            // FORMULAIRE DE CONTACTs    
+        if (formCode.indexOf("contact") > -1) {
+            // FORMULAIRE DE CONTACTs
             message = $('textarea[name="message"][form-code="' + formCode + '"]').val();
             
             $.ajax({
@@ -133,7 +133,7 @@ $(document).ready(function () {
                 });
         }
         
-        if (formCode.contains('event')) {
+        if (formCode.indexOf("event") > -1) {
             // FORMULAIRE D'INSCRIPTION AU EVENT            
             eventName = $('input[name="eventName"][form-code="' + formCode + '"]').val();
             eventDate = $('input[name="eventDate"][form-code="' + formCode + '"]').val();
