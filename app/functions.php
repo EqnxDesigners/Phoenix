@@ -54,6 +54,7 @@ function displayCurrentPage() {
 
     else {
         include_once dirname(__FILE__).'/includes/slideshow.inc.php';
+        display_alertes();
         include_once dirname(__FILE__).'/includes/index-isa.inc.php';
         include_once dirname(__FILE__).'/includes/index-news.inc.php';
         include_once dirname(__FILE__).'/includes/index-events.inc.php';
@@ -61,10 +62,15 @@ function displayCurrentPage() {
     }
 }
 
-function display_form_inscr_semin() {
-    $lay = new Layouts();
-    if($lay->checkBoolOpt('FORM_INSCR_SEMIN')) {
-        include_once dirname(__FILE__).'/includes/forminscr.inc.php';
+function display_alertes() {
+    $Layout = new Layouts();
+
+    if($Layout->checkBoolOpt('DISPLAY_VIDEOS_ALERT')) {
+        include_once dirname(__FILE__).'/includes/alertes.inc.php';
+    }
+
+    if($Layout->checkBoolOpt('DISPLAY_JOB_ALERT')) {
+        include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
     }
 }
 

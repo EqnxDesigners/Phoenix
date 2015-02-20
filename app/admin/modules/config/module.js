@@ -23,7 +23,7 @@ $(document).ready(function() {
     //----- Editeur ---------------------------------------
     $('.listing').on('click', 'input[type="checkbox"]', function() {
         var value = ($(this).is(':checked') ? '1' : '0');
-        $.post(urlAjaxModule, {a: 'updateOption', value: value, id: $(this).attr('ref') });
+        $.post(urlAjaxModule, {a: 'updateOptionValue', value: value, id: $(this).attr('ref') });
     });
     
     $('.listing').on('blur', 'input[type="text"]', function() {
