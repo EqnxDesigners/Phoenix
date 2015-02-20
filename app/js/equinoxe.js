@@ -49,7 +49,7 @@ $(document).ready(function () {
         }
     });
 
-  //----- Google Map --------------------------------------    
+    //----- Google Map --------------------------------------
     function initialize() {
         var myLatlng = new google.maps.LatLng(46.51734, 6.56282);
         var mapOptions = {
@@ -63,10 +63,6 @@ $(document).ready(function () {
                 position: google.maps.ControlPosition.LEFT_TOP
             },
             scaleControl: true
-//            streetViewControl: true,
-//            streetViewControlOptions: {
-//                position: google.maps.ControlPosition.LEFT_TOP
-//            }
         }
         var image = 'img/map-marker.png';
         
@@ -75,6 +71,14 @@ $(document).ready(function () {
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
+
+        if ((/iPhone|iPod|iPad|Linux/.test(navigator.platform))) {
+            var map = new google.maps.Map(document.getElementById('google-map-mobile'), mapOptions);
+        }
+        else {
+            var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        }
+        //var mapMobile = new google.maps.Map(document.getElementById('google-map-mobile'), mapOptions);
         
         var marker = new google.maps.Marker({
             position: myLatlng,
@@ -82,20 +86,27 @@ $(document).ready(function () {
             icon: image,
             title: 'Equinoxe MIS Development'
         });
+
+        //var markerMobile = new google.mapMobile.Marker({
+        //    position: myLatlng,
+        //    map: map,
+        //    icon: image,
+        //    title: 'Equinoxe MIS Development'
+        //});
         
-        var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-        marker.setMap(map);
-        
-        var mapMobile = new google.maps.Map(document.getElementById('google-map-mobile'), mapOptions);
-        
-        marker.setMap(map);
-        marker.setMap(mapMobile);
-        
+        //var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        //marker.setMap(map);
+        //
+        //var mapMobile = new google.maps.Map(document.getElementById('google-map-mobile'), mapOptions);
+        //
+        //marker.setMap(map);
+        //marker.setMap(mapMobile);
+        //
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
         });
     }
-
+    //initialize();
     google.maps.event.addDomListener(window, 'load', initialize);
     
     // ALINE
