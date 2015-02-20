@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Phoenix" uuid="7b064885-e1ed-41ed-af98-0586eabe705d">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>eqnxweb.*</schema-pattern>
+      <default-schemas>eqnxweb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

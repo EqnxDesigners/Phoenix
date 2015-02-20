@@ -45,6 +45,7 @@
   .slick-eqnx {
     display: none !important;
   }
+/*
   header {
     height: 50px !important;
   }
@@ -70,6 +71,7 @@
   header .navicon:after {
     top: -0.5rem !important;
   }
+*/
   .bloc-description p {
     padding: 1rem !important;
   }
@@ -208,6 +210,7 @@ a:hover,
 a:focus {
   color: #dd243e;
 }
+/*
 header {
   position: fixed;
   top: 0;
@@ -218,6 +221,8 @@ header {
   box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   z-index: 1000;
 }
+*/
+/*
 header #imgLogoEqnx {
   background-image: url("../img/EQNX_Logo_noir-S.png");
   background-repeat: no-repeat;
@@ -279,6 +284,7 @@ header .navicon:before {
 header .navicon:after {
   top: -0.625rem;
 }
+*/
 .vertical-container {
   position: absolute;
   display: block;
@@ -485,12 +491,14 @@ main-nav {
   -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
+/*
 .row {
   margin: 0 auto !important;
 }
 .wide-row {
   max-width: 100% !important;
 }
+*/
 .footer {
   text-align: center;
   font-size: 0.7rem;

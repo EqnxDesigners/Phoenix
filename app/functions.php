@@ -1,12 +1,14 @@
 <?php
 //------ Fonctions -----------------------------------------
 function setCurrentPage() {
+    setCurrentLang();
     if(isset($_GET['page'])) {
         $_SESSION['current']['page'] = $_GET['page'];
     }
     else {
         $_SESSION['current']['page'] = DEFAULT_PAGE;
     }
+    displayCurrentPage();
 }
 
 function setCurrentLang() {
@@ -16,16 +18,47 @@ function setCurrentLang() {
     else {
         $_SESSION['current']['lang'] = 'fr';
     }
+    getCurrentTrad();
 }
 
-function displayBody() {
-    if($_SESSION['current']['page'] === 'news') {
-        $result = '<body class="accueil">';
+//function classAutoLoad() {
+//    $result = array();
+//    $directory = dirname(__FILE__).'/class/';
+//
+//    if (is_dir($directory)) {
+//        if ($dh = opendir($directory)) {
+//            while (($file = readdir($dh)) !== false) {
+//                if($file!='..' && $file!='.' && $file!='.DS_Store') {
+//                    array_push($result, $file);
+//                }
+//            }
+//            closedir($dh);
+//        }
+//    }
+//    foreach($result as $k => $class) {
+//        require_once dirname(__FILE__).'/class/'.$class;
+//    }
+//}
+
+function displayCurrentPage() {
+    if($_SESSION['current']['page'] === 'isacademia') {
+        include_once dirname(__FILE__).'/includes/isa.inc.php';
     }
+    elseif($_SESSION['current']['page'] === 'news') {
+        include_once dirname(__FILE__).'/includes/news.inc.php';
+    }
+
+    elseif($_SESSION['current']['page'] === 'equinoxe') {
+        include_once dirname(__FILE__).'/includes/qui.inc.php';
+    }
+
     else {
-        $result = '<body>';
+        include_once dirname(__FILE__).'/includes/slideshow.inc.php';
+        include_once dirname(__FILE__).'/includes/index-isa.inc.php';
+        include_once dirname(__FILE__).'/includes/index-news.inc.php';
+        include_once dirname(__FILE__).'/includes/index-events.inc.php';
+        include_once dirname(__FILE__).'/includes/index-support.inc.php';
     }
-    return $result;
 }
 
 function display_form_inscr_semin() {
@@ -35,7 +68,7 @@ function display_form_inscr_semin() {
     }
 }
 
-function getDefaultTrad() {
+function getCurrentTrad() {
     $lang = new Langues();
     $file = 'trad_'.$_SESSION['current']['lang'].'.ini';
     $_SESSION['trad'] = $lang->getTradIni($file);
@@ -49,7 +82,22 @@ function buildUrl($page) {
     return $_SESSION['current']['lang'].'/'.$page;
 }
 
-function writeParagraphe($paragraphe, $section, $ref) {
+function getTexte($section, $ref) {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        echo $_SESSION['trad'][$section][$ref];
+    }
+}
+
+function getMultiLineTexte($section, $ref, $class='') {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        foreach($_SESSION['trad'][$section][$ref] as $k => $txt) {
+//            echo '<p>'.$txt.'</p>';
+            writeParagraphe($txt, $section, $ref, $class);
+        }
+    }
+}
+
+function writeParagraphe($paragraphe, $section, $ref, $class) {
     if($paragraphe === '%%UL-'.$ref.'-LI%%') {
         $result = '<ul>';
         foreach($_SESSION['trad'][$section][$ref] as $line) {
@@ -58,7 +106,7 @@ function writeParagraphe($paragraphe, $section, $ref) {
         $result .= '</ul>';
     }
     else {
-        $result = '<p>'.$paragraphe.'</p>';
+        $result = '<p class="'.$class.'">'.$paragraphe.'</p>';
     }
     echo $result;
 }
@@ -67,6 +115,16 @@ function the_news() {
     $news = new News();
     try {
         echo $news->displayNews();
+    }
+    catch (PDOException $e) {
+        echo 'ERROR : '.$e.'<br>';
+    }
+}
+
+function the_last_news() {
+    $news = new News();
+    try {
+        echo $news->displayLastNews();
     }
     catch (PDOException $e) {
         echo 'ERROR : '.$e.'<br>';

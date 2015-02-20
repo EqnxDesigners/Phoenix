@@ -4,6 +4,7 @@ require_once dirname(__FILE__).'/config/config.inc.php';
 
 //----- Class autoload ------------------------------------
 require_once dirname(__FILE__).'/class/PHPMailer/PHPMailerAutoload.php';
+//classAutoLoad();
 spl_autoload_register(function($class) {
     require_once dirname(__FILE__).'/class/'.$class.'.class.php';
 });
@@ -19,15 +20,16 @@ setCurrentPage();
 setCurrentLang();
 
 //----- Langues -------------------------------------------
-getDefaultTrad();
+setCurrentLang();
 
 //----- Display -------------------------------------------
-echo displayBody();
-
 include_once dirname(__FILE__).'/includes/header.inc.php';
-include_once dirname(__FILE__).'/includes/mainmenu.inc.php';
 
-include_once dirname(__FILE__).'/includes/'.$_SESSION['current']['page'].'.inc.php';
+setCurrentPage();
+
+include_once dirname(__FILE__).'/includes/footer.inc.php';
+
+//include_once dirname(__FILE__).'/includes/'.$_SESSION['current']['page'].'.inc.php';
 
 //----- Footer meta datas ---------------------------------
 include_once dirname(__FILE__).'/config/footer.meta.php';

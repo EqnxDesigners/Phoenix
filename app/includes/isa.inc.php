@@ -1,183 +1,126 @@
-<!-- CONTENT -->
-<div class="content-wrap">
-    <div class="row bloc-title isa white wide-row">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['isa']['page_title']; ?></h1>
-        </div>
-        <div class="small-12 columns">
-            <h2><?php echo $_SESSION['trad']['isa']['page_sub-title']; ?></h2>
+<section class="row wide-row page-title">
+    <h1><?php getTexte('isa', 'page_title'); ?></h1>
+    <h2><?php getTexte('isa', 'page_sub-title'); ?></h2>
+</section>
+<section class="row sub-page">
+    <h3><?php getTexte('isa', 'hits_title'); ?></h3>
+    <div class="row text-center">
+        <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+            <li class="text-center">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.1s">
+                        <img src="img/info-01.png">
+                    </div>
+                    <div class="small-12 columns"><h4><?php getTexte('isa', 'hit_1-1'); ?><br/><?php getTexte('isa', 'hit_1-2'); ?></h4></div>
+                    <div class="small-12 columns"><p><?php getTexte('isa', 'hit_1_txt'); ?></p></div>
+                </div>
+                
+            </li>
+            <li class="text-center">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.7s">
+                        <img src="img/info-02.png">
+                    </div>
+                    <div class="small-12 columns"><h4><?php getTexte('isa', 'hit_2-1'); ?></h4></div>
+                    <div class="small-12 columns"><p><?php getTexte('isa', 'hit_2_txt'); ?></p></div>
+                </div>
+
+            </li>
+            <li class="text-center">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.5s">
+                        <img src="img/info-03.png">
+                    </div>
+                    <div class="small-12 columns"><h4><?php getTexte('isa', 'hit_3-1'); ?><br><?php getTexte('isa', 'hit_3-2'); ?></h4></div>
+                    <div class="small-12 columns"><p><?php getTexte('isa', 'hit_3_txt'); ?></p></div>
+                </div>
+
+            </li>
+        </ul>  
+        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+            <li class="text-center">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.3s">
+                        <img src="img/info-04.png">
+                    </div>
+                    <div class="small-12 columns"><h4><?php getTexte('isa', 'hit_4-1'); ?><br><?php getTexte('isa', 'hit_4-2'); ?></h4></div>
+                    <div class="small-12 columns"><p><?php getTexte('isa', 'hit_4_txt'); ?></p></div>
+                </div>
+
+            </li>
+            <li class="text-center">
+                <div class="text-center isa-feature">
+                    <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.9s">
+                        <img src="img/info-05.png">
+                    </div>
+                    <div class="small-12 columns"><h4><?php getTexte('isa', 'hit_5-1'); ?></h4></div>
+                    <div class="small-12 columns"><p><?php getTexte('isa', 'hit_5_txt'); ?></p></div>
+                </div>
+
+            </li>
+        </ul>        
+    </div>
+    <hr/>
+</section>
+<section class="row sub-page">
+    <h3><?php getTexte('isa', 'txt1_title'); ?></h3>
+    <div class="row">
+        <?php getMultiLineTexte('isa', 'txt1_para', 'text-justify'); ?>
+    </div>
+    <hr/>
+</section>
+<section class="row sub-page collabo-epfl">
+    <h3><?php getTexte('isa', 'txt2_title'); ?></h3>
+    <div class="row">
+        <div class="small-12 medium-3 columns text-center wow bounceInLeft animated">
+           <img src="img/logos_clients/Logo-epfl.png" alt="EPFL" />
+       </div>
+        <div class="small-12 medium-9 columns">
+            <?php getMultiLineTexte('isa', 'txt2_para', 'text-justify'); ?>
         </div>
     </div>
-
-    <div class="row bloc-description gris hide-s">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['isa']['txt1_title']; ?></h1>
+</section>
+<section class="row sub-page blue">
+    <h3><?php getTexte('isa', 'txt3_title'); ?></h3>
+    <div class="small-12 columns navigateurs">
+        <ul class=" medium-block-grid-2 large-block-grid-5 text-center">
+            <li><img src="img/chrome-ico.png" alt="Google Chrome" class="wow bounceIn animated" data-wow-delay="0.1s"/><span class="nav-title">Google Chrome</span></li>
+            <li><img src="img/firefox-ico.png" alt="Firefox" class="wow bounceIn animated" data-wow-delay="0.2s"/><span class="nav-title">Firefox</span></li>
+            <li><img src="img/safari-ico.png" alt="Safari" class="wow bounceIn animated" data-wow-delay="0.3s"/><span class="nav-title">Safari</span></li>
+            <li><img src="img/opera-ico.png" alt="Opera" class="wow bounceIn animated" data-wow-delay="0.4s"/><span class="nav-title">Opera</span></li>
+            <li><img src="img/ie-ico.png" alt="Internet Explorer" class="wow bounceIn animated" data-wow-delay="0.5s"/><span class="nav-title">Internet Explorer</span></li>
+        </ul>
+    </div>
+</section>
+<section class="row sub-page">
+    <h3><?php getTexte('isa', 'txt4_title'); ?></h3>
+    <div class="row text-center">
+        <?php getMultiLineTexte('isa', 'txt4_para', 'text-justify'); ?>
+    </div>
+</section>
+<section class="row sub-page white">
+    <h3><?php getTexte('isa', 'txt5_title'); ?></h3>
+    <div id="clients-slide">
+        <div class="gallery-cell">
+            <a href="http://www.bfh.ch/fr/page_daccueil.html/" target="_blank"><img src="img/logos_clients/bfh.png" alt="BFH"/></a>
         </div>
-        <div class="small-12 columns">
-            <?php 
-                foreach($_SESSION['trad']['isa']['txt1_para'] as $k => $paragraphe) {
-                    writeParagraphe($paragraphe, 'isa', 'txt1_li');
-                }
-            ?>
+        <div class="gallery-cell">
+            <a href="http://www.formation-continue-unil-epfl.ch/" target="_blank"><img src="img/logos_clients/formation-continue-unil-epfl.jpeg" alt="Formation continue UNIL - EPFL"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://graduateinstitute.ch/fr/home.html/" target="_blank"><img src="img/logos_clients/graduate-institute-geneva.png" alt="Graduate Institute Geneva"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.hes-so.ch/" target="_blank"><img src="img/logos_clients/HESSO.jpg" alt="HESSO"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.univ-catholille.fr/" target="_blank"><img src="img/logos_clients/Logo-icl.png" alt="Institut Catholique de Lille"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.hepl.ch/" target="_blank"><img src="img/logos_clients/hep.jpg" alt="HEP"/></a>
+        </div>
+        <div class="gallery-cell">
+            <a href="http://www.hevs.ch/fr/" target="_blank"><img src="img/logos_clients/HESSO-Valais.png" alt="HESSO-Valais"/></a>
         </div>
     </div>
-
-    <div class="row bloc-infos blanc">
-        <div class="row">
-            <div class="small-12 columns">
-                <h1><?php echo $_SESSION['trad']['isa']['isa_bref_title']; ?></h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="small-12 medium-4 large-4 columns info">
-                <div class="row">
-                    <div class="small-6 medium-12 columns">
-                        <img src="img/info-01.png" alt="Multi-écoles & multi-langues" />
-                    </div>
-                    <div class="small-6 medium-12 columns">
-                        <h2><?php echo $_SESSION['trad']['isa']['isa_bref1_title']; ?></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <p><?php echo $_SESSION['trad']['isa']['isa_bref1_txt']; ?></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="small-12 medium-4 large-4 columns info">
-                <div class="row">
-                    <div class="small-6 medium-12 columns">
-                        <img src="img/info-02.png" alt="Multi-interfaces" />
-                    </div>
-                    <div class="small-6 medium-12 columns">
-                        <h2><?php echo $_SESSION['trad']['isa']['isa_bref2_title']; ?></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <p><?php echo $_SESSION['trad']['isa']['isa_bref2_txt']; ?></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="small-12 medium-4 large-4 columns info">
-                <div class="row">
-                    <div class="small-6 medium-12 columns">
-                        <img src="img/info-03.png" alt="entièrement paramétrable" />
-                    </div>
-                    <div class="small-6 medium-12 columns">
-                        <h2><?php echo $_SESSION['trad']['isa']['isa_bref3_title']; ?></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <p><?php echo $_SESSION['trad']['isa']['isa_bref3_txt']; ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="small-12 medium-6 large-6 columns info">
-                <div class="row">
-                    <div class="small-6 medium-12 columns">
-                        <img src="img/info-04.png" alt="Compatible avec les systèmes d'information" />
-                    </div>
-                    <div class="small-6 medium-12 columns">
-                        <h2><?php echo $_SESSION['trad']['isa']['isa_bref4_title']; ?></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <p><?php echo $_SESSION['trad']['isa']['isa_bref4_txt']; ?></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="small-12 medium-6 large-6 columns info">
-                <div class="row">
-                    <div class="small-6 medium-12 columns">
-                        <img src="img/info-05.png" alt="à votre image" />
-                    </div>
-                    <div class="small-6 medium-12 columns">
-                        <h2><?php echo $_SESSION['trad']['isa']['isa_bref5_title']; ?></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <p><?php echo $_SESSION['trad']['isa']['isa_bref5_txt']; ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row bloc-mini-infos noir">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['isa']['txt2_title']; ?></h1>
-        </div>
-        <div class="small-12 columns">
-            <ul>
-                <li>
-                    <img src="img/chrome-ico.png" alt="Chrome" />
-                    <span class="hide-s">Google Chrome</span>
-                </li>
-                <li>
-                    <img src="img/firefox-ico.png" alt="firefox" />
-                    <span class="hide-s">Firefox</span>
-                </li>
-                <li>
-                    <img src="img/safari-ico.png" alt="Safari" />
-                    <span class="hide-s">Safari</span>
-                </li>
-                <li>
-                    <img src="img/opera-ico.png" alt="Opera" />
-                    <span class="hide-s">Opera</span>
-                </li>
-                <li>
-                    <img src="img/Ie-ico.png" alt="Opera" />
-                    <span class="hide-s">Internet Explorer</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row bloc-description gris hide-s">
-        <div class="small-12 columns">
-            <h1><?php echo $_SESSION['trad']['isa']['txt3_title']; ?></h1>
-        </div>
-        <div class="small-12 columns">
-            <?php 
-                foreach($_SESSION['trad']['isa']['txt3_para'] as $k => $paragraphe) {
-                    writeParagraphe($paragraphe, 'isa', 'txt3_li');
-                }
-            ?>
-        </div>
-    </div>
-    <div class="row bloc-diapo blanc">
-        <div class="small-12 columns medium-6 image hide-s">
-            <img src="img/biblio.jpg" alt="Utilisateurs d'is-academia" />
-        </div>
-        <div class="small-12 columns medium-6 diapo">
-            <h1><?php echo $_SESSION['trad']['isa']['txt4_title']; ?></h1>
-            <div class="slick-eqnx-diapo row">
-                <div>
-                    <img src="img/logos_clients/Logo-epfl.png" alt="EPFL" />
-                    <h3>Ecole Polytechnique Fédérale de Lausanne</h3>
-                </div>
-                <div>
-                    <img src="img/logos_clients/Logo-unine.png" alt="UNINE" />
-                    <h3>Université de Neuchâtel</h3>
-                </div>
-                <div>
-                    <img src="img/logos_clients/Logo-ti.png" alt="TI" />
-                    <h3>Canton du Tessin</h3>
-                </div>
-                <div>
-                    <img src="img/logos_clients/Logo-icl.png" alt="ICL" />
-                    <h3>Université catholique de Lille</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END CONTENT -->
+</section>

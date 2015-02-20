@@ -37,8 +37,7 @@ else {
     //DB Data Source Name
     define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST);
     //Base URL pour le rewrite
-//    define('BASE_URL', 'http://www.equinoxemis.ch/');
-    define('BASE_URL', 'http://www.ilights.ch/eqnx/site/');
+    define('BASE_URL', 'http://www.ilights.ch/eqnx-test/');
 }
         
 //TITRE DES PAGES
@@ -52,7 +51,7 @@ define('NAME_SITE', 'Equinoxe MIS Development');
 define('DEFAULT_LANG', '1');
 
 //PAGE PAR DEFAUT
-define('DEFAULT_PAGE', 'news');
+define('DEFAULT_PAGE', 'accueil');
 
 //MODULE PAR DEFAUT
 define('DEFAULT_MODULE', 'news');
