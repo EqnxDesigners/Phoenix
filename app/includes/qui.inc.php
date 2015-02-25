@@ -13,4 +13,7 @@
 </section>
 <section class="row sub-page">
     <h3><?php getTexte('qui', 'txt2_title'); ?></h3>
+    <div class="row">
+        <?php getMultiLineTexte('qui', 'txt2_para', 'text-justify'); ?>
+    </div>
 </section>
