@@ -56,26 +56,18 @@ class News extends DB {
             if($allNews = $this->getNewsToDisplay()) {
                 $result = '';
                 foreach($allNews as $k => $news) {
-                    if($this->checkIfDisplayByDate($news)) {
-                        $result .= '<div class="new">';
-                            $result .= '<div class="content">';
-                                $result .= '<div class="row">';
-                                    $result .= '<div class="small-6 columns">';
-                                        $result .= '<p class="dateNew">'.$this->displayDate($news->date_publi).'</p>';
-                                    $result .= '</div>';
-                                    $result .= '<div class="small-12 columns">';
-                                        $result .= '<h1>'.$news->title.'</h1>';
-                                    $result .= '</div>';
-                                    $result .= '<div class="small-12 columns">';
-                                        $result .= '<h2>'.$news->sub_title.'</h2>';
-                                    $result .= '</div>';
-                                    $result .= '<div class="small-12 columns">';
-                                        $result .= $news->content;
-                                    $result .= '</div>';
-                                $result .= '</div>';
+                    $result .= '<div class="article">';
+                        $result .= '<div class="content" data-equalizer-watch>';
+                            $result .= '<div class="header">';
+                                $result .= '<span class="date">'.$this->displayDate($news->date_publi).'</span>';
+                                $result .= '<h1>'.$news->title.'</h1>';
+                                $result .= '<h2>'.$news->sub_title.'</h2>';
+                            $result .= '</div>';
+                            $result .= '<div class="body multiplecolumns">';
+                                $result .= $news->content;
                             $result .= '</div>';
                         $result .= '</div>';
-                    }
+                    $result .= '</div>';
                 }
             }
             else {
@@ -102,23 +94,19 @@ class News extends DB {
                 $nbcol = 12 / $max;
                 $result = '';
                 foreach($allNews as $k => $news) {
-                    $result .= '<div class="small-12 medium-'.$nbcol.' columns">';
-                        $result .= '<div class="new">';
-                            $result .= '<div class="content" data-equalizer-watch>';
-                                $result .= '<div class="row">';
-                                    $result .= '<div class="small-6 columns">';
-                                        $result .= '<p class="dateNew">'.$this->displayDate($news->date_publi).'</p>';
-                                    $result .= '</div>';
-                                    $result .= '<div class="small-12 columns">';
-                                        $result .= '<h1>'.$news->title.'</h1>';
-                                    $result .= '</div>';
-                                    $result .= '<div class="small-12 columns">';
-                                        $result .= '<h2>'.$news->sub_title.'</h2>';
-                                    $result .= '</div>';
-                                    $result .= '<div class="small-12 columns">';
-                                        $result .= $news->content;
-                                    $result .= '</div>';
-                                $result .= '</div>';
+                    $result .= '<div class="small-12 medium-'.$nbcol.' columns article" data-equalizer-watch>';
+                    // SI IMAGE 
+                    /*
+                        
+                    */
+                        $result .= '<div class="content">';
+                            $result .= '<div class="header">';
+                                $result .= '<span class="date">'.$this->displayDate($news->date_publi).'</span>';
+                                $result .= '<h1>'.$news->title.'</h1>';
+                                $result .= '<h2>'.$news->sub_title.'</h2>';
+                            $result .= '</div>';
+                            $result .= '<div class="body multiplecolumns">';
+                                $result .= $news->content;
                             $result .= '</div>';
                         $result .= '</div>';
                     $result .= '</div>';

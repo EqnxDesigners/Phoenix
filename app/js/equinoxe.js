@@ -273,7 +273,8 @@ $(document).ready(function () {
 //        gutter: 100,
 //        "gutter": 1000,
 //        containerStyle: null,
-        itemSelector: '.new'
+        itemSelector: '.article',
+        "isFitWidth": true
     });
     
     // INIT EVENTS
