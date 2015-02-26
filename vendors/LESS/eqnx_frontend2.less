@@ -589,11 +589,26 @@ nav{
 
 //----- News ----------------------------------------------
 #newsEqnx, #news-masonry {
-//    .columns {
-//        text-align: center;
-//    }
+    &.deux-cols{
+        .article{
+            width: 50%; // indique le nombre de colonnes 
+        }
+        .body{
+            -moz-column-count:2 !important;
+            -webkit-column-count:2 !important;
+        }
+    }
+    &.trois-cols{
+        .article{
+            width: 33%; // indique le nombre de colonnes 
+        }
+        .body{
+            -moz-column-count:1 !important;
+            -webkit-column-count:1 !important;
+        }
+    }
     .article{
-        width: 50%;
+        width: 100%;
         padding: 1rem;
         ::selection {
             background: #34495e; /* WebKit/Blink Browsers */
@@ -607,6 +622,8 @@ nav{
             height: 200px;
             background-repeat: no-repeat;
             background-size: cover;
+            border-left: 1px solid #d9d9d9;
+            border-right: 1px solid #d9d9d9;
         }
         .content{
             background: white;
@@ -657,12 +674,10 @@ nav{
             }
             .body{
                 margin-top: 2rem;
-                &.multiplecolumns {
-                    -moz-column-count:2;
-                    -webkit-column-count:2;
-                    -moz-column-gap: 2rem;
-                    -webkit-column-gap: 2rem;
-                }
+                -moz-column-count:3;
+                -webkit-column-count:3;
+                -moz-column-gap: 2rem;
+                -webkit-column-gap: 2rem;
                 p{
                     font-family: 'Lato', sans-serif;
                     text-align: justify;
@@ -1230,10 +1245,12 @@ form {
             width: 100%;
         }
     }
-    #articles{
-        margin: 2rem 1rem;
-        .article{
-            width: 100%;
+    #news-masonry{
+        &.deux-cols, &.trois-cols{
+            margin: 2rem 0rem;
+            .article{
+                width: 100% !important;
+            }
         }
     }
 }
@@ -1264,6 +1281,7 @@ form {
     .support-tile{
         padding: 0 1rem !important;
     }
+    
 }
 
 //---------------------------------------------------------
