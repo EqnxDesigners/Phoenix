@@ -608,14 +608,15 @@ nav{
         }
     }
     .article{
+        margin: 1rem 0;
         width: 100%;
         padding: 1rem;
         ::selection {
-            background: #34495e; /* WebKit/Blink Browsers */
+            background: @eqnx-dark-blue; /* WebKit/Blink Browsers */
             color: white;
         }
         ::-moz-selection {
-            background: #34495e; /* Gecko Browsers */
+            background: @eqnx-dark-blue; /* Gecko Browsers */
             color: white;
         }
         .image{
@@ -649,7 +650,7 @@ nav{
                     &:before, &:after{
                         content: '';
                         display: block;
-                        background: #34495e;
+                        background: @eqnx-dark-blue;
                         height: 5px;
                         transition: 0.2s ease all;
                         -moz-transition: 0.2s ease all;
@@ -690,8 +691,45 @@ nav{
                             float: left;
                             font-size: 3rem;
                             line-height: 3rem;
-                            margin: 0 0.5rem 0 0;
+                            margin: 5px 0.5rem 0 0;
                             font-weight: 400;
+                        }
+                    }
+                    strong{
+                        transition: 0.2s ease all;
+                        -moz-transition: 0.2s ease all;
+                        -webkit-transition: 0.2s ease all;
+                        &:hover{
+                            color: white;
+                            background: @eqnx-dark-blue;
+                            transition: 0.2s ease all;
+                            -moz-transition: 0.2s ease all;
+                            -webkit-transition: 0.2s ease all;
+                        }
+                    }
+                    em{
+                        transition: 0.2s ease all;
+                        -moz-transition: 0.2s ease all;
+                        -webkit-transition: 0.2s ease all;
+                        &:hover{
+                            color: white;
+                            background: @eqnx-dark-blue;
+                            transition: 0.2s ease all;
+                            -moz-transition: 0.2s ease all;
+                            -webkit-transition: 0.2s ease all;
+                        }
+                    }
+                    a{
+                        color: @eqnx-red-light;
+                        transition: 0.2s ease all;
+                        -moz-transition: 0.2s ease all;
+                        -webkit-transition: 0.2s ease all;
+                        &:hover{
+                            color: @eqnx-red;
+                            border-bottom: 1px solid @eqnx-red;
+                            transition: 0.2s ease all;
+                            -moz-transition: 0.2s ease all;
+                            -webkit-transition: 0.2s ease all;
                         }
                     }
                 }
