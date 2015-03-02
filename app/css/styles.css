@@ -237,7 +237,7 @@ body.scroll nav#desktop-nav .menu-items {
 }
 body.mobile.scroll #floating-action-button {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.8;
   transition: opacity 0.35s, visibility 0.35s;
   -webkit-transition: opacity 0.35s, visibility 0.35s;
   -moz-transition: opacity 0.35s, visibility 0.35s;
@@ -355,16 +355,17 @@ nav #langues-btn-mobile:hover {
   position: fixed;
   bottom: 5%;
   right: 5%;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
-  box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   background: #eb7c8c;
   text-align: center;
   color: #ffffff;
-  width: 5rem;
-  height: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 5rem;
-  line-height: 4.5rem;
+  line-height: 3rem;
+}
+#floating-action-button img {
+  height: 1.25em;
+  width: auto;
 }
 #floating-action-button:hover {
   cursor: pointer;
@@ -1130,12 +1131,12 @@ form.inscription-form .group label {
   input[type='button'] {
     width: 100%;
   }
-  #news-masonry.deux-cols,
-  #news-masonry.trois-cols {
+  #newsEqnx.deux-cols,
+  #newsEqnx.trois-cols {
     margin: 2rem 0rem;
   }
-  #news-masonry.deux-cols .article,
-  #news-masonry.trois-cols .article {
+  #newsEqnx.deux-cols .article,
+  #newsEqnx.trois-cols .article {
     width: 100% !important;
   }
 }
