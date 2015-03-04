@@ -5,6 +5,7 @@ RewriteBase /Phoenix/app/
 #RewriteBase /
 Options +FollowSymlinks
 
+RewriteRule ^(fr|de|en)/(.*)-([0-9]+)$ index.php?page=$2&lang=$1&pagination=$3 [L]
 RewriteRule ^(fr|de|it|en)/(.*)$ index.php?page=$2&lang=$1 [L]
 
 #### compress text, html, javascript, css, xml:
