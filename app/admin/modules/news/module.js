@@ -267,10 +267,17 @@ tinymce.init({
     language : 'fr_FR',
     menubar : false,
     height : 400,
+//    theme: 'advanced',
+    inline_styles : false,
     plugins: [
         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
         "save table contextmenu directionality emoticons template paste textcolor"
     ],
-    toolbar: "styleselect | bold underline italic | undo redo | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link unlink | quote code image | forecolor backcolor"
+    toolbar: "undo redo | bold italic | bullist numlist | link unlink",
+    plugins: "link",
+    target_list: [
+        {title: 'New page', value: '_blank'}
+    ]
 });
+

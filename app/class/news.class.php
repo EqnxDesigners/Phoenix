@@ -56,8 +56,13 @@ class News extends DB {
             if($allNews = $this->getNewsToDisplay($currentPage, $max)) {
                 $result = '';
                 foreach($allNews as $k => $news) {
+                    
+                    
                     $result .= '<div class="article">';
-                        $result .= '<div class="content" data-equalizer-watch>';
+                        if($news->imageUrl !== NULL){
+                            $result .= '<div class="image" style="background-image:url('.$news->imageUrl.');"></div>';
+                        }
+                        $result .= '<div class="content">';
                             $result .= '<div class="header">';
                                 $result .= '<span class="date">'.$this->displayDate($news->date_publi).'</span>';
                                 $result .= '<h1>'.$news->title.'</h1>';
@@ -95,10 +100,9 @@ class News extends DB {
                 $result = '';
                 foreach($allNews as $k => $news) {
                     $result .= '<div class="small-12 medium-'.$nbcol.' columns article" data-equalizer-watch>';
-                    // SI IMAGE 
-                    /*
-                        
-                    */
+                        if($news->imageUrl !== NULL){
+                            $result .= '<div class="image" style="background-image:url('.$news->imageUrl.');"></div>';
+                        }
                         $result .= '<div class="content">';
                             $result .= '<div class="header">';
                                 $result .= '<span class="date">'.$this->displayDate($news->date_publi).'</span>';
@@ -169,7 +173,7 @@ class News extends DB {
     
     private function getNewsToDisplay($currentPage = 0, $max = 9999999) {
         try {
-            $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, title, sub_title, content
+            $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, title, sub_title, content, imageUrl
                     FROM news
                     INNER JOIN news_trad ON news.id = news_trad.id_news
                     WHERE news.status='1' ";

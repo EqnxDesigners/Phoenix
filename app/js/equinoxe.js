@@ -270,9 +270,6 @@ $(document).ready(function () {
     var $container = $('#news-masonry');
     // initialize
     $container.masonry({
-//        gutter: 100,
-//        "gutter": 1000,
-//        containerStyle: null,
         itemSelector: '.article',
         "isFitWidth": true
     });

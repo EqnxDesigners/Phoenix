@@ -3,7 +3,7 @@
         <h3><?php getTexte('home-news', 'title'); ?></h3>
     </div>
 
-    <div id="newsEqnx" class="row" data-equalizer>
+    <div id="newsEqnx" class="row deux-cols" data-equalizer>
         <?php the_last_news(); ?>
     </div>
 

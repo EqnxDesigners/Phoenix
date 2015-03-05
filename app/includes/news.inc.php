@@ -3,9 +3,14 @@
 </section>
 <section class="row sub-page">
     <div class="small-12 columns">
+<<<<<<< HEAD
         <div id="news-masonry">
             <?php //the_news(); ?>
             <?php (isset($_GET['pagination']) ? the_news($_GET['pagination']) : the_news(1)); ?>
+=======
+        <div id="news-masonry" class="deux-cols">
+            <?php the_news(); ?>
+>>>>>>> master
         </div>
     </div>
 </section>
