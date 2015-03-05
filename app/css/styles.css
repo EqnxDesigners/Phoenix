@@ -1143,6 +1143,11 @@ form.inscription-form .group label {
   #newsEqnx.trois-cols .article {
     width: 100% !important;
   }
+  #newsEqnx.deux-cols .body,
+  #newsEqnx.trois-cols .body {
+    -moz-column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+  }
 }
 @media only screen and (min-width: 40.063em) {
   h2 {
