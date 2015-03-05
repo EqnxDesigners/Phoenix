@@ -100,10 +100,20 @@ if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
     $News = new News();
     $Langue = new Langues();
     unset($alert);
+
+    // ENREGISTREMENT DE L'IMAGE
+    if(strlen($_FILES['news-img']['name']) > 1) {
+        $File = new Files();
+        $fileName = $File->UploadFile($_FILES['news-img'], '../../../img/img-news/', true);
+    }
+    else {
+        $fileName = 'NULL';
+    }
+
     if(isset($_POST['save-news']) && !isset($_POST['publish-news'])) {
         // ENREGISTREMENT DE LA NEWS
         try {
-            $News->saveNews($_POST);
+            $News->saveNews($_POST, $fileName);
         }
         catch (PDOException $e) {
             $alert = 'ERREUR : '.$e;
@@ -114,7 +124,7 @@ if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
         $lg = $Langue->getLangByiD($_POST['select-lang'])->langue_abrev;
         if(strlen($_POST['title_'.$lg]) > 1 && strlen($_POST['news-editor_'.$lg]) > 10) {
             try {
-                $News->publishNews($_POST);
+                $News->publishNews($_POST, $fileName);
             }
             catch (PDOException $e) {
                 $alert = 'ERREUR : '.$e;
@@ -123,7 +133,7 @@ if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
         else {
             $alert = 'ERREUR : Vous devez, au moins, saisir un titre et du texte...';
         }
-        
+
     }
     if(!isset($alert)) {
         header("location: ../../index.php?module=".$_SESSION['current_module']);
@@ -136,9 +146,19 @@ if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
 if(isset($_POST['maj-news'])) {
     $News = new News();
     unset($alert);
+
+    // ENREGISTREMENT DE L'IMAGE
+    if(strlen($_FILES['news-img']['name']) > 1) {
+        $File = new Files();
+        $fileName = $File->UploadFile($_FILES['news-img'], '../../../img/img-news/', true);
+    }
+    else {
+        $fileName = 'NULL';
+    }
+
     // MISE A JOUR DE LA NEWS
     try {
-        $News->majNews($_POST);
+        $News->majNews($_POST, $fileName);
     }
     catch (PDOException $e) {
         $alert = 'ERREUR : '.$e;

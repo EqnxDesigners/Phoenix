@@ -59,8 +59,8 @@ class News extends DB {
                     
                     
                     $result .= '<div class="article">';
-                        if($news->imageUrl !== NULL){
-                            $result .= '<div class="image" style="background-image:url('.$news->imageUrl.');"></div>';
+                        if($news->imageUrl !== 'NULL'){
+                            $result .= '<div class="image" style="background-image:url(img/img-news/'.$news->imageUrl.');"></div>';
                         }
                         $result .= '<div class="content">';
                             $result .= '<div class="header">';
@@ -100,8 +100,8 @@ class News extends DB {
                 $result = '';
                 foreach($allNews as $k => $news) {
                     $result .= '<div class="small-12 medium-'.$nbcol.' columns article" data-equalizer-watch>';
-                        if($news->imageUrl !== NULL){
-                            $result .= '<div class="image" style="background-image:url('.$news->imageUrl.');"></div>';
+                        if($news->imageUrl !== 'NULL'){
+                            $result .= '<div class="image" style="background-image:url(img/img-news/'.$news->imageUrl.');"></div>';
                         }
                         $result .= '<div class="content">';
                             $result .= '<div class="header">';
@@ -316,10 +316,10 @@ class News extends DB {
         return $result;
     }
     
-    public function saveNews($data) {
+    public function saveNews($data, $fileName) {
         $Langue = $this->initLangues();
         try {
-            $lastId = $this->insertNewsMeta($data, '4');
+            $lastId = $this->insertNewsMeta($data, $fileName, '4');
             
             foreach($Langue->getLangs() as $k => $lang) {
                 try {
@@ -341,10 +341,10 @@ class News extends DB {
         }
     }
     
-    public function publishNews($data) {
+    public function publishNews($data, $fileName) {
         $Langue = $this->initLangues();
         try {
-            $lastId = $this->insertNewsMeta($data, '1');
+            $lastId = $this->insertNewsMeta($data, $fileName, '1');
             if(isset($data['idem-all-lang'])) {
                 foreach($Langue->getLangs() as $k => $lang) {
                     try {
@@ -373,7 +373,7 @@ class News extends DB {
         }
     }
     
-    public function majNews($data) {
+    public function majNews($data, $fileName) {
         $Langue = $this->initLangues();
         if(strlen($data['date-diffusion'] > 0)) {
             try {
@@ -386,6 +386,32 @@ class News extends DB {
        if(strlen($data['date-revocation'] > 0)) {
             try {
                 $this->updateNewsMetaField('date_end', $this->setDateTime($data['date-revocation']), $data['id_news']);
+            }
+            catch (PDOException $e) {
+                throw new PDOException($e);
+            }
+        }
+        if($fileName !== 'NULL') {
+            try {
+                if($this->delOldImage($data['id_news'])) {
+                    $this->updateNewsMetaField('imageUrl', $fileName, $data['id_news']);
+                }
+                else {
+                    throw new Exception("Impossible de supprimer l'ancienne image...");
+                }
+            }
+            catch (PDOException $e) {
+                throw new PDOException($e);
+            }
+        }
+        if(isset($data['del-news-img']) && $data['del-news-img'] === '1') {
+            try {
+                if($this->delOldImage($data['id_news'])) {
+                    $this->updateNewsMetaField('imageUrl', 'NULL', $data['id_news']);
+                }
+                else {
+                    throw new Exception("Impossible de supprimer l'ancienne image...");
+                }
             }
             catch (PDOException $e) {
                 throw new PDOException($e);
@@ -446,6 +472,32 @@ class News extends DB {
             throw new PDOException($e);
         }
     }
+
+    private function delOldImage($id) {
+        try {
+            $oldImageName = $this->getOldImageName($id);
+            if($oldImageName->imageUrl !== 'NULL') {
+                return unlink('../../../img/img-news/'.$oldImageName->imageUrl);
+            }
+            else {
+                return true;
+            }
+
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+
+    private function getOldImageName($id) {
+        try {
+            $sql = "SELECT imageUrl FROM news WHERE id='".$id."'";
+            return $this->execOneResultQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
           
     private function checkIfNewsEntry($idnews, $idlang) {
         $sql = "SELECT * FROM news_trad WHERE id_news='".$idnews."' AND id_lang='".$idlang."'";
@@ -488,18 +540,19 @@ class News extends DB {
         }
     }
     
-    private function insertNewsMeta($data, $status) {
+    private function insertNewsMeta($data, $fileName, $status) {
         try {
             $dateJour   = $this->setDateTimeNow();
             $dateStart  = $this->setDateTime($data['date-diffusion']);
             $dateEnd    = $this->setDateTime($data['date-revocation']);
             $dateUpdate = $this->setDateTimeNow();
             
-            $sql = "INSERT INTO news (date_publi,date_start,date_end,date_update,status) 
+            $sql = "INSERT INTO news (date_publi,date_start,date_end,date_update,imageUrl,status)
                         VALUES ('".$dateJour."',
                                 '".$dateStart."',
                                 '".$dateEnd."',
                                 '".$dateJour."',
+                                '".$fileName."',
                                 '".$status."')";
             return $this->applyQueryWithLastId($sql);
         }
@@ -586,6 +639,25 @@ class News extends DB {
                     $result .= '<input type="text" name="date-revocation" class="datepicker" placeholder="Date de révocation">';
                 }
             $result .= '</div>';
+            if($News->imageUrl !== 'NULL') {
+                $result .= '<div class="small-12 columns">';
+                    $result .= '<label for="news-img">Modifier une image</label>';
+                    $result .= '<input type="file" name="news-img">';
+                $result .= '</div>';
+                $result .= '<div class="small-12 columns">';
+                    $result .= '<img src="../img/img-news/'.$News->imageUrl.'" />';
+                $result .= '</div>';
+                $result .= '<div class="small-12 columns">';
+                    $result .= '<input type="checkbox" name="del-news-img" value="1">';
+                    $result .= '<label for="del-news-img">Supprimer l\'image</label>';
+                $result .= '</div>';
+            }
+            else {
+                $result .= '<div class="small-12 columns">';
+                    $result .= '<label for="news-img">Ajouter une image</label>';
+                    $result .= '<input type="file" name="news-img">';
+                $result .= '</div>';
+            }
             $result .= '<div class="small-12 columns">';
                 $result .= '<input type="hidden" name="id_news" value="'.$News->id.'">';
                 $result .= '<input type="submit" class="button success expand" name="maj-news" value="Mettre à jour">';
