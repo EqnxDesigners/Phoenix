@@ -51,11 +51,16 @@
                                 <input type="checkbox" name="idem-all-lang" id="idem-all-lang">
                                 <label>Idem dans toutes les langues</label>
                             </div>
+
                             <div class="small-12 columns">
                                 <input type="text" name="date-diffusion" class="datepicker" placeholder="Date de diffusion">
                             </div>
                             <div class="small-12 columns">
                                 <input type="text" name="date-revocation" class="datepicker" placeholder="Date de révocation">
+                            </div>
+                            <div class="small-12 columns">
+                                <label for="news-img">Ajouter une image</label>
+                                <input type="file" name="news-img">
                             </div>
                             <div class="small-6 columns">
                                 <input type="reset" class="button alert expand" name="clear-forms" value="Annuler">

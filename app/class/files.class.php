@@ -40,7 +40,7 @@ class Files {
 	/* CONSTRUCTEUR */
 	public function __construct() {
         //Constructeur
-        //$this->setMaxImgDim(MAX_IMG_DIM);
+        $this->setMaxImgDim(5000);
 	}
 	
 	/* GETTER */
@@ -82,7 +82,7 @@ class Files {
     public function setMaxImgDim($maximgdim)        { $this->_maximgdim = $maximgdim; }
 	
         /* METHODES */
-	public function UploadFile($file, $path, $dimensions=null, $prefix=null, $canvas_color='#ffffff') {
+	public function UploadFile($file, $path, $unique_name=false, $dimensions=null, $prefix=null, $canvas_color='#ffffff') {
         /////////////////////////////////////////////////////////////////////////////////////////
         // PARAMETRES                                                                        
         //                                                                                   
@@ -105,7 +105,11 @@ class Files {
         }
 
         //Cleaning du nom de fichier
-        $this->cleanFileName($this->_filename);
+        $this->cleanFileName();
+
+        if($unique_name) {
+            $this->getUniqueName();
+        }
 
         //Ajout d'un préfix
         if($prefix == 'prefix' || $prefix == 'presize') {
@@ -405,6 +409,11 @@ class Files {
         $result = str_replace($search, $replace, $this->_filename);
         $this->setFinalName(strtolower($result));
 	}
+
+    private function getUniqueName() {
+        $fileExt = explode('.', $this->_filename);
+        $this->setFinalName(time().'.'.$fileExt['1']);
+    }
 
 	public function __destruct() {
         //Destructeur
