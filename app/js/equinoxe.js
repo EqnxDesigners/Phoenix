@@ -8,6 +8,11 @@ $(document).ready(function () {
         $("html, body").animate({scrollTop: $(target).offset().top - 60}, 500);
     });
 
+    $('#alerte-seminaire').on('click', 'a', function () {
+        var target = '#' + $(this).attr('target');
+        $("html, body").animate({scrollTop: $(target).offset().top - 60}, 500);
+    });
+
     function getRandomNumber(max) {
         return Math.floor((Math.random() * max) + 1);
     }
