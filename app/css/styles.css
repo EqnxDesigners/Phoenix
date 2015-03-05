@@ -503,6 +503,9 @@ nav #langues-btn-mobile:hover {
   -webkit-transition: transform 0.2s;
   -moz-transition: transform 0.2s;
 }
+#news-masonry {
+  width: 100% !important;
+}
 #newsEqnx .article,
 #news-masonry .article {
   width: 50%;
