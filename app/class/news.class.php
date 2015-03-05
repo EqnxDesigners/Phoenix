@@ -59,7 +59,7 @@ class News extends DB {
                     
                     
                     $result .= '<div class="article">';
-                        if($news->imageUrl !== 'NULL'){
+                        if($news->imageUrl !== NULL){
                             $result .= '<div class="image" style="background-image:url(img/img-news/'.$news->imageUrl.');"></div>';
                         }
                         $result .= '<div class="content">';
@@ -100,7 +100,7 @@ class News extends DB {
                 $result = '';
                 foreach($allNews as $k => $news) {
                     $result .= '<div class="small-12 medium-'.$nbcol.' columns article" data-equalizer-watch>';
-                        if($news->imageUrl !== 'NULL'){
+                        if($news->imageUrl !== NULL){
                             $result .= '<div class="image" style="background-image:url(img/img-news/'.$news->imageUrl.');"></div>';
                         }
                         $result .= '<div class="content">';
@@ -147,29 +147,6 @@ class News extends DB {
 
         return $result;
     }
-    
-//    private function checkIfDisplayByDate($obj) {
-//        $result = false;
-//        if($obj->date_start !== '0000-00-00 00:00:00' && $obj->date_end === '0000-00-00 00:00:00') {
-//            if($this->setDateTimeNow() >= $obj->date_start) {
-//                $result = true;
-//            }
-//        }
-//        elseif($obj->date_start === '0000-00-00 00:00:00' && $obj->date_end !== '0000-00-00 00:00:00') {
-//            if($this->setDateTimeNow() <= $obj->date_end) {
-//                $result = true;
-//            }
-//        }
-//        elseif($obj->date_start !== '0000-00-00 00:00:00' && $obj->date_end !== '0000-00-00 00:00:00') {
-//            if($this->setDateTimeNow() >= $obj->date_start && $this->setDateTimeNow() <= $obj->date_end) {
-//                $result = true;
-//            }
-//        }
-//        else {
-//            $result = true;
-//        }
-//        return $result;
-//    }
     
     private function getNewsToDisplay($currentPage = 0, $max = 9999999) {
         try {
@@ -476,9 +453,9 @@ class News extends DB {
           
     private function updateNewsMetaField($field, $value, $id) {
         try {
-            $sql = "UPDATE news 
-                    SET ".$field."='".$value."' 
-                    WHERE id='".$id."'";
+            $sql = "UPDATE news ";
+            ($value === 'NULL' ? $sql .= "SET ".$field."=NULL " : $sql .= "SET ".$field."='".$value."' ");
+            $sql .= "WHERE id='".$id."'";
             $this->applyOneQuery($sql);
         }
         catch (PDOException $e) {
@@ -503,8 +480,8 @@ class News extends DB {
     private function delOldImage($id) {
         try {
             $oldImageName = $this->getOldImageName($id);
-            if($oldImageName->imageUrl !== 'NULL') {
-                return unlink('../../../img/img-news/'.$oldImageName->imageUrl);
+            if($oldImageName->imageUrl !== NULL) {
+               return unlink('../../../img/img-news/'.$oldImageName->imageUrl);
             }
             else {
                 return true;
@@ -666,7 +643,7 @@ class News extends DB {
                     $result .= '<input type="text" name="date-revocation" class="datepicker" placeholder="Date de révocation">';
                 }
             $result .= '</div>';
-            if($News->imageUrl !== 'NULL') {
+            if($News->imageUrl !== NULL) {
                 $result .= '<div class="small-12 columns">';
                     $result .= '<label for="news-img">Modifier une image</label>';
                     $result .= '<input type="file" name="news-img">';
