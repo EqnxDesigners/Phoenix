@@ -3,7 +3,7 @@
 </section>
 <section class="row sub-page">
     <div class="small-12 columns">
-        <div id="news-masonry">
+        <div id="news-masonry" class="deux-cols">
             <?php the_news(); ?>
         </div>
     </div>

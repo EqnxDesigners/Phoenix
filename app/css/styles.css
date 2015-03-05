@@ -237,7 +237,7 @@ body.scroll nav#desktop-nav .menu-items {
 }
 body.mobile.scroll #floating-action-button {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.8;
   transition: opacity 0.35s, visibility 0.35s;
   -webkit-transition: opacity 0.35s, visibility 0.35s;
   -moz-transition: opacity 0.35s, visibility 0.35s;
@@ -355,16 +355,17 @@ nav #langues-btn-mobile:hover {
   position: fixed;
   bottom: 5%;
   right: 5%;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
-  box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 0.5);
   background: #eb7c8c;
   text-align: center;
   color: #ffffff;
-  width: 5rem;
-  height: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 5rem;
-  line-height: 4.5rem;
+  line-height: 3rem;
+}
+#floating-action-button img {
+  height: 1.25em;
+  width: auto;
 }
 #floating-action-button:hover {
   cursor: pointer;
@@ -503,9 +504,28 @@ nav #langues-btn-mobile:hover {
   -webkit-transition: transform 0.2s;
   -moz-transition: transform 0.2s;
 }
+#newsEqnx.deux-cols .article,
+#news-masonry.deux-cols .article {
+  width: 50%;
+}
+#newsEqnx.deux-cols .body,
+#news-masonry.deux-cols .body {
+  -moz-column-count: 2 !important;
+  -webkit-column-count: 2 !important;
+}
+#newsEqnx.trois-cols .article,
+#news-masonry.trois-cols .article {
+  width: 33%;
+}
+#newsEqnx.trois-cols .body,
+#news-masonry.trois-cols .body {
+  -moz-column-count: 1 !important;
+  -webkit-column-count: 1 !important;
+}
 #newsEqnx .article,
 #news-masonry .article {
-  width: 50%;
+  margin: 1rem 0;
+  width: 100%;
   padding: 1rem;
 }
 #newsEqnx .article ::selection,
@@ -525,6 +545,8 @@ nav #langues-btn-mobile:hover {
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
 }
 #newsEqnx .article .content,
 #news-masonry .article .content {
@@ -587,11 +609,8 @@ nav #langues-btn-mobile:hover {
 #newsEqnx .article .content .body,
 #news-masonry .article .content .body {
   margin-top: 2rem;
-}
-#newsEqnx .article .content .body.multiplecolumns,
-#news-masonry .article .content .body.multiplecolumns {
-  -moz-column-count: 2;
-  -webkit-column-count: 2;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
   -moz-column-gap: 2rem;
   -webkit-column-gap: 2rem;
 }
@@ -609,8 +628,51 @@ nav #langues-btn-mobile:hover {
   float: left;
   font-size: 3rem;
   line-height: 3rem;
-  margin: 0 0.5rem 0 0;
+  margin: 5px 0.5rem 0 0;
   font-weight: 400;
+}
+#newsEqnx .article .content .body p strong,
+#news-masonry .article .content .body p strong {
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+#newsEqnx .article .content .body p strong:hover,
+#news-masonry .article .content .body p strong:hover {
+  color: white;
+  background: #34495e;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+#newsEqnx .article .content .body p em,
+#news-masonry .article .content .body p em {
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+#newsEqnx .article .content .body p em:hover,
+#news-masonry .article .content .body p em:hover {
+  color: white;
+  background: #34495e;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+#newsEqnx .article .content .body p a,
+#news-masonry .article .content .body p a {
+  color: #e65060;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+#newsEqnx .article .content .body p a:hover,
+#news-masonry .article .content .body p a:hover {
+  color: #df2438;
+  border-bottom: 1px solid #df2438;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
 }
 .events-tab ul.tabs {
   max-width: 100% !important;
@@ -1069,11 +1131,13 @@ form.inscription-form .group label {
   input[type='button'] {
     width: 100%;
   }
-  #articles {
-    margin: 2rem 1rem;
+  #newsEqnx.deux-cols,
+  #newsEqnx.trois-cols {
+    margin: 2rem 0rem;
   }
-  #articles .article {
-    width: 100%;
+  #newsEqnx.deux-cols .article,
+  #newsEqnx.trois-cols .article {
+    width: 100% !important;
   }
 }
 @media only screen and (min-width: 40.063em) {
