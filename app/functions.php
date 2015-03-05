@@ -100,7 +100,7 @@ function displaySelectLang() {
         $result ='<li><span class="icon icon-shape-planete" id="langues-btn"></span></li>';
     }
     else {
-        $result ='<li>&nbsp;</li>';
+        $result ='';
     }
     echo $result;
 }
@@ -112,7 +112,7 @@ function displaySelectLangMobile() {
         $result ='<span class="icon icon-shape-planete" id="langues-btn-mobile"></span>';
     }
     else {
-        $result ='&nbsp;';
+        $result ='';
     }
     echo $result;
 }
