@@ -260,6 +260,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/app\/admin\/js\/tinymce\/min\/tinymce.min-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app\/admin\/js\/tinymce\/min\/tinymce.min-min.js",
+		"outputAbbreviatedPath": "\/app\/admin\/js\/tinymce\/min\/min\/tinymce.min-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/app\/admin\/js\/tinymce\/plugins\/advlist\/plugin.min.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -1792,11 +1803,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Trait_datetime.class.php": {
+	"\/app\/class\/trait_datetime.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Trait_datetime.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/trait_datetime.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1819,11 +1830,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/app\/class\/Trait_traduction.class.php": {
+	"\/app\/class\/trait_traduction.class.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/app\/class\/Trait_traduction.class.php",
+		"inputAbbreviatedPath": "\/app\/class\/trait_traduction.class.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -2230,7 +2241,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 5.10264e+06,
+		"initialSize": 4.54551e+06,
 		"inputAbbreviatedPath": "\/app\/img\/isa-slide.jpg",
 		"outputAbbreviatedPath": "\/app\/img\/isa-slide.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -2299,6 +2310,17 @@
 		"initialSize": 119412,
 		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/hep.jpg",
 		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/hep.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/app\/img\/logos_clients\/hesge.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 117357,
+		"inputAbbreviatedPath": "\/app\/img\/logos_clients\/hesge.jpg",
+		"outputAbbreviatedPath": "\/app\/img\/logos_clients\/hesge.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3795,6 +3817,61 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/vendors\/Images exemples\/img-news02.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 35788,
+		"inputAbbreviatedPath": "\/vendors\/Images exemples\/img-news02.jpg",
+		"outputAbbreviatedPath": "\/vendors\/Images exemples\/img-news02.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/vendors\/Images exemples\/NxxLccbqQdGtNc7xJ43e_ancestral-home.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 188675,
+		"inputAbbreviatedPath": "\/vendors\/Images exemples\/NxxLccbqQdGtNc7xJ43e_ancestral-home.jpg",
+		"outputAbbreviatedPath": "\/vendors\/Images exemples\/NxxLccbqQdGtNc7xJ43e_ancestral-home.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/vendors\/Images exemples\/photo-1414502622871-b90b0bec7b1f.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 132955,
+		"inputAbbreviatedPath": "\/vendors\/Images exemples\/photo-1414502622871-b90b0bec7b1f.jpg",
+		"outputAbbreviatedPath": "\/vendors\/Images exemples\/photo-1414502622871-b90b0bec7b1f.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/vendors\/Images exemples\/photo-1418065460487-3e41a6c84dc5.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 151282,
+		"inputAbbreviatedPath": "\/vendors\/Images exemples\/photo-1418065460487-3e41a6c84dc5.jpg",
+		"outputAbbreviatedPath": "\/vendors\/Images exemples\/photo-1418065460487-3e41a6c84dc5.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/vendors\/Images exemples\/photo-1418479631014-8cbf89db3431.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 170168,
+		"inputAbbreviatedPath": "\/vendors\/Images exemples\/photo-1418479631014-8cbf89db3431.jpg",
+		"outputAbbreviatedPath": "\/vendors\/Images exemples\/photo-1418479631014-8cbf89db3431.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/vendors\/LESS\/eqnx_admin.less": {
 		"allowInsecureImports": 0,
