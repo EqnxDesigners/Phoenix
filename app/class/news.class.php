@@ -90,7 +90,7 @@ class News extends DB {
 
     public function displayLastNews($max = 2) {
         try {
-            if($allNews = $this->getNewsToDisplay($max)) {
+            if($allNews = $this->getNewsToDisplay(0, $max)) {
                 $nbcol = 12 / $max;
                 $result = '';
                 foreach($allNews as $k => $news) {
@@ -167,7 +167,7 @@ class News extends DB {
 //        return $result;
 //    }
     
-    private function getNewsToDisplay($currentPage = 0,$max = 9999999) {
+    private function getNewsToDisplay($currentPage = 0, $max = 9999999) {
         try {
             $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, title, sub_title, content
                     FROM news
