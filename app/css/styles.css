@@ -519,8 +519,11 @@ nav #langues-btn-mobile:hover {
 }
 #newsEqnx.trois-cols .body,
 #news-masonry.trois-cols .body {
-  -moz-column-count: 1 !important;
-  -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+}
+#news-masonry {
+  width: 100% !important;
 }
 #newsEqnx .article,
 #news-masonry .article {

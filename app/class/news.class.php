@@ -51,9 +51,9 @@ class News extends DB {
     }
 	
     /* METHODES */
-    public function displayNews() {
+    public function displayNews($currentPage, $max = 6) {
         try {
-            if($allNews = $this->getNewsToDisplay()) {
+            if($allNews = $this->getNewsToDisplay($currentPage, $max)) {
                 $result = '';
                 foreach($allNews as $k => $news) {
                     
@@ -95,7 +95,7 @@ class News extends DB {
 
     public function displayLastNews($max = 2) {
         try {
-            if($allNews = $this->getNewsToDisplay($max)) {
+            if($allNews = $this->getNewsToDisplay(0, $max)) {
                 $nbcol = 12 / $max;
                 $result = '';
                 foreach($allNews as $k => $news) {
@@ -122,43 +122,70 @@ class News extends DB {
         }
         return $result;
     }
-    
-    private function checkIfDisplayByDate($obj) {
-        $result = false;
-        if($obj->date_start !== '0000-00-00 00:00:00' && $obj->date_end === '0000-00-00 00:00:00') {
-            if($this->setDateTimeNow() >= $obj->date_start) {
-                $result = true;
+
+    public function getPagination($currentPage, $max = 6) {
+        $nbPage = ceil(count($this->getNewsToDisplay()) / $max);
+        $numPage = 1;
+        $result = '';
+
+        if($nbPage > 1) {
+            $lastPage = $currentPage - 1;
+            $nextPage = $currentPage + 1;
+
+            $result .= '<ul class="pag">';
+            $result .= ($nbPage > 1 && $currentPage != '1' ? '<li class="fleche prev"><a href="'.$_SESSION['current']['lang'].'/news-'.$lastPage.'"><img src="img/fleche-bleue-prev.png" alt="prev" /></a></li>' : '<li>&nbsp;</li>');
+            for($i=0;$i<$nbPage;$i++) {
+                $result .= '<li';
+                $result .= ($currentPage == $numPage ? ' class="active">' : '>');
+                $result .= '<a href="'.$_SESSION['current']['lang'].'/news-'.$numPage.'">'.$numPage.'</a>';
+                $result .= '</li>';
+                $numPage++;
             }
+            $result .= ($nbPage > 1 && $currentPage < $nbPage ? '<li class="fleche next"><a href="'.$_SESSION['current']['lang'].'/news-'.$nextPage.'"><img src="img/fleche-bleue-next.png" alt="prev" /></a></li>' : '<li>&nbsp;</li>' );
+            $result .= '</ul>';
         }
-        elseif($obj->date_start === '0000-00-00 00:00:00' && $obj->date_end !== '0000-00-00 00:00:00') {
-            if($this->setDateTimeNow() <= $obj->date_end) {
-                $result = true;
-            }
-        }
-        elseif($obj->date_start !== '0000-00-00 00:00:00' && $obj->date_end !== '0000-00-00 00:00:00') {
-            if($this->setDateTimeNow() >= $obj->date_start && $this->setDateTimeNow() <= $obj->date_end) {
-                $result = true;
-            }
-        }
-        else {
-            $result = true;
-        }
+
         return $result;
     }
     
-    private function getNewsToDisplay($max = 9999) {
+//    private function checkIfDisplayByDate($obj) {
+//        $result = false;
+//        if($obj->date_start !== '0000-00-00 00:00:00' && $obj->date_end === '0000-00-00 00:00:00') {
+//            if($this->setDateTimeNow() >= $obj->date_start) {
+//                $result = true;
+//            }
+//        }
+//        elseif($obj->date_start === '0000-00-00 00:00:00' && $obj->date_end !== '0000-00-00 00:00:00') {
+//            if($this->setDateTimeNow() <= $obj->date_end) {
+//                $result = true;
+//            }
+//        }
+//        elseif($obj->date_start !== '0000-00-00 00:00:00' && $obj->date_end !== '0000-00-00 00:00:00') {
+//            if($this->setDateTimeNow() >= $obj->date_start && $this->setDateTimeNow() <= $obj->date_end) {
+//                $result = true;
+//            }
+//        }
+//        else {
+//            $result = true;
+//        }
+//        return $result;
+//    }
+    
+    private function getNewsToDisplay($currentPage = 0, $max = 9999999) {
         try {
             $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, title, sub_title, content, imageUrl
                     FROM news
                     INNER JOIN news_trad ON news.id = news_trad.id_news
                     WHERE news.status='1' ";
-            if($this->_lang === 'fr' || $this->_lang === 'en') {
-                $sql .= "AND news_trad.id_lang = '".$this->_idlang."' ";
+            $sql .= ($this->_lang === 'fr' || $this->_lang === 'en' ? "AND news_trad.id_lang = '".$this->_idlang."' " : "AND news_trad.id_lang = '".$this->_idlang."' OR news_trad.id_lang = 'en' ");
+            if($currentPage === 0 || $currentPage == '1') {
+                $sql .= "ORDER BY news.date_publi DESC LIMIT ".$max;
             }
             else {
-                $sql .= "AND news_trad.id_lang = '".$this->_idlang."' OR news_trad.id_lang = 'en' ";
+                $sqlMin = ($currentPage - 1) * $max;
+                $sqlMax = $sqlMin + $max;
+                $sql .= "ORDER BY news.date_publi DESC LIMIT ".$sqlMin.", ".$sqlMax;
             }
-            $sql .= "ORDER BY news.date_publi DESC LIMIT ".$max;
             return $this->execQuery($sql);
         }
         catch (PDOException $e) {

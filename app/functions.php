@@ -93,6 +93,30 @@ function display_alertes() {
     }
 }
 
+function displaySelectLang() {
+    $Layout = new Layouts();
+
+    if($Layout->checkBoolOpt('DISPLAY_SELECT_LANG')) {
+        $result ='<li><span class="icon icon-shape-planete" id="langues-btn"></span></li>';
+    }
+    else {
+        $result ='';
+    }
+    echo $result;
+}
+
+function displaySelectLangMobile() {
+    $Layout = new Layouts();
+
+    if($Layout->checkBoolOpt('DISPLAY_SELECT_LANG')) {
+        $result ='<span class="icon icon-shape-planete" id="langues-btn-mobile"></span>';
+    }
+    else {
+        $result ='';
+    }
+    echo $result;
+}
+
 function getCurrentTrad() {
     $lang = new Langues();
     $file = 'trad_'.$_SESSION['current']['lang'].'.ini';
@@ -136,10 +160,20 @@ function writeParagraphe($paragraphe, $section, $ref, $class) {
     echo $result;
 }
 
-function the_news() {
+function the_news($currentPage) {
     $news = new News();
     try {
-        echo $news->displayNews();
+        echo $news->displayNews($currentPage);
+    }
+    catch (PDOException $e) {
+        echo 'ERROR : '.$e.'<br>';
+    }
+}
+
+function news_pagination($currentPage) {
+    $news = new News();
+    try {
+        echo $news->getPagination($currentPage);
     }
     catch (PDOException $e) {
         echo 'ERROR : '.$e.'<br>';

@@ -6,7 +6,8 @@
             <div class="row row-block">
                 <div class="small-3 columns contact-menu"><span class="icon icon-shape-paperplane" id="contact-btn"></span></div>
                 <div class="small-6 columns logo"><img src="img/eqnx-logo-s.png" alt="Equinoxe MIS Development" /></div>
-                <div class="small-3 columns langues-menu"><span class="icon icon-shape-planete" id="langues-btn-mobile"></span></div>
+<!--                <div class="small-3 columns langues-menu"><span class="icon icon-shape-planete" id="langues-btn-mobile"></span></div>-->
+                <div class="small-3 columns langues-menu"><?php displaySelectLangMobile(); ?></div>
             </div>
         </nav>
 
@@ -14,7 +15,8 @@
             <div class="row row-block">
                 <div class="small-9 columns menu-items">
                     <ul>
-                        <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>
+<!--                        <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>-->
+                        <?php displaySelectLang(); ?>
                         <li><a href="#"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
                         <li><a href="<?php echo buildUrl('isacademia'); ?>"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
                         <li><a href="<?php echo buildUrl('news'); ?>"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
