@@ -1,0 +1,15 @@
+AuthType Basic
+
+AuthName Restricted
+
+Require user eqnx
+AuthUserFile /home/www/e35f8f486ffaed1c782f3898e60f69b2/.htpasswd
+AuthGroupFile /home/www/e35f8f486ffaed1c782f3898e60f69b2/.htgroup
+
+#### Rewrite Rules
+RewriteEngine on
+RewriteBase /eqnx-test/
+Options +FollowSymlinks
+
+RewriteRule ^(fr|de|en)/(.*)-([0-9]+)$ index.php?page=$2&lang=$1&pagination=$3 [L]
+RewriteRule ^(fr|de|it|en)/(.*)$ index.php?page=$2&lang=$1 [L]
