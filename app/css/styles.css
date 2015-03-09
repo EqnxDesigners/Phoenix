@@ -1155,6 +1155,14 @@ form.inscription-form .group label {
     -moz-column-count: 1 !important;
     -webkit-column-count: 1 !important;
   }
+  #alerte-seminaire {
+    position: relative;
+    top: -15px;
+    padding: 1rem;
+  }
+  #alerte-seminaire .columns {
+    padding: 0 !important;
+  }
 }
 @media only screen and (min-width: 40.063em) {
   h2 {

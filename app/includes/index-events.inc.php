@@ -67,9 +67,6 @@
                                   <input type="hidden" name="eventPlace" value="Parc scientifique de l'EPFL" form-code="event-1407"/>
                               </div>
                                <div class="row">
-                                   <div class="small-12 medium-6 columns text-center"> 
-                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-cancel'); ?>" class="button inscr-form-cancel"/>
-                                   </div>
                                    <div class="small-12 medium-6 columns text-center">
                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-send'); ?>" class="button send-form" form-code="event-1407"/>
                                        <span class="send-spinner" style="display:none;">
@@ -77,6 +74,9 @@
                                            <div class="bounce2"></div>
                                            <div class="bounce3"></div> 
                                        </span>
+                                   </div>
+                                   <div class="small-12 medium-6 columns text-center"> 
+                                       <input type="button" value="<?php getTexte('home-events', 'form-btn-cancel'); ?>" class="button inscr-form-cancel"/>
                                    </div>
                                 </div>            
                             </form>

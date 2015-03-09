@@ -108,10 +108,10 @@
             <a href="http://www.formation-continue-unil-epfl.ch/" target="_blank"><img src="img/logos_clients/formation-continue-unil-epfl.jpeg" alt="Formation continue UNIL - EPFL"/></a>
         </div>
         <div class="gallery-cell">
-            <a href="http://www.hesge.ch/geneve" target="_blank"><img src="img/logos_clients/hesge.jpg" alt="HES Genève"/></a>
+            <a href="http://www.hesge.ch/geneve" target="_blank"><img src="img/logos_clients/hesge.jpg" alt="HES-SO Genève"/></a>
         </div>
         <div class="gallery-cell">
-            <a href="http://epfl.ch/" target="_blank"><img src="img/logos_clients/Logo-epfl.png" alt="Formation continue UNIL - EPFL"/></a>
+            <a href="http://epfl.ch/" target="_blank"><img src="img/logos_clients/Logo-epfl.png" alt="EPFL"/></a>
         </div>
         <div class="gallery-cell">
             <a href="http://graduateinstitute.ch/fr/home.html/" target="_blank"><img src="img/logos_clients/graduate-institute-geneva.png" alt="Graduate Institute Geneva"/></a>
