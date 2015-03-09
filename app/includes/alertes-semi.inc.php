@@ -8,7 +8,6 @@
             </div>
             <div class="small-2 medium-6 columns text-right">
                 <a target="index-events">
-                    <!--                    <?php getTexte('alertes', 'semi_btn'); ?>&nbsp;-->
                     <span class="icon icon-shape-fleche-droite icon-param-color-white"></span>
                 </a>
             </div>

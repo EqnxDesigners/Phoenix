@@ -1163,6 +1163,9 @@ form.inscription-form .group label {
   #alerte-seminaire .columns {
     padding: 0 !important;
   }
+  #alerte-seminaire .columns h2 {
+    font-size: 1.2rem;
+  }
 }
 @media only screen and (min-width: 40.063em) {
   h2 {

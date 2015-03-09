@@ -83,9 +83,6 @@
                         </div>
                     </div>
                 </div>
-                
-
-
                 <div class="row content" id="panel21">
                     <div class="row data-event-1502">
                         <div class="small-12 columns event-details">
@@ -110,7 +107,6 @@
                             <a class="inscription-event" event-code="1502">Inscription<span class="icon icon-shape-fleche-droite"></span></a>
                         </div>
                     </div>
-                    
                     <div class="row inscription-event-1502" style="display:none;">
                         <div class="small-12 columns event-details">
                             <h4>Inscription à l'event 1502</h4>
@@ -155,6 +151,5 @@
         </div>
 
     </div>
-
     <hr/>
 </section>
