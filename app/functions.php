@@ -97,6 +97,14 @@ function display_alertes() {
     }
 }
 
+function displayAlertJob() {
+    $Layout = new Layouts();
+
+    if($Layout->checkBoolOpt('DISPLAY_JOB_ALERT')) {
+        include_once dirname(__FILE__).'/includes/alerte-job.inc.php';
+    }
+}
+
 function displaySelectLang() {
     $Layout = new Layouts();
 
