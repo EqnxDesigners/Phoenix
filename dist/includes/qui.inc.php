@@ -2,7 +2,7 @@
     <h1><?php getTexte('qui', 'page_title'); ?></h1>
 </section>
 
-<?php include dirname(__FILE__).'/alerte-job.inc.php'; ?>
+<?php displayAlertJob(); ?>
 
 <section class="row sub-page">
     <h3><?php getTexte('qui', 'txt1_title'); ?></h3>
