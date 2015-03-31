@@ -66,8 +66,8 @@ function EnvoiFormulaireInscription($nom, $email, $event, $eventDate, $eventPlac
   $mail_content_validation = str_replace("%%%EVENTDATE%%%", $eventDate, $mail_content_validation);
   $mail_content_validation = str_replace("%%%EVENTPLACE%%%", $eventPlace, $mail_content_validation);
   
-  $destinataire_email = 'ap@eqnx.ch';
-  $destinataire_name = 'Aline Pfänder';
+  $destinataire_email = 'info@eqnx.ch';
+  $destinataire_name = 'Equinoxe MIS Development';
   $destinataire_validation_email = $email;
   $destinataire_validation_name = $nom;
   
@@ -104,8 +104,11 @@ function EnvoiFormulaireContact($nom, $email, $message){
   
   $mail_content_validation = str_replace("%%%MESSAGE%%%", $message, $mail_content_validation);
   
-  $destinataire_email = 'ap@eqnx.ch';
-  $destinataire_name = 'Aline Pfänder';
+//  $destinataire_email = 'ap@eqnx.ch';
+//  $destinataire_email = 'info@eqnx.ch';
+  $destinataire_email = 'jclerc@eqnx.ch';
+//  $destinataire_name = 'Aline Pfänder';
+  $destinataire_name = 'Equinoxe MIS Development';
   $destinataire_validation_email = $email;
   $destinataire_validation_name = $nom;
   
@@ -122,31 +125,51 @@ function EnvoiFormulaireContact($nom, $email, $message){
 }
 
 function SendMail($subject, $content, $for_email, $for_name){
-  $mail = new PHPMailer;
+  $mail = new PHPMailer();
+
   $mail->CharSet = 'UTF-8';
-  
   $mail->ClearAllRecipients();
-  
-  // SMTP
-  $mail->isSMTP();
-  $mail->SMTPDebug = 0;
-  $mail->Debugoutput = 'html';
-  $mail->Host = 'smtp.gmail.com';
-  $mail->Port = 587;
-  $mail->SMTPSecure = 'tls';
-  $mail->SMTPAuth = true;
-  $mail->Username = "liline4@gmail.com";
-  $mail->Password = "Francine.01";
-  
+
+//  $mail->AddReplyTo('info@eqnx.ch', 'Equinoxe MIS Development');
   $mail->AddAddress($for_email, $for_name);
-  
+//  $mail->SetFrom('info@eqnx.ch', 'Equinoxe MIS Development');
+//  $mail->AddReplyTo('info@eqnx.ch', 'Equinoxe MIS Development');
+
   $mail->Subject= $subject;
   $mail->msgHTML($content);
-  
+
   if (!$mail->send()) {
     return false;
-  }else{
-     return true;
   }
+  else {
+    return true;
+  }
+
+  // SMTP Gmail
+//  $mail->isSMTP();
+//  $mail->SMTPDebug = 0;
+//  $mail->Debugoutput = 'html';
+//  $mail->Host = 'smtp.gmail.com';
+//  $mail->Port = 587;
+//  $mail->SMTPSecure = 'tls';
+//  $mail->SMTPAuth = true;
+//  $mail->Username = "liline4@gmail.com";
+//  $mail->Password = "Francine.01";
+
+    // SMTP Worldcom no auth
+//  $mail->SMTPDebug = 1;
+//  $mail->Debugoutput = 'html';
+//  $mail->Host = 'smtp.worldcom.ch';
+
+    // SMTP Infomaniack
+//    $mail->isSMTP();
+//    $mail->SMTPDebug = 1;
+//    $mail->Debugoutput = 'html';
+//    $mail->Host = 'smtp.worldcom.ch';
+//    $mail->Port = 587;
+//    $mail->SMTPSecure = 'tls';
+//    $mail->SMTPAuth = true;
+//    $mail->Username = "tech@eqnx.ch";
+//    $mail->Password = "isacademi@";
 }
 ?>

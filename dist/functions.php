@@ -76,7 +76,7 @@ function displayCurrentPage() {
         display_alertes();
         include_once dirname(__FILE__).'/includes/index-isa.inc.php';
         include_once dirname(__FILE__).'/includes/index-news.inc.php';
-        include_once dirname(__FILE__).'/includes/index-events.inc.php';
+        displayEvents();
         include_once dirname(__FILE__).'/includes/index-support.inc.php';
     }
 }
@@ -127,6 +127,14 @@ function displaySelectLangMobile() {
         $result ='';
     }
     echo $result;
+}
+
+function displayEvents() {
+    $Layout = new Layouts();
+
+    if($Layout->checkBoolOpt('DISPLAY_EVENTS')) {
+        include_once dirname(__FILE__).'/includes/index-events.inc.php';
+    }
 }
 
 function getCurrentTrad() {

@@ -67,9 +67,6 @@
                                   <input type="hidden" name="eventPlace" value="Parc scientifique de l'EPFL" form-code="event-1407"/>
                               </div>
                                <div class="row">
-                                   <div class="small-12 medium-6 columns text-center"> 
-                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-cancel'); ?>" class="button inscr-form-cancel"/>
-                                   </div>
                                    <div class="small-12 medium-6 columns text-center">
                                        <input type="button" value="<?php getTexte('home-events', 'form-btn-send'); ?>" class="button send-form" form-code="event-1407"/>
                                        <span class="send-spinner" style="display:none;">
@@ -78,14 +75,14 @@
                                            <div class="bounce3"></div> 
                                        </span>
                                    </div>
+                                   <div class="small-12 medium-6 columns text-center"> 
+                                       <input type="button" value="<?php getTexte('home-events', 'form-btn-cancel'); ?>" class="button inscr-form-cancel"/>
+                                   </div>
                                 </div>            
                             </form>
                         </div>
                     </div>
                 </div>
-                
-
-
                 <div class="row content" id="panel21">
                     <div class="row data-event-1502">
                         <div class="small-12 columns event-details">
@@ -110,7 +107,6 @@
                             <a class="inscription-event" event-code="1502">Inscription<span class="icon icon-shape-fleche-droite"></span></a>
                         </div>
                     </div>
-                    
                     <div class="row inscription-event-1502" style="display:none;">
                         <div class="small-12 columns event-details">
                             <h4>Inscription à l'event 1502</h4>
@@ -155,6 +151,5 @@
         </div>
 
     </div>
-
     <hr/>
 </section>

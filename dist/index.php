@@ -8,6 +8,9 @@ require_once dirname(__FILE__).'/functions.php';
 //----- Class autoload ------------------------------------
 classAutoLoad();
 require_once dirname(__FILE__).'/class/PHPMailer/PHPMailerAutoload.php';
+//spl_autoload_register(function($class) {
+//    require_once dirname(__FILE__).'/class/'.$class.'.class.php';
+//});
 
 //----- Header meta datas ---------------------------------
 include_once dirname(__FILE__).'/config/header.meta.php';

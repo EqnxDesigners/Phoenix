@@ -549,15 +549,17 @@ class News extends DB {
             $dateJour   = $this->setDateTimeNow();
             $dateStart  = $this->setDateTime($data['date-diffusion']);
             $dateEnd    = $this->setDateTime($data['date-revocation']);
-            $dateUpdate = $this->setDateTimeNow();
-            
+
             $sql = "INSERT INTO news (date_publi,date_start,date_end,date_update,imageUrl,status)
-                        VALUES ('".$dateJour."',
-                                '".$dateStart."',
-                                '".$dateEnd."',
-                                '".$dateJour."',
-                                '".$fileName."',
-                                '".$status."')";
+                        VALUES ('".$dateJour."', '".$dateStart."', '".$dateEnd."', '".$dateJour."', ";
+            if($fileName === 'NULL') {
+                $sql .= " NULL, ";
+            }
+            else {
+                $sql .= " '".$fileName."', ";
+            }
+            $sql .= " '".$status."') ";
+
             return $this->applyQueryWithLastId($sql);
         }
         catch (PDOException $e) {

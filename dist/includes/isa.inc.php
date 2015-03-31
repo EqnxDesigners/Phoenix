@@ -108,10 +108,10 @@
             <a href="http://www.formation-continue-unil-epfl.ch/" target="_blank"><img src="img/logos_clients/formation-continue-unil-epfl.jpeg" alt="Formation continue UNIL - EPFL"/></a>
         </div>
         <div class="gallery-cell">
-            <a href="http://www.hesge.ch/geneve" target="_blank"><img src="img/logos_clients/hesge.jpg" alt="HES Genève"/></a>
+            <a href="http://www.hesge.ch/geneve" target="_blank"><img src="img/logos_clients/hesge.jpg" alt="HES-SO Genève"/></a>
         </div>
         <div class="gallery-cell">
-            <a href="http://epfl.ch/" target="_blank"><img src="img/logos_clients/Logo-epfl.png" alt="Formation continue UNIL - EPFL"/></a>
+            <a href="http://epfl.ch/" target="_blank"><img src="img/logos_clients/Logo-epfl.png" alt="EPFL"/></a>
         </div>
         <div class="gallery-cell">
             <a href="http://graduateinstitute.ch/fr/home.html/" target="_blank"><img src="img/logos_clients/graduate-institute-geneva.png" alt="Graduate Institute Geneva"/></a>
@@ -119,11 +119,17 @@
         <div class="gallery-cell">
             <a href="http://www.hes-so.ch/" target="_blank"><img src="img/logos_clients/HESSO.jpg" alt="HESSO"/></a>
         </div>
+        <div class="gallery-cell gallery-cell-wide">
+            <a href="http://www.eesp.ch/" target="_blank"><img src="img/logos_clients/logo_eesp.png" alt="EESP"/></a>
+        </div>
         <div class="gallery-cell">
             <a href="http://www.univ-catholille.fr/" target="_blank"><img src="img/logos_clients/Logo-icl.png" alt="Institut Catholique de Lille"/></a>
         </div>
         <div class="gallery-cell">
             <a href="http://www.hepl.ch/" target="_blank"><img src="img/logos_clients/hep.jpg" alt="HEP"/></a>
+        </div>
+        <div class="gallery-cell gallery-cell-wide">
+            <a href="http://www4.ti.ch/tich/home/" target="_blank"><img src="img/logos_clients/logo_ti.png" alt="Canton du Tessin"/></a>
         </div>
         <div class="gallery-cell">
             <a href="http://www.hevs.ch/fr/" target="_blank"><img src="img/logos_clients/HESSO-Valais.png" alt="HESSO-Valais"/></a>

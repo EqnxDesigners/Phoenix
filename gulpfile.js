@@ -13,7 +13,8 @@ var gulp = require('gulp'),
 gulp.task('default', function() {
     //Sequence
     //runSequence('clean', ['copy', 'copy-partials', 'sass', 'uglify'], 'copy-templates', function() {
-    runSequence('concatCss', 'minifyCss', 'concatJs', 'uglify', 'imageMin', function() {
+    //runSequence('concatCss', 'minifyCss', 'concatJs', 'uglify', 'imageMin', function() {
+    runSequence('justMinifyCss', 'justUglify', 'imageMin', function() {
         console.log("Successfully built.");
     })
 });
@@ -55,8 +56,20 @@ gulp.task('minifyCss', function() {
         .pipe(gulp.dest('./dist/css/'))
 });
 
+gulp.task('justMinifyCss', function() {
+    gulp.src('./app/css/*.css')
+        .pipe(minifyCss())
+        .pipe(gulp.dest('./dist/css/'))
+});
+
 gulp.task('uglify', function() {
     gulp.src('./dist/js/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js/'))
+});
+
+gulp.task('justUglify', function() {
+    gulp.src('./app/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'))
 });

@@ -12,17 +12,17 @@ date_default_timezone_set('Europe/London');
 //$date = strftime("%A %d %B %Y");
 
 //DB HOST
-define('DB_HOST', 'mysql.kiwanis-cossonay.ch');
+define('DB_HOST', 'llnx.myd.infomaniak.com');
 //DB NAME
-define('DB_NAME', 'kiwaniscossonaych14');
+define('DB_NAME', 'llnx_equinoxeweb');
 //DB USER NAME
-define('DB_USER_NAME', 'ilights');
+define('DB_USER_NAME', 'llnx_designersql');
 //DB PASSWORD
-define('DB_PASSWORD', 'cE@TLVuo9Zok');
+define('DB_PASSWORD', 'PkoRAW0gzghN');
 //DB Data Source Name
 define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST);
 //Base URL pour le rewrite
-define('BASE_URL', 'http://www.kiwanis-cossonay.ch/eqnx-test/');
+define('BASE_URL', 'http://llnxajsk.preview.sharedbox.com/');
         
 //TITRE DES PAGES
 define('PAGE_TITLE', 'Equinoxe MIS Development');
