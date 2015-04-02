@@ -12,7 +12,7 @@
                 <p><?php getTexte('home-support', 'wiki-txt'); ?></p>
             </div>
             <div class="small-12 columns">
-                <a href="https://equinoxe1.epfl.ch/wiki-eqnx" target="_blank" class="button large radius alert"><?php getTexte('home-support', 'wiki-btn'); ?></a>
+                <a href="https://equinoxe1.epfl.ch/IS-Academia/Accueil" target="_blank" class="button large radius alert"><?php getTexte('home-support', 'wiki-btn'); ?></a>
             </div>
         </div>
     </div>

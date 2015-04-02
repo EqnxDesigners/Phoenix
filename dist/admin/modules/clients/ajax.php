@@ -23,21 +23,21 @@ if(isset($_POST['publish'])) {
             $Client = new Clients();
             if(buildAvertissementMail($Client->addClient($_POST), $_POST)) {
                 //echo "LE MAIL EST PARTI ET LE CLIENT CREE";
-                header("location: ../../index.php?module=".$_SESSION['current_module']);
+                header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
             }
             else {
                 $alert = 'Un problème est survenu à l\'envoi du mail';
                 //echo $alert;
-                header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
+                header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
             }
         }
         catch (PDOException $e) {
             $alert = 'ERREUR : '.$e;
-            header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
+            header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
         }
     }
     else {
-        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
+        header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
 
@@ -54,15 +54,15 @@ if(isset($_POST['majitem'])) {
         try {
             $Client = new Clients();
             $Client->updateClient($_POST);
-            header("location: ../../index.php?module=".$_SESSION['current_module']);
+            header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
         }
         catch (PDOException $e) {
             $alert = 'ERREUR : '.$e;
-            header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
+            header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
         }
     }
     else {
-        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
+        header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
 

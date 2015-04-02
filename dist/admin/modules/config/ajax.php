@@ -52,13 +52,13 @@ if(isset($_POST['publish'])) {
         try {
             $Conf = new Config();
             $Conf->addVariable($_POST);
-            header("location: ../../index.php?module=" . $_SESSION['current_module']);
+            header("location: ../../index_spip.php?module=" . $_SESSION['current_module']);
         } catch (PDOException $e) {
             $alert = 'ERREUR : ' . $e;
-            header("location: ../../index.php?module=" . $_SESSION['current_module'] . "&alert=" . $alert);
+            header("location: ../../index_spip.php?module=" . $_SESSION['current_module'] . "&alert=" . $alert);
         }
     } else {
-        header("location: ../../index.php?module=" . $_SESSION['current_module'] . "&alert=" . $alert);
+        header("location: ../../index_spip.php?module=" . $_SESSION['current_module'] . "&alert=" . $alert);
     }
 }
 ?>

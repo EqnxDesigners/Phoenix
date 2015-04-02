@@ -14,7 +14,7 @@ function displayModule($module = NULL) {
         $_SESSION['current_module'] = DEFAULT_MODULE;
     }
     else {
-        include_once dirname(__FILE__).'/modules/'.$module.'/index.php';
+        include_once dirname(__FILE__).'/modules/'.$module.'/index_spip.php';
         $_SESSION['current_module'] = $module;
     }
 }

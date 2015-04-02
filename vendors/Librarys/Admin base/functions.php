@@ -6,7 +6,7 @@ function the_content($module=NULL) {
             include_once dirname(__FILE__).'/login.php';
         }
         else {
-            include_once dirname(__FILE__).'/modules/'.$module.'/index.php';
+            include_once dirname(__FILE__).'/modules/'.$module.'/index_spip.php';
         }
     }
     else {

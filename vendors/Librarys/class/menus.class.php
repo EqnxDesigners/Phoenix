@@ -156,7 +156,7 @@ class Menus extends DB {
             else {
                 $result .= '<li>';
             }
-            $result .= '<a href="index.php?module='.$mod['param'].'" target="_self">'.$mod['name'].'</a></li>';
+            $result .= '<a href="index_spip.php?module='.$mod['param'].'" target="_self">'.$mod['name'].'</a></li>';
         }
         foreach($this->listAddsModules() as $k => $adds) {
             $result .= '<li>'.$adds.'</li>';

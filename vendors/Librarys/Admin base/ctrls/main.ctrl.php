@@ -1,7 +1,7 @@
 <?php
 //Vérification de la SESSION
 if($main->verifSession() != true) {
-	header("Location: index.php");
+	header("Location: index_spip.php");
 }
 
 //Chargelemt des modules
@@ -15,7 +15,7 @@ else {
 //Logout
 if(isset($_GET['logout'])) {
 	$main->logOut();
-	header("Location: index.php");
+	header("Location: index_spip.php");
 }
 
 ?>

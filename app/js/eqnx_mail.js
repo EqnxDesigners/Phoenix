@@ -4,7 +4,9 @@ $(document).ready(function () {
     
     //------ Variables globales ---------------------------
     var urlAjaxFile = './ajax.php';
-    var urlAjaxMail = 'http://www.equinoxemis.ch/mail/ajax_mail.php';
+    //var urlAjaxMail = 'http://www.equinoxemis.ch/mail/ajax_mail.php';
+    var urlAjaxMail = 'http://www.eqnx.ch/mail/ajax_mail.php';
+    //var urlAjaxMail = 'http://www.ilights.ch/eqnx/mail/ajax_mail.php';
 
     //------ ETAT INIATIAL ---------------------------
     $('.content-sem-inscr-valid').hide();

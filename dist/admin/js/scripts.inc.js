@@ -12,7 +12,7 @@ $(document).ready(function() {
             $.post(urlAjax, {a: 'logMeOut' })
             .done(function() {
                 sessionStorage.clear();
-                location.href = 'index.php';
+                location.href = 'index_spip.php';
             });
         }
     });
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 else {
                     sessionStorage.setItem('logged', 'true');
                     secureSynch();
-                    location.href = 'index.php';
+                    location.href = 'index_spip.php';
                 }
             })
             .fail(function() {
@@ -70,7 +70,7 @@ $(document).ready(function() {
                     $.post(urlAjax, {a: 'logMeOut' })
                     .done(function() {
                         sessionStorage.clear();
-                        location.href = 'index.php';
+                        location.href = 'index_spip.php';
                     });
                 }
             });

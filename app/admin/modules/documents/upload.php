@@ -33,7 +33,7 @@ if (isset($_FILES['myfile'])) {
 //            $Media = new Medias();
 //            try {
 //                $id_media = $media->addItem($sFileName, '0', 'file');
-//                header("location: ../../index.php?module=".$_SESSION['current_module']);
+//                header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
 //            }
 //            catch (Exception $e) {
 //                echo '<div class="f">'.$e->getMessage().'</div>';

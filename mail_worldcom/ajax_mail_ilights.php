@@ -1,16 +1,15 @@
 <?php
+//----- Header cross-domain -------------------------------
+header("Access-Control-Allow-Origin: *");
+
 //----- Fichier de configuration --------------------------
-require_once dirname(__FILE__).'/config/config.inc.php';
+require_once './config/config.inc.php';
 
 //----- Fonctions -----------------------------------------
-require_once dirname(__FILE__).'/functions.php';
+require_once './functions.php';
 
 //----- Class autoload ------------------------------------
-classAutoLoad();
-require_once dirname(__FILE__).'/class/PHPMailer/PHPMailerAutoload.php';
-//spl_autoload_register(function($class) {
-//    require_once dirname(__FILE__).'/class/'.$class.'.class.php';
-//});
+require_once './class/PHPMailer/PHPMailerAutoload.php';
 
 //----- Fonctions AJAX ------------------------------------
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailInscr') {
@@ -22,25 +21,6 @@ if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
 }
 
 //------ Envoi emails -----------------------------------------
-
-//if(isset($_POST['contactForm'])) { // ajouter le formulaire d'inscription
-//  // récupère les données du formulaire
-//  $message = $_POST['message'];
-//  
-//  // envoi des mails
-//  EnvoiFormulaireContact($message); 
-//}
-//
-
-//if(isset($_POST['seminaireForm'])) { // ajouter le formulaire d'inscription
-//  // récupère les données du formulaire
-//  $event = $_POST['event'];
-//  $eventDate = $_POST['eventDate'];
-//  $eventPlace = $_POST['eventPlace'];
-//  
-//  // envoi des mails
-//  EnvoiFormulaireInscription($event, $eventDate, $eventPlace); 
-//}
 
 /**
 *   Envoi du formulaire d'inscription au séminaire 
@@ -103,11 +83,14 @@ function EnvoiFormulaireContact($nom, $email, $message){
   $mail_content = str_replace("%%%MESSAGE%%%", $message, $mail_content);
   
   $mail_content_validation = str_replace("%%%MESSAGE%%%", $message, $mail_content_validation);
-  
+
+  //TESTS
 //  $destinataire_email = 'ap@eqnx.ch';
-//  $destinataire_email = 'info@eqnx.ch';
-  $destinataire_email = 'jclerc@eqnx.ch';
 //  $destinataire_name = 'Aline Pfänder';
+  $destinataire_email = 'jclerc@eqnx.ch';
+
+
+//  $destinataire_email = 'info@eqnx.ch';
   $destinataire_name = 'Equinoxe MIS Development';
   $destinataire_validation_email = $email;
   $destinataire_validation_name = $nom;
@@ -126,17 +109,31 @@ function EnvoiFormulaireContact($nom, $email, $message){
 
 function SendMail($subject, $content, $for_email, $for_name){
   $mail = new PHPMailer();
-
   $mail->CharSet = 'UTF-8';
   $mail->ClearAllRecipients();
 
-//  $mail->AddReplyTo('info@eqnx.ch', 'Equinoxe MIS Development');
-  $mail->AddAddress($for_email, $for_name);
-//  $mail->SetFrom('info@eqnx.ch', 'Equinoxe MIS Development');
-//  $mail->AddReplyTo('info@eqnx.ch', 'Equinoxe MIS Development');
+  // SMTP Worldcom no auth
+  $mail->isSMTP();
+  $mail->Host = 'smtp.worldcom.ch';
+//  $mail->Host = 'smtp.ilights.ch';
+  $mail->SMTPDebug = 0;
+
+//  $mail->Port = 587;
+//  $mail->Port = 25;
+//  $mail->SMTPSecure = 'tls';
+//  $mail->SMTPAuth = true;
+//  $mail->Username = "eqnx@ilights.ch";
+//  $mail->Password = "6EO@lefHuMjc";
+
+  $mail->SetFrom('info@eqnx.ch', 'Equinoxe MIS Development');
+//  $mail->SetFrom('eqnx@ilights.ch', 'Equinoxe MIS Development');
+  $mail->AddReplyTo('info@eqnx.ch', 'Equinoxe MIS Development');
 
   $mail->Subject= $subject;
+  $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
   $mail->msgHTML($content);
+
+  $mail->AddAddress($for_email, $for_name);
 
   if (!$mail->send()) {
     return false;
@@ -144,33 +141,5 @@ function SendMail($subject, $content, $for_email, $for_name){
   else {
     return true;
   }
-
-  // SMTP Gmail
-//  $mail->isSMTP();
-//  $mail->SMTPDebug = 0;
-//  $mail->Debugoutput = 'html';
-//  $mail->Host = 'smtp.gmail.com';
-//  $mail->Port = 587;
-//  $mail->SMTPSecure = 'tls';
-//  $mail->SMTPAuth = true;
-//  $mail->Username = "liline4@gmail.com";
-//  $mail->Password = "Francine.01";
-//  $mail->Password = "6EO@lefHuMjc";
-
-    // SMTP Worldcom no auth
-//  $mail->SMTPDebug = 1;
-//  $mail->Debugoutput = 'html';
-//  $mail->Host = 'smtp.worldcom.ch';
-
-    // SMTP Infomaniack
-//    $mail->isSMTP();
-//    $mail->SMTPDebug = 1;
-//    $mail->Debugoutput = 'html';
-//    $mail->Host = 'smtp.worldcom.ch';
-//    $mail->Port = 587;
-//    $mail->SMTPSecure = 'tls';
-//    $mail->SMTPAuth = true;
-//    $mail->Username = "tech@eqnx.ch";
-//    $mail->Password = "isacademi@";
 }
 ?>

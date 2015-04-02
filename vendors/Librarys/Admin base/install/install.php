@@ -89,6 +89,6 @@ mysql_query("INSERT INTO `langue` (`IDLangue`, `Langue`) VALUES
 	(2, 'en')");
 
 
-header("location: ../index.php");
+header("location: ../index_spip.php");
 
 ?>
