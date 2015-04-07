@@ -156,12 +156,12 @@ class News extends DB {
                     WHERE news.status='1' ";
             $sql .= ($this->_lang === 'fr' || $this->_lang === 'en' ? "AND news_trad.id_lang = '".$this->_idlang."' " : "AND news_trad.id_lang = '".$this->_idlang."' OR news_trad.id_lang = 'en' ");
             if($currentPage === 0 || $currentPage == '1') {
-                $sql .= "ORDER BY news.date_publi DESC LIMIT ".$max;
+                $sql .= "ORDER BY news.date_publi ASC LIMIT ".$max;
             }
             else {
                 $sqlMin = ($currentPage - 1) * $max;
                 $sqlMax = $sqlMin + $max;
-                $sql .= "ORDER BY news.date_publi DESC LIMIT ".$sqlMin.", ".$sqlMax;
+                $sql .= "ORDER BY news.date_publi ASC LIMIT ".$sqlMin.", ".$sqlMax;
             }
             return $this->execQuery($sql);
         }

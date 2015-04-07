@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.10
+-- version 4.3.10
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 05 Mars 2015 à 15:36
--- Version du serveur :  5.5.38
--- Version de PHP :  5.6.2
+-- Généré le :  Mar 07 Avril 2015 à 08:49
+-- Version du serveur :  5.5.42
+-- Version de PHP :  5.6.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories_medias` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `categorie` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
@@ -44,7 +44,7 @@ INSERT INTO `categories_medias` (`id`, `categorie`) VALUES
 --
 
 CREATE TABLE `clients` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `societe` varchar(255) NOT NULL,
   `titre` varchar(25) NOT NULL,
   `nom` varchar(255) NOT NULL,
@@ -74,7 +74,7 @@ INSERT INTO `clients` (`id`, `societe`, `titre`, `nom`, `prenom`, `email`, `tele
 --
 
 CREATE TABLE `clients_tokens` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `id_client` int(10) unsigned NOT NULL,
   `token` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
@@ -93,7 +93,7 @@ INSERT INTO `clients_tokens` (`id`, `id_client`, `token`) VALUES
 --
 
 CREATE TABLE `clients_videos_docs` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `id_client` int(10) unsigned NOT NULL,
   `id_media` int(10) unsigned NOT NULL,
   `type_media` varchar(25) NOT NULL COMMENT 'vid ou doc'
@@ -106,7 +106,7 @@ CREATE TABLE `clients_videos_docs` (
 --
 
 CREATE TABLE `docs` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `id_categorie` int(10) unsigned NOT NULL,
   `doc` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
@@ -133,7 +133,7 @@ INSERT INTO `docs` (`id`, `id_categorie`, `doc`, `titre`, `descriptif`, `date_pu
 --
 
 CREATE TABLE `langues` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `langue` varchar(255) NOT NULL,
   `langue_abrev` varchar(10) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -155,14 +155,14 @@ INSERT INTO `langues` (`id`, `langue`, `langue_abrev`) VALUES
 --
 
 CREATE TABLE `news` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `date_publi` datetime NOT NULL,
   `date_start` datetime NOT NULL,
   `date_end` datetime NOT NULL,
   `date_update` datetime NOT NULL,
   `imageUrl` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL COMMENT '0 = inactif / 1 = actif / 2 = archive / 3 = supprime / 4 = brouillon'
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `news`
@@ -178,8 +178,7 @@ INSERT INTO `news` (`id`, `date_publi`, `date_start`, `date_end`, `date_update`,
 (16, '2015-03-04 14:03:22', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-03-05 13:03:31', NULL, 1),
 (17, '2015-03-04 14:03:53', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-03-05 13:03:16', NULL, 1),
 (18, '2015-03-04 14:03:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-03-05 13:03:38', NULL, 1),
-(19, '2015-03-05 08:03:51', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-03-05 13:03:02', NULL, 1),
-(20, '2015-03-05 08:03:24', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-03-05 13:03:17', NULL, 1);
+(27, '2015-03-31 07:03:22', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2015-03-31 07:03:03', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -188,13 +187,13 @@ INSERT INTO `news` (`id`, `date_publi`, `date_start`, `date_end`, `date_update`,
 --
 
 CREATE TABLE `news_trad` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `id_news` int(10) unsigned NOT NULL,
   `id_lang` int(10) unsigned NOT NULL,
   `title` varchar(255) NOT NULL,
   `sub_title` varchar(255) NOT NULL,
   `content` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `news_trad`
@@ -235,14 +234,10 @@ INSERT INTO `news_trad` (`id`, `id_news`, `id_lang`, `title`, `sub_title`, `cont
 (54, 18, 2, 'News fake 5', 'Un sous-titre trop génial', '<p>Not a sunrise but a galaxyrise the carbon in our apple pies something incredible is waiting to be known. Cosmos. Paroxysm of global death with pretty stories for which there''s little good evidence extraplanetary, tendrils of gossamer clouds from which we spring cosmic fugue, bits of moving fluff, cosmic ocean rings of Uranus citizens of distant epochs light years culture light years tesseract, of brilliant syntheses! Descended from astronomers consciousness, quasar, intelligent beings tendrils of gossamer clouds galaxies, a mote of dust suspended in a sunbeam dream of the mind''s eye.</p>\r\n<p>Great turbulent clouds, decipherment? Billions upon billions Apollonius of Perga tendrils of gossamer clouds are creatures of the cosmos venture. Permanence of the stars kindling the energy hidden in matter Flatland. Made in the interiors of collapsing stars intelligent beings a very small stage in a vast cosmic arena Cambrian explosion Vangelis Jean-Fran&ccedil;ois Champollion Orion''s sword kindling the energy hidden in matter Euclid brain is the seed of intelligence a very small stage in a vast cosmic arena? Prime number across the centuries cosmic fugue inconspicuous motes of rock and gas intelligent beings extraplanetary made in the interiors of collapsing stars stirred by starlight.</p>\r\n<p>Intelligent beings the ash of stellar alchemy realm of the galaxies, cosmos as a patch of light the ash of stellar alchemy at the edge of forever extraordinary claims require extraordinary evidence circumnavigated, shores of the cosmic ocean, the only home we''ve ever known light years radio telescope concept of the number one vastness is bearable only through love astonishment take root and flourish how far away laws of physics decipherment. Tingling of the spine, another world galaxies ship of the imagination.</p>\r\n<p>Cosmos quasar kindling the energy hidden in matter. Birth. Muse about another world, star stuff harvesting star light, cosmic fugue tendrils of gossamer clouds corpus callosum. Vastness is bearable only through love. Ship of the imagination dream of the mind''s eye rings of Uranus hydrogen atoms as a patch of light Rig Veda? Explorations, white dwarf? Sea of Tranquility and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>'),
 (55, 18, 3, 'News fake 5', 'Un sous-titre trop génial', '<p>Not a sunrise but a galaxyrise the carbon in our apple pies something incredible is waiting to be known. Cosmos. Paroxysm of global death with pretty stories for which there''s little good evidence extraplanetary, tendrils of gossamer clouds from which we spring cosmic fugue, bits of moving fluff, cosmic ocean rings of Uranus citizens of distant epochs light years culture light years tesseract, of brilliant syntheses! Descended from astronomers consciousness, quasar, intelligent beings tendrils of gossamer clouds galaxies, a mote of dust suspended in a sunbeam dream of the mind''s eye.</p>\r\n<p>Great turbulent clouds, decipherment? Billions upon billions Apollonius of Perga tendrils of gossamer clouds are creatures of the cosmos venture. Permanence of the stars kindling the energy hidden in matter Flatland. Made in the interiors of collapsing stars intelligent beings a very small stage in a vast cosmic arena Cambrian explosion Vangelis Jean-Fran&ccedil;ois Champollion Orion''s sword kindling the energy hidden in matter Euclid brain is the seed of intelligence a very small stage in a vast cosmic arena? Prime number across the centuries cosmic fugue inconspicuous motes of rock and gas intelligent beings extraplanetary made in the interiors of collapsing stars stirred by starlight.</p>\r\n<p>Intelligent beings the ash of stellar alchemy realm of the galaxies, cosmos as a patch of light the ash of stellar alchemy at the edge of forever extraordinary claims require extraordinary evidence circumnavigated, shores of the cosmic ocean, the only home we''ve ever known light years radio telescope concept of the number one vastness is bearable only through love astonishment take root and flourish how far away laws of physics decipherment. Tingling of the spine, another world galaxies ship of the imagination.</p>\r\n<p>Cosmos quasar kindling the energy hidden in matter. Birth. Muse about another world, star stuff harvesting star light, cosmic fugue tendrils of gossamer clouds corpus callosum. Vastness is bearable only through love. Ship of the imagination dream of the mind''s eye rings of Uranus hydrogen atoms as a patch of light Rig Veda? Explorations, white dwarf? Sea of Tranquility and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>'),
 (56, 18, 4, 'News fake 5', 'Un sous-titre trop génial', '<p>Not a sunrise but a galaxyrise the carbon in our apple pies something incredible is waiting to be known. Cosmos. Paroxysm of global death with pretty stories for which there''s little good evidence extraplanetary, tendrils of gossamer clouds from which we spring cosmic fugue, bits of moving fluff, cosmic ocean rings of Uranus citizens of distant epochs light years culture light years tesseract, of brilliant syntheses! Descended from astronomers consciousness, quasar, intelligent beings tendrils of gossamer clouds galaxies, a mote of dust suspended in a sunbeam dream of the mind''s eye.</p>\r\n<p>Great turbulent clouds, decipherment? Billions upon billions Apollonius of Perga tendrils of gossamer clouds are creatures of the cosmos venture. Permanence of the stars kindling the energy hidden in matter Flatland. Made in the interiors of collapsing stars intelligent beings a very small stage in a vast cosmic arena Cambrian explosion Vangelis Jean-Fran&ccedil;ois Champollion Orion''s sword kindling the energy hidden in matter Euclid brain is the seed of intelligence a very small stage in a vast cosmic arena? Prime number across the centuries cosmic fugue inconspicuous motes of rock and gas intelligent beings extraplanetary made in the interiors of collapsing stars stirred by starlight.</p>\r\n<p>Intelligent beings the ash of stellar alchemy realm of the galaxies, cosmos as a patch of light the ash of stellar alchemy at the edge of forever extraordinary claims require extraordinary evidence circumnavigated, shores of the cosmic ocean, the only home we''ve ever known light years radio telescope concept of the number one vastness is bearable only through love astonishment take root and flourish how far away laws of physics decipherment. Tingling of the spine, another world galaxies ship of the imagination.</p>\r\n<p>Cosmos quasar kindling the energy hidden in matter. Birth. Muse about another world, star stuff harvesting star light, cosmic fugue tendrils of gossamer clouds corpus callosum. Vastness is bearable only through love. Ship of the imagination dream of the mind''s eye rings of Uranus hydrogen atoms as a patch of light Rig Veda? Explorations, white dwarf? Sea of Tranquility and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>'),
-(57, 19, 1, 'News fake 66', 'Un sous-titre trop génial', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(58, 19, 2, 'News fake 6', 'Un sous-titre trop génial', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(59, 19, 3, 'News fake 6', 'Un sous-titre trop génial', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(60, 19, 4, 'News fake 6', 'Un sous-titre trop génial', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(61, 20, 1, 'News fake 7', 'Un sous-titre original', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(62, 20, 2, 'News fake 7', 'Un sous-titre original', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(63, 20, 3, 'News fake 7', 'Un sous-titre original', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>'),
-(64, 20, 4, 'News fake 7', 'Un sous-titre original', '<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet massa tortor, at condimentum eros finibus eu. Nulla rutrum at arcu consectetur commodo. Cras semper mauris non nunc mattis tempus. Etiam in ante tellus. Donec lacinia laoreet enim eu consectetur. Duis varius bibendum imperdiet. Phasellus metus nisl, fringilla vel sem volutpat, tempor imperdiet augue. Mauris ac interdum tellus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Donec sed gravida justo. Nulla sit amet cursus nisi. Ut ullamcorper nulla augue, a aliquet augue dignissim ut. Nullam posuere accumsan nibh a maximus. Maecenas convallis porta nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac dolor venenatis, pellentesque dui a, porta lorem. Aenean ullamcorper varius eros, at bibendum nulla. Etiam a cursus felis. Pellentesque ac ligula augue. Mauris mattis quis risus eu ullamcorper. Ut lacinia odio felis. Quisque scelerisque eros et orci faucibus, quis auctor nisi luctus.</p>\r\n<p style="text-align: justify; line-height: 14px; margin: 0px 0px 14px; padding: 0px; font-family: Arial, Helvetica, sans;">Nunc at accumsan tellus, vestibulum pellentesque mi. Aliquam orci dui, dignissim quis quam id, tristique tincidunt felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pulvinar, massa eu lacinia mattis, sapien eros rhoncus mauris, non tincidunt sapien turpis sit amet justo. Nullam sodales venenatis posuere. Duis accumsan erat in ornare facilisis. Pellentesque condimentum ipsum est, vitae viverra metus malesuada et.</p>');
+(74, 27, 1, 'News fake 8', 'Un super sous-titre de la mort', '<p><strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>\r\n<p>Duis rhoncus velit nec est condimentum feugiat. Donec aliquam augue nec gravida lobortis. Nunc arcu mi, pretium quis dolor id, iaculis euismod ligula. Donec tincidunt gravida lacus eget lacinia.</p>\r\n<p>Cras et dui mollis, tempus velit placerat, sodales tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque et venenatis sapien. Maecenas sem diam, lacinia in ipsum et, fermentum rutrum lacus.</p>'),
+(75, 27, 2, 'News fake 8', 'Un super sous-titre de la mort', '<p><strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>\r\n<p>Duis rhoncus velit nec est condimentum feugiat. Donec aliquam augue nec gravida lobortis. Nunc arcu mi, pretium quis dolor id, iaculis euismod ligula. Donec tincidunt gravida lacus eget lacinia.</p>\r\n<p>Cras et dui mollis, tempus velit placerat, sodales tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque et venenatis sapien. Maecenas sem diam, lacinia in ipsum et, fermentum rutrum lacus.</p>'),
+(76, 27, 3, 'News fake 8', 'Un super sous-titre de la mort', '<p><strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>\r\n<p>Duis rhoncus velit nec est condimentum feugiat. Donec aliquam augue nec gravida lobortis. Nunc arcu mi, pretium quis dolor id, iaculis euismod ligula. Donec tincidunt gravida lacus eget lacinia.</p>\r\n<p>Cras et dui mollis, tempus velit placerat, sodales tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque et venenatis sapien. Maecenas sem diam, lacinia in ipsum et, fermentum rutrum lacus.</p>'),
+(77, 27, 4, 'News fake 8', 'Un super sous-titre de la mort', '<p><strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>\r\n<p>Duis rhoncus velit nec est condimentum feugiat. Donec aliquam augue nec gravida lobortis. Nunc arcu mi, pretium quis dolor id, iaculis euismod ligula. Donec tincidunt gravida lacus eget lacinia.</p>\r\n<p>Cras et dui mollis, tempus velit placerat, sodales tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque et venenatis sapien. Maecenas sem diam, lacinia in ipsum et, fermentum rutrum lacus.</p>');
 
 -- --------------------------------------------------------
 
@@ -251,12 +246,12 @@ INSERT INTO `news_trad` (`id`, `id_news`, `id_lang`, `title`, `sub_title`, `cont
 --
 
 CREATE TABLE `options` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `label` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `options`
@@ -265,7 +260,8 @@ CREATE TABLE `options` (
 INSERT INTO `options` (`id`, `label`, `type`, `value`, `code`) VALUES
 (4, 'Affichage des alertes JOBS', 'bool', '0', 'DISPLAY_JOB_ALERT'),
 (5, 'Affichage des alertes VIDEOS', 'bool', '0', 'DISPLAY_VIDEOS_ALERT'),
-(6, 'Afficher le menu des langues', 'bool', '1', 'DISPLAY_SELECT_LANG');
+(6, 'Afficher le menu des langues', 'bool', '1', 'DISPLAY_SELECT_LANG'),
+(7, 'Affichage des alertes SEMINAIRE sur mobile', 'bool', '1', 'DISPLAY_SEMINAIRE_ALERT');
 
 -- --------------------------------------------------------
 
@@ -274,7 +270,7 @@ INSERT INTO `options` (`id`, `label`, `type`, `value`, `code`) VALUES
 --
 
 CREATE TABLE `users` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_name` varchar(255) NOT NULL,
@@ -297,7 +293,7 @@ INSERT INTO `users` (`id`, `login`, `password`, `user_name`, `email`, `level`) V
 --
 
 CREATE TABLE `videos` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `id_categorie` int(10) unsigned NOT NULL,
   `video` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
@@ -315,67 +311,67 @@ CREATE TABLE `videos` (
 -- Index pour la table `categories_medias`
 --
 ALTER TABLE `categories_medias`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `clients`
 --
 ALTER TABLE `clients`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `clients_tokens`
 --
 ALTER TABLE `clients_tokens`
- ADD PRIMARY KEY (`id`), ADD KEY `id_client` (`id_client`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_client` (`id_client`);
 
 --
 -- Index pour la table `clients_videos_docs`
 --
 ALTER TABLE `clients_videos_docs`
- ADD PRIMARY KEY (`id`), ADD KEY `id_client` (`id_client`,`id_media`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_client` (`id_client`,`id_media`);
 
 --
 -- Index pour la table `docs`
 --
 ALTER TABLE `docs`
- ADD PRIMARY KEY (`id`), ADD KEY `id_categorie` (`id_categorie`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_categorie` (`id_categorie`);
 
 --
 -- Index pour la table `langues`
 --
 ALTER TABLE `langues`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `news`
 --
 ALTER TABLE `news`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `news_trad`
 --
 ALTER TABLE `news_trad`
- ADD PRIMARY KEY (`id`), ADD KEY `id_news` (`id_news`,`id_lang`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_news` (`id_news`,`id_lang`);
 
 --
 -- Index pour la table `options`
 --
 ALTER TABLE `options`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `videos`
 --
 ALTER TABLE `videos`
- ADD PRIMARY KEY (`id`), ADD KEY `id_categorie` (`id_categorie`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_categorie` (`id_categorie`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -385,54 +381,54 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT pour la table `categories_medias`
 --
 ALTER TABLE `categories_medias`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `clients_tokens`
 --
 ALTER TABLE `clients_tokens`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `clients_videos_docs`
 --
 ALTER TABLE `clients_videos_docs`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `docs`
 --
 ALTER TABLE `docs`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `langues`
 --
 ALTER TABLE `langues`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT pour la table `news_trad`
 --
 ALTER TABLE `news_trad`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=65;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `videos`
 --
 ALTER TABLE `videos`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;

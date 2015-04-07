@@ -21,7 +21,7 @@ if($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === 'localhost
     //DB PASSWORD
     define('DB_PASSWORD', 'root');
     //DB Data Source Name
-    define('DB_DSN', 'mysql:dbname='.DB_NAME.';host='.DB_HOST);
+    define('DB_DSN', 'mysql:host='.DB_HOST.';port=8889;dbname='.DB_NAME);
     //Base URL pour le rewrite
     define('BASE_URL', 'http://localhost:8888/Phoenix/app/');
 }

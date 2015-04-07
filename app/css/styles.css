@@ -326,6 +326,7 @@ nav#desktop-nav .menu-items ul li a {
   padding: 0 0.5rem;
   color: #34495e;
   font-weight: 700;
+  display: block;
 }
 nav#desktop-nav .logo {
   text-align: right;

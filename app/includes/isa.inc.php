@@ -83,11 +83,11 @@
 <section class="row sub-page blue">
     <h3><?php getTexte('isa', 'txt3_title'); ?></h3>
     <div class="small-12 columns navigateurs">
-        <ul class=" medium-block-grid-2 large-block-grid-5 text-center">
+        <ul class=" medium-block-grid-2 large-block-grid-4 text-center">
             <li><img src="img/chrome-ico.png" alt="Google Chrome" class="wow bounceIn animated" data-wow-delay="0.1s"/><span class="nav-title">Google Chrome</span></li>
             <li><img src="img/firefox-ico.png" alt="Firefox" class="wow bounceIn animated" data-wow-delay="0.2s"/><span class="nav-title">Firefox</span></li>
             <li><img src="img/safari-ico.png" alt="Safari" class="wow bounceIn animated" data-wow-delay="0.3s"/><span class="nav-title">Safari</span></li>
-            <li><img src="img/opera-ico.png" alt="Opera" class="wow bounceIn animated" data-wow-delay="0.4s"/><span class="nav-title">Opera</span></li>
+<!--            <li><img src="img/opera-ico.png" alt="Opera" class="wow bounceIn animated" data-wow-delay="0.4s"/><span class="nav-title">Opera</span></li>-->
             <li><img src="img/ie-ico.png" alt="Internet Explorer" class="wow bounceIn animated" data-wow-delay="0.5s"/><span class="nav-title">Internet Explorer</span></li>
         </ul>
     </div>
