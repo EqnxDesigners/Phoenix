@@ -808,26 +808,30 @@ nav #langues-btn-mobile:hover {
   background-position: 50% 100%;
   margin-bottom: 2rem;
 }
-.sub-page .isa-feature img {
+.sub-page .isa-feature img,
+.sub-page .eqnx-sectors img {
   height: 125px;
   transition: transform 0.2s;
   -webkit-transition: transform 0.2s;
   -moz-transition: transform 0.2s;
 }
-.sub-page .isa-feature img:hover {
+.sub-page .isa-feature img:hover,
+.sub-page .eqnx-sectors img:hover {
   -webkit-transform: scale3d(1.1, 1.1, 1.1);
   transform: scale3d(1.1, 1.1, 1.1);
   transition: transform 0.2s;
   -webkit-transition: transform 0.2s;
   -moz-transition: transform 0.2s;
 }
-.sub-page .isa-feature h4 {
+.sub-page .isa-feature h4,
+.sub-page .eqnx-sectors h4 {
   padding: 1rem 0 0;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1rem;
 }
-.sub-page .isa-feature h4::after {
+.sub-page .isa-feature h4::after,
+.sub-page .eqnx-sectors h4::after {
   content: ' ';
   height: 5px;
   width: 65px;
@@ -835,9 +839,13 @@ nav #langues-btn-mobile:hover {
   display: block;
   margin: 0.5rem auto 0;
 }
-.sub-page .isa-feature p {
+.sub-page .isa-feature p,
+.sub-page .eqnx-sectors p {
   margin: 0.5rem auto 0;
   width: 80%;
+}
+.sub-page .eqnx-sectors {
+  margin-bottom: 1rem;
 }
 .sub-page .navigateurs {
   padding: 1rem 5rem;
