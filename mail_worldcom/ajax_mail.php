@@ -13,7 +13,7 @@ require_once './class/PHPMailer/PHPMailerAutoload.php';
 
 //----- Fonctions AJAX ------------------------------------
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailInscr') {
-  EnvoiFormulaireInscription($_POST['nom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace']);
+  EnvoiFormulaireInscription($_POST['nom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace'], $_POST['message']);
 }
 
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
@@ -26,7 +26,7 @@ if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
 *   Envoi du formulaire d'inscription au séminaire 
 *   @param event, eventDate, eventPlace
 **/
-function EnvoiFormulaireInscription($nom, $email, $event, $eventDate, $eventPlace){
+function EnvoiFormulaireInscription($nom, $email, $event, $eventDate, $eventPlace, $message){
   $sujet = 'Nouvelle inscription au séminaire d\'information '.$event;
   $sujet_validation = 'Votre inscription au séminaire d\'information '.$event;
   
@@ -41,12 +41,16 @@ function EnvoiFormulaireInscription($nom, $email, $event, $eventDate, $eventPlac
   $mail_content = str_replace("%%%NOM%%%", $nom, $mail_content);
   $mail_content = str_replace("%%%EMAIL%%%", $email, $mail_content);
   $mail_content = str_replace("%%%EVENT%%%", $event, $mail_content);
-  
+  $mail_content = str_replace("%%%MESSAGE%%%", $message, $mail_content);
+
   $mail_content_validation = str_replace("%%%EVENT%%%", $event, $mail_content_validation);
   $mail_content_validation = str_replace("%%%EVENTDATE%%%", $eventDate, $mail_content_validation);
   $mail_content_validation = str_replace("%%%EVENTPLACE%%%", $eventPlace, $mail_content_validation);
-  
-  $destinataire_email = 'info@eqnx.ch';
+
+    //TESTS
+//  $destinataire_email = 'jclerc@eqnx.ch';
+
+  $destinataire_email = 'formation@eqnx.ch';
   $destinataire_name = 'Equinoxe MIS Development';
   $destinataire_validation_email = $email;
   $destinataire_validation_name = $nom;

@@ -157,6 +157,12 @@ function getTexte($section, $ref) {
     }
 }
 
+function getIniValue($section, $ref) {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        return $_SESSION['trad'][$section][$ref];
+    }
+}
+
 function getMultiLineTexte($section, $ref, $class='') {
     if(isset($_SESSION['trad'][$section][$ref])) {
         foreach($_SESSION['trad'][$section][$ref] as $k => $txt) {

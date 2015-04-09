@@ -141,6 +141,7 @@ $(document).ready(function () {
         
         if (formCode.indexOf("event") > -1) {
             // FORMULAIRE D'INSCRIPTION AU EVENT            
+            message = $('textarea[form-code="' + formCode + '"]').val();
             eventName = $('input[name="eventName"][form-code="' + formCode + '"]').val();
             eventDate = $('input[name="eventDate"][form-code="' + formCode + '"]').val();
             eventPlace = $('input[name="eventPlace"][form-code="' + formCode + '"]').val();
@@ -149,7 +150,7 @@ $(document).ready(function () {
                 //url: urlAjaxFile, // Le nom du fichier
                 url: urlAjaxMail, // Le nom du fichier
                 type: "POST", // La méthode
-                data: {a : 'sendMailInscr', nom: nom, email : email, event: eventName, eventDate : eventDate, eventPlace : eventPlace },
+                data: {a : 'sendMailInscr', nom: nom, email : email, message : message, event: eventName, eventDate : eventDate, eventPlace : eventPlace },
                 crossDomain: true,
                 headers: {'Content-Type':'application/x-www-form-urlencoded'}
             })

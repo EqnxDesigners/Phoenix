@@ -769,6 +769,9 @@ nav{
                     -moz-transition: 0.2s ease all;
                     -webkit-transition: 0.2s ease all;
                 }
+                &:focus {
+                  outline: none;
+                }
             }
             &.active{
                 a{
@@ -829,6 +832,28 @@ nav{
                 }
             }
         }
+    }
+    .inscription-form {
+      textarea {
+        background: #ffffff;
+        color: @eqnx-dark-blue;
+        &:focus {
+          background: #dae2ea;
+          color: @eqnx-dark-blue;
+        }
+        &::-webkit-input-placeholder {
+          color: @blue;
+          font-size: 1.2rem;
+        }
+        &::-moz-placeholder {  /* Firefox 19+ */
+          color: @blue;
+          font-size: 1.2rem;
+        }
+        &:-ms-input-placeholder {
+          color: @blue;
+          font-size: 1.2rem;
+        }
+      }
     }
 }
 
