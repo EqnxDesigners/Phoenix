@@ -67,7 +67,7 @@ class DB {
         try {
             $dbh = new PDO($this->_dsn, $this->_dbusername, $this->_dbpassword, array(PDO::ATTR_PERSISTENT => true));
             $dbh->exec('SET NAMES utf8');
-            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->setDbh($dbh);
         }
         catch (PDOException $e) {
