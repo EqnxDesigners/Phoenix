@@ -18,9 +18,9 @@
 <!--                        <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>-->
                         <?php displaySelectLang(); ?>
                         <li><a href="#"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('equinoxe'); ?>"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
                         <li><a href="<?php echo buildUrl('isacademia'); ?>"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
                         <li><a href="<?php echo buildUrl('news'); ?>"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('equinoxe'); ?>"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
                         <li target="index-footer"><?php getTexte('mainmenu', 'label_contact'); ?></li>
                     </ul>
                 </div>
