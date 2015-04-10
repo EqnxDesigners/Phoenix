@@ -39,7 +39,7 @@ class DB {
         $this->setDbPassword(DB_PASSWORD);
         $this->setDbName(DB_NAME);
         $this->setDsn(DB_DSN);
-        $this->dbConnect();
+        //$this->dbConnect();
 	}
 	
 	/* GETTER */
@@ -90,6 +90,7 @@ class DB {
     }
 
     public function execOneResultQuery($sql) {
+        $this->dbConnect();
         try {
             $query = $this->_dbh->query($sql);
             return $query->fetch(PDO::FETCH_OBJ);
