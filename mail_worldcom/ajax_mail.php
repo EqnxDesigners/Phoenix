@@ -13,11 +13,11 @@ require_once './class/PHPMailer/PHPMailerAutoload.php';
 
 //----- Fonctions AJAX ------------------------------------
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailInscr') {
-  EnvoiFormulaireInscription($_POST['nom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace'], $_POST['message']);
+  EnvoiFormulaireInscription($_POST['nom'], $_POST['email'], $_POST['event'], $_POST['eventDate'], $_POST['eventPlace'], stripslashes($_POST['message']));
 }
 
 if(isset($_POST['a']) && $_POST['a'] === 'sendMailContact') {
-  EnvoiFormulaireContact($_POST['nom'], $_POST['email'], $_POST['message']);
+  EnvoiFormulaireContact($_POST['nom'], $_POST['email'], stripslashes($_POST['message']));
 }
 
 //------ Envoi emails -----------------------------------------
