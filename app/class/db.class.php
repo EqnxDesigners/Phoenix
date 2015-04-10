@@ -39,7 +39,7 @@ class DB {
         $this->setDbPassword(DB_PASSWORD);
         $this->setDbName(DB_NAME);
         $this->setDsn(DB_DSN);
-        //$this->dbConnect();
+        $this->dbConnect();
 	}
 	
 	/* GETTER */
@@ -65,9 +65,9 @@ class DB {
     /* METHODES */
 	public function dbConnect() {
         try {
-            $dbh = new PDO($this->_dsn, $this->_dbusername, $this->_dbpassword, array(PDO::ATTR_PERSISTENT => true));
+            $dbh = new PDO($this->_dsn, $this->_dbusername, $this->_dbpassword, array(PDO::ATTR_PERSISTENT => false));
             $dbh->exec('SET NAMES utf8');
-            //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->setDbh($dbh);
         }
         catch (PDOException $e) {
@@ -90,7 +90,6 @@ class DB {
     }
 
     public function execOneResultQuery($sql) {
-        $this->dbConnect();
         try {
             $query = $this->_dbh->query($sql);
             return $query->fetch(PDO::FETCH_OBJ);
