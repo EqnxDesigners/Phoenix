@@ -144,7 +144,15 @@ function getCurrentTrad() {
 }
 
 function getCurrentUrl($lang) {
-    return $lang.'/'.$_SESSION['current']['page'];
+    return $lang.'/'.getCurrentPageName();
+}
+
+function getCurrentPageName() {
+    $str = $_SERVER['QUERY_STRING'];
+    $start = strpos($str, '=') + 1;
+    $end = strpos($str, '&');
+    $length = $end - $start;
+    return substr($str, $start, $length);
 }
 
 function buildUrl($page) {

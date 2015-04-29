@@ -17,7 +17,7 @@
                     <ul>
 <!--                        <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>-->
                         <?php displaySelectLang(); ?>
-                        <li><a href="#"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('home'); ?>"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
                         <li><a href="<?php echo buildUrl('equinoxe'); ?>"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
                         <li><a href="<?php echo buildUrl('isacademia'); ?>"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
                         <li><a href="<?php echo buildUrl('news'); ?>"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
@@ -40,7 +40,7 @@
         <div id="contact-panel" class="show-for-small-only">
             <div class="row">
                 <div class="small-10 columns">
-                    <h1>Nous contacter</h1>
+                    <h1><?php getTexte('home-contact', 'title'); ?></h1>
                 </div>
                 <div class="small-2 columns close-item">
                     <img src="img/arrow-left.png" alt="X" id="close-contact-panel" />
@@ -82,20 +82,20 @@
                         <div class="small-12 columns">
                             <div class="group">
                                 <input type="text" name="nom" form-code="contact-mobile"/>
-                                <label>Nom prénom</label>
+                                <label><?php getTexte('home-contact', 'label-name'); ?></label>
                             </div>
                         </div>
                         <div class="small-12 columns">
                             <div class="group">
                                 <input type="email" name="email" form-code="contact-mobile"/>
-                                <label>E-mail</label>
+                                <label><?php getTexte('home-contact', 'label-email'); ?></label>
                             </div>
                         </div>
                         <div class="small-12 columns">
-                            <textarea name="message" cols="30" rows="8" placeholder="Message" form-code="contact-mobile"></textarea>
+                            <textarea name="message" cols="30" rows="8" placeholder="<?php getTexte('home-contact', 'label-message'); ?>" form-code="contact-mobile"></textarea>
                         </div>
                         <div class="small-12 columns text-right">
-                            <input type="button" value="Envoyer" class="button send-form" form-code="contact-mobile"/>
+                            <input type="button" value="<?php getTexte('home-contact', 'form-btn'); ?>" class="button send-form" form-code="contact-mobile"/>
                             <span class="send-spinner" style="display:none;">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>

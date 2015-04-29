@@ -34,7 +34,7 @@ class Langues extends DB {
 	
     /* METHODES */
     public function getTradIni($file) {
-        return parse_ini_file('trad/'.$file, true);
+        return parse_ini_file('trad/'.$file, true, INI_SCANNER_RAW);
     }
     
     public function setLangById($id) {

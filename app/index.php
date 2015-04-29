@@ -28,3 +28,5 @@ include_once dirname(__FILE__).'/includes/footer.inc.php';
 //----- Footer meta datas ---------------------------------
 include_once dirname(__FILE__).'/config/footer.meta.php';
 ?>
+
+&reg;
