@@ -3176,6 +3176,10 @@ this.emitEvent( 'dragMove', [ this, event, pointer, moveVector ] );
 Unidragger.prototype._dragEnd = function( event, pointer ) {
 // set flags
 this.isDragging = false;
+
+//07.05.2015, jc, Restart après drag du slider
+this.player.play();
+
 // re-enable clicking async
 var _this = this;
 setTimeout( function() {

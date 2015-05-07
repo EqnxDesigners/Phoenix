@@ -232,10 +232,9 @@ $(document).ready(function () {
     $('.inscr-form-cancel').on('click', function () {
         hideInscriptions();
     });
-    
+
     // Flickity
-    $('#clients-slide').flickity({
-        // options
+    var $gallery = $('#clients-slide').flickity({
         wrapAround: true,
         freeScroll: true,
         contain: true,
@@ -245,8 +244,7 @@ $(document).ready(function () {
         cellAlign: 'center',
         pageDots: false
     });
-    
-    
+
     // Masonry
     var $container = $('#news-masonry');
     // initialize
@@ -271,5 +269,4 @@ $(document).ready(function () {
   //----- Foundation --------------------------------------
     $(document).foundation();
 
-  
 });

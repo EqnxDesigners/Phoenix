@@ -815,7 +815,7 @@ nav #langues-btn-mobile:hover {
 }
 .sub-page.blue h3 {
   color: white;
-  background: url('../../app/img/h1-bg-white.png');
+  background: url('../../img/h1-bg-white.png');
   background-repeat: no-repeat;
   padding: 0 0 1.5rem;
   background-position: 50% 100%;
@@ -826,7 +826,7 @@ nav #langues-btn-mobile:hover {
 .sub-page h3 {
   text-align: center;
   font-size: 1.5rem;
-  background: url('../../app/img/h1-bg.png');
+  background: url('../../img/h1-bg.png');
   background-repeat: no-repeat;
   padding: 0 0 1.5rem;
   background-position: 50% 100%;
