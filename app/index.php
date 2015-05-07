@@ -15,13 +15,16 @@ require_once dirname(__FILE__).'/class/PHPMailer/PHPMailerAutoload.php';
 //----- Langues -------------------------------------------
 setCurrentLang();
 
+//----- Pages ---------------------------------------------
+setCurrentPage();
+
 //----- Header meta datas ---------------------------------
 include_once dirname(__FILE__).'/config/header.meta.php';
 
 //----- Display -------------------------------------------
 include_once dirname(__FILE__).'/includes/header.inc.php';
 
-setCurrentPage();
+displayCurrentPage();
 
 include_once dirname(__FILE__).'/includes/footer.inc.php';
 

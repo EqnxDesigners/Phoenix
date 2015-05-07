@@ -8,7 +8,25 @@ function setCurrentPage() {
     else {
         $_SESSION['current']['page'] = DEFAULT_PAGE;
     }
-    displayCurrentPage();
+    $_SESSION['current']['page_title'] = getCurrentPageTitle($_SESSION['current']['page']);
+}
+
+function getCurrentPageTitle($page) {
+    switch($page) {
+        case 'home':
+            $result = getSilentTexte('mainmenu', 'label_accueil');
+            break;
+        case 'equinoxe':
+            $result = getSilentTexte('mainmenu', 'label_qui');
+            break;
+        case 'isacademia':
+            $result = getSilentTexte('mainmenu', 'label_is-academia');
+            break;
+        case 'news':
+            $result = getSilentTexte('mainmenu', 'label_news');
+            break;
+    }
+    return $result;
 }
 
 function setCurrentLang() {
@@ -162,6 +180,12 @@ function buildUrl($page) {
 function getTexte($section, $ref) {
     if(isset($_SESSION['trad'][$section][$ref])) {
         echo $_SESSION['trad'][$section][$ref];
+    }
+}
+
+function getSilentTexte($section, $ref) {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        return $_SESSION['trad'][$section][$ref];
     }
 }
 
