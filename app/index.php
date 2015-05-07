@@ -12,11 +12,11 @@ require_once dirname(__FILE__).'/class/PHPMailer/PHPMailerAutoload.php';
 //    require_once dirname(__FILE__).'/class/'.$class.'.class.php';
 //});
 
-//----- Header meta datas ---------------------------------
-include_once dirname(__FILE__).'/config/header.meta.php';
-
 //----- Langues -------------------------------------------
 setCurrentLang();
+
+//----- Header meta datas ---------------------------------
+include_once dirname(__FILE__).'/config/header.meta.php';
 
 //----- Display -------------------------------------------
 include_once dirname(__FILE__).'/includes/header.inc.php';

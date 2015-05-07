@@ -45,7 +45,7 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 
     <!-- Google Maps -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6oN_q0aaOgyZ9AV3h4GvdncqAp_wjcpI"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?language=<?php echo $_SESSION['current']['lang']; ?>&key=AIzaSyA6oN_q0aaOgyZ9AV3h4GvdncqAp_wjcpI"></script>
 
     <!-- Google Analytics -->
     <script>

@@ -92,21 +92,6 @@ $(document).ready(function () {
             title: 'Equinoxe MIS Development'
         });
 
-        //var markerMobile = new google.mapMobile.Marker({
-        //    position: myLatlng,
-        //    map: map,
-        //    icon: image,
-        //    title: 'Equinoxe MIS Development'
-        //});
-        
-        //var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-        //marker.setMap(map);
-        //
-        //var mapMobile = new google.maps.Map(document.getElementById('google-map-mobile'), mapOptions);
-        //
-        //marker.setMap(map);
-        //marker.setMap(mapMobile);
-        //
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
         });
@@ -122,15 +107,9 @@ $(document).ready(function () {
     function setNavigation() {
         var width = $(window).width();
         if (width <= 640) {
-            //$("#desktop-nav").hide();
-            //$('#mobile-nav').show();
             $('body').addClass('mobile');
-            //$('#contact-panel').show();
         } else {
-            //$("#desktop-nav").show();
-            //$('#mobile-nav').hide();
             $('body').removeClass('mobile');
-            //$('#contact-panel').hide();
         }
     }
 
@@ -172,11 +151,8 @@ $(document).ready(function () {
    *    Affiche & Cache le menu des langues
    */
     function toggleLangueMenu(elem) {
-        //$('#langues').slideToggle(200);
 
         var positionBtnLeft = elem.offset().left,
-            //            positionBtnTop = elem.offset().top,
-            //positionLanguesTop = positionBtnTop + elem.height();
             positionLanguesTop = '50px';
 
 
