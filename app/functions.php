@@ -25,6 +25,8 @@ function getCurrentPageTitle($page) {
         case 'news':
             $result = getSilentTexte('mainmenu', 'label_news');
             break;
+        default:
+            $result = getSilentTexte('mainmenu', 'label_accueil');
     }
     return $result;
 }
