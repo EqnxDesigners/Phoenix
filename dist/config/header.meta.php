@@ -10,6 +10,7 @@
         <?php echo PAGE_TITLE; ?>&nbsp;|&nbsp;<?php echo $_SESSION['current']['page_title']; ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <meta name="description" content="<?php echo $_SESSION['current']['meta_description']; ?>" />
 
     <link rel="icon" type="image/png" href="img/favicon.png" />
 

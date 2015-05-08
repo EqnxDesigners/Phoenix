@@ -9,6 +9,7 @@ function setCurrentPage() {
         $_SESSION['current']['page'] = DEFAULT_PAGE;
     }
     $_SESSION['current']['page_title'] = getCurrentPageTitle($_SESSION['current']['page']);
+    $_SESSION['current']['meta_description'] = getCurrentPageMetaDescription($_SESSION['current']['page']);
 }
 
 function getCurrentPageTitle($page) {
@@ -27,6 +28,26 @@ function getCurrentPageTitle($page) {
             break;
         default:
             $result = getSilentTexte('mainmenu', 'label_accueil');
+    }
+    return $result;
+}
+
+function getCurrentPageMetaDescription($page) {
+    switch($page) {
+        case 'home':
+            $result = getSilentTexte('home-isa', 'page_descr');
+            break;
+        case 'equinoxe':
+            $result = getSilentTexte('qui', 'page_descr');
+            break;
+        case 'isacademia':
+            $result = getSilentTexte('isa', 'page_descr');
+            break;
+        case 'news':
+            $result = getSilentTexte('news', 'page_descr');
+            break;
+        default:
+            $result = getSilentTexte('home-isa', 'page_descr');
     }
     return $result;
 }
