@@ -8,7 +8,6 @@ function setCurrentPage() {
     else {
         $_SESSION['current']['page'] = DEFAULT_PAGE;
     }
-    $_SESSION['current']['page_title'] = getCurrentPageTitle($_SESSION['current']['page']);
     $_SESSION['current']['meta_description'] = getCurrentPageMetaDescription($_SESSION['current']['page']);
 }
 
@@ -60,6 +59,16 @@ function setCurrentLang() {
         $_SESSION['current']['lang'] = 'fr';
     }
     getCurrentTrad();
+}
+
+function the_title() {
+    if($_SESSION['current']['page'] === 'home' || $_SESSION['current']['page'] === 'accueil') {
+        $result = PAGE_TITLE.'&nbsp;|&nbsp;'.getCurrentPageTitle($_SESSION['current']['page']);
+    }
+    else {
+        $result = getCurrentPageTitle($_SESSION['current']['page']).'&nbsp;|&nbsp;'.PAGE_TITLE;
+    }
+    echo $result;
 }
 
 function classAutoLoad() {
