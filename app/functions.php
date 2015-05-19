@@ -8,7 +8,47 @@ function setCurrentPage() {
     else {
         $_SESSION['current']['page'] = DEFAULT_PAGE;
     }
-    displayCurrentPage();
+    $_SESSION['current']['meta_description'] = getCurrentPageMetaDescription($_SESSION['current']['page']);
+}
+
+function getCurrentPageTitle($page) {
+    switch($page) {
+        case 'home':
+            $result = getSilentTexte('mainmenu', 'label_accueil');
+            break;
+        case 'equinoxe':
+            $result = getSilentTexte('mainmenu', 'label_qui');
+            break;
+        case 'isacademia':
+            $result = getSilentTexte('mainmenu', 'label_is-academia');
+            break;
+        case 'news':
+            $result = getSilentTexte('mainmenu', 'label_news');
+            break;
+        default:
+            $result = getSilentTexte('mainmenu', 'label_accueil');
+    }
+    return $result;
+}
+
+function getCurrentPageMetaDescription($page) {
+    switch($page) {
+        case 'home':
+            $result = getSilentTexte('home-isa', 'page_descr');
+            break;
+        case 'equinoxe':
+            $result = getSilentTexte('qui', 'page_descr');
+            break;
+        case 'isacademia':
+            $result = getSilentTexte('isa', 'page_descr');
+            break;
+        case 'news':
+            $result = getSilentTexte('news', 'page_descr');
+            break;
+        default:
+            $result = getSilentTexte('home-isa', 'page_descr');
+    }
+    return $result;
 }
 
 function setCurrentLang() {
@@ -19,6 +59,16 @@ function setCurrentLang() {
         $_SESSION['current']['lang'] = 'fr';
     }
     getCurrentTrad();
+}
+
+function the_title() {
+    if($_SESSION['current']['page'] === 'home' || $_SESSION['current']['page'] === 'accueil') {
+        $result = PAGE_TITLE.'&nbsp;|&nbsp;'.getCurrentPageTitle($_SESSION['current']['page']);
+    }
+    else {
+        $result = getCurrentPageTitle($_SESSION['current']['page']).'&nbsp;|&nbsp;'.PAGE_TITLE;
+    }
+    echo $result;
 }
 
 function classAutoLoad() {
@@ -162,6 +212,12 @@ function buildUrl($page) {
 function getTexte($section, $ref) {
     if(isset($_SESSION['trad'][$section][$ref])) {
         echo $_SESSION['trad'][$section][$ref];
+    }
+}
+
+function getSilentTexte($section, $ref) {
+    if(isset($_SESSION['trad'][$section][$ref])) {
+        return $_SESSION['trad'][$section][$ref];
     }
 }
 

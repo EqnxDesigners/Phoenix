@@ -580,6 +580,7 @@ nav #langues-btn-mobile:hover {
   font-size: 2rem;
   font-weight: bold;
   margin: 0 !important;
+  width: 93%;
 }
 #newsEqnx .article .content .header h1:before,
 #news-masonry .article .content .header h1:before,
