@@ -141,7 +141,7 @@ class News extends DB {
                 $result .= '</li>';
                 $numPage++;
             }
-            $result .= ($nbPage > 1 && $currentPage < $nbPage ? '<li class="fleche next"><a href="'.$_SESSION['current']['lang'].'/news-'.$nextPage.'"><img src="img/fleche-bleue-next.png" alt="prev" /></a></li>' : '<li>&nbsp;</li>' );
+            $result .= ($nbPage > 1 && $currentPage < $nbPage ? '<li class="fleche next"><a href="'.$_SESSION['current']['lang'].'/news-'.$nextPage.'"><img src="img/fleche-bleue-next.png" alt="next" /></a></li>' : '<li>&nbsp;</li>' );
             $result .= '</ul>';
         }
 
@@ -258,7 +258,7 @@ class News extends DB {
             $result .= '&nbsp;<small>(brouillon)</small>';
         }
         $result .= '</div>';
-        $result .= '<div class="small-1 columns"><img src="images/'.$trad->langue_abrev.'-icon.png" /></div>';
+        $result .= '<div class="small-1 columns"><img src="images/'.$trad->langue_abrev.'-icon.png" alt="flag icone" /></div>';
         if($lvl === 'main') {
             $result .= '<div class="small-1 columns">'.$this->displayDate($news->date_publi).'</div>';
             $result .= '<div class="small-1 columns">'.$this->displayDate($news->date_start).'</div>';
@@ -651,7 +651,7 @@ class News extends DB {
                     $result .= '<input type="file" name="news-img">';
                 $result .= '</div>';
                 $result .= '<div class="small-12 columns">';
-                    $result .= '<img src="../img/img-news/'.$News->imageUrl.'" />';
+                    $result .= '<img src="../img/img-news/'.$News->imageUrl.'" alt="illustration news" />';
                 $result .= '</div>';
                 $result .= '<div class="small-12 columns">';
                     $result .= '<input type="checkbox" name="del-news-img" value="1">';

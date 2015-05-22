@@ -16,7 +16,7 @@
     <h3><?php getTexte('qui', 'domaine_title'); ?></h3>
     <div class="small-12 medium-4 columns text-center eqnx-sectors">
         <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.1s">
-            <img src="img/eqnx-acad.png">
+            <img src="img/eqnx-acad.png" alt="Monde académique">
         </div>
         <div class="small-12 columns">
             <h4><?php getTexte('qui', 'txt2_title'); ?></h4>
@@ -27,7 +27,7 @@
     </div>
     <div class="small-12 medium-4 columns text-center eqnx-sectors">
         <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.5s">
-            <img src="img/eqnx-health.png">
+            <img src="img/eqnx-health.png" alt="Domaine de la santé">
         </div>
         <div class="small-12 columns">
             <h4><?php getTexte('qui', 'txt3_title'); ?></h4>
@@ -38,7 +38,7 @@
     </div>
     <div class="small-12 medium-4 columns text-center eqnx-sectors">
         <div class="small-12 columns wow bounceIn animated" data-wow-delay="0.3s">
-            <img src="img/eqnx-design.png">
+            <img src="img/eqnx-design.png" alt="Design">
         </div>
         <div class="small-12 columns">
             <h4><?php getTexte('qui', 'txt4_title'); ?></h4>

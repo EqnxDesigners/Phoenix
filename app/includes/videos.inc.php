@@ -20,7 +20,7 @@
             <p>Description de la vidéo</p>
         </div>
         <div class="small-12 columns">
-            <p><a class="link"><?php echo $_SESSION['trad']['videos']['label_button1']; ?></a>
+            <p><a class="link" title="video"><?php echo $_SESSION['trad']['videos']['label_button1']; ?></a>
             </p>
         </div>
     </div>

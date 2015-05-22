@@ -580,6 +580,7 @@ nav #langues-btn-mobile:hover {
   font-size: 2rem;
   font-weight: bold;
   margin: 0 !important;
+  width: 93%;
 }
 #newsEqnx .article .content .header h1:before,
 #news-masonry .article .content .header h1:before,
@@ -708,6 +709,9 @@ nav #langues-btn-mobile:hover {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
+.events-tab ul.tabs li a:focus {
+  outline: none;
+}
 .events-tab ul.tabs li.active a {
   background: white !important;
   transition: 0.2s ease all;
@@ -762,6 +766,27 @@ nav #langues-btn-mobile:hover {
   -webkit-transition: right 0.2s;
   -moz-transition: right 0.2s;
 }
+.events-tab .inscription-form textarea {
+  background: #ffffff;
+  color: #34495e;
+}
+.events-tab .inscription-form textarea:focus {
+  background: #dae2ea;
+  color: #34495e;
+}
+.events-tab .inscription-form textarea::-webkit-input-placeholder {
+  color: #34495e;
+  font-size: 1.2rem;
+}
+.events-tab .inscription-form textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #34495e;
+  font-size: 1.2rem;
+}
+.events-tab .inscription-form textarea:-ms-input-placeholder {
+  color: #34495e;
+  font-size: 1.2rem;
+}
 .support-tile .row {
   padding: 1rem;
 }
@@ -791,7 +816,7 @@ nav #langues-btn-mobile:hover {
 }
 .sub-page.blue h3 {
   color: white;
-  background: url('../../app/img/h1-bg-white.png');
+  background: url('../../img/h1-bg-white.png');
   background-repeat: no-repeat;
   padding: 0 0 1.5rem;
   background-position: 50% 100%;
@@ -802,7 +827,7 @@ nav #langues-btn-mobile:hover {
 .sub-page h3 {
   text-align: center;
   font-size: 1.5rem;
-  background: url('../../app/img/h1-bg.png');
+  background: url('../../img/h1-bg.png');
   background-repeat: no-repeat;
   padding: 0 0 1.5rem;
   background-position: 50% 100%;
@@ -1222,5 +1247,10 @@ form.inscription-form .group label {
   }
   .support-tile {
     padding: 0 4rem !important;
+  }
+}
+@media print {
+  body {
+    font-size: 100%;
   }
 }

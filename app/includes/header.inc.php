@@ -5,7 +5,7 @@
         <nav id="mobile-nav" class="show-for-small-only">
             <div class="row row-block">
                 <div class="small-3 columns contact-menu"><span class="icon icon-shape-paperplane" id="contact-btn"></span></div>
-                <div class="small-6 columns logo"><img src="img/eqnx-logo-s.png" alt="Equinoxe MIS Development" /></div>
+                <div class="small-6 columns logo"><img src="img/eqnx-logo-s.png" alt="logo Equinoxe" /></div>
 <!--                <div class="small-3 columns langues-menu"><span class="icon icon-shape-planete" id="langues-btn-mobile"></span></div>-->
                 <div class="small-3 columns langues-menu"><?php displaySelectLangMobile(); ?></div>
             </div>
@@ -17,23 +17,23 @@
                     <ul>
 <!--                        <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>-->
                         <?php displaySelectLang(); ?>
-                        <li><a href="<?php echo buildUrl('home'); ?>"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('equinoxe'); ?>"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('isacademia'); ?>"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('news'); ?>"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('home'); ?>" title="menu home"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('equinoxe'); ?>" title="menu equinoxe"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('isacademia'); ?>" title="menu is-academia"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('news'); ?>" title="menu news"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
                         <li target="index-footer"><?php getTexte('mainmenu', 'label_contact'); ?></li>
                     </ul>
                 </div>
-                <div class="small-3 columns logo"><img src="img/eqnx-logo-l.png" alt="Equinoxe MIS Development" /></div>
+                <div class="small-3 columns logo"><img src="img/eqnx-logo-l.png" alt="logo equinoxe" /></div>
             </div>
         </nav>
 
         <div id="langues">
             <ul>
-                <li><a href="<?php echo getCurrentUrl('fr'); ?>">FR</a></li>
-                <li><a href="<?php echo getCurrentUrl('en'); ?>">EN</a></li>
-                <li><a href="<?php echo getCurrentUrl('it'); ?>">IT</a></li>
-                <li><a href="<?php echo getCurrentUrl('de'); ?>">DE</a></li>
+                <li><a href="<?php echo getCurrentUrl('fr'); ?>" title="français">FR</a></li>
+                <li><a href="<?php echo getCurrentUrl('en'); ?>" title="english">EN</a></li>
+                <li><a href="<?php echo getCurrentUrl('it'); ?>" title="italiano">IT</a></li>
+                <li><a href="<?php echo getCurrentUrl('de'); ?>" title="deutsch">DE</a></li>
             </ul>
         </div>
 
@@ -43,7 +43,7 @@
                     <h1><?php getTexte('home-contact', 'title'); ?></h1>
                 </div>
                 <div class="small-2 columns close-item">
-                    <img src="img/arrow-left.png" alt="X" id="close-contact-panel" />
+                    <img src="img/arrow-left.png" alt="arrow left" id="close-contact-panel" />
                 </div>
                 
                 <div class="small-12 medium-6 columns">
@@ -63,7 +63,7 @@
                             <span class="icon icon-shape-paperplane icon-param-color-white wow bounce" data-wow-delay="0.75s"></span>
                         </div>
                         <div class="small-11 columns">
-                            <a href="mailto:info@eqnx.ch">info@eqnx.ch</a>
+                            <a href="mailto:info@eqnx.ch" title="adresse email">info@eqnx.ch</a>
                         </div>
                     </div>
                     <div class="row coord-info">
@@ -71,7 +71,7 @@
                             <span class="icon icon-shape-telephone icon-param-color-white wow bounce" data-wow-delay="1s"></span>
                         </div>
                         <div class="small-11 columns">
-                            <a href="tel:+41 21 693 89 38">+41 21 693 89 38</a>
+                            <a href="tel:+41 21 693 89 38" title="numero telephone">+41 21 693 89 38</a>
                         </div>
                     </div>
                 </div>

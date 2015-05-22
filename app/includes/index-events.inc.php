@@ -9,9 +9,9 @@
 
         <div class="medium-4 columns hide-for-small-only">
             <ul class="tabs vertical" data-tab>
-                <li class="tab-title active"><a href="#panel11"><?php getTexte('home-events', 'sem1-title'); ?><span><?php getTexte('home-events', 'sem1-date'); ?></span></a>
+                <li class="tab-title active"><a href="#panel11" title="panel"><?php getTexte('home-events', 'sem1-title'); ?><span><?php getTexte('home-events', 'sem1-date'); ?></span></a>
                 </li>
-                <li class="tab-title"><a href="#panel21"><?php getTexte('home-events', 'sem2-title'); ?><span><?php getTexte('home-events', 'sem2-date'); ?></span></a>
+                <li class="tab-title"><a href="#panel21" title="panel"><?php getTexte('home-events', 'sem2-title'); ?><span><?php getTexte('home-events', 'sem2-date'); ?></span></a>
                 </li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
 
                         <div class="small-12 columns action-inscription">
                             <?php if(getIniValue('home-events', 'sem1-inscr') === '1') { ?>
-                                <a class="inscription-event" event-code="<?php getTexte('home-events', 'sem1-code'); ?>"><?php getTexte('home-events', 'inscr-btn'); ?><span class="icon icon-shape-fleche-droite"></span></a>
+                                <a class="inscription-event" event-code="<?php getTexte('home-events', 'sem1-code'); ?>" title="inscription event"><?php getTexte('home-events', 'inscr-btn'); ?><span class="icon icon-shape-fleche-droite"></span></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
 
                         <div class="small-12 columns action-inscription">
                             <?php if(getIniValue('home-events', 'sem2-inscr') === '1') { ?>
-                                <a class="inscription-event" event-code="<?php getTexte('home-events', 'sem2-code'); ?>"><?php getTexte('home-events', 'inscr-btn'); ?><span class="icon icon-shape-fleche-droite"></span></a>
+                                <a class="inscription-event" event-code="<?php getTexte('home-events', 'sem2-code'); ?>" title="inscription event"><?php getTexte('home-events', 'inscr-btn'); ?><span class="icon icon-shape-fleche-droite"></span></a>
                             <?php } ?>
                         </div>
                     </div>

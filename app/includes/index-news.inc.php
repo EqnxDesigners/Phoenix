@@ -8,7 +8,7 @@
     </div>
 
     <div class="small-12 columns text-center more-info hide-for-small-only">
-        <a href="<?php echo buildUrl('news'); ?>">
+        <a href="<?php echo buildUrl('news'); ?>" title="page news">
             <?php getTexte('home-news', 'more-btn'); ?>&nbsp;<span class="icon icon-shape-fleche-droite"></span>
         </a>
     </div>

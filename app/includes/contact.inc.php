@@ -19,7 +19,7 @@
                 <span class="icon icon-shape-paperplane icon-param-color-white wow bounce" data-wow-delay="0.75s"></span>
             </div>
             <div class="small-11 columns">
-                <a href="mailto:info@eqnx.ch">info@eqnx.ch</a>
+                <a href="mailto:info@eqnx.ch" title="adresse email">info@eqnx.ch</a>
             </div>
         </div>
         <div class="row coord-info">
@@ -27,7 +27,7 @@
                 <span class="icon icon-shape-telephone icon-param-color-white wow bounce" data-wow-delay="1s"></span>
             </div>
             <div class="small-11 columns">
-                <a href="tel:+41 21 693 89 38">+41 21 693 89 38</a>
+                <a href="tel:+41 21 693 89 38" title="numero telephone">+41 21 693 89 38</a>
             </div>
         </div>
     </div>

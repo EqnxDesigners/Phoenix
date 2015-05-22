@@ -56,7 +56,7 @@ class Layouts extends DB {
     public function buildMyEqnxTopBar() {
         $result =   '<header class="wide-row row" id="top-bar">
                         <div class="small-12 columns">
-                            <img src="images/logo_equinoxe_white.png">
+                            <img src="images/logo_equinoxe_white.png" alt="Equinoxe MIS Development">
                             <p class="myeqnx">MyEqnx</p>
                             <p>Bienvenue, <strong>'.$_SESSION['client']['titre'].' '.strtoupper($_SESSION['client']['nom']).' '.$_SESSION['client']['prenom'].'</strong></p>
                             <p><i class="fa fa-power-off" role="logout"></i></p>
@@ -67,12 +67,12 @@ class Layouts extends DB {
     
     public function buildMainMenu($module) {
         $this->defineDefaultModule($module);
-        $result = '<section class="row content"><nav class="small-2 columns" id="main-menu"><img src="images/logo_equinoxe_white.png"><ul>';
+        $result = '<section class="row content"><nav class="small-2 columns" id="main-menu"><img src="images/logo_equinoxe_white.png" alt="Equinoxe MIS Development"><ul>';
         foreach($this->getListModules() as $k => $value) {
             $result .= $this->buildMainMenuLine($value);            
         }
         if(isset($_SESSION['user']['level']) && $_SESSION['user']['level'] === '0') {
-            $result .= '</ul><img src="images/loading-cat.gif" class="cat"></nav>';
+            $result .= '</ul><img src="images/loading-cat.gif" class="cat" alt="Dancing cat"></nav>';
         }
         else {
             $result .= '</ul></nav>';

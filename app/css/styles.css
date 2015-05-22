@@ -1249,3 +1249,8 @@ form.inscription-form .group label {
     padding: 0 4rem !important;
   }
 }
+@media print {
+  body {
+    font-size: 100%;
+  }
+}
