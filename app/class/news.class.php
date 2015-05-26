@@ -64,7 +64,7 @@ class News extends DB {
                         }
                         $result .= '<div class="content">';
                             $result .= '<div class="header">';
-                                $result .= '<span class="date">'.$this->displayDate($news->date_publi).'</span>';
+                                $result .= '<span class="date">'.$this->displayDate($news->date_update).'</span>';
                                 $result .= '<h1>'.$news->title.'</h1>';
                                 $result .= '<h2>'.$news->sub_title.'</h2>';
                             $result .= '</div>';
@@ -105,7 +105,7 @@ class News extends DB {
                         }
                         $result .= '<div class="content">';
                             $result .= '<div class="header">';
-                                $result .= '<span class="date">'.$this->displayDate($news->date_publi).'</span>';
+                                $result .= '<span class="date">'.$this->displayDate($news->date_update).'</span>';
                                 $result .= '<h1>'.$news->title.'</h1>';
                                 $result .= '<h2>'.$news->sub_title.'</h2>';
                             $result .= '</div>';
@@ -150,7 +150,7 @@ class News extends DB {
     
     private function getNewsToDisplay($currentPage = 0, $max = 9999999) {
         try {
-            $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, title, sub_title, content, imageUrl
+            $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, date_update, title, sub_title, content, imageUrl
                     FROM news
                     INNER JOIN news_trad ON news.id = news_trad.id_news
                     WHERE news.status='1' ";
@@ -296,6 +296,9 @@ class News extends DB {
     
     private function buildToolBox($item) {
         $result = '';
+        if($item->status === '4') {
+            $result .= '&nbsp;<i class="fa fa-cloud-upload btn" role="news-publish" item="'.$item->id.'"></i>';
+        }
         if($item->status === '0') {
             $result .= '&nbsp;<i class="fa fa-eye-slash btn" role="news-enable" item="'.$item->id.'"></i>';
         }

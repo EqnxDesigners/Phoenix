@@ -90,6 +90,12 @@ $(document).ready(function() {
     $('.listing').on('click', '.btn', function() {
         var todo = $(this).attr('role');
         var idItem = $(this).attr('item');
+        if(todo === 'news-publish') {
+            $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '1' })
+                .done(function(result) {
+                    $('#wrapper-gestion').empty().append(result);
+                });
+        }
         if(todo === 'news-enable') {
             $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '1' })
             .done(function(result) {
