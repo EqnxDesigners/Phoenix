@@ -5,7 +5,7 @@
         <nav id="mobile-nav" class="show-for-small-only">
             <div class="row row-block">
                 <div class="small-3 columns contact-menu"><span class="icon icon-shape-paperplane" id="contact-btn"></span></div>
-                <div class="small-6 columns logo"><img src="img/eqnx-logo-s.png" alt="logo Equinoxe" /></div>
+                <div class="small-6 columns logo"><a href="http://www.equinoxemis.ch/" target="_self"><img src="img/eqnx-logo-s.png" alt="logo Equinoxe" /></a></div>
 <!--                <div class="small-3 columns langues-menu"><span class="icon icon-shape-planete" id="langues-btn-mobile"></span></div>-->
                 <div class="small-3 columns langues-menu"><?php displaySelectLangMobile(); ?></div>
             </div>

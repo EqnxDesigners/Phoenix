@@ -1239,6 +1239,19 @@ form.inscription-form .group label {
   #alerte-seminaire .columns h2 {
     font-size: 1.2rem;
   }
+  .more-info {
+    padding: 0;
+  }
+  .page-title {
+    position: relative;
+  }
+  .page-title .back-mobile {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 26px;
+    left: 12px;
+  }
 }
 @media only screen and (min-width: 40.063em) {
   h2 {

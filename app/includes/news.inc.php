@@ -1,4 +1,9 @@
 <section class="row wide-row page-title">
+    <div class="show-for-small-only back-mobile">
+        <a href="http://www.equinoxemis.ch/" target="_self">
+            <span class="icon icon-shape-arrow-left icon-param-color-white"></span>
+        </a>
+    </div>
     <h1><?php getTexte('news', 'page_title'); ?></h1>
 </section>
 <section class="row sub-page hide-for-small-only">
