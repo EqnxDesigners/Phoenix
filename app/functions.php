@@ -260,6 +260,16 @@ function the_news($currentPage) {
     }
 }
 
+function the_news_mobile() {
+    $news = new News();
+    try {
+        echo $news->displayNews(1, 10);
+    }
+    catch (PDOException $e) {
+        echo 'ERROR : '.$e.'<br>';
+    }
+}
+
 function news_pagination($currentPage) {
     $news = new News();
     try {

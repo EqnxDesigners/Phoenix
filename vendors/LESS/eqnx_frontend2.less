@@ -591,7 +591,17 @@ nav{
 #news-masonry{
     width: 100% !important;
 }
-#newsEqnx, #news-masonry {
+#newsEqnx, #news-masonry, #news-mobile {
+    &.une-cols {
+      .article {
+        width: 100%;
+        padding: 0;
+      }
+      .body{
+        -moz-column-count:1 !important;
+        -webkit-column-count:1 !important;
+      }
+    }
     &.deux-cols{
         .article{
             width: 50%; // indique le nombre de colonnes 
@@ -866,9 +876,8 @@ nav{
 }
 
 //----- Sub Pages -----------------------------------------
-
 .page-title{
-    padding: 7rem 1.5rem 3rem;
+    padding: 0.5rem 1rem 0.5rem;
     background: @eqnx-dark-blue;
     text-align: center;
     h1{
@@ -1268,7 +1277,8 @@ form {
         margin-top: 0rem;
     }
     body{
-        margin-top: 6rem !important
+//        margin-top: 6rem !important
+        margin-top: 5rem !important
     }
     .support-tile{
         padding: 1rem !important;
@@ -1292,8 +1302,9 @@ form {
     }
     #alerte-seminaire {
         position: relative;
-        top: -15px;
+        top: 0px;
         padding: 1rem;
+        margin-bottom: 15px;
         .columns{
             padding: 0 !important;
             h2{
@@ -1328,6 +1339,11 @@ form {
     }
     .support-tile{
         padding: 0 1rem !important;
+    }
+
+    //----- Sub Pages -----------------------------------------
+    .page-title {
+      padding: 7rem 1.5rem 3rem;
     }
 }
 
