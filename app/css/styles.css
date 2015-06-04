@@ -736,7 +736,7 @@ nav #langues-btn-mobile:hover {
   padding: 1rem 2rem;
 }
 .events-tab ul.tabs li a span {
-  text-transform: lowercase;
+  text-transform: capitalize;
   display: block;
   font-size: 0.8rem;
   color: #949494;
