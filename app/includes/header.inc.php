@@ -60,7 +60,7 @@
                     </div>
                     <div class="row coord-info">
                         <div class="small-1 columns">
-                            <span class="icon icon-shape-paperplane icon-param-color-white wow bounce" data-wow-delay="0.75s"></span>
+                            <span class="icon icon-shape-mail icon-param-color-white wow bounce" data-wow-delay="0.75s"></span>
                         </div>
                         <div class="small-11 columns">
                             <a href="mailto:info@eqnx.ch" title="adresse email">info@eqnx.ch</a>
@@ -74,6 +74,14 @@
                             <a href="tel:+41 21 693 89 38" title="numero telephone">+41 21 693 89 38</a>
                         </div>
                     </div>
+				  	<div class="row coord-info">
+            			<div class="small-1 columns">
+                			<span class="icon icon-shape-paperplane icon-param-color-white wow bounce" data-wow-delay="1.24s"></span>
+            			</div>
+            			<div class="small-11 columns">
+                			<a href="http://eepurl.com/bpqXZD" target="_blank"><?php getTexte('contact', 'newsletter_link'); ?>&nbsp;</a>
+            			</div>
+        			</div>
                 </div>
 
                 <!-- formulaire conact mobile -->

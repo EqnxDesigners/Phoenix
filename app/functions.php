@@ -145,6 +145,9 @@ function display_alertes() {
     if($Layout->checkBoolOpt('DISPLAY_SEMINAIRE_ALERT')) {
         include_once dirname(__FILE__).'/includes/alertes-semi.inc.php';
     }
+    if($Layout->checkBoolOpt('DISPLAY_NEWSLETTER_ALERT')) {
+        include_once dirname(__FILE__).'/includes/alerte-newsletter.inc.php';
+    }
 }
 
 function displayAlertJob() {
