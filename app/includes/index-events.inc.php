@@ -9,16 +9,18 @@
 
         <div class="medium-4 columns hide-for-small-only">
             <ul class="tabs vertical" data-tab>
+                <!--
                 <li class="tab-title active"><a href="#panel11" title="panel"><?php getTexte('home-events', 'sem1-title'); ?><span><?php getTexte('home-events', 'sem1-date'); ?></span></a>
                 </li>
-                <li class="tab-title"><a href="#panel21" title="panel"><?php getTexte('home-events', 'sem2-title'); ?><span><?php getTexte('home-events', 'sem2-date'); ?></span></a>
+                -->
+                <li class="tab-title active"><a href="#panel21" title="panel"><?php getTexte('home-events', 'sem2-title'); ?><span><?php getTexte('home-events', 'sem2-date'); ?></span></a>
                 </li>
             </ul>
         </div>
 
         <div class="small-12 medium-8 columns">
             <div class="tabs-content">
-
+                <!--
                 <div class="row content active" id="panel11">
                    
                     <div class="row data-event-<?php getTexte('home-events', 'sem1-code'); ?>">
@@ -83,8 +85,8 @@
                     </div>
 
                 </div>
-
-                <div class="row content" id="panel21">
+                -->
+                <div class="row content active" id="panel21">
 
                     <div class="row data-event-<?php getTexte('home-events', 'sem2-code'); ?>">
                         <div class="small-12 columns event-details">
