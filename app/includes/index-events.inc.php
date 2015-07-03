@@ -20,7 +20,7 @@
 
         <div class="small-12 medium-8 columns">
             <div class="tabs-content">
-                <!--
+
                 <div class="row content active" id="panel11">
                    
                     <div class="row data-event-<?php getTexte('home-events', 'sem1-code'); ?>">
@@ -85,7 +85,7 @@
                     </div>
 
                 </div>
-                -->
+
                 <div class="row content active" id="panel21">
 
                     <div class="row data-event-<?php getTexte('home-events', 'sem2-code'); ?>">
