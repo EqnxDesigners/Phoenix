@@ -240,6 +240,9 @@
 #module-wrapper nav .btn:hover {
   color: #df2438;
 }
+#module-wrapper nav .no-btn {
+  font-size: 1.5rem;
+}
 #module-wrapper .masse-actions {
   display: none;
 }

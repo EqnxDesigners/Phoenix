@@ -1,132 +1,42 @@
 $(document).ready(function() {
     //------ Variables globales ---------------------------
-    urlAjaxModule = './modules/news/ajax.php';
+    urlAjaxModule = './modules/events/ajax.php';
     
     function switchTwoDiv(divToHide, divToShow) {
         $(divToHide).addClass('masked');
         $(divToShow).removeClass('masked');
     }
     
-    // TEST
-//    $.ajax({
-//        dataType: "json",
-//        type: "POST",
-//        url: urlAjaxModule,
-//        data: { a: 'test' }
-//    })
-//    .done(function(json) {
-//        console.log('RESULTAT DE LA REQUETE');
-//        console.log(json.title_1.placeholder);
-//    })
-//    .error(function(x, textStatus, errorThrown) {
-//        console.log('ERREUR');
-//        console.log(x);
-//        console.log(textStatus);
-//        console.log(errorThrown);
-//    })
-//    .always(function() {
-//        console.log( "complete" );
-//    });
-    // #TEST
-    
-    //----- Menu module -----------------------------------
-    $('nav').on('click', '.btn', function() {
-        var todo = $(this).attr('role');
-        if(todo === 'display-news' || todo === 'display-archives' || todo === 'display-trash') {
-            var status = getStatusValue(todo);
-            $.post(urlAjaxModule, {a: 'displayOtherNews', status: status })
-            .done(function(result) {
-                $('#wrapper-gestion').empty().append(result);
-                buildMasseActionsMenu(status);
-                displayActionMasse(false);
-                displayEmptyTrash(todo);
-            });
-        }
-    });
-    
-    $('nav').on('click', '.empty-trash', function() {
-        //----- Vider la corbeille ------------------------
-        if (confirm("Voulez-vous vraiment vider la corbeille ?")) { // Clic sur OK
-           $.post(urlAjaxModule, {a: 'emptyTrash' })
-            .done(function() {
-                reloadListing();
-                $('.empty-trash').hide();
-            });
-        }
-    });
-    
-    function getStatusValue(todo) {
-        switch(todo) {
-            case 'display-news':
-                var result = '0';
-                break;
-            case 'display-archives':
-                var result = '2';
-                break;
-            case 'display-trash':
-                var result = '3';
-                break;
-        }
-        return result;
-    }
-    
-    function buildMasseActionsMenu(status) {
-        $.post(urlAjaxModule, {a: 'buildMasseActionsMenu', status: status })
-        .done(function(result) {
-            $('.masse-actions').empty().append(result);
-        });
-    }
-    
-    function displayEmptyTrash(todo) {
-        if(todo === 'display-trash') {
-            $('.empty-trash').show();
-        }
-        else {
-            $('.empty-trash').hide();
-        }
-    }
-    
     //----- Toolbox ---------------------------------------
     $('.listing').on('click', '.btn', function() {
+        console.log('CLICK');
         var todo = $(this).attr('role');
         var idItem = $(this).attr('item');
-        if(todo === 'news-publish') {
+        if(todo === 'event-comming') {
             $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '1' })
                 .done(function(result) {
                     $('#wrapper-gestion').empty().append(result);
                 });
         }
-        if(todo === 'news-enable') {
-            $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '1' })
-            .done(function(result) {
-                $('#wrapper-gestion').empty().append(result);
-            });
-        }
-        if(todo === 'news-disable') {
-            $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '0' })
-            .done(function(result) {
-                $('#wrapper-gestion').empty().append(result);
-            });
-        }
-        if(todo === 'news-archives') {
+        if(todo === 'event-open') {
             $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '2' })
             .done(function(result) {
                 $('#wrapper-gestion').empty().append(result);
             });
         }
-        if(todo === 'news-trash') {
-            $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '3' })
-            .done(function(result) {
-                $('#wrapper-gestion').empty().append(result);
-            });
-        }
-        if(todo === 'news-restore') {
+        if(todo === 'event-closed') {
             $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '1' })
             .done(function(result) {
                 $('#wrapper-gestion').empty().append(result);
             });
         }
-        if(todo === 'news-edit') {
+        if(todo === 'event-trash') {
+            $.post(urlAjaxModule, {a: 'changeStatus', idItem: idItem, setTo: '3' })
+            .done(function(result) {
+                $('#wrapper-gestion').empty().append(result);
+            });
+        }
+        if(todo === 'event-edit') {
             $.post(urlAjaxModule, {a: 'loadSelectedNews', idItem: idItem })
             .done(function(result) {
                 $('#wrapper-editing').empty().append(result);

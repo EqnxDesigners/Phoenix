@@ -240,6 +240,9 @@
 #module-wrapper nav .btn:hover {
   color: #df2438;
 }
+#module-wrapper nav .no-btn {
+  font-size: 1.3rem;
+}
 #module-wrapper .masse-actions {
   display: none;
 }
@@ -278,6 +281,9 @@
 }
 .listing ul li .toolbox .btn:hover {
   color: #df2438;
+}
+.listing ul li .toolbox .no-btn {
+  font-size: 1.3rem;
 }
 .listing .main-row .fa {
   font-size: 0.8rem;
@@ -376,6 +382,9 @@
 }
 .overlayed-panel .btn:hover {
   color: #df2438;
+}
+.overlayed-panel .no-btn {
+  font-size: 1.3rem;
 }
 .overlayed-panel #wrapper-sharing {
   background: #f2f2f2;

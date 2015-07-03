@@ -7,11 +7,21 @@ require_once dirname(__FILE__).'/../../functions.php';
 
 //----- Class ---------------------------------------------
 classAutoLoad();
-//spl_autoload_register(function($class) {
-//    require_once dirname(__DIR__).'/../../class/'.$class.'.class.php';
-//});
 
-//--------------- Functions ---------------
+//----- Functions -----------------------------------------
+if(isset($_POST['a']) && $_POST['a'] === 'changeStatus') {
+    $Events = new Events();
+    try {
+        $Events->setStatus($_POST['idItem'], $_POST['setTo']);
+        echo $News->reloadListing();
+    }
+    catch (PDOException $e) {
+        echo 'ERREUR : '.$e;
+    }
+}
+
+
+/*
 if(isset($_POST['a']) && $_POST['a'] === 'test') {
     $News = new News();
     $result = $News->getTradIni();
@@ -64,16 +74,7 @@ if(isset($_POST['a']) && $_POST['a'] === 'switchLangEdit') {
     }
 }
 
-if(isset($_POST['a']) && $_POST['a'] === 'changeStatus') {
-    $News = new News();
-    try {
-        $News->setVisibility($_POST['idItem'], $_POST['setTo']);
-        echo $News->reloadListing();
-    }
-    catch (PDOException $e) {
-        echo 'ERREUR : '.$e;
-    }
-}
+
 
 if(isset($_POST['a']) && $_POST['a'] === 'reloadListing') {
     $News = new News();
@@ -94,7 +95,7 @@ if(isset($_POST['a']) && $_POST['a'] === 'loadSelectedNews') {
         echo 'EREUR : '.$e;
     }
 }
-
+*/
 //------ Formulaire ---------------------------------------
 if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
     $News = new News();

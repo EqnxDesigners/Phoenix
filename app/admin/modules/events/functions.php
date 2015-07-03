@@ -10,16 +10,11 @@ if(isset($_SESSION['current_lang'])) {
     }
 }
 
-//------ Fonctions du module NEWS -------------------------
-function the_masse_actions_menu($status = '0') {
-    $News = new News();
-    echo $News->getMasseActionsMenu($status);
-}
-
-function the_Listing($status = '0') {
-    $News = new News();
+//------ Fonctions du module EVENTS -----------------------
+function the_Listing() {
+    $Events = new Events();
     try {
-        echo $News->getLstNews($status);
+        echo $Events->getLstEvents();
     }
     catch (PDOException $e) {
         echo 'ERREUR : '.$e;

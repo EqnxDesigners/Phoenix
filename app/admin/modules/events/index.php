@@ -1,27 +1,15 @@
 <?php require_once(dirname(__FILE__).'/functions.php'); ?>
 
 <section class="row" id="module-wrapper">
-    <h1>News</h1>
+    <h1>Events</h1>
     
     <nav class="row">
         <div id="mnu-gest">
-            <div class="small-1 columns">
+            <div class="small-6 columns">
                 <i class="fa fa-plus btn" role="add"></i>
             </div>
-            <div class="small-4 columns">
-                <div class="masse-actions">
-                    <?php the_masse_actions_menu(); ?>
-                </div>
-            </div>
-            <div class="small-5 columns text-right">
-                <a href="#" class="button tiny warning radius empty-trash">Vider la corbeille</a>
-            </div>
-            <div class="small-2 columns text-right">
-                <i class="fa fa-newspaper-o btn" role="display-news"></i>
+            <div class="small-6 columns">
                 &nbsp;
-                <i class="fa fa-archive btn" role="display-archives"></i>
-                &nbsp;
-                <i class="fa fa-trash-o btn" role="display-trash"></i>
             </div>
         </div>
         <div class="masked" id="return-to-gest">
