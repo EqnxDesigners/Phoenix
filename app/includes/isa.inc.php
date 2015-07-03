@@ -134,5 +134,8 @@
         <div class="gallery-cell">
             <a href="http://www.hevs.ch/fr/" target="_blank" title="hes-so VS"><img src="img/logos_clients/HESSO-Valais.png" alt="HESSO-Valais"/></a>
         </div>
+        <div class="gallery-cell">
+            <a href="http://www2.unine.ch/" target="_blank" title="UniNE"><img src="img/logos_clients/Logo-unine.png" alt="UniNE"/></a>
+        </div>
     </div>
 </section>
