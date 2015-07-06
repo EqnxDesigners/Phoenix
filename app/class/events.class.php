@@ -91,58 +91,58 @@ class Events extends DB {
 
                         $result .= '<div class="small-12 columns action-inscription">';
                             if($event->status === '1') {
-                                $result .= '<a class="inscription-event" event-code="'.$event->code.'" title="inscription event">'.$this->getBtnText($event).'<span class="icon icon-shape-fleche-droite"></span></a>';
+                                $result .= '<a class="inscription-event" event-code="'.$event->code.'" title="inscription event">'.$this->getFormInscrTxt('OPEN-INSCR-FORM')->text.'<span class="icon icon-shape-fleche-droite"></span></a>';
                             }
                         $result .= '</div>';
                     $result .= '</div>';
                 $result .= '</div>';
-            }
-            $result .= '</div>';
 
-            if($event->status === '1') {
-                $result .= '<div class="row inscription-event-'.$event->code.'" style="display:none;">';
-                    $result .= '<div class="small-12 columns event-details">';
+                if($event->status === '1') {
+                    $result .= '<div class="row inscription-event-'.$event->code.'" style="display:none;">';
+                        $result .= '<div class="small-12 columns event-details">';
                         $result .= '<h4>Inscription à <strong>'.$event->title.'</strong></h4>';
-                        $result .= '<form class="inscription-form">';
-                            $result .= '<div class="row">';
-                                $result .= '<div class="small-12 medium-6 columns">';
-                                    $result .= '<div class="group">';
-                                        $result .= '<input type="text" name="nom" form-code="event-'.$event->code.'"/>';
-                                        $result .= '<label>'.$this->getFormInscrTxt('FORM-INSCR-NAME-LABEL')->text.'</label>';
+                            $result .= '<form class="inscription-form">';
+                                $result .= '<div class="row">';
+                                    $result .= '<div class="small-12 medium-6 columns">';
+                                        $result .= '<div class="group">';
+                                            $result .= '<input type="text" name="nom" form-code="event-'.$event->code.'"/>';
+                                            $result .= '<label>'.$this->getFormInscrTxt('FORM-INSCR-NAME-LABEL')->text.'</label>';
+                                        $result .= '</div>';
                                     $result .= '</div>';
-                                $result .= '</div>';
-                                $result .= '<div class="small-12  medium-6 columns">';
-                                    $result .= '<div class="group">';
-                                        $result .= '<input type="email" name="email" form-code="event-'.$event->code.'"/>';
-                                        $result .= '<label>'.$this->getFormInscrTxt('FORM-INSCR-EMAIL-LABEL').'</label>';
+                                    $result .= '<div class="small-12  medium-6 columns">';
+                                        $result .= '<div class="group">';
+                                            $result .= '<input type="email" name="email" form-code="event-'.$event->code.'"/>';
+                                            $result .= '<label>'.$this->getFormInscrTxt('FORM-INSCR-EMAIL-LABEL')->text.'</label>';
+                                        $result .= '</div>';
                                     $result .= '</div>';
-                                $result .= '</div>';
-                                $result .= '<div class="small-12 columns">';
-                                    $result .= '<textarea name="message" rows="5" placeholder="'.$this->getFormInscrTxt('FORM-INSCR-MSG-PLACEHOLDER').'" form-code="event-'.$event->code.'"></textarea>';
-                                $result .= '</div>';
+                                    $result .= '<div class="small-12 columns">';
+                                        $result .= '<textarea name="message" rows="5" placeholder="'.$this->getFormInscrTxt('FORM-INSCR-MSG-PLACEHOLDER')->text.'" form-code="event-'.$event->code.'"></textarea>';
+                                    $result .= '</div>';
                                 $result .= '</div>';
                                 $result .= '<div class="row hidden">';
                                     $result .= '<input type="hidden" name="eventName" value="'.$event->title.'" form-code="event-'.$event->code.'"/>';
                                     $result .= '<input type="hidden" name="eventDate" value="le '.$this->displayTxtDate($event->date, $this->_lang).' à '.$event->hour.'" form-code="event-'.$event->code.'"/>';
-                                    $result .= '<input type="hidden" name="eventPlace" value="'.$this->getFormInscrTxt('FORM-INSCR-LIEU').'" form-code="event-'.$event->code.'"/>';
+                                    $result .= '<input type="hidden" name="eventPlace" value="'.$this->getFormInscrTxt('FORM-INSCR-LIEU')->text.'" form-code="event-'.$event->code.'"/>';
                                 $result .= '</div>';
                                 $result .= '<div class="row">';
                                     $result .= '<div class="small-12 medium-6 columns text-center">';
-                                        $result .= '<input type="button" value="'.$this->getFormInscrTxt('FORM-INSCR-BTN-CANCEL').'" class="button inscr-form-cancel"/>';
+                                        $result .= '<input type="button" value="'.$this->getFormInscrTxt('FORM-INSCR-BTN-CANCEL')->text.'" class="button inscr-form-cancel"/>';
                                     $result .= '</div>';
-                                $result .= '<div class="small-12 medium-6 columns text-center">';
-                                    $result .= '<input type="button" value="'.$this->getFormInscrTxt('FORM-INSCR-BTN-SEND').'" class="button send-form" form-code="event-'.$event->code.'"/>';
-                                    $result .= '<span class="send-spinner" style="display:none;">';
-                                        $result .= '<div class="bounce1"></div>';
-                                        $result .= '<div class="bounce2"></div>';
-                                        $result .= '<div class="bounce3"></div>';
-                                    $result .= '</span>';
+                                    $result .= '<div class="small-12 medium-6 columns text-center">';
+                                        $result .= '<input type="button" value="'.$this->getFormInscrTxt('FORM-INSCR-BTN-SEND')->text.'" class="button send-form" form-code="event-'.$event->code.'"/>';
+                                        $result .= '<span class="send-spinner" style="display:none;">';
+                                            $result .= '<div class="bounce1"></div>';
+                                            $result .= '<div class="bounce2"></div>';
+                                            $result .= '<div class="bounce3"></div>';
+                                        $result .= '</span>';
+                                    $result .= '</div>';
                                 $result .= '</div>';
-                            $result .= '</div>';
-                        $result .= '</form>';
+                            $result .= '</form>';
+                        $result .= '</div>';
                     $result .= '</div>';
-                $result .= '</div>';
+                }
             }
+            $result .= '</div>';
         }
         catch(PDOException $e) {
             throw new PDOException($e);
@@ -212,22 +212,6 @@ class Events extends DB {
         catch (PDOException $e) {
             throw new PDOException($e);
         }
-    }
-
-    private function getLabelText($label) {
-        if($this->_lang === 'fr') {
-            ($label === '1' ? $result = "Nom prénom" : $result = "E-mail");
-        }
-        elseif($this->_lang === 'en') {
-            ($label === '1' ? $result = "Name, First name" : $result = "E-mail");
-        }
-        elseif($this->_lang === 'it') {
-            ($label === '1' ? $result = "Cognome Nome" : $result = "E-mail");
-        }
-        else {
-            ($label === '1' ? $result = "Name Vorname" : $result = "E-mail");
-        }
-        return $result;
     }
 
     private function getBtnText() {
