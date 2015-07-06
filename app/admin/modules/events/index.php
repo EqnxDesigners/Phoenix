@@ -25,41 +25,27 @@
             <?php the_Listing(); ?>
         </div>
         <div class="small-12 columns masked" id="wrapper-adding">
-            <form name="form_add_news" action="modules/news/ajax.php" method="post" enctype="multipart/form-data">
+            <form name="form_add_events" action="modules/events/ajax.php" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="small-9 columns" id="form-trad-wrapper">
-                        <?php the_trad_fields(); ?>
+                    <div class="small-6 columns" id="form-trad-wrapper">
+                        <input type="text" name="event-title" placeholder="Titre">
                     </div>
-                    <div class="small-3 columns">
-                        <div class="row">
-                            <div class="small-12 columns">
-                                <?php select_lang(); ?>
-                            </div>
-                            <div class="small-12 columns">
-                                <input type="checkbox" name="idem-all-lang" id="idem-all-lang">
-                                <label>Idem dans toutes les langues</label>
-                            </div>
-
-                            <div class="small-12 columns">
-                                <input type="text" name="date-diffusion" class="datepicker" placeholder="Date de diffusion">
-                            </div>
-                            <div class="small-12 columns">
-                                <input type="text" name="date-revocation" class="datepicker" placeholder="Date de révocation">
-                            </div>
-                            <div class="small-12 columns">
-                                <label for="news-img">Ajouter une image</label>
-                                <input type="file" name="news-img">
-                            </div>
-                            <div class="small-6 columns">
-                                <input type="reset" class="button alert expand" name="clear-forms" value="Annuler">
-                            </div>
-                            <div class="small-6 columns">
-                                <input type="submit" class="button expand" name="save-news" value="Enregistrer">
-                            </div>
-                            <div class="small-12 columns">
-                                <input type="submit" class="button success expand" name="publish-news" value="Publier">
-                            </div>
-                        </div>
+                    <div class="small-6 columns" id="form-trad-wrapper">
+                        <input type="text" name="date-event" class="datepicker" placeholder="Date de l'événement">
+                    </div>
+                    <div class="small-1 columns" id="form-trad-wrapper">
+                        <input type="text" name="event-hour" placeholder="Heure">
+                    </div>
+                    <div class="small-1 columns text-center">
+                        &nbsp;h&nbsp;
+                    </div>
+                    <div class="small-1 columns end">
+                        <input type="text" name="event-min" placeholder="Minute">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-6 columns" id="form-trad-wrapper">
+                        <input type="submit" class="button success expand" name="add-event" value="Créer">
                     </div>
                 </div>
             </form>
@@ -69,4 +55,4 @@
     </section>
 </section>
 
-<script src="modules/news/module.js"></script>
+<script src="modules/events/module.js"></script>

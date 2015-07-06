@@ -21,11 +21,6 @@ function the_Listing() {
     }
 }
 
-function the_trad_fields() {
-    $News = new News();
-    echo $News->buildTradFields();
-}
-
 function select_lang() {
     $Layouts = new Layouts();
     $Db = new DB();
@@ -47,4 +42,3 @@ function display_alert() {
         echo $result;
     }
 }
-?>

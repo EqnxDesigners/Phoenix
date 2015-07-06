@@ -13,13 +13,33 @@ if(isset($_POST['a']) && $_POST['a'] === 'changeStatus') {
     $Events = new Events();
     try {
         $Events->setStatus($_POST['idItem'], $_POST['setTo']);
-        echo $News->reloadListing();
+        echo $Events->reloadListing();
     }
     catch (PDOException $e) {
         echo 'ERREUR : '.$e;
     }
 }
 
+if(isset($_POST['a']) && $_POST['a'] === 'delEvent') {
+    $Events = new Events();
+    try {
+        $Events->delEvent($_POST['idItem']);
+        echo $Events->reloadListing();
+    }
+    catch (PDOException $e) {
+        echo 'ERREUR : '.$e;
+    }
+}
+
+if(isset($_POST['a']) && $_POST['a'] === 'editEvent') {
+    $Events = new Events();
+    try {
+        echo $Events->buildEditForm($_POST['idItem']);
+    }
+    catch (PDOException $e) {
+        echo 'ERREUR : '.$e;
+    }
+}
 
 /*
 if(isset($_POST['a']) && $_POST['a'] === 'test') {
@@ -97,78 +117,52 @@ if(isset($_POST['a']) && $_POST['a'] === 'loadSelectedNews') {
 }
 */
 //------ Formulaire ---------------------------------------
-if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
-    $News = new News();
-    $Langue = new Langues();
+if(isset($_POST['add-event'])) {
+    $Events = new Events();
     unset($alert);
 
-    // ENREGISTREMENT DE L'IMAGE
-    if(strlen($_FILES['news-img']['name']) > 1) {
-        $File = new Files();
-        $fileName = $File->UploadFile($_FILES['news-img'], '../../../img/img-news/', true);
-    }
-    else {
-        $fileName = 'NULL';
-    }
-
-    if(isset($_POST['save-news']) && !isset($_POST['publish-news'])) {
-        // ENREGISTREMENT DE LA NEWS
+    if(!empty($_POST['event-title']) && !empty($_POST['date-event']) && !empty($_POST['event-hour']) && !empty($_POST['event-min'])) {
         try {
-            $News->saveNews($_POST, $fileName);
+            $Events->addEvent($_POST);
         }
         catch (PDOException $e) {
             $alert = 'ERREUR : '.$e;
         }
     }
     else {
-        // PUBLICATION DE LA NEWS
-        $lg = $Langue->getLangByiD($_POST['select-lang'])->langue_abrev;
-        if(strlen($_POST['title_'.$lg]) > 1 && strlen($_POST['news-editor_'.$lg]) > 10) {
-            try {
-                $News->publishNews($_POST, $fileName);
-            }
-            catch (PDOException $e) {
-                $alert = 'ERREUR : '.$e;
-            }
-        }
-        else {
-            $alert = 'ERREUR : Vous devez, au moins, saisir un titre et du texte...';
-        }
+        $alert = "ERREUR : Vous devez saisir un titre, un date et définir l'heure";
 
     }
     if(!isset($alert)) {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
+        header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
+        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
 
-if(isset($_POST['maj-news'])) {
-    $News = new News();
+if(isset($_POST['edit-event'])) {
+    $Events = new Events();
     unset($alert);
 
-    // ENREGISTREMENT DE L'IMAGE
-    if(strlen($_FILES['news-img']['name']) > 1) {
-        $File = new Files();
-        $fileName = $File->UploadFile($_FILES['news-img'], '../../../img/img-news/', true);
+    // MISE A JOUR DE LA NEWS
+    if(!empty($_POST['event-title']) && !empty($_POST['date-event']) && !empty($_POST['event-hour']) && !empty($_POST['event-min'])) {
+        try {
+            $Events->editEvent($_POST);
+        }
+        catch (PDOException $e) {
+            $alert = 'ERREUR : '.$e;
+        }
     }
     else {
-        $fileName = 'NULL';
+        $alert = "ERREUR : Vous devez saisir un titre, un date et définir l'heure";
+
     }
 
-    // MISE A JOUR DE LA NEWS
-    try {
-        $News->majNews($_POST, $fileName);
-    }
-    catch (PDOException $e) {
-        $alert = 'ERREUR : '.$e;
-    }
     if(!isset($alert)) {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
+        header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
+        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
-?>

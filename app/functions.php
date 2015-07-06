@@ -292,4 +292,23 @@ function the_last_news() {
         echo 'ERROR : '.$e.'<br>';
     }
 }
-?>
+
+function the_event_tabs() {
+    $events = new Events();
+    try {
+        echo $events->buildEventTabs();
+    }
+    catch(PDOException $e) {
+        echo 'ERROR : '.$e.'<br>';
+    }
+}
+
+function the_event_details() {
+    $events = new Events();
+    try {
+        echo $events->buildEventDetails();
+    }
+    catch(PDOException $e) {
+        echo 'ERROR : '.$e.'<br>';
+    }
+}
