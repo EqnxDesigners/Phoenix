@@ -18,7 +18,7 @@ trait Trait_datetime {
         }
         else {
             ($lang === 'de' ? $format = "%d. %B %Y" : $format = "%d %B %Y");
-            $result = strftime($format, strtotime($this->buildTmpDate($date, $lang)));
+            $result = utf8_encode(strftime($format, strtotime($this->buildTmpDate($date, $lang))));
         }
         return $result;
     }
@@ -28,7 +28,7 @@ trait Trait_datetime {
             $result = '...';
         }
         else {
-            $result = strftime("%A", strtotime($this->buildTmpDate($date, $lang)));
+            $result = utf8_encode(strftime("%A", strtotime($this->buildTmpDate($date, $lang))));
         }
         return $result;
     }

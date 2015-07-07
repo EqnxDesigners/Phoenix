@@ -234,7 +234,7 @@ class Events extends DB {
     }
     
     private function buildListingLine($event) {
-        $result  = '<li class="row">';
+        ($event->status === '0' ? $result  = '<li class="row passed">' : $result  = '<li class="row">');
         $result .= '<div class="small-4 columns"><strong>'.$event->title.'</strong></div>';
         $result .= '<div class="small-3 columns">'.$this->displayDate($event->date).'</div>';
         $result .= '<div class="small-2 columns">'.$event->hour.'</div>';
@@ -246,21 +246,21 @@ class Events extends DB {
     private function buildToolBox($item) {
         $result = '';
         if($item->status != '0') {
-            $result .= '&nbsp;<i class="fa fa-pencil btn" role="event-edit" item="' . $item->id . '"></i>';
+            $result .= '&nbsp;<i class="fa fa-pencil btn" title="Editer" role="event-edit" item="' . $item->id . '"></i>';
         }
         if($item->status === '0') {
-            $result .= '&nbsp;<i class="fa fa-close no-btn" role="event-ended" item="'.$item->id.'"></i>';
+            $result .= '&nbsp;<i class="fa fa-close no-btn" title="Event terminé" role="event-ended" item="'.$item->id.'"></i>';
         }
         elseif($item->status === '1') {
-            $result .= '&nbsp;<i class="fa fa-sign-in btn" role="event-open" item="'.$item->id.'"></i>';
+            $result .= '&nbsp;<i class="fa fa-sign-in btn" title="Inscriptions ouvertes" role="event-open" item="'.$item->id.'"></i>';
         }
         elseif($item->status === '2') {
-            $result .= '&nbsp;<i class="fa fa-square-o btn" role="event-closed" item="'.$item->id.'"></i>';
+            $result .= '&nbsp;<i class="fa fa-square-o btn" title="Inscriptions fermées" role="event-closed" item="'.$item->id.'"></i>';
         }
         else {
-            $result .= '&nbsp;<i class="fa fa-clock-o btn" role="event-comming" item="'.$item->id.'"></i>';
+            $result .= '&nbsp;<i class="fa fa-clock-o btn" title="Event à venir" role="event-comming" item="'.$item->id.'"></i>';
         }
-        $result .= '&nbsp;<i class="fa fa-trash-o btn" role="event-trash" item="'.$item->id.'"></i>';
+        $result .= '&nbsp;<i class="fa fa-trash-o btn" title="Supprimer" role="event-trash" item="'.$item->id.'"></i>';
         return $result;
     }
     
@@ -351,14 +351,6 @@ class Events extends DB {
         }
     }
 
-    private function cleanOldEvents() {
-        foreach($this->getEvents() as $k => $event) {
-            if($event->date < $this->setDateTimeNow()) {
-                $this->setStatus($event->id, '0');
-            }
-        }
-    }
-    
     public function setStatus($id, $value) {
         try {
             $sql = "UPDATE events
@@ -383,7 +375,17 @@ class Events extends DB {
         }
     }
 
-	public function __destruct() {
+    private function cleanOldEvents() {
+        foreach($this->getEvents() as $k => $event) {
+            $curdate=strtotime($this->setDateTimeNow() . "-1 day");
+            $mydate=strtotime($event->date);
+            if($curdate >= $mydate) {
+                $this->setStatus($event->id, '0');
+            }
+        }
+    }
+
+    public function __destruct() {
            
 	}
 }

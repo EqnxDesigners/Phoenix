@@ -127,6 +127,10 @@
 .masked {
   display: none;
 }
+.passed {
+  background: antiquewhite;
+  color: #d3d3d3;
+}
 #login-box {
   width: 320px;
   margin: 80px auto 0;
@@ -416,7 +420,8 @@
 }
 form input[type="text"],
 form input[type="password"],
-form input[type="email"] {
+form input[type="email"],
+form input[type="number"] {
   border-style: none;
   border-width: 0;
   border-color: #e6e6e6;
@@ -427,7 +432,8 @@ form input[type="email"] {
 }
 form input[type="text"]:focus,
 form input[type="password"]:focus,
-form input[type="email"]:focus {
+form input[type="email"]:focus,
+form input[type="number"]:focus {
   background: white;
   border: none;
   border-bottom: 1px solid #e6e6e6;

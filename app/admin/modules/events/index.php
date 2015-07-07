@@ -28,19 +28,19 @@
             <form name="form_add_events" action="modules/events/ajax.php" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="small-6 columns" id="form-trad-wrapper">
-                        <input type="text" name="event-title" placeholder="Titre">
+                        <input type="text" name="event-title" value="<?php the_value('event-title'); ?>" placeholder="Titre">
                     </div>
                     <div class="small-6 columns" id="form-trad-wrapper">
-                        <input type="text" name="date-event" class="datepicker" placeholder="Date de l'événement">
+                        <input type="text" name="date-event" value="<?php the_value('date-event'); ?>" class="datepicker" placeholder="Date de l'événement">
                     </div>
                     <div class="small-1 columns" id="form-trad-wrapper">
-                        <input type="text" name="event-hour" placeholder="Heure">
+                        <input type="number" name="event-hour" value="<?php the_value('event-hour'); ?>" placeholder="Heure">
                     </div>
                     <div class="small-1 columns text-center">
                         &nbsp;h&nbsp;
                     </div>
                     <div class="small-1 columns end">
-                        <input type="text" name="event-min" placeholder="Minute">
+                        <input type="number" name="event-min" value="<?php the_value('event-min'); ?>" placeholder="Minute">
                     </div>
                 </div>
                 <div class="row">

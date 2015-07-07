@@ -42,3 +42,9 @@ function display_alert() {
         echo $result;
     }
 }
+
+function the_value($index) {
+    if(isset($_SESSION['data_swap'][$index])) {
+        echo $_SESSION['data_swap'][$index];
+    }
+}

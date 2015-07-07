@@ -41,85 +41,11 @@ if(isset($_POST['a']) && $_POST['a'] === 'editEvent') {
     }
 }
 
-/*
-if(isset($_POST['a']) && $_POST['a'] === 'test') {
-    $News = new News();
-    $result = $News->getTradIni();
-    echo json_encode($result);
-}
-
-if(isset($_POST['a']) && $_POST['a'] === 'displayOtherNews') {
-    $News = new News();
-    try {
-        echo $News->getLstNews($_POST['status']);
-    }
-    catch (PDOException $e) {
-        echo 'ERRREUR : '.$e;
-    }
-}
-
-if(isset($_POST['a']) && $_POST['a'] === 'emptyTrash') {
-    $News = new News();
-    try {
-        $News->emptyTrash();
-    }
-    catch (PDOException $e) {
-        echo 'ERRREUR : '.$e;
-    }
-}
-
-if(isset($_POST['a']) && $_POST['a'] === 'buildMasseActionsMenu') {
-    $News = new News();
-    echo $News->getMasseActionsMenu($_POST['status']);
-}
-
-if(isset($_POST['a']) && $_POST['a'] === 'switchLang') {
-    $News = new News();
-    try {
-        $_SESSION['current_lang'] = $News->setLang($_POST['lang']);
-    }
-    catch (PDOException $e) {
-        echo 'ERREUR : '.$e;
-    }
-}
-
-if(isset($_POST['a']) && $_POST['a'] === 'switchLangEdit') {
-    $News = new News();
-    try {
-        $_SESSION['current_lang'] = $News->setLang($_POST['lang']);
-        echo $News->buildNewsEditForm($_POST['idItem']);
-    }
-    catch (PDOException $e) {
-        echo 'ERREUR : '.$e;
-    }
-}
-
-
-
-if(isset($_POST['a']) && $_POST['a'] === 'reloadListing') {
-    $News = new News();
-    try {
-        echo $News->reloadListing();
-    }
-    catch (PDOException $e) {
-        echo 'ERREUR : '.$e;
-    }
-}
-
-if(isset($_POST['a']) && $_POST['a'] === 'loadSelectedNews') {
-    $News = new News();
-    try {
-        echo $News->buildNewsEditForm($_POST['idItem']);
-    }
-    catch (PDOException $e) {
-        echo 'EREUR : '.$e;
-    }
-}
-*/
 //------ Formulaire ---------------------------------------
 if(isset($_POST['add-event'])) {
     $Events = new Events();
     unset($alert);
+    unset($_SESSION['data_swap']);
 
     if(!empty($_POST['event-title']) && !empty($_POST['date-event']) && !empty($_POST['event-hour']) && !empty($_POST['event-min'])) {
         try {
@@ -137,6 +63,7 @@ if(isset($_POST['add-event'])) {
         header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {
+        $_SESSION['data_swap'] = $_POST;
         header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
