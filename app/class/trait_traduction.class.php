@@ -23,7 +23,6 @@ trait Trait_traduction {
 
     public function getTradWithParams($code, $lang, $params) {
         try {
-            //$txt = $this->reqTrad($code, $lang)->text;
             return $this->replaceParams($this->reqTrad($code, $lang)->text, $params);
         }
         catch (PDOException $e) {

@@ -218,6 +218,16 @@ function getTexte($section, $ref) {
     }
 }
 
+function getTrad($code) {
+    $layout = new Layouts();
+    try {
+        echo $layout->getSimpleTrad($code);
+    }
+    catch(PDOException $e) {
+        echo "ERROR : ".$e."<br>";
+    }
+}
+
 function getSilentTexte($section, $ref) {
     if(isset($_SESSION['trad'][$section][$ref])) {
         return $_SESSION['trad'][$section][$ref];

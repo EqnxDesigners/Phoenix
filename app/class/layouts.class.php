@@ -19,7 +19,7 @@ xxxxxxx
 
 class Layouts extends DB {
     /* TRAITS */
-    use Trait_renderhtml;
+    use Trait_renderhtml, Trait_traduction;
     
     /* ATTRIBUTES */
     private $_module;
@@ -27,17 +27,35 @@ class Layouts extends DB {
     /* CONSTRUCTEUR */
     public function __construct() {
         parent::__construct();
+        if(isset($_SESSION['current']['lang'])) {
+            $this->setLang($_SESSION['current']['lang']);
+            $this->setIdLang($this->reqIdLang()->id);
+        }
     }
 
     /* GETTER */
-    public function getModule()             { return $this->$_module; }
+    public function getModule()                     { return $this->$_module; }
+    public function getLang()                       { return $this->_lang; }
+    public function getIdLang()                     { return $this->_idlang; }
     
     /* SETTER */
-    public function setModule($module)      { $this->_module = $module; }
+    public function setModule($module)              { $this->_module = $module; }
+    public function setLang($lang)		            { $this->_lang = $lang; }
+    public function setIdLang($idlang)		        { $this->_idlang = $idlang; }
     
     /* INITTER */
     
     /* METHODES */
+    private function reqIdLang() {
+        try {
+            $sql = "SELECT id FROM langues WHERE langue_abrev='".$this->_lang."'";
+            return $this->execOneResultQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+
     public function buildTopBar() {
         $result =   '<section class="row" id="top-bar">
                         <div class="small-2 columns text-center">
@@ -139,6 +157,10 @@ class Layouts extends DB {
         catch (PDOException $e) {
             throw new PDOException($e);
         }
+    }
+
+    public function getSimpleTrad($code) {
+        return $this->getTrad($code, $this->_idlang);
     }
     
     public function __destruct() {

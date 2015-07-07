@@ -17,11 +17,11 @@
                     <ul>
 <!--                        <li><span class="icon icon-shape-planete" id="langues-btn"></span></li>-->
                         <?php displaySelectLang(); ?>
-                        <li><a href="<?php echo buildUrl('home'); ?>" title="menu home"><?php getTexte('mainmenu', 'label_accueil'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('equinoxe'); ?>" title="menu equinoxe"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('isacademia'); ?>" title="menu is-academia"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
-                        <li><a href="<?php echo buildUrl('news'); ?>" title="menu news"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
-                        <li target="index-footer"><?php getTexte('mainmenu', 'label_contact'); ?></li>
+                        <li><a href="<?php echo buildUrl('home'); ?>" title="menu home"><?php getTrad('MAINMENU-LABEL-ACCUEIL'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('equinoxe'); ?>" title="menu equinoxe"><?php getTrad('MAINMENU-LABEL-EQUINOXE'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('isacademia'); ?>" title="menu is-academia"><?php getTrad('MAINMENU-LABEL-ISACADEMIA'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('news'); ?>" title="menu news"><?php getTrad('MAINMENU-LABEL-NEWS'); ?></a></li>
+                        <li target="index-footer"><?php getTrad('MAINMENU-LABEL-CONTACT'); ?></li>
                     </ul>
                 </div>
                 <div class="small-3 columns logo"><img src="img/eqnx-logo-l.png" alt="logo equinoxe" /></div>
