@@ -12,18 +12,13 @@ trait Trait_traduction {
         return parse_ini_file($path, true);
     }
 
-    public function getTrad($code, $lang) {
+    public function getTrad($code, $lang, $params = null) {
         try {
-            return $this->reqTrad($code, $lang)->text;
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
-        }
-    }
-
-    public function getTradWithParams($code, $lang, $params) {
-        try {
-            return $this->replaceParams($this->reqTrad($code, $lang)->text, $params);
+            $result = $this->prepareTxt($this->reqTrad($code, $lang)->text);
+            if($params != null) {
+                $result = $this->replaceParams($result, $params);
+            }
+            return $result;
         }
         catch (PDOException $e) {
             throw new PDOException($e);
@@ -36,6 +31,36 @@ trait Trait_traduction {
             array_push($search, "%%PARAM".$k."%%");
         }
         return str_replace($search, $params, $txt);
+    }
+
+    private function prepareTxt($txt) {
+        $result = $this->buildParagraphes($txt);
+        $result = $this->addBreakLines($result);
+        return $result;
+    }
+
+    private function buildParagraphes($txt) {
+        $split = explode('##', $txt);
+
+        if(count($split) > 1) {
+            $result = '';
+            foreach($split as $para) {
+                $result .= '<p>';
+                $result .= $para;
+                $result .= '</p>';
+            }
+        }
+        else {
+            $result = $txt;
+        }
+
+        return $result;
+    }
+
+    private function addBreakLines($txt) {
+        $search = array('@@', '<p></p>');
+        $replace = array('<br />', '');
+        return str_replace($search, $replace, $txt);
     }
 
     private function reqTrad($code, $lang) {

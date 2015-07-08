@@ -152,7 +152,7 @@ class Events extends DB {
 
     private function getEventText($event) {
         if($event->status === '1') {
-            $result = $this->getTradWithParams('FORM-INSCR-TXT-INSCR', $this->_idlang, array($this->displayTxtDayFromDate($event->date, $this->_lang), $this->displayTxtDate($event->date, $this->_lang), $event->hour));
+            $result = $this->getTrad('FORM-INSCR-TXT-INSCR', $this->_idlang, array($this->displayTxtDayFromDate($event->date, $this->_lang), $this->displayTxtDate($event->date, $this->_lang), $event->hour));
         }
         elseif($event->status === '2') {
             $result = $this->getTrad('FORM-INSCR-TXT-INSCR-CLOSE', $this->_idlang);

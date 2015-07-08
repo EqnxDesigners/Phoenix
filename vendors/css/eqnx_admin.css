@@ -127,6 +127,16 @@
 .masked {
   display: none;
 }
+.passed {
+  background: antiquewhite;
+  color: #d3d3d3;
+}
+.turncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #login-box {
   width: 320px;
   margin: 80px auto 0;
@@ -241,7 +251,7 @@
   color: #df2438;
 }
 #module-wrapper nav .no-btn {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 #module-wrapper .masse-actions {
   display: none;
@@ -281,6 +291,9 @@
 }
 .listing ul li .toolbox .btn:hover {
   color: #df2438;
+}
+.listing ul li .toolbox .no-btn {
+  font-size: 1.3rem;
 }
 .listing .main-row .fa {
   font-size: 0.8rem;
@@ -380,6 +393,9 @@
 .overlayed-panel .btn:hover {
   color: #df2438;
 }
+.overlayed-panel .no-btn {
+  font-size: 1.3rem;
+}
 .overlayed-panel #wrapper-sharing {
   background: #f2f2f2;
   background: white;
@@ -410,7 +426,8 @@
 }
 form input[type="text"],
 form input[type="password"],
-form input[type="email"] {
+form input[type="email"],
+form input[type="number"] {
   border-style: none;
   border-width: 0;
   border-color: #e6e6e6;
@@ -421,7 +438,8 @@ form input[type="email"] {
 }
 form input[type="text"]:focus,
 form input[type="password"]:focus,
-form input[type="email"]:focus {
+form input[type="email"]:focus,
+form input[type="number"]:focus {
   background: white;
   border: none;
   border-bottom: 1px solid #e6e6e6;

@@ -60,6 +60,7 @@ if(isset($_POST['add-event'])) {
 
     }
     if(!isset($alert)) {
+        unset($_SESSION['data_swap']);
         header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {

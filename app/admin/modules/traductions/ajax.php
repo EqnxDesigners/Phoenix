@@ -9,16 +9,16 @@ require_once dirname(__FILE__).'/../../functions.php';
 classAutoLoad();
 
 //----- Functions -----------------------------------------
-if(isset($_POST['a']) && $_POST['a'] === 'changeStatus') {
-    $Events = new Events();
-    try {
-        $Events->setStatus($_POST['idItem'], $_POST['setTo']);
-        echo $Events->reloadListing();
-    }
-    catch (PDOException $e) {
-        echo 'ERREUR : '.$e;
-    }
-}
+//if(isset($_POST['a']) && $_POST['a'] === 'changeStatus') {
+//    $Events = new Events();
+//    try {
+//        $Events->setStatus($_POST['idItem'], $_POST['setTo']);
+//        echo $Events->reloadListing();
+//    }
+//    catch (PDOException $e) {
+//        echo 'ERREUR : '.$e;
+//    }
+//}
 
 if(isset($_POST['a']) && $_POST['a'] === 'delEvent') {
     $Events = new Events();
@@ -47,19 +47,20 @@ if(isset($_POST['add-event'])) {
     unset($alert);
     unset($_SESSION['data_swap']);
 
-    if(!empty($_POST['event-title']) && !empty($_POST['date-event']) && !empty($_POST['event-hour']) && !empty($_POST['event-min'])) {
+    if(!empty($_POST['code'])) {
         try {
-            $Events->addEvent($_POST);
+            $Events->addTrads($_POST);
         }
         catch (PDOException $e) {
             $alert = 'ERREUR : '.$e;
         }
     }
     else {
-        $alert = "ERREUR : Vous devez saisir un titre, un date et définir l'heure";
+        $alert = "ERREUR : Vous devez saisir un code";
 
     }
     if(!isset($alert)) {
+        unset($_SESSION['data_swap']);
         header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {

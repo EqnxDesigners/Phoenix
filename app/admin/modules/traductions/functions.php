@@ -21,12 +21,14 @@ function the_Listing() {
     }
 }
 
-function select_lang() {
-    $Layouts = new Layouts();
-    $Db = new DB();
-    
-    $sql = "SELECT * FROM langues ORDER BY id ASC";
-    echo $Layouts->buildFormSelect('select-lang', 'id', 'langue', $Db->execQuery($sql));
+function the_trad_fields() {
+    $Trad = new Traductions();
+    try {
+        echo $Trad->buildTradFields();
+    }
+    catch (PDOException $e) {
+        echo 'ERREUR : '.$e;
+    }
 }
 
 function display_alert() {

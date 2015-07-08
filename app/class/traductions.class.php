@@ -148,47 +148,47 @@ class Traductions extends DB {
         $Langue = $this->initLangues();
 
         $result  = '<li class="row">';
-            $result .= '<div class="small-2 columns">'.$trad->code.'</div>';
-//            $result .= '<div class="small-3 columns">'.$this->displayDate($trad->date).'</div>';
-//            $result .= '<div class="small-2 columns">'.$trad->hour.'</div>';
-            //$result .= '<div class="small-3 columns toolbox text-right">'.$this->buildToolBox($trad).'</div>';
+            $result .= '<div class="small-3 columns">'.$trad->code.'</div>';
+            foreach($Langue->getLangs() as $k => $lang) {
+                $result .= '<div class="small-2 columns turncate">'.$this->getTradsByCodeAndLang($trad->code, $lang->id)->text.'</div>';
+            }
+            $result .= '<div class="small-1 columns toolbox text-right">'.$this->buildToolBox($trad).'</div>';
         $result .= '</li>';
         return $result;
     }
     
     private function buildToolBox($item) {
         $result = '';
-        if($item->status != '0') {
-            $result .= '&nbsp;<i class="fa fa-pencil btn" title="Editer" role="event-edit" item="' . $item->id . '"></i>';
+        $result .= '&nbsp;<i class="fa fa-pencil btn" title="Editer" role="event-edit" item="'.$item->code.'"></i>';
+        $result .= '&nbsp;<i class="fa fa-trash-o btn" title="Supprimer" role="event-trash" item="'.$item->code.'"></i>';
+
+        return $result;
+    }
+
+    public function buildTradFields() {
+        $Langue = $this->initLangues();
+        $result = '';
+
+        foreach($Langue->getLangs() as $k => $lang) {
+            $result .= '<div class="small-6 columns">';
+                $result .= '<input type="text" name="trad_'.$lang->langue_abrev.'" placeholder="Texte '.$lang->langue.'">';
+            $result .= '</div>';
         }
-        if($item->status === '0') {
-            $result .= '&nbsp;<i class="fa fa-close no-btn" title="Event terminé" role="event-ended" item="'.$item->id.'"></i>';
-        }
-        elseif($item->status === '1') {
-            $result .= '&nbsp;<i class="fa fa-sign-in btn" title="Inscriptions ouvertes" role="event-open" item="'.$item->id.'"></i>';
-        }
-        elseif($item->status === '2') {
-            $result .= '&nbsp;<i class="fa fa-square-o btn" title="Inscriptions fermées" role="event-closed" item="'.$item->id.'"></i>';
-        }
-        else {
-            $result .= '&nbsp;<i class="fa fa-clock-o btn" title="Event à venir" role="event-comming" item="'.$item->id.'"></i>';
-        }
-        $result .= '&nbsp;<i class="fa fa-trash-o btn" title="Supprimer" role="event-trash" item="'.$item->id.'"></i>';
         return $result;
     }
     
     public function addTrads($data) {
-        try {
-            $sql = "INSERT INTO events (code,title,date,hour,status)
-                    VALUES ('".$this->buildEventCode($data['date-event'])."',
-                            '".addslashes($data['event-title'])."',
-                            '".$this->setDateTime($data['date-event'])."',
-                            '".$this->buildEventHour($data['event-hour'], $data['event-min'])."',
-                            '3')";
-            $this->applyOneQuery($sql);
-        }
-        catch (PDOException $e) {
-            throw new PDOException($e);
+        $Langue = $this->initLangues();
+        foreach($Langue->getLangs() as $k => $lang) {
+            try {
+                $sql = "INSERT INTO misc_trad (id_lang,code,text)
+                    VALUES ('" . $lang->id . "',
+                            '" . strtoupper($data['code']) . "',
+                            '" . $data['trad_'.$lang->langue_abrev] . "')";
+                $this->applyOneQuery($sql);
+            } catch (PDOException $e) {
+                throw new PDOException($e);
+            }
         }
     }
 
@@ -218,11 +218,23 @@ class Traductions extends DB {
         }
     }
     
-    private function getTradsById($id) {
+    private function getTradsByCode($code) {
         try {
             $sql = "SELECT *
-                    FROM events
-                    WHERE id='".$id."'";
+                    FROM misc_trad
+                    WHERE code='".$code."'";
+            return $this->execQuery($sql);
+        }
+        catch (PDOException $e) {
+            throw new PDOException($e);
+        }
+    }
+
+    private function getTradsByCodeAndLang($code, $id_lang) {
+        try {
+            $sql = "SELECT *
+                    FROM misc_trad
+                    WHERE code='".$code."' AND id_lang='".$id_lang."'";
             return $this->execOneResultQuery($sql);
         }
         catch (PDOException $e) {
@@ -233,7 +245,7 @@ class Traductions extends DB {
     public function delTrad($id) {
         try {
             $sql = "DELETE
-                    FROM events
+                    FROM misc_trad
                     WHERE id='".$id."'";
             $this->applyOneQuery($sql);
         }

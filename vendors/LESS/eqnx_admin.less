@@ -31,6 +31,13 @@
   color: #d3d3d3;
 }
 
+.turncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 //----- Login ---------------------------------------------
 #login-box {
     width: 320px;
@@ -194,6 +201,7 @@
             padding: 0.5rem 0;
             position: relative;
             line-height: 1.2rem;
+            border-bottom: 1px solid #d3d3d3;
             
             input[type="checkbox"] {
                 margin: 0;
@@ -204,7 +212,7 @@
             }
             
             &:hover {
-                background: @bg-hover;
+                background: @bg-hover!important;
             }
             
             .toolbox {
@@ -256,7 +264,7 @@
     border-bottom: 1px solid @gray-light;
     margin-bottom: 1rem;
     padding: 0.5rem 0;
-    background: @gray-ultra-light;
+    background: @gray-ultra-light!important;
 
     input {
         margin: 0;

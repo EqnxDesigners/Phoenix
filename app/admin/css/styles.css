@@ -131,6 +131,12 @@
   background: antiquewhite;
   color: #d3d3d3;
 }
+.turncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #login-box {
   width: 320px;
   margin: 80px auto 0;
@@ -266,6 +272,7 @@
   padding: 0.5rem 0;
   position: relative;
   line-height: 1.2rem;
+  border-bottom: 1px solid #d3d3d3;
 }
 .listing ul li input[type="checkbox"] {
   margin: 0;
@@ -274,7 +281,7 @@
   color: #df2438;
 }
 .listing ul li:hover {
-  background: #fff8e0;
+  background: #fff8e0 !important;
 }
 .listing ul li .toolbox {
   height: 100%;
@@ -311,7 +318,7 @@
   border-bottom: 1px solid #cccccc;
   margin-bottom: 1rem;
   padding: 0.5rem 0;
-  background: #f2f2f2;
+  background: #f2f2f2 !important;
 }
 .lst-header input {
   margin: 0;
