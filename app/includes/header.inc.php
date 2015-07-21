@@ -53,7 +53,7 @@
                         </div>
                         <div class="small-11 columns">
                             Equinoxe MIS Development<br>
-                            InnovationPark EPFL (bât. IPE-C)<br>
+                            EPFL Innovation Park (bât. EIP-C)<br>
                             Route Cantonale<br>
                             CH-1015 Lausanne
                         </div>

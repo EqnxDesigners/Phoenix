@@ -121,6 +121,10 @@ function displayCurrentPage() {
         include_once dirname(__FILE__).'/includes/qui.inc.php';
     }
 
+    elseif($_SESSION['current']['page'] === 'videos') {
+        include_once dirname(__FILE__).'/includes/videos.inc.php';
+    }
+
     else {
         include_once dirname(__FILE__).'/includes/slideshow.inc.php';
         display_alertes();
