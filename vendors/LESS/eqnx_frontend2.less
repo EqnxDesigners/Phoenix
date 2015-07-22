@@ -65,6 +65,15 @@ input, textarea {
   -webkit-border-radius: 0;
 }
 
+#index-events {
+  margin-top: 0rem!important;
+}
+
+.no-gutter {
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
 //----- Titles --------------------------------------------
 h1,h2,h3,h4 {
     font-family: @font;
@@ -164,6 +173,25 @@ h4 {
     p {
         margin: 0;
     }
+}
+
+//----- Vidéos --------------------------------------------
+.vimeo-wraper {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: white;
+
+  .small-vids {
+    margin-bottom: 0;
+  }
+
+  .lst-tags {
+    margin-bottom: 1rem!important;
+  }
+
+  .vid-descr {
+    min-height: 50px;
+  }
 }
 
 //----- Header & Main menu --------------------------------
@@ -1007,6 +1035,33 @@ nav{
         max-height: 150px;
         padding-bottom: 2rem;
     }
+}
+.sub-page-video {
+  h2, h3 {
+    color: @blue;
+    text-align: left;
+    padding: 0;
+  }
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: none;
+
+    small {
+      color: @gray-dark;
+      font-size: 1.3rem;
+    }
+  }
+  h3 {
+    font-size: 1rem;
+    display: block;
+    min-height: 44px;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    background: none;
+  }
 }
 //----- PAGINATION ----------------------------------------
 .pag{

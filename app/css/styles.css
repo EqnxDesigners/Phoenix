@@ -36,6 +36,13 @@ textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
+#index-events {
+  margin-top: 0rem!important;
+}
+.no-gutter {
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
 h1,
 h2,
 h3,
@@ -125,6 +132,20 @@ h4 {
 }
 .add-text p {
   margin: 0;
+}
+.vimeo-wraper {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: white;
+}
+.vimeo-wraper .small-vids {
+  margin-bottom: 0;
+}
+.vimeo-wraper .lst-tags {
+  margin-bottom: 1rem!important;
+}
+.vimeo-wraper .vid-descr {
+  min-height: 50px;
 }
 header {
   position: fixed;
@@ -959,6 +980,31 @@ nav #langues-btn-mobile:hover {
 .collabo-epfl img {
   max-height: 150px;
   padding-bottom: 2rem;
+}
+.sub-page-video h2,
+.sub-page-video h3 {
+  color: #34495e;
+  text-align: left;
+  padding: 0;
+}
+.sub-page-video h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+.sub-page-video h2 small {
+  color: #999999;
+  font-size: 1.3rem;
+}
+.sub-page-video h3 {
+  font-size: 1rem;
+  display: block;
+  min-height: 44px;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  background: none;
 }
 .pag {
   margin: 3rem 0px 2rem;

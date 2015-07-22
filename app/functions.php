@@ -316,3 +316,33 @@ function the_event_details() {
         echo 'ERROR : '.$e.'<br>';
     }
 }
+
+function vimeo_tags($tags) {
+    $result = '';
+
+    foreach($tags as $k => $tag) {
+        $result .= '&nbsp;<span class="label secondary">';
+        $result .= $tag['tag'];
+        $result .= '</span>';
+    }
+
+    echo $result;
+}
+
+function vimeo_player($video) {
+    $result = '<iframe src="https://player.vimeo.com/video/';
+    $result .= getVidsId($video['uri']);
+    $result .= '?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&color=E1213D"';
+    $result .= ' width="'.$video['width'].'"';
+    $result .= ' height="'.$video['height'].'"';
+    $result .= ' frameborder="0"';
+    $result .= ' title="'.$video['name'].'"';
+    $result .= ' webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>';
+
+    echo $result;
+}
+
+function getVidsId($url) {
+    $split = explode("/", $url);
+    return $split['2'];
+}

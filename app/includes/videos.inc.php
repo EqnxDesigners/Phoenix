@@ -7,7 +7,6 @@ error_reporting(E_ALL);
 //Load the autoloader
 if(file_exists('vimeo/autoload.php')) {
     require_once('vimeo/autoload.php');
-    print('<pre>Fichier autoload.php trouvé</pre>');
 }
 
 //Load the configuration file
@@ -16,8 +15,6 @@ if(!function_exists('json_decode')) {
 }
 else {
     $config = json_decode(file_get_contents('vimeo/config.json'), true);
-    print('<pre>Configuration chargée...</pre>');
-//    var_dump($config);
 }
 
 if(empty($config['client_id']) || empty($config['client_secret']) || empty($config['access_token'])) {
@@ -25,111 +22,57 @@ if(empty($config['client_id']) || empty($config['client_secret']) || empty($conf
 }
 else {
     $lib = new \Vimeo\Vimeo($config['client_id'], $config['client_secret'], $config['access_token']);
-    print('<pre>Librairie instancée avec succès...</pre>');
-//    var_dump($lib);
 }
 
 //----- Requêtes ------------------------------------------
-//$req = $lib->request('/tags/public/videos', array('sort' => 'created_time', 'direction' => 'asc'));
-$req = $lib->request('/me/albums/3413792/videos', array('sort' => 'alphabetical', 'direction' => 'asc'));
-
-//echo '<pre>';
-//foreach($req['body']['data'] as $k => $video) {
-//    echo $video['name'].'<br>';
-//    echo $video['embed']['html'].'<br>';
-//}
-//echo '</pre>';
-
-//echo "<p><h1>Requête</h1><pre>";
-//var_dump($req);
-//echo "</pre></p>";
+$req = $lib->request('/me/albums/3413792/videos', array('sort' => 'date', 'direction' => 'desc'));
 ?>
 
 <section class="row wide-row page-title">
     <h1><?php getTexte('videos', 'page_title'); ?></h1>
+    <h2><?php getTexte('videos', 'page_sub-title'); ?></h2>
 </section>
 
-<section class="row sub-page">
-    <h3>Dernière vidéos</h3>
-    <div class="small-12 medium-7 columns">
-        <div class="flex-video widescreen vimeo">
-<!--            <iframe allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="http://player.vimeo.com/video/60122989?title=0&byline=0&portrait=0&color=dd243e" frameborder="0" height="240px" width="400px"></iframe>-->
-            <?php
-            foreach($req['body']['data'] as $k => $video) {
-                echo $video['name'].'<br>';
-                //echo $video['embed']['html'].'<br>';
-            }
-            ?>
-        </div>
-    </div>
-
-    <div class="small-12 medium-5 columns">
-        <span class="date">21 Octobre 2014</span>
-        <h3>Titre de la vidéo</h3>
-        <p>Description de la vidéo</p>
-    </div>
+<section class="row sub-page sub-page-video">
     <div class="small-12 columns">
-        <p><a class="link" title="video">Videos</a>
-        </p>
+        <h2><?php echo $req['body']['data']['0']['name']; ?><br /><small><?php echo $req['body']['data']['0']['description']; ?></small></h2>
+        <div class="flex-video widescreen vimeo">
+            <?php $req['body']['data']['0']['embed']['color'] = '00ff00'; ?>
+            <?php vimeo_player($req['body']['data']['0']); ?>
+        </div>
+        <div class="row">
+            <div class="small-12 columns text-right">
+                <?php vimeo_tags($req['body']['data']['0']['tags']); ?>
+            </div>
+        </div>
     </div>
-    <hr/>
+
+    <div class="small-12 columns">
+        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+            <?php
+                foreach($req['body']['data'] as $k => $video) {
+                    if($k > 0) {
+                        echo '<li>';
+                            echo '<div class="vimeo-wraper">';
+                                echo '<h3>'.$video['name'].'</h3>';
+                                echo'<div class="flex-video widescreen vimeo small-vids">';
+                                    vimeo_player($video);
+                                echo '</div>';
+                                echo '<div class="row lst-tags">';
+                                    echo '<div class="small-12 columns text-right no-gutter">';
+                                        echo vimeo_tags($video['tags']);
+                                    echo '</div>';
+                                echo '</div>';
+                                echo '<div class="row vid-descr">';
+                                    echo '<div class="small-12 columns text-left no-gutter">';
+                                        echo $video['description'];
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</li>';
+                    }
+                }
+            ?>
+        </ul>
+    </div>
 </section>
-
-
-
-
-<!-- CONTENT -->
-<!--
-<div class="content-wrap">
-
-    <div class="row bloc-title videos white wide-row">
-        <div class="small-12 columns">
-            <h1>Vidéos</h1>
-        </div>
-    </div>
-
-    <div class="row bloc-description main-video gris">
-        <div class="small-12 medium-7 columns">
-            <div class="flex-video widescreen vimeo">
-                <iframe allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="http://player.vimeo.com/video/60122989?title=0&byline=0&portrait=0&color=dd243e" frameborder="0" height="240px" width="400px"></iframe>
-            </div>
-        </div>
-
-        <div class="small-12 medium-5 columns">
-            <span class="date">21 Octobre 2014</span>
-            <h3>Titre de la vidéo</h3>
-            <p>Description de la vidéo</p>
-        </div>
-        <div class="small-12 columns">
-            <p><a class="link" title="video">Videos</a>
-            </p>
-        </div>
-    </div>
-
-    <div class="row bloc-description blanc videos-items">
-        <div class="small-12 medium-4 columns video-item">
-            <div class="flex-video widescreen vimeo">
-                <iframe src="http://player.vimeo.com/video/9253882?title=0&byline=0&portrait=0&color=dd243e" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="136" width="213"></iframe>
-            </div>
-            <h3>Titre de la vidéo</h3>
-            <span class="date">21 Octobre 2014</span>
-        </div>
-        <div class="small-12 medium-4 columns video-item">
-            <div class="flex-video widescreen vimeo">
-                <iframe src="http://player.vimeo.com/video/46511270?title=0&byline=0&portrait=0&color=dd243e" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="136" width="213"></iframe>
-            </div>
-            <h3>Titre de la vidéo</h3>
-            <span class="date">21 Octobre 2014</span>
-        </div>
-        <div class="small-12 medium-4 columns video-item">
-            <div class="flex-video widescreen vimeo">
-                <iframe src="http://player.vimeo.com/video/19489506?title=0&byline=0&portrait=0&color=dd243e" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="136" width="213"></iframe>
-            </div>
-            <h3>Titre de la vidéo</h3>
-            <span class="date">21 Octobre 2014</span>
-        </div>
-    </div>
-
-</div>
--->
-<!-- END CONTENT -->
