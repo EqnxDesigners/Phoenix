@@ -21,6 +21,7 @@
                         <li><a href="<?php echo buildUrl('equinoxe'); ?>" title="menu equinoxe"><?php getTexte('mainmenu', 'label_qui'); ?></a></li>
                         <li><a href="<?php echo buildUrl('isacademia'); ?>" title="menu is-academia"><?php getTexte('mainmenu', 'label_is-academia'); ?></a></li>
                         <li><a href="<?php echo buildUrl('news'); ?>" title="menu news"><?php getTexte('mainmenu', 'label_news'); ?></a></li>
+                        <li><a href="<?php echo buildUrl('videos'); ?>" title="menu videos"><?php getTexte('mainmenu', 'label_videos'); ?></a></li>
                         <li target="index-footer"><?php getTexte('mainmenu', 'label_contact'); ?></li>
                     </ul>
                 </div>

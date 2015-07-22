@@ -136,10 +136,10 @@ if(isset($_POST['save-news']) || isset($_POST['publish-news'])) {
 
     }
     if(!isset($alert)) {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
+        header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
+        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
 
@@ -164,10 +164,10 @@ if(isset($_POST['maj-news'])) {
         $alert = 'ERREUR : '.$e;
     }
     if(!isset($alert)) {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']);
+        header("location: ../../index.php?module=".$_SESSION['current_module']);
     }
     else {
-        header("location: ../../index_spip.php?module=".$_SESSION['current_module']."&alert=".$alert);
+        header("location: ../../index.php?module=".$_SESSION['current_module']."&alert=".$alert);
     }
 }
 ?>

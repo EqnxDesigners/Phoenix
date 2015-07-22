@@ -153,7 +153,7 @@ class News extends DB {
             $sql = "SELECT news.id AS idnews, date_publi, date_start, date_end, date_update, title, sub_title, content, imageUrl
                     FROM news
                     INNER JOIN news_trad ON news.id = news_trad.id_news
-                    WHERE news.status='1' ";
+                    WHERE news.status='1' AND (date_start = '0000-00-00 00:00:00' OR date_start <= NOW())";
             $sql .= ($this->_lang === 'fr' || $this->_lang === 'en' ? "AND news_trad.id_lang = '".$this->_idlang."' " : "AND news_trad.id_lang = '".$this->_idlang."' OR news_trad.id_lang = 'en' ");
             if($currentPage === 0 || $currentPage == '1') {
                 $sql .= "ORDER BY news.date_publi DESC LIMIT ".$max;
